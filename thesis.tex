@@ -121,10 +121,7 @@
 \newaliascnt{figure}{common}
 \newaliascnt{table}{common}
 \newaliascnt{theorem}{common}
-\renewcommand{\thealgorithm}{\thechapter.\arabic{algorithm}}
-\renewcommand{\thefigure}{\thechapter.\arabic{figure}}
-\renewcommand{\thetable}{\thechapter.\arabic{table}}
-\renewcommand{\thetheorem}{\thechapter.\arabic{theorem}}
+
 
 % Displaying the title
 \makeatletter
@@ -137,57 +134,17 @@
     \def\arg{#1}\def\pg{page}%
     \ifx\arg\pg\else\oldsetcounter{#1}{#2}\fi}
 
-% % Poem in table of contents
-% \usepackage{xpatch}
-% \newcommand{\mytextbeforetocheading}{
-%   \begingroup
-%   \vskip3\baselineskip
-%   \centering
-%   \renewcommand{\arraystretch}{1.3}
-%   \begin{tabular}{>{\phantom{mmmmmmmm}}l}
-%   Before we start to write this thesis, \\
-%   We'll first define some bits and pieces. \\
-%   Second, we'll use parallel code,\\
-%   To cut our run-times down a load.\\
-%   Third, we'll look at other ways\\
-%   To view a congruence nowadays.\\
-%   Fourth -- if you're still reading, that is --\\
-%   We'll show a way to find a lattice.\\
-%   Fifth, the congruences we'll find\\
-%   of the Motzkin monoid and its kind.\\
-%   Last, $S$'s congruences: are there any?\\
-%   And if there are, then just how many?
-%   \end{tabular}
-%   \endgroup
-% }
-% \makeatletter
-% \xpatchcmd{\tableofcontents}{
-%   \chapter
-% }{
-%   \begingroup
-%    \def\@makeschapterhead##1{
-%     \vspace*{50\p@}
-%     {\parindent \z@ \raggedright
-%       \normalfont
-%       \interlinepenalty\@M
-%       {\Huge \bfseries  ##1\par\nobreak}
 
-%       \mytextbeforetocheading
-%       \vskip 40\p@
-%     }}
-%   \chapter
-% }{\typeout{success}}{\typeout{failure}}
-% \xapptocmd{\tableofcontents}{\endgroup}{}{} % Close the group
-% \makeatother
 
-\title{Semigroup Congruences:\\
-       Computational Techniques and Theoretical Applications}
-\author{Michael Torpey}
+\title{A topic in fractal geometry:\\
+       dimensions and measures}
+\author{Douglas Charles Howroyd}
 
 \begin{document}
 
 \include{cover} \null \newpage
-\include{declarations} \null \newpage
+\include{acknowledgements} 
+\include{declarations}
 
 \onehalfspacing
 
@@ -195,11 +152,10 @@
 
 \singlespacing
 \tableofcontents
-\listoffigures
 \onehalfspacing
 
 \include{preface}
-\include{acknowledgements}
+
 
 \include{intro}
 
@@ -214,15 +170,15 @@
 \include{ch-motzkin}
 \include{ch-other}
 
-\singlespacing
-\bibliography{bibliography}
-\bibliographystyle{alpha}
 
 \singlespacing
 \printnomenclature
 \clearpage
 \phantomsection
-\printindex
 \onehalfspacing
+
+\singlespacing
+\bibliography{bibliography}
+\bibliographystyle{alpha}
 
 \end{document}
