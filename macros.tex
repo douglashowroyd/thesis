@@ -8,290 +8,34 @@
 \DeclareMathOperator\codom{codom}
 \DeclareMathOperator\coker{coker}
 
-% Green's relations
-\newcommand{\HH}{\mathrel{\mathscr{H}}}
-\newcommand{\LL}{\mathrel{\mathscr{L}}}
-\newcommand{\RR}{\mathrel{\mathscr{R}}}
-\newcommand{\DD}{\mathrel{\mathscr{D}}}
-\newcommand{\JJ}{\mathrel{\mathscr{J}}}
 
-\newcommand{\hH}{\mathscr{H}}
-\newcommand{\lL}{\mathscr{L}}
-\newcommand{\rR}{\mathscr{R}}
-\newcommand{\dD}{\mathscr{D}}
-\newcommand{\jJ}{\mathscr{J}}
+% macros from random paper with han
+\newcommand{\Assouad}{\dim_{\mathrm{A}}}
+\newcommand{\ubox}{\overline{\dim_{\mathrm{B}}}}
+\newcommand{\mubox}{\overline{\dim_{\mathrm{MB}}}}
+\newcommand{\supbox}{\dim_{\mathrm{SB}}}
+\newcommand{\red}{\textcolor{red}}
 
-\newcommand{\nHH}{\mathrel{\cancel{\mathscr{H}}}}
-\newcommand{\nLL}{\mathrel{\cancel{\mathscr{L}}}}
-\newcommand{\nRR}{\mathrel{\cancel{\mathscr{R}}}}
-\newcommand{\nDD}{\mathrel{\cancel{\mathscr{D}}}}
-\newcommand{\nJJ}{\mathrel{\cancel{\mathscr{J}}}}
 
-% Other relations
-\newcommand{\sS}{\mathcal{S}}
-\newcommand{\tT}{\mathcal{T}}
-\newcommand{\R}{\mathbf{R}}
-\newcommand{\Rs}{\mathbf{R}^\sharp}
-\newcommand{\po}{\mathbf{O}}
+% macros from upper reg paper with jon
+\renewcommand{\ge}{\geqslant}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\renewcommand{\H}{\text{H}}
+\renewcommand{\P}{\text{P}}
+\renewcommand{\l}{\overline{\dim}_{\text{loc}}(x,\mu)}
+\renewcommand{\r}{\overline{\dim}_{\textup{reg}} \mu}
+\renewcommand{\a}{\dim_{\textup{A}}}
+\renewcommand{\epsilon}{\varepsilon}
 
-% Special semigroups
-\newcommand{\PT}{\mathcal{P\!T\!}}     % Partial transformations
-\newcommand{\T}{\mathcal{T}}           % Transformations
-\newcommand{\I}{\mathcal{I}}           % Partial perms
-\newcommand{\PO}{\mathcal{P\!O\!}}     % Order-preserving partial transformations
-\newcommand{\OO}{\mathcal{O}}          % Order-preserving transformations
-\newcommand{\POI}{\mathcal{P\!O\!I\!}} % Order-preserving partial perms
-\newcommand{\LZ}{\mathcal{L\!Z}}
-\newcommand{\RZ}{\mathcal{R\!Z}}
-\newcommand{\Z}{\mathcal{Z}}
-\newcommand{\PBR}{\mathcal{P}\!B}
-\newcommand{\PP}{\mathscr{P}\!\mathcal{P}}
-\newcommand{\PB}{\mathcal{P\!B}}
-\newcommand{\Brau}{\mathcal{B}}
-\newcommand{\Jon}{\mathcal{J}}
-\newcommand{\Sym}{\mathcal{S}}
-\newcommand{\Alt}{\mathcal{A}}
-\newcommand{\Mot}{\mathcal{M}}
-\newcommand{\Prt}{\mathcal{P}}
-\newcommand{\Cyc}{\mathcal{C}}
 
-% Other little shortcuts
-\newcommand{\bn}{\mathbf{n}}
-\newcommand{\Sone}{S^{(1)}}
+% macros from quantifying paper
+\newcommand{\urdim}{\overline{\dim}_{\textup{reg}}}
+\newcommand{\lrdim}{\underline{\dim}_{\textup{reg}}}
 
-% Software
-\newcommand{\GAP}{\textsf{GAP}}
-\newcommand{\kbmag}{\textsf{kbmag}}
-\newcommand{\ACE}{\textsf{ACE}}
-\newcommand{\Semigroupe}{\textsf{Semigroupe}}
-\newcommand{\Semigroups}{\textsf{Semigroups}}
-\newcommand{\smallsemi}{\textsf{smallsemi}}
-\newcommand{\libsemigroups}{\textsf{libsemigroups}}
 
-% Rewriting systems
-\newcommand{\rws}{\mathbf{R}}
-\newcommand{\tostar}{\stackrel{*}{\to}}
-\newcommand{\lrstar}{\stackrel{*}{\leftrightarrow}}
 
-% Homomorphism arrows
-\newcommand{\hooktwoheadrightarrow}{
-  \hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow
-}
-\renewcommand{\twoheadrightarrow}{
-  \rightarrow\mathrel{\mspace{-15mu}}\rightarrow
-}
 
-% Double angle brackets
-\newcommand{\llangle}{\langle\!\langle}
-\newcommand{\rrangle}{\rangle\!\rangle}
-
-% Ticks and crosses
-\newcommand{\cmark}{\ding{51}}
-\newcommand{\xmark}{\ding{56}}
-
-% Principal factors
-\newcommand{\pf}[1]{\overline{#1}}
-
-% Algorithmicx
-\algnewcommand\True{\textbf{true}\space}
-\algnewcommand\False{\textbf{false}\space}
-\algnewcommand{\LComment}[1]{\State \(\triangleright\) \emph{#1}}
-\algnewcommand{\Or}{~\textbf{or}~}
-\algnewcommand{\And}{~\textbf{and}~}
-\algnewcommand{\Continue}{\textbf{continue}}
-\algnewcommand{\Goto}{\textbf{goto}~}
-
-% Citing OEIS
-\newcommand{\citeoeis}[1]{\cite[\href{https://oeis.org/#1}{#1}]{oeis}}
-
-% Transformations
-\newcommand{\transII}[2]{
-  \begingroup
-  \renewcommand*\arraystretch{.9}
-  \scriptsize
-  \arraycolsep=1.5pt
-  \begin{pmatrix}
-    1 & 2 \\
-    #1 & #2
-  \end{pmatrix}
-  \endgroup
-}
-\newcommand{\transIV}[4]{
-  \begingroup
-  \renewcommand*\arraystretch{.9}
-  \scriptsize
-  \arraycolsep=1.5pt
-  \begin{pmatrix}
-    1 & 2 & 3 & 4 \\
-    #1 & #2 & #3 & #4
-  \end{pmatrix}
-  \endgroup
-}
-\newcommand{\transV}[5]{
-  \begingroup
-  \renewcommand*\arraystretch{.9}
-  \scriptsize
-  \arraycolsep=1.5pt
-  \begin{pmatrix}
-    1 & 2 & 3 & 4 & 5 \\
-    #1 & #2 & #3 & #4 & #5
-  \end{pmatrix}
-  \endgroup
-}
-\newcommand{\transN}[3]{
-  \begingroup
-  \renewcommand*\arraystretch{.9}
-  \scriptsize
-  \arraycolsep=1.5pt
-  \begin{pmatrix}
-    1 & 2 & \cdots & n \\
-    #1 & #2 & \cdots & #3
-  \end{pmatrix}
-  \endgroup
-}
-
-% Presentations
-\newcommand{\pres}[2]{
-  \left\langle
-    \,
-    #1
-    \,
-    \middle|
-    \,
-    #2
-    \,
-  \right\rangle
-}
-
-% Todd-Coxeter tables with 2 generators
-\newcommand{\tctableAB}[4]{
-\begin{table}[H]
-  \centering
-  \begin{tabular}{c | c | c |}
-    \multicolumn{1}{c}{} &
-    \multicolumn{1}{c}{$a$} &
-    \multicolumn{1}{c}{$b$} \\
-    \cline{2-3}
-    #4
-    \cline{2-3}
-  \end{tabular}
-  \caption[#2]{#3}
-  \label{#1}
-\end{table}
-}
-
-% Partition diagrams
-% \tikzset{>=latex}
-\newcommand{\bipartdiagscale}{.5}
-\newcommand{\tv}[2]{ % Transversal line
-  \draw(#1,2)--(#2,0);
-}
-\newcommand{\tc}[2]{ % Top curve
-  \draw(#1, 1.875) .. controls (#1, 1.5) and (#2, 1.5) .. (#2, 1.875);
-}
-\newcommand{\bc}[2]{ % Bottom curve
-  \draw(#1, 0.125) .. controls (#1, 0.5) and (#2, 0.5) .. (#2, 0.125);
-}
-\newcommand{\bC}[2]{ % Bottom curve (bigger)
-  \draw(#1, 0.125) .. controls (#1, 0.75) and (#2, 0.75) .. (#2, 0.125);
-}
-\newcommand{\utv}[2]{ % Transversal (upper diagram)
-  \draw(#1,4)--(#2,2);
-}
-\newcommand{\utc}[2]{ % Top curve (upper diagram)
-  \draw(#1, 3.875) .. controls (#1, 3.5) and (#2, 3.5) .. (#2, 3.875);
-}
-\newcommand{\ubc}[2]{ % Bottom curve (upper diagram)
-  \draw(#1, 2.125) .. controls (#1, 2.5) and (#2, 2.5) .. (#2, 2.125);
-}
-\newcommand{\uutv}[2]{ % Transversal (3rd diagram)
-  \draw(#1,6)--(#2,4);
-}
-\newcommand{\uutc}[2]{ % Top curve (3rd diagram)
-  \draw(#1, 5.875) .. controls (#1, 5.5) and (#2, 5.5) .. (#2, 5.875);
-}
-\newcommand{\uubc}[2]{ % Bottom curve (3rd diagram)
-  \draw(#1, 4.125) .. controls (#1, 4.5) and (#2, 4.5) .. (#2, 4.125);
-}
-\newcommand{\uubC}[2]{ % Bottom curve (3rd diagram) (bigger)
-  \draw(#1, 4.125) .. controls (#1, 4.75) and (#2, 4.75) .. (#2, 4.125);
-}
-
-\newcommand{\trans}[5]{ % Transformation
-  \begin{tikzpicture}[scale=\bipartdiagscale, baseline={([yshift=-.8ex]current bounding box.center)}]
-    \fill[gray!20] (0.8,0) rectangle (5.2,2);
-    \fill(1,2)circle(.125); \fill(1,0)circle(.125); \draw(1,2)--(#1,0);
-    \fill(2,2)circle(.125); \fill(2,0)circle(.125); \draw(2,2)--(#2,0);
-    \fill(3,2)circle(.125); \fill(3,0)circle(.125); \draw(3,2)--(#3,0);
-    \fill(4,2)circle(.125); \fill(4,0)circle(.125); \draw(4,2)--(#4,0);
-    \fill(5,2)circle(.125); \fill(5,0)circle(.125); \draw(5,2)--(#5,0);
-  \end{tikzpicture}
-}
-
-\newcommand{\bipartdiag}[1]{ % Single bipartition diagram
-  \begin{tikzpicture}[scale=\bipartdiagscale, baseline={([yshift=-.8ex]current bounding box.center)}]
-    \fill[gray!20] (0.8,0) rectangle (5.2,2);
-    \fill(1,2)circle(.125); \fill(1,0)circle(.125);
-    \fill(2,2)circle(.125); \fill(2,0)circle(.125);
-    \fill(3,2)circle(.125); \fill(3,0)circle(.125);
-    \fill(4,2)circle(.125); \fill(4,0)circle(.125);
-    \fill(5,2)circle(.125); \fill(5,0)circle(.125);
-    #1
-  \end{tikzpicture}~
-}
-
-\newcommand{\bipartdiagII}[1]{ % Single bipartition diagram (degree 2)
-  \begin{tikzpicture}[scale=\bipartdiagscale, baseline={([yshift=-.8ex]current bounding box.center)}]
-    \fill[gray!20] (0.8,0) rectangle (2.2,2);
-    \fill(1,2)circle(.125); \fill(1,0)circle(.125);
-    \fill(2,2)circle(.125); \fill(2,0)circle(.125);
-    #1
-  \end{tikzpicture}~
-}
-
-\newcommand{\doublebipartdiag}[1]{ % Double diagram (to show multiplication)
-  \begin{tikzpicture}[scale=\bipartdiagscale, baseline={([yshift=-.8ex]current bounding box.center)}]
-    \fill[gray!20] (0.8,0) rectangle (5.2,4);
-    \fill(1,4)circle(.125); \fill(1,2)circle(.125); \fill(1,0)circle(.125);
-    \fill(2,4)circle(.125); \fill(2,2)circle(.125); \fill(3,0)circle(.125);
-    \fill(3,4)circle(.125); \fill(3,2)circle(.125); \fill(2,0)circle(.125);
-    \fill(4,4)circle(.125); \fill(4,2)circle(.125); \fill(5,0)circle(.125);
-    \fill(5,4)circle(.125); \fill(5,2)circle(.125); \fill(4,0)circle(.125);
-    #1
-  \end{tikzpicture}~
-}
-
-\newcommand{\triplebipartdiag}[1]{ % Triple diagram (to show multiplication)
-  \begin{tikzpicture}[scale=\bipartdiagscale, baseline={([yshift=-.8ex]current bounding box.center)}]
-    \fill[gray!20] (0.8,0) rectangle (5.2,6);
-    \fill(1,6)circle(.125); \fill(1,4)circle(.125); \fill(1,2)circle(.125); \fill(1,0)circle(.125);
-    \fill(2,6)circle(.125); \fill(2,4)circle(.125); \fill(2,2)circle(.125); \fill(2,0)circle(.125);
-    \fill(3,6)circle(.125); \fill(3,4)circle(.125); \fill(3,2)circle(.125); \fill(3,0)circle(.125);
-    \fill(4,6)circle(.125); \fill(4,4)circle(.125); \fill(4,2)circle(.125); \fill(4,0)circle(.125);
-    \fill(5,6)circle(.125); \fill(5,4)circle(.125); \fill(5,2)circle(.125); \fill(5,0)circle(.125);
-    #1
-  \end{tikzpicture}~
-}
-
-\newcommand{\bipart}[4]{ % Bracketed notation for a bipartition
-  \begingroup
-  \setlength{\jot}{-1ex}
-  \renewcommand*\arraystretch{.7}
-  \left[
-    \hspace{-0.75mm}
-    \scriptsize
-    \doublespacing
-    \arraycolsep=2pt
-    \begin{array}{#1}
-      #3 \\ \cline{#2}
-      #4
-    \end{array}
-    \hspace{-0.6mm}
-  \right]
-  \endgroup
-}
-\newcommand{\mc}{\multicolumn}
-\newcommand{\two}[2]{\multicolumn{3}{c}{\begin{array}{c|c}#1\ \ &\ #2\end{array}}}
-\newcommand{\bipartABCD}{\bipart{c|c|c|c|c|c}{4-6}
-  {A_1 & \ldots & A_q & C_1 & \ldots & C_r}
-  {B_1 & \ldots & B_q & D_1 & \ldots & D_s}}
+\newcommand{\ulocal}{\overline{\dim}_{\text{loc}}(x,\mu)}
+\newcommand{\llocal}{\underline{\dim}_{\text{loc}}(x,\mu)}
