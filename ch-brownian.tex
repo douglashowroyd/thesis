@@ -1,9 +1,16 @@
 \chapter{Graphs of Brownian motion}
 \label{chap:graphs}
 
+\section{Introduction}
+\label{sec:intro-brownian}
 
+Studying the dimension of various random processes has been of interest for quite some time. In this chapter we will consider the Assouad dimension of graphs of certain random processes, notably L\'evy processes and functions defined by stochastic integrals. Then the regularity dimensions of pushforward measures onto graphs of L\'evy processes will be computed for doubling measures defined on the unit interval. 
 
-Studying the dimension of various random processes has been of interest for quite some time. In this paper we will consider the Assouad dimension of graphs of certain random processes, notably L\'evy processes and functions defined by stochastic integrals. 
+In particular we will see that pushforwards of doubling maps in this setting are almost surely not doubling. This contrasts with the previous results on quasisymmetric homeomorphisms which conserved doubling. This will also provide a different example of a uniformly perfect and doubling space with a non uniformly perfect and non doubling measure fully supported on that same space.
+
+\section{L\'evy processes}
+\label{sec:levy-process}
+
 
 \emph{L\'{e}vy processes} $X(t)$ were first introduced by Paul L\'evy in 1934 \cite{Le} and are defined to be the stochastic processes satisfying:
 \begin{itemize}
@@ -31,6 +38,8 @@ and for any $d\ge 2$
 \[
 \dim_\text{H} B_d([0,1]) =  2.
 \]
+\textcolor{red}{want to include box dimension result here, equality by kenneth's book}
+
 
 Another generalisation of Brownian motion is \emph{fractional Brownian motion}, first introduced by Mandelbrot and Van Ness \cite{MVN}. Index-$h$ fractional Brownian motion (fBm) on $\mathbb{R}$ with $0<h<1$ is defined to be the stochastic integral 
 \[

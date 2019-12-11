@@ -1,26 +1,29 @@
 \chapter{Upper and lower regularity dimensions}
 \label{chap:upper_reg}
 
-\section{Upper regularity and upper local dimensions} \label{intro}\label{dimension}
+
+\section{Introduction}
+\label{ch-upper-reg:intro-reg-dims}
 
 
-The \emph{upper regularity dimension} of a  measure was introduced in \cite{anti1,anti2} and gives a quantifiable description of the extremal local scaling of the measure.  In a concrete sense, which we will explain, the upper regularity dimension of a measure can be viewed as the `Assouad dimension' of a measure.  The Assouad dimension of \emph{sets} has been gaining a lot of attention in the literature on fractal geometry recently and so it is natural to consider the analogous concept for measures and to place this interesting concept in a wider mathematical context. We investigate its relationship with more familiar concepts such as the local dimensions, the $L^q$-spectrum, doubling properties, and weak tangents. We also compute the upper regularity dimensions explicitly in a number of concrete settings, such as self-similar measures satisfying the strong separation property, self-affine measures supported on carpets and sponges satisfying the very strong separation property and measures supported on convergent sequences.  These examples will exhibit several different types of behaviour and will demonstrate the sharpness of our general results.
+This chapter aims to study some of the basic properties of the regularity dimensions. We investigate their relationship with familiar concepts such as the local dimensions, the $L^q$-spectrum, and weak tangents. Then we will explicitly calculate the dimensions of self-similar measures satisfying the strong separation property and self-affine measures supported on carpets and sponges satisfying the very strong separation property, which are some of the most standard examples of fractals. Finally the dimensions of measures on convergent sequences will be studied. These examples will exhibit several different types of behaviour and will demonstrate the sharpness of our general results. 
 
-Let $\mu$ be a locally finite Borel measure on a metric space $X$ and write $\text{supp}(\mu)$ for the support of $\mu$. The upper regularity dimension of $\mu$ is defined by 
-\begin{multline*} 
-\overline{\dim}_{\text{reg}} \mu = \inf \Bigg\{ s \geq 0 \, \,  : \,  \text{ there exists a  constant }C  > 0\text{  such that, for all  $0< r< R $} \\ \text{  and all $x \in \text{supp} (\mu)$, we have }  \ \  \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s} \Bigg\}
-\end{multline*}
-where $B(x,R)$ is the open ball of radius $R$ and centre $x$.   We adopt the convention that $\inf \emptyset = + \infty$. This can indeed be thought of as the `Assouad dimension' of a measure since the Assouad dimension, which is a purely metric notion describing the extremal scaling behaviour of a set in a metric space, can be expressed in terms of upper regularity dimensions of measures  supported on the set, see \cite{luksak, konyagin}. In particular, for a complete metric space $F$
+
+\section{Results}\label{ch-upper-reg:results}
+
+\subsection{General bounds}\label{ch-upper-reg:bounds}
+
+The local dimensions of a measure are the main tool for characterising the local scaling laws of a measure at small scales. The upper local dimension of $\mu$ at $x \in \text{supp}(\mu)$ is defined by
+\nomenclature[.]{$\ulocal$}{upper local dimension of $\mu$ at $x$}
 \[
-\dim_{\text{A}} F = \inf \left\{ \overline{\dim}_{\text{reg}} \mu \,  \colon \, \mu \text{ is a Borel probability measure supported on } F\right\}.
+\ulocal=\limsup_{r\rightarrow 0} \frac{\log \mu(B(x,r))}{\log r}.
 \]
-Therefore the upper regularity dimension of a measure is always bounded below by the  the Assouad dimension of its support and in some cases the upper regularity dimension will actually provide the exact Assouad dimension, for example \cite[Theorem 2.3]{fraser-howroyd}.  Note that  a non-complete metric space is dense in its completion and the Assouad dimension is preserved under taking closure, so we may assume without loss of generality that our spaces are complete.
-
-There is also a fairly straightforward relationship with the upper local dimensions of a measure. The upper local dimension of $\mu$ at $x \in \text{supp}(\mu)$ is defined by
+The lower local dimension $\llocal$ is defined similarly by
+\nomenclature[.]{$\llocal$}{lower local dimension of $\mu$ at $x$}
 \[
-\overline{\dim}_{\text{loc}}(x,\mu)=\limsup_{r\rightarrow 0} \frac{\log \mu(B(x,r))}{\log r}.
+\llocal=\liminf_{r\rightarrow 0} \frac{\log \mu(B(x,r))}{\log r}.
 \]
-The lower local dimension $\underline{\dim}_{\text{loc}}(x,\mu)$ is defined in a similar way, replacing $\limsup$ with $\liminf$.  These local dimensions clearly depend on the point $x$, but naturally give rise to dimensions depending only on $\mu$.  For example, the lower Hausdorff dimension of $\mu$ is
+When these dimensions coincide we simply refer to the local dimension of the measure at $x$ and write $\dim_{\text{loc}}(x,\mu)$. These local dimensions clearly depend on the point $x$, but naturally give rise to dimensions depending only on $\mu$. For example, the lower Hausdorff dimension of $\mu$ is defined by
 \[
 \underline{\dim}_\H \mu=\text{ess}  \inf \left\{  \underline{\dim}_{\text{loc}}(x,\mu)  \ : \  x\in \text{supp}(\mu) \right\} 
 \]
@@ -28,66 +31,70 @@ and the upper packing dimension is
 \[
 \overline{\dim}_\P \mu=\text{ess}  \sup \left\{ \overline{\dim}_{\text{loc}}(x,\mu) \ : \  x\in \text{supp}(\mu) \right\}.
 \]
-A measure $\mu$ is called exact dimensional when $\underline{\dim}_\H \mu=\overline{\dim}_\P \mu$.   One immediately obtains that for any locally finite Borel measure $\mu$
+For technical completeness, the essential supremum ($\text{ess} \sup$) is the supremum which holds for a set of full measure, similarly for the essential infimum. For instance the Hausdorff dimension of a measure is often written $\underline{\dim}_\H \mu = \sup\left\{ s \ge 0 \colon \llocal \ge s  \text{ for $\mu$ almost all }x  \right\}$. 
+
+A measure $\mu$ is called exact dimensional when $\underline{\dim}_\H \mu=\overline{\dim}_\P \mu$. It follows from the above definitions that in this situation, almost all points have the same local scaling behaviour. This provides a significant level of regularity which is often sufficient when studying the Hausdorff dimension. However this does not imply that all points satisfy the same power law, and so the regularity dimensions, which focus on extremal points, need further conditions to ensure equality.
+
+
+There is a fairly straightforward relationship between the upper regularity dimension of a measure and the upper local dimensions. One immediately obtains that for any locally finite Borel measure $\mu$
 \[
 \r \geq \sup \left\{ \overline{\dim}_{\text{loc}}(x,\mu) \ : \  x\in \text{supp}(\mu) \right\},
 \]
-which shows that the upper regularity dimension is sensitive to large upper local dimension even at a single point.  In particular, let $x \in \text{supp}(\mu)$ and let $s > \r$.  Then for small enough $r < R$ we have
+which shows that the upper regularity dimension is sensitive to large upper local dimension even at a single point.  In particular, let $x \in \text{supp}(\mu)$ and let $s > \r$.  Then, by the definition of the upper regularity dimension, for small enough $r < R$ we have
 \[
 \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s}
 \]
-for some constant $C>1$.  Fixing $R$ and letting $r \to 0$ we obtain
+for some constant $C$.  Fixing $R$ and letting $r \to 0$ we obtain
 \[
 \overline{\dim}_{\text{loc}}(x,\mu)=\limsup_{r\rightarrow 0} \frac{\log \mu(B(x,r))}{\log r} \leq  \limsup_{r\rightarrow 0} \frac{\log \mu(B(x,R)) (r/R)^s/C }{\log r}  = s
 \]
-as required.  This lower bound, combined with the Assouad dimension, gives a concrete and sometimes sharp lower bound on the upper regularity dimension.   For example, we show that for any self-similar measure $\mu$ satisfying the strong separation condition we have $ \r = \sup \left\{ \overline{\dim}_{\text{loc}}(x,\mu) \ : \  x\in \text{supp}(\mu) \right\}$.  However, for self-affine measures $\mu$, one may have
+as required. This lower bound, combined with the Assouad dimension, gives a concrete and sometimes sharp lower bound on the upper regularity dimension. For example, we will show that for any self-similar measure $\mu$ satisfying the strong separation condition we have $ \r = \sup \left\{ \overline{\dim}_{\text{loc}}(x,\mu) \ : \  x\in \text{supp}(\mu) \right\}$.  However, for self-affine measures $\mu$, one may have
 \[
 \r >  \sup \left\{ \overline{\dim}_{\text{loc}}(x,\mu) \ : \  x\in \text{supp}(\mu) \right\}.
 \]
-Ahlfors-David $s$-regular measures are even more regular than exact dimensional measures in that the ratio $\mu(B(x,R))/R^s$ is uniformly bounded away from 0 and $+\infty$ where $s >0$ is the `dimension'.  An Ahlfors-David $s$-regular measure is clearly exact dimensional (with exact dimension equal to $s$) and even satisfies $\r = s$.  
 
-
-
-Another simple, but important, initial observation is that a measure is doubling if and only if it has finite upper regularity dimension.  Recall that  a  (Borel) measure is doubling if there exists a constant $0<C< \infty$ such that for all $R>0$ and $x\in \text{supp}(\mu)$ one has
+Analogously, the lower regularity dimension of a measure $\mu$ can be related to the lower local dimensions by 
 \[
-\frac{\mu(B(x,R))}{\mu(B(x,R/2))}\leq C.
+\lrdim \mu \le \inf \left\{\llocal \colon x \in \text{supp}(\mu) \right\}.
 \]
-Similarly, a metric space is doubling if there exists a constant $C$ such that any ball $B(x,R)$ can be covered by fewer than $C$ balls of radius $R/2$.  It is a well-known and fundamental fact in metric geometry that a metric space is doubling if and only if it has finite Assouad dimension, see for example \cite[Lemma 9.4]{robinson}.  It turns out that the upper regularity dimension provides the natural measure theoretic analogue of this fact: a measure $\mu$ is doubling if and only if $\r <\infty$.  This follows from \cite[Lemma 3.2]{kaenmakinew}, but we include our own proof in Section \ref{doublingproof} for completeness.
-
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Results}   \label{results}
-
-\subsection{Lower bounds and weak tangents}
-
-
-
-We have already noted that the Assouad dimension of the support and the supremum of the upper local dimensions give elementary lower bounds for the upper regularity dimension.  We begin by refining this observation by further relating the upper regularity dimension to the (lower) $L^q$-spectrum.  Let $\mu$ be a compactly supported Borel probability measure on $\mathbb{R}^d$.  Given $q \in \mathbb{R}$ and $r>0$ we let
+Indeed, let $x\in \text{supp}(\mu)$ and $t < \lrdim \mu$. Then for any $r < R$ small enough we have
 \[
-M_r^q(\mu) = \sup  \, \left \{ \sum_{i=1}^\infty  \mu(B(x_i,r))^q \ : \ | x_i-x_j | > 2r \text{ for $i \neq j$} \right\}
+\frac{\mu(B(x,R))}{\mu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{t}
+\]
+for some constant $C$. Fixing $R$ and again letting $r \rightarrow 0$ gives
+\[
+\llocal = \liminf \frac{\log \mu(B(x,r)}{\log r} \ge t
+\]
+as desired.
+
+A measure $\mu$ is Ahlfors-David $s$-regular if there exists constants $0<c_0,C_0< \infty$ such that 
+\[
+c_0 R^s \le \mu(B(x,R)) \le C_0 R^s
+\]
+for all $x\in \text{supp}(\mu)$ and $R > 0$.
+These measures are even more regular than exact dimensional measures in that the ratio $\mu(B(x,R))/R^s$ is uniformly bounded away from 0 and $+\infty$ where $s >0$ is the `dimension'.  An Ahlfors-David $s$-regular measure is clearly exact dimensional (with exact dimension equal to $s$) and even satisfies $\lrdim \mu = \urdim \mu = s$. This provides the first examples of measures where the local dimensions can recover the regularity dimensions. 
+
+
+
+
+We have already noted that the Assouad dimension of the support and the supremum of the upper local dimensions give elementary lower bounds for the upper regularity dimension.  We can refine this observation by further relating the upper regularity dimension to the (lower) $L^q$-spectrum.  Let $\mu$ be a compactly supported probability measure on $\mathbb{R}^d$.  Given $q \in \mathbb{R}$ and $r>0$ we let
+\nomenclature[.]{$d(\cdot, \cdot)$}{distance between two points in a metric space}
+\[
+M_r^q(\mu) = \sup  \, \left \{ \sum_{i=1}^\infty  \mu(B(x_i,r))^q \ : \ d(x_i, x_j) > 2r \text{ for $i \neq j$} \right\}
 \]
 be the multifractal packing function, see \cite{olsenformalism}.  The  (lower) $L^q$-spectrum of $\mu$ is then given by
+\nomenclature[.]{$\underline{\tau}(q)$}{lower $L^q$-spectrum of an implied measure}
 \[
 \underline{\tau}(q)= \liminf_{r\rightarrow 0} \frac{\log M_r^q(\mu) }{\log r}, \qquad (q\in \mathbb{R}).
 \]
-The $L^q$-spectrum gives a description of the global fluctuations of the measure and is a key tool in multifractal analysis. For example, the Legendre transform of the $L^q$-spectrum is an upper bound for the multifractal spectrum of $\mu$ and for measures satisfying the multifractal formalism the Legendre transform of the $L^q$-spectrum is precisely the multifractal spectrum.  As such, one can bound the supremum of the upper local dimensions by the `top of the spectrum', defined by
+The $L^q$-spectrum gives a description of the global fluctuations of the measure and is a key tool in multifractal analysis. For example, the Legendre transform of the $L^q$-spectrum is an upper bound for the multifractal spectrum of $\mu$ and for measures satisfying the multifractal formalism the Legendre transform of the $L^q$-spectrum is precisely the multifractal spectrum. \textcolor{red}{define multifractal specturm}  As such, one can bound the supremum of the upper local dimensions by the `top of the spectrum', defined by
 \[
 T(\mu)=\sup \left\{ s \ge 0 \colon \underline{\tau}(q) < sq \, \,, \forall q<0 \right\}
 \]
 which is the gradient of the asymptote to $\underline{\tau}(q)$ as $q \rightarrow - \infty$.  We prove that the upper regularity dimension is bounded below by the top of the spectrum.  
 
 
-\begin{thm} \label{relationships}
+\begin{theorem} \label{ch-upper-reg:relationships}
 	Given a compactly supported Borel probability measure $\mu$ on $\mathbb{R}^d$, we have
 	\[
 	\begin{array}{ccccccccccc}
@@ -98,38 +105,73 @@ which is the gradient of the asymptote to $\underline{\tau}(q)$ as $q \rightarro
 	&&                                            \dim_\text{\emph{P}} \mathrm{supp}(\mu)      \quad  \leq   \quad  \dim_\text{\emph{A}} \mathrm{supp}(\mu)                           & & &  
 	\end{array}
 	\]
-\end{thm}
+\end{theorem}
 
-Most of the inequalities in the above theorem are well-known or have already been established in the introduction.  The only two remaining are the  inequalities involving $T(\mu)$ and we prove these in Section \ref{spectrumproof}. We take some inspiration from \cite{fraser-jordan} where the $L^q$-spectrum was related to the infimum of the lower local dimensions.
+Most of the inequalities in the above theorem are well-known or have already been established above.  The only two remaining are the inequalities involving $T(\mu)$ and we prove these in Section \ref{ch-upper-reg:spectrumproof}. We take some inspiration from \cite{fraser-jordan} where the $L^q$-spectrum was related to the infimum of the lower local dimensions.
+
+\textcolor{red}{include lower reg dim here}
 
 
-One of the most powerful tools for providing lower bounds for the Assouad dimension of a set is the well-known result of Mackay and Tyson concerning weak tangents \cite[Proposition 6.1.5]{mackaytyson}.  In particular, the Assouad dimension of any weak tangent to a set cannot exceed the Assouad dimension of the set itself.  Given that the upper regularity dimension is the `Assouad dimension of a measure', it is natural to consider the analogous result in the setting of measures, where we replace convergence in the Hausdorff metric with weak convergence.  More precisely, we say that a Borel measure  $\hat{\mu}$ on  $ \mathbb{R}^d$ is a \emph{weak tangent measure} to  a locally finite Borel measure $\mu$ on $\mathbb{R}^d$ if there exists a sequence of similarity maps $T_k$ on  $\mathbb{R}^d$ and a sequence of positive renormalising numbers $p_k$ such that
+\subsection{Weak tangent measures}
+
+\textcolor{red}{could do this for generic space X instead of Rd?}
+
+One of the most powerful tools for providing lower bounds for the Assouad dimension of a set is the well-known result of Mackay and Tyson concerning weak tangents \cite[Proposition 6.1.5]{mackaytyson}. In particular, the Assouad dimension of any weak tangent to a set cannot exceed the Assouad dimension of the set itself. We state a slightly modified version of this result due to Fraser \cite[Proposition 7.7]{fraser}. 
+\begin{proposition}[Very weak tangents]\label{ch-upper-reg:tangents}
+Let $X\subset \mathbb{R}^d$ be compact and let $F$ be a compact subset of $X$, Let $(T_k)$ be a sequence of bi-Lipschitz maps defined on $\mathbb{R}^d$ with Lipschitz constants $a_k, b_k \ge 1$ such that 
+\[
+a_k d(x,y) \leq d( T_k(x) , T_k(y) ) \leq b_k d( x, y)  \,\,\,\,\,\,\,\, (x,y\in\mathbb{R}^d)
+\]
+and
+\[
+\sup_k b_k / a_k = C_0 <\infty
+\]
+and suppose that $T_k(F) \cap X \rightarrow \hat{F}$ in the Hausdorff metric. Then the set $\hat F$ is called a \emph{very weak tangent} to $F$ and, moreover,  $\dim_{\text{\emph{A}}} F \geq \dim_{\text{\emph{A}}} \hat{F}$.
+\end{proposition}
+The Hausdorff distance between two subsets $X,Y$ of $\mathbb{R}^d$ is defined by
+\[
+d_{\mathcal{H}}(X,Y) = \max\left\{\sup_{x\in X} \inf_{y \in Y} d(x,y), \sup_{y\in Y} \inf_{x \in X} d(x,y)\right\}.
+\]
+\nomenclature[.]{$d_{\mathcal{H}}(\cdot, \cdot)$}{Hausdorff distance between two sets}
+
+
+These weak tangents are often called microsets, as first defined by Furstenberg in the 60's \cite{furstenberg08}, and have been fundamental in the study of the Assouad dimension. This includes aiding direct calculations of the dimension of sets as in \cite{either fraser-howroyd or other}, the direct relationship between the dimensions of microsets and the Assouad dimension as in \cite{fraser something, kaenmaki et al, fraser-howroyd-kaenmaki-yu} and even linking fractal geometry with number theory and the Erd\"os-Tur\'an conjecture in \cite{fraser-yu}. A similar result holds for the lower dimension and the smallest tangent sets with some added conditions; we will expand upon this shortly.
+
+
+\nomenclature[.]{$\hat{\mu}$}{weak tangent measure of $\mu$}
+Given that the upper regularity dimension is the `Assouad dimension of a measure', it is natural to consider a result analogous to Proposition \ref{ch-upper-reg:tangents} in the setting of measures, where we replace convergence in the Hausdorff metric with weak convergence. A sequence of positive probability measures $\left\{\mu_n\right\}_{n\in \mathbb{N}}$ supported on a space $X$ is said to weakly converge to another measure $\mu$ also supported on $X$ if $\int fd \mu_n \rightarrow \int fd \mu$ as $n\rightarrow \infty$ for all continuous functions $f\colon X \rightarrow \mathbb{R}$. We then say that a measure  $\hat{\mu}$ on $ \mathbb{R}^d$ is a \emph{weak tangent measure} to a locally finite measure $\mu$ on $\mathbb{R}^d$ if there exists a sequence of similarity maps $T_k$ on  $\mathbb{R}^d$ and a sequence of positive re-normalising numbers $p_k$ such that
 \[
 p_k \mu \circ T^{-1}_k  \rightharpoonup \hat{\mu}
 \]
-where $\rightharpoonup$ denotes weak convergence. Recall that a map $T$ on $\mathbb{R}^d$ is a \emph{similarity} if there is a constant $c  \in \left(0,1 \right)$ such that  for all $x,y \in \mathbb{R}^d$ we have $\lvert T(x)-T(y) \rvert= c\lvert x-y \rvert$.  We refer to $c$ as the \emph{similarity ratio}. 
+\nomenclature[.]{$\rightharpoonup$}{weak convergence of measures}
+where $\rightharpoonup$ denotes weak convergence. Recall that a map $T$ on $\mathbb{R}^d$ is a \emph{similarity} if there is a constant $c  \in \left(0,1 \right)$ such that  for all $x,y \in \mathbb{R}^d$ we have $d(T(x) , T(y) ) = c \, d(x, y )$.  We refer to $c$ as the \emph{similarity ratio}. 
 
-\emph{Tangent measure} usually refers to a weak limit of magnifications of a given measure at a specific point, in contrast to weak tangent measures where the point of magnification can move around.   In the seminal work of Preiss \cite{preiss} tangent measures were allowed to have unbounded support and when one restricts the magnifications to a fixed compact set, the (compactly supported)  limit measures are  often called \emph{micromeasures}, following the important work of Furstenberg \cite{furstenberg} and Hochman \cite{hochman}.  
+\emph{Tangent measure} usually refers to a weak limit of magnifications of a given measure at a specific point, in contrast to weak tangent measures where the point of magnification can move around. In the seminal work of Preiss \cite{preiss} tangent measures were allowed to have unbounded support and when one restricts the magnifications to a fixed compact set, the (compactly supported) limit measures are often called \emph{micromeasures}, following the important work of Furstenberg \cite{furstenberg} and Hochman \cite{hochman}.  
 
-\begin{thm}\label{weaktangents}
-	Suppose $\hat{\mu}$ is a weak tangent measure to a locally finite Borel measure  $\mu$ on $\mathbb{R}^d$.  Then $\overline{\dim}_{\textup{reg}} \hat{\mu} \le \r $.
-\end{thm}
+\begin{theorem}\label{ch-upper-reg:weaktangents}
+	Suppose $\hat{\mu}$ is a weak tangent measure to a locally finite Borel measure  $\mu$ on $\mathbb{R}^d$.  Then 
+	\[\overline{\dim}_{\textup{reg}} \hat{\mu} \le \r \]
+	and
+	\[\lrdim \hat{\mu} \ge \lrdim \mu.	\]
+\end{theorem}
 
-We will prove this result in Section \ref{weaktangentsproof}.  An immediate corollary  is that weak tangent measures of doubling measures are doubling.  This observation generalises the folklore result that `tangent measures of doubling measures are doubling'.  
+We will prove this result in Section \ref{ch-upper-reg:weaktangentsproof}.  An immediate corollary  is that weak tangent measures of doubling measures are doubling.  This observation generalises the folklore result that `tangent measures of doubling measures are doubling'.  
 
-\begin{cor}
+\begin{corollary}
 	All weak tangent measures of  doubling Borel measures are doubling.
-\end{cor}
+\end{corollary}
 
-In our definition of weak tangent measures we follow the strategy of Preiss, allowing the tangent to have unbounded support. However the weak tangent (sets) for Assouad dimension follow the conventions of Furstenberg and Hochman, restricting to a compact set. It turns out that this difference in approach is necessary as the dimension of a set cannot increase under restriction but the dimension of a measure can. The general problem of determining when a doubling measure restricts to a doubling measure on a compact set of positive mass is a subtle problem, see \cite{ojala}.  We provide a simple example of a doubling measure on the plane which upon restriction to the unit ball becomes non-doubling.  In particular, this shows that if, in the definition of weak tangent measures, one restricts the measures $p_k \mu \circ T^{-1}_k$ to the unit ball, the analogue of Theorem \ref{weaktangents} generally fails. This is because the restricted measure would become a weak tangent measure to the original measure.
 
-We begin with the square $X_0 = [-3/2, 3/2]^2$ and cut out a sequence of open   `almost' semicircles as follows.   Let $\left\{r_i \right\}_{i\in \mathbb{N}}$ be a sequence of radii which decay exponentially to 0 and $\left\{x_i\right\}_{i\in \mathbb{N}}$ be a sequence of centres moving clockwise on  $S^1$ which converge polynomially to a limit on the opposite side of $S^1$ from $x_1$ (without making any full rotations). Consider the balls $B_i = B(x_i, r_i)$ and remove from $X_0$ the points in the interior of  $B_i \cap B(0,1)$ which are at distance strictly greater than $r_i^2$ from $S^1$, see the portion shown in grey on the left in Figure \ref{example}.  After all of these portions have been removed, label the remaining set as $X$.  The complement of $X$ is shown in grey on the right of Figure \ref{example}. 
+
+In our definition of weak tangent measures we follow the strategy of Preiss, allowing the tangent to have unbounded support. However the weak tangent (sets) for Assouad dimension follow the conventions of Furstenberg and Hochman, restricting to a compact set. It turns out that this difference in approach is necessary as the dimension of a set cannot increase under restriction but the dimension of a measure can. The general problem of determining when a doubling measure restricts to a doubling measure on a compact set of positive mass is a subtle problem, see \cite{ojala}.  We provide a simple example of a doubling measure on the plane which upon restriction to the unit ball becomes non-doubling.  In particular, this shows that if, in the definition of weak tangent measures, one restricts the measures $p_k \mu \circ T^{-1}_k$ to the unit ball, the analogue of Theorem \ref{ch-upper-reg:weaktangents} generally fails. This is because the restricted measure would become a weak tangent measure to the original measure.
+
+We begin with the square $X_0 = [-3/2, 3/2]^2$ and cut out a sequence of open   `almost' semicircles as follows.   Let $\left\{r_i \right\}_{i\in \mathbb{N}}$ be a sequence of radii which decay exponentially to 0 and $\left\{x_i\right\}_{i\in \mathbb{N}}$ be a sequence of centres moving clockwise on  $S^1$ which converge polynomially to a limit on the opposite side of $S^1$ from $x_1$ (without making any full rotations). Consider the balls $B_i = B(x_i, r_i)$ and remove from $X_0$ the points in the interior of  $B_i \cap B(0,1)$ which are at distance strictly greater than $r_i^2$ from $S^1$, see the portion shown in grey on the left in Figure \ref{ch-upper-reg:example}.  After all of these portions have been removed, label the remaining set as $X$.  The complement of $X$ is shown in grey on the right of Figure \ref{ch-upper-reg:example}. 
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.9\textwidth]{example.png}
+	\includegraphics[width=0.9\textwidth]{pics/ch-upper-reg/example.png}
 	\caption{Construction of a doubling measure which is not doubling after restricting to the unit ball}
-	\label{example}
+	\label{ch-upper-reg:example}
 \end{figure}
 
 We observe  that 2-dimensional Lebesgue measure $\mu$ on $X$ is doubling, but that the restriction of $\mu$ to $B(0,1)$ is not doubling.  It is easy to see that there exists a uniform constant $c>0$ such that for $x \in X$ and $r\in (0,1)$ we have $cr^2 \leq \mu(B(x,r)) \leq \pi r^2$.  It follows that $\mu$ is doubling (with upper regularity dimension 2).  We now consider the restricted measure $\nu = \mu \vert_{B(0,1)}$ and compare the masses of $B(x_i,r_i)$ and $B(x_i,2r_i)$. For large enough $i$ we have $\nu (B(x_i,2r_i)) \ge (\pi (2r_i)^2-\pi r_i^2)/3 = \pi r_i^2$  and $\nu (B(x_i,r_i)) \le 4 r_i^3$. Therefore
@@ -139,9 +181,11 @@ We observe  that 2-dimensional Lebesgue measure $\mu$ on $X$ is doubling, but th
 and so  $\nu$ is not doubling.
 
 
-\subsection{Self-similar measures}\label{self-similarresult}
+\subsection{Self-similar measures}\label{ch-upper-reg:self-similarresult}
 
-In this section we compute the upper regularity dimension of self-similar measures satisfying the strong separation condition.  We emphasise that this separation assumption is natural because self-similar measures not satisfying the strong separation condition are typically not doubling and so have upper regularity dimension equal to $+\infty$.
+\textcolor{red}{cite sascha ss measures}
+
+In this section we compute the regularity dimensions of self-similar measures satisfying the strong separation condition.  We emphasise that this separation assumption is natural because self-similar measures not satisfying the strong separation condition are typically not doubling and so have upper regularity dimension equal to $+\infty$. Such measures can however still have positive, even maximal lower regularity dimension, we do not pursue this here.
 
 Let  $\mathcal{I}$ be a finite index set and $\left\{S_i \right\}_{i \in \mathcal{I}}$ be a finite collection of  contraction maps on a compact subset of $\mathbb{R}^d$.  Such a collection is known as an iterated function system (IFS).  Also let $\{p_i\}_{i \in \mathcal{I}}$ be a collection of probabilities associated with the maps $\{S_i\}_{i \in \mathcal{I}}$, i.e. we assume that for each $i \in \mathcal{I}$ we have $p_i>0$ and $\sum_{i \in \mathcal{I}} p_i = 1$. There is a  unique non-empty compact set $F$ satisfying 
 \[
@@ -151,111 +195,129 @@ and  a unique Borel probability measure $\mu$ satisfying
 \[
 \mu = \sum_{i \in \mathcal{I}} p_i \mu \circ S_i^{-1}
 \]
-which is fully supported on $F$, see \cite[Chapter 9]{falconer} and the references therein.  When all of the contractions $S_i$ are similarities, with similarity ratio $c_i \in \left(0,1 \right)$, then $F$ is called a \emph{self-similar set} and $\mu$ is called a \emph{self-similar measure}.  We refer the reader to \cite{falconer} for a more in depth discussion of IFSs and self-similar sets and measures.
+which is fully supported on $F$, see \cite[Chapter 9]{falconer} and the references therein, notably \cite{hutchinson}. When all of the contractions $S_i$ are similarities, with similarity ratio $c_i \in \left(0,1 \right)$, then $F$ is called a \emph{self-similar set} and $\mu$ is called a \emph{self-similar measure}.  We refer the reader to \cite{falconer} for a more in depth discussion of IFSs and self-similar sets and measures.
 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.3\textwidth}
 		\centering
-		\includegraphics[width=0.85\linewidth]{sierp.png}
+		\includegraphics[width=0.85\linewidth]{pics/ch-upper-reg/sierp.png}
 	\end{subfigure}%
 	\begin{subfigure}{.3\textwidth}
 		\centering
-		\includegraphics[width=.9\linewidth]{sierptetra.png}
+		\includegraphics[width=.9\linewidth]{pics/ch-upper-reg/sierptetra.png}
 	\end{subfigure}%
 	\begin{subfigure}{.3\textwidth}
 		\centering
-		\includegraphics[width=.9\linewidth]{sierptetra2.png}
+		\includegraphics[width=.9\linewidth]{pics/ch-upper-reg/sierptetra2.png}
 	\end{subfigure}
 	\caption{A self-similar Sierpi\'nski triangle and two perspectives of a self-similar Sierpi\'nski tetrahedron.}
-	\label{fig:test}
+	\label{ch-upper-reg:fig:test}
 \end{figure}
 
 We say that the IFS (and associated set $F$ and measure $\mu$) satisfy the \emph{strong separation condition (SSC)} if $S_i(F) \cap S_j(F) = \emptyset$ for all distinct $i,j \in \mathcal{I}$.  This is a natural assumption in the context of the upper regularity dimension.  For example, if the defining IFS consists of the maps $x \mapsto x/2$ and $x \mapsto x/2+1/2$, then the SSC is not satisfied and one easily verifies that $\mu$ is doubling if and only if both probabilities are equal to 1/2 and in this case $\mu$ is Ahlfors-David 1-regular (it is Lebesgue measure on the unit interval). 
 
 
 
-\begin{thm}\label{selfsimilar}
+\begin{theorem}\label{ch-upper-reg:selfsimilar}
 	Let $\mu$ be a self-similar measure as defined above and assume $\mu$ satisfies the SSC.  Then 
 	\[
-	\r = \sup_x \overline{\dim}_{\textup{loc}}(x,\mu) = T(\mu) = \max_{i \in \mathcal{I}} \frac{\log p_i}{\log c_i}.
+	\urdim \mu = \sup_x \overline{\dim}_{\textup{loc}}(x,\mu) = T(\mu) = \max_{i \in \mathcal{I}} \frac{\log p_i}{\log c_i}
 	\]
-\end{thm}
-
-The Assouad dimension of the self-similar set which supports $\mu$ is generally strictly smaller than the upper regularity dimension of $\mu$ in this setting.  In fact the only case where the Assouad dimension and upper regularity dimensions coincide is when  $p_i=c_i^s$ where $s$ is the unique solution of $\sum_{i \in \mathcal{I}} c_i^s = 1$.   In this case $\mu$ is Ahlfors-David $s$-regular and all of the notions of dimension for $F$ and $\mu$ coincide and equal $s$.
-
-
-
-
+	and 
+	\[
+	\lrdim \mu = \inf_x \overline{\dim}_{\textup{loc}}(x,\mu) = \min_{i \in \mathcal{I}} \frac{\log p_i}{\log c_i}
+	\]
+\end{theorem}
 
 
-
+The Assouad dimension of the self-similar set which supports $\mu$ is generally strictly smaller than the upper regularity dimension of $\mu$ in this setting.  In fact the only case where the Assouad dimension and upper regularity dimensions coincide is when  $p_i=c_i^s$ where $s$ is the unique solution of $\sum_{i \in \mathcal{I}} c_i^s = 1$.   In this case $\mu$ is Ahlfors-David $s$-regular and all of the notions of dimension for $F$ and $\mu$ coincide and equal $s$. Regardless of the measure $\mu$, the geometric notions of dimension always coincide for self-similar sets satisfying the SSC and equal the aforementioned $s$. 
 
 
 
 
 
 
-\subsection{Self-affine measures}\label{self-affineresults}
 
 
-In this section we consider an important class of self-affine measures.  Self-affine measures are defined in a similar way to the self-similar measures considered in the previous section, the only difference being that the defining contractions are assumed to be affinities rather than similarities.  In general, such measures are much more difficult to handle due to the fact that different rates of distortion can occur in different directions.  The specific class of self-affine measures we consider are those supported on Bedford-McMullen carpets, see \cite{bedford, mcmullen}, and on the higher dimensional analogues, the Bedford-McMullen sponges, see \cite{kenyonperes, sponges}.  These sets (and measures) came to prominence recently when they were used by Das and Simmons to provide a counter example to an important and long-standing conjecture in dynamical systems \cite{das-simmons}. In particular, there exists a surprising example of a sponge in $\mathbb{R}^3$ whose Hausdorff dimension cannot be approximated by the Hausdorff dimension of measures invariant under the natural associated dynamical system.  We assume the measures satisfy the \emph{very strong separation condition}, which was used by Olsen in \cite{sponges}.  Again, this is the natural condition to assume in the context of upper regularity dimension because without this assumption the self-affine measures tend not to be doubling, see \cite{doublingcarpets, fraser-howroyd}.
+
+
+
+
+
+\subsection{Self-affine measures}\label{ch-upper-reg:self-affineresults}
+
+\textcolor{red}{could do this for ni = ni+1 ?}
+
+In this section we consider an important class of self-affine measures.  Self-affine measures are defined in a similar way to the self-similar measures considered in the previous section, the only difference being that the defining contractions are assumed to be affinities rather than similarities.  In general, such measures are much more difficult to handle due to the fact that different rates of distortion can occur in different directions.  The specific class of self-affine measures we consider are those supported on Bedford-McMullen carpets, see \cite{bedford, mcmullen}, and on the higher dimensional analogues, the Bedford-McMullen sponges, see \cite{kenyonperes, sponges}. 
+
+The study of self-affine sets can be broken into two parts: the study of general self-affine sets and specific examples such as Bedford-McMullen carpets. The generic case dates back to Falconer \cite{falconer-affine} where the affinity dimension was first defined. This case has seen a great deal of study recently as in \cite{barany-hochman-rapaport, etc}. On the other hand, studying specific examples has seen a number of different results, including \cite{bedford,mcmullen, lalley-gatzouras, baranski, mackay}. In particular there is interest in understanding how the special cases, such as carpets, differ from the generic results, see \cite{ianmorris, et al}. 
+
+
+Sponges (and measures defined on them) are less commonly studied, but came to prominence recently when they were used by Das and Simmons to provide a counter example to an important and long-standing conjecture in dynamical systems \cite{das-simmons}. In particular, there exists a surprising example of a sponge in $\mathbb{R}^3$ whose Hausdorff dimension cannot be approximated by the Hausdorff dimension of measures invariant under the natural associated dynamical system. This contrasts with the well known result of \cite{kaenmaki-ON-NATURAL-INVARIANT-MEASURES-ON-GENERALISED-ITERATED-FUNCTION-SYSTEMS} which states that an ergodic invariant measure can be found for typical self-affine sets so that the Hausdorff dimensions coincide.
 
 
 Let $d \geq 2$ be an integer and fix integers $1<n_1 < n_2 \cdots < n_d$.  Choose a subset $\mathcal{I}$ of $\prod_{l=1}^{d} \left\lbrace 0,\ldots, n_l-1 \right\rbrace$ and for $\textbf{i}=(i_1, \ldots, i_d)\in \mathcal{I} $  let $S_{\textbf{i}} \colon [0,1]^d \rightarrow [0,1]^d$ be defined by
 \[
 S_{\textbf{i}}(x_1,x_2\ldots, x_d)= \left( \frac{x_1+i_1}{n_1}, \frac{x_2+i_2}{n_2}, \ldots, \frac{x_d+i_d}{n_d} \right) .
 \]
-Finally, consider the IFS $\{S_i\}_{i \in \mathcal{I}}$  acting on $[0,1]^d$ and let $\{p_i\}_{i \in \mathcal{I}}$ be an associated probability vector as before.  Let $F$ be the associated attractor of this IFS, which is a self-affine set since each of the defining contractions is an affinity, and let $\mu$ be the associated self-affine measure.  We can now state the separation condition we require, which we note  is  strictly stronger than the SSC.
+Finally, consider the IFS $\{S_i\}_{i \in \mathcal{I}}$  acting on $[0,1]^d$ and let $\{p_i\}_{i \in \mathcal{I}}$ be an associated probability vector as before.  Let $F$ be the associated attractor of this IFS, which is a self-affine set since each of the defining contractions is an affinity, and let $\mu$ be the associated self-affine measure.  We can now state the separation condition we require, which we note is strictly stronger than the SSC.
 
 
 \begin{figure}[h]
 	\centering
 	\begin{subfigure}{0.35\textwidth}
 		\centering
-		\includegraphics[width=0.8\linewidth]{sponge11.png}
-		\label{fig:sub1}
+		\includegraphics[width=0.8\linewidth]{pics/ch-upper-reg/sponge11.png}
+		\label{ch-upper-reg:fig:sub1}
 	\end{subfigure}%
 	\begin{subfigure}{0.35\textwidth}
 		\centering
-		\includegraphics[width=0.85\linewidth]{sponge12.png}
-		\label{fig:sub2}
+		\includegraphics[width=0.85\linewidth]{pics/ch-upper-reg/sponge12.png}
+		\label{ch-upper-reg:fig:sub2}
 	\end{subfigure}%
 	\begin{subfigure}{0.35\textwidth}
 		\centering
-		\includegraphics[width=0.85\linewidth]{sponge13.png}
-		\label{fig:sub2}
+		\includegraphics[width=0.85\linewidth]{pics/ch-upper-reg/sponge13.png}
+		\label{ch-upper-reg:fig:sub2}
 	\end{subfigure}
 	\caption{Three perspectives of the self-affine sponge defined by the data: $d=3$,  $n_1=3$, $n_2=4$, $n_3=5$ and  $\mathcal{I} = \{ (0,0,0),(0,2,0),(2,1,1)$, $(2,3,4)$, $(0,0,4) \}$. The origin is marked by a red dot to indicate orientation.}
-	\label{fig:test}
 \end{figure}
 
-\begin{defn}[VSSC, \cite{sponges}]
-	\emph{A self-affine sponge }$F$\emph{ (associated to an index set }$\mathcal{I}$)\emph{ satisfies the }very strong separation condition (VSSC)\emph{ if the following condition  holds. If }$l=1, \ldots, d$\emph{ and }$(i_1, \ldots, i_d)$, $(j_1 ,\ldots, j_d)\in \mathcal{I}$\emph{ satisfy }$i_1=j_1, \ldots,  i_{l-1}=j_{l-1}$\emph{ and }$i_l \neq j_l$,\emph{ then }$\lvert i_l - j_l \rvert >1$.
-\end{defn} 
+\begin{definition}[VSSC, \cite{sponges}]
+	\emph{A self-affine sponge }$F$\emph{ (associated to an index set }$\mathcal{I}$)\emph{ satisfies the }very strong separation condition (VSSC)\emph{ if the following condition  holds. If }$l \in  \left\{1, \ldots, d\right\}$\emph{ and }$(i_1, \ldots, i_d)$, $(j_1 ,\ldots, j_d)\in \mathcal{I}$\emph{ satisfy }$i_1=j_1, \ldots,  i_{l-1}=j_{l-1}$\emph{ and }$i_l \neq j_l$,\emph{ then }$\lvert i_l - j_l \rvert >1$.
+\end{definition} 
+
+
+We assume the self-affine sets studied here satisfy the \emph{very strong separation condition}, which was used by Olsen in \cite{sponges}. Again, this is the natural condition to assume in the context of regularity dimensions because without this assumption the self-affine measures tend not to be doubling, see \cite{doublingcarpets, fraser-howroyd}.
+
 
 Before we state our result, we need to introduce some more notation.  For $l=1, \dots, d$ and $\textbf{i}=(i_1, \ldots, i_d)\in \mathcal{I} $  let 
 \[
 p_l(\mathbf{i})=p (i_l \vert i_1, \ldots , i_{l-1})=\frac{\displaystyle\sum_{\substack{\textbf{j}=\left( j_1, \ldots, j_d\right)\in \mathcal{I} \\ j_1=i_1, \ldots, j_{l-1}=i_{l-1}, j_l=i_l}}p_{\textbf{j}}}{\displaystyle\sum_{\substack{\textbf{j}=\left( j_1, \ldots, j_d\right)\in \mathcal{I} \\ j_1=i_1, \ldots, j_{l-1}=i_{l-1}}}p_{\textbf{j}}}
 \]
-if $(i_1, \ldots, i_l, i_{l+1},\ldots, i_d) \in \mathcal{I}$ for some $i_{l+1},\ldots, i_d$ and $0$ otherwise.  These numbers have a clear interpretation: $p_l(\mathbf{i})$ is the conditional probability that the $l$th digit of an element of $\mathcal{I}$  coincides with the $l$th digit of $\mathbf{i}$, given that the first $l-1$ coordinates did.  Note that when $l=1$ we are conditioning on the entire space and so the denominator of the above conditional probability is taken to be 1.
+if $(i_1, \ldots, i_l, i_{l+1},\ldots, i_d) \in \mathcal{I}$ for some $i_{l+1},\ldots, i_d$ and $0$ otherwise.  These numbers have a clear interpretation: $p_l(\mathbf{i})$ is the conditional probability that the $l$th digit of an element of $\mathcal{I}$  coincides with the $l$'th digit of $\mathbf{i}$, given that the first $l-1$ coordinates did.  Note that when $l=1$ we are conditioning on the entire space and so the denominator of the above conditional probability is taken to be 1.
 
 
-\begin{thm}\label{carpet}
+\begin{theorem}\label{ch-upper-reg:carpet}
 	Let $\mu$ be a self-affine measure on a Bedford-McMullen sponge satisfying the VSSC.  Then
 	\[
-	\r =\sum_{l=1}^d \max_{\mathbf{i}\in \mathcal{I}}\frac{-\log p_l(\mathbf{i})}{\log n_l}.
+	\urdim \mu =\sum_{l=1}^d \max_{\mathbf{i}\in \mathcal{I}}\frac{-\log p_l(\mathbf{i})}{\log n_l}
 	\]
-\end{thm}
-
-
-
+	and 
+	\[
+	\lrdim \mu =\sum_{l=1}^d \min_{\mathbf{i}\in \mathcal{I}}\frac{-\log p_l(\mathbf{i})}{\log n_l}
+	\]
+\end{theorem}
 
 Formulae for $\sup_x \overline{\dim}_{\text{loc}}(x,\mu)$ and $T(\mu)$ for the self-affine measures $\mu$ we consider in this section can be found in \cite{sponges}, where the notation $\overline{a}$ and $\overline{A}$ was used, respectively.    Also, the Assouad dimension of these sponges was first computed by Mackay \cite{mackay} in the case $d=2$ and in \cite{fraser-howroyd} for general $d$.
 
+\textcolor{red}{do lower dim changes still}
+
+
 We will now discuss a family of examples designed to demonstrate that all of the notions of dimension we discuss here can be distinct for self-affine measures.  In particular, the upper regularity dimension can be strictly greater than the Assouad dimension, supremum of the upper local dimensions and the `top of the spectrum', $T(\mu)$.  This behaviour was \emph{not} seen in the self-similar case.
 
-Let $d=2$, $n_1=3$, $n_2=4$,  $\mathcal{I}=\left\{(0,2),(2,1),(2,3)\right\}$ and $p_{(0,2)}=\epsilon,\, p_{(2,1)}=1-3\epsilon/2$ and $p_{(2,3)}=\epsilon/2$ where we allow $\epsilon$ to vary in the interval $(0,1/2]$.  We write $F$ for the self-affine carpet and $\mu$ for the self-affine measure associated with this data.  Observe that the VSSC is satisfied and so our results apply.  Theorem \ref{carpet} yields
+Let $d=2$, $n_1=3$, $n_2=4$,  $\mathcal{I}=\left\{(0,2),(2,1),(2,3)\right\}$ and $p_{(0,2)}=\epsilon,\, p_{(2,1)}=1-3\epsilon/2$ and $p_{(2,3)}=\epsilon/2$ where we allow $\epsilon$ to vary in the interval $(0,1/2]$.  We write $F$ for the self-affine carpet and $\mu$ for the self-affine measure associated with this data.  Observe that the VSSC is satisfied and so our results apply.  Theorem \ref{ch-upper-reg:carpet} yields
 \[
 \r = \frac{-\log \epsilon}{\log 3}+ \frac{-\log \frac{\epsilon/2}{1-\epsilon} }{\log 4},
 \]
@@ -381,7 +443,7 @@ For $\epsilon \in (0,1/2)$  these quantities are all distinct and for $\epsilon=
 	\end{minipage}
 	
 	\caption{Left: the affine maps and associated probabilities.  Right: a plot showing the four different `dimensions' as $\epsilon$ varies.}
-	\label{fig:badcarpet}
+	\label{ch-upper-reg:fig:badcarpet}
 \end{figure}
 
 
@@ -389,7 +451,7 @@ For $\epsilon \in (0,1/2)$  these quantities are all distinct and for $\epsilon=
 
 \subsection{Measures on sequences}
 
-When one first meets the Assouad dimension, the first interesting example is often that the set $\left\{1/n \right\}_{n\in \mathbb{N}}$ has Assouad dimension 1, which is strictly larger than the upper and lower box dimensions which are both 1/2.  Since this example is so prevalent, we decided to investigate the upper regularity dimensions of natural families of measures supported on such sets. For simplicity we restrict our examples to countable subsets of $[0,1]$ with one accumulation point at 0 and measures equal to the sum of decaying point masses on the elements of the set. The interplay between the rate of convergence of the points in the set and the rate of decay of the point masses will turn out to be paramount to understanding the dimension of the measure, and to emphasise this we provide exact results for some simple cases where the rates of convergence are either polynomial or exponential.  However, it could be interesting in the future to study  sequences with other decay rates, for example  stretched exponential decay $a^{n^b}$ for $a,b \in (0,1)$, $n \in \mathbb{N}$.
+When one first meets the Assouad and lower dimensions, the first interesting example is often that the set $\left\{1/n \right\}_{n\in \mathbb{N}}$ has Assouad dimension 1, which is strictly larger than the upper and lower box dimensions which are both 1/2, and the lower dimension of 0.  Since this example is so prevalent, we decided to investigate the regularity dimensions of natural families of measures supported on such sets. For simplicity we restrict our examples to countable subsets of $[0,1]$ with one accumulation point at 0 and measures equal to the sum of decaying point masses on the elements of the set. The interplay between the rate of convergence of the points in the set and the rate of decay of the point masses will turn out to be paramount to understanding the dimension of the measure, and to emphasise this we provide exact results for some simple cases where the rates of convergence are either polynomial or exponential.  However, it could be interesting in the future to study  sequences with other decay rates, for example  stretched exponential decay $a^{n^b}$ for $a,b \in (0,1)$, $n \in \mathbb{N}$.
 
 More concretely, consider the set $\left\{ x_n \ : \ n \in \mathbb{N}\right\}$ where  $x_n  \searrow 0$ and the sequence of weights $\left\{ p(n) \ : \ n \in \mathbb{N} \right\}$ where $p(n) \searrow 0$, and $\sum_{n=1}^\infty p(n) < \infty$.  The measure we are interested in is
 \[
@@ -397,7 +459,7 @@ More concretely, consider the set $\left\{ x_n \ : \ n \in \mathbb{N}\right\}$ w
 \]
 where $\delta_{x_n} $ is a point mass at $x_n$.
 
-\begin{thm}\label{sequences}
+\begin{theorem}\label{ch-upper-reg:sequences}
 	Let $\mu$ be as above.
 	\begin{enumerate}
 		\item Polynomial-polynomial: Let $\lambda > 0$ and $\omega > 1$ and suppose $x_n = n^{-\lambda}$ and $p(n)=n^{-\omega}$.  Then
@@ -415,15 +477,17 @@ where $\delta_{x_n} $ is a point mass at $x_n$.
 		\end{enumerate}
 		then $\mu$ is not doubling, and so  $\r = \infty$.
 	\end{enumerate}
-\end{thm}
+\end{theorem}
 
+
+\textcolor{red}{do lower reg dim}
 
 The above theorem can be summarised by the following table, for suitable values of $\omega$ and $\lambda$:
 
 
 \begin{table}[h]
 	\centering
-	\label{sequencetable}
+	\label{ch-upper-reg:sequencetable}
 	\begin{tabular}{c|cc}
 		$p(n) \setminus x_n$ & $n^{-\lambda}$             & $\lambda^n$                        \\ \hline
 		$n^{-\omega}$       & $\max \left\{1,\frac{\omega - 1}{\lambda}\right\}$ & $\infty$\\
@@ -433,59 +497,16 @@ The above theorem can be summarised by the following table, for suitable values 
 
 
 
-\section{Proofs} \label{proof}
+\section{Proofs} \label{ch-upper-reg:proof}
 
-We prove Theorem \ref{relationships} in Section \ref{spectrumproof} followed by Theorem \ref{weaktangents} on weak tangents in Section \ref{weaktangentsproof}. Section \ref{self-similar} will concern self-similar measures and will include a proof of Theorem \ref{selfsimilar}. Self-affine measures and the proof of Theorem \ref{carpet} will be dealt with in Section \ref{self-affine} along with some additional notation needed to study Bedford-McMullen sponges. Finally, Theorem \ref{sequences} will be proved in Section \ref{sequenceproof}. Any notation introduced in a subsection should only be used in that proof, but any notation used in the first two sections is assumed throughout.
-
-
-\subsection{Proof of equivalence of doubling and finite upper regularity dimension} \label{doublingproof}
-
-As we mentioned in the introduction, a measure is doubling if and only if it has finite upper regularity dimension. Here we state a quantifiable version of this fundamental fact and include our own short proof for completeness.  Given $\theta \in (0,1)$ let
-\[
-C(\theta) = \sup \left\{ \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \ : \ x \in \text{supp}(\mu), R>0 \right\} \geq 1
-\]
-and note that $C(1/2)$ is the `doubling constant' from the definition of doubling.  Also recall that if $C(\theta) < \infty$ for some $\theta \in (0,1)$, then  $C(\theta) < \infty$ for all $\theta \in (0,1)$.
-
-\begin{prop}\label{doubling2}
-	A locally finite Borel measure is doubling if and only if $\r<\infty$.  Moreover, we have
-	\[
-	\r \le \inf_{\theta \in (0,1)} \frac{ \log C(\theta)}{ - \log \theta}.
-	\]
-\end{prop}
-
-
-\begin{proof}
-	If $\r <\infty$ then it follows immediately from the definition that $\mu$ is doubling.  For the reverse implication, assume that $\mu$ is doubling and let $\theta \in (0,1)$.  Therefore, for all $x \in \text{supp}(\mu)$ and $R>0$
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \le C(\theta).
-	\]
-	Fix  $0< r < R$ and  define $k$ to be the unique integer such that $R\theta^k > r \ge R\theta^{k+1}$. Then by telescoping we obtain
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \times \frac{\mu(B(x,\theta R))}{\mu(B(x,\theta^2 R))} \times\cdots \times \frac{\mu(B(x,\theta^k R))}{\mu(B(x,\theta^{k+1}R))} \times \frac{\mu(B(x,\theta^{k+1}R))}{\mu(B(x,r))}.
-	\]
-	Thus 
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,r))} \le C(\theta)^{k+1}  \frac{\mu(B(x,\theta^{k+1}R))}{\mu(B(x,r))} \le C(\theta)^{\log(r/R) / \log \theta+1} = C(\theta) \left(\frac{R}{r} \right)^{-\log C(\theta) / \log \theta}
-	\]
-	and hence $\r \leq -\log C(\theta) / \log \theta < \infty$, as required.
-\end{proof}
+We prove Theorem \ref{ch-upper-reg:relationships} in Section \ref{ch-upper-reg:spectrumproof} followed by Theorem \ref{ch-upper-reg:weaktangents} on weak tangents in Section \ref{ch-upper-reg:weaktangentsproof}. Section \ref{ch-upper-reg:self-similar} will concern self-similar measures and will include a proof of Theorem \ref{ch-upper-reg:selfsimilar}. Self-affine measures and the proof of Theorem \ref{ch-upper-reg:carpet} will be dealt with in Section \ref{ch-upper-reg:self-affine} along with some additional notation needed to study Bedford-McMullen sponges. Finally, Theorem \ref{ch-upper-reg:sequences} will be proved in Section \ref{ch-upper-reg:sequenceproof}. Any notation introduced in a subsection should only be used in that proof, but any notation used in Section \ref{ch-upper-reg:results} is assumed throughout the chapter.
 
 
 
 
+\subsection{Proof of Theorem \ref{ch-upper-reg:relationships}: general relationships}\label{ch-upper-reg:spectrumproof}
 
-
-
-
-
-
-
-
-
-
-\subsection{Proof of Theorem \ref{relationships}: general relationships}\label{spectrumproof}
-
-Let $\mu$ be a Borel probability measure supported on a compact set $X \subseteq \mathbb{R}^d$. Let $0<s< T(\mu)$,  $\r < t < \infty$ and $q<0$. By definition there exists a  constant  $C \geq 1$ such that for all $x\in X$ and for all $0<r< 1$
+Let $\mu$ be a probability measure supported on a compact set $X \subseteq \mathbb{R}^d$. Let $0<s< T(\mu)$,  $\r < t < \infty$ and $q<0$. By definition there exists a  constant  $C \geq 1$ such that for all $x\in X$ and for all $0<r< 1$
 \[
 \frac{\mu(B(x,1))}{\mu(B(x,r))} \le C \left(\frac{1}{r} \right)^t.
 \]
@@ -519,25 +540,28 @@ for all $r\in (0,1)$, which proves that $\l \le u-\epsilon/q$ and since $\epsilo
 
 
 
-\subsection{Weak tangent measures} \label{weaktangentsproof}
+\subsection{Weak tangent measures} \label{ch-upper-reg:weaktangentsproof}
 
-Let $\mu$ be a locally finite Borel measure on $\mathbb{R}^d$, $\left\{T_k\right\}_{k\in \mathbb{N}}$ a sequence of similarities on $\mathbb{R}^d$ with associated contraction ratios $\{c_k\}_{k\in \mathbb{N}}$, $\left\{p_k\right\}_{k\in \mathbb{N}}$ a sequence of positive renormalising numbers, and $\hat{\mu}$ be a corresponding weak tangent measure of $\mu$, that is a Borel measure on $\mathbb{R}^d$ such that 
+Let $\mu$ be a locally finite measure on $\mathbb{R}^d$, $\left\{T_k\right\}_{k\in \mathbb{N}}$ a sequence of similarities on $\mathbb{R}^d$ with associated contraction ratios $\{c_k\}_{k\in \mathbb{N}}$, $\left\{p_k\right\}_{k\in \mathbb{N}}$ a sequence of positive renormalising numbers, and $\hat{\mu}$ be a corresponding weak tangent measure of $\mu$, that is a measure on $\mathbb{R}^d$ such that 
 \[
 p_k \mu \circ T^{-1}_k \rightharpoonup \hat{\mu}
 \]
-where $\rightharpoonup$ means weak convergence. The Portmanteau Theorem (see \cite[Theorem 1.24]{mattila}) says that this is equivalent to 
+where $\rightharpoonup$ means weak convergence of measures. The Portmanteau Theorem (see \cite[Theorem 1.24]{mattila}) says that this is equivalent to 
 \[
 \lim_{k\rightarrow \infty} p_k \mu \circ T^{-1}_k (A) =\hat{\mu}(A)
 \]
-for all $\hat{\mu}$-continuity sets $A$.  Recall that  $A\subseteq \mathbb{R}^d$ is a $\hat{\mu}$-continuity set when $\hat{\mu}(\partial A) = 0$ with $\partial A$ being the boundary of $A$. It is a simple exercise to show that for a fixed $x \in \mathbb{R}^d$, all but at most countably many balls $B(x,r)$ are $\hat{\mu}$-continuity sets of $\mathbb{R}^d$. We now provide a technical lemma which reduces our calculation of the upper regularity dimension of $\hat \mu$ to the study of balls which are $\hat{\mu}$-continuity sets.
+for all $\hat{\mu}$-continuity sets $A$. Recall that  $A\subseteq \mathbb{R}^d$ is a $\hat{\mu}$-continuity set when $\hat{\mu}(\partial A) = 0$ with $\partial A$ being the boundary of $A$. It is a simple exercise to show that for a fixed $x \in \mathbb{R}^d$, all but at most countably many balls $B(x,r)$ are $\hat{\mu}$-continuity sets of $\mathbb{R}^d$. Indeed, assume for a fixed $x \in X$, that there are uncountably many balls of different radii and centre $x$ which are not $\hat{\mu}$-continuity sets. As $\hat{\mu}$ is locally finite, we can write it as a countable sum of finite measures $\hat{\mu}_i$. Since the sets $\partial B(x,r)$ are disjoint for distinct $r$, at most countably many $\partial B(x,r)$ can have positive $\hat{\mu}_i$ measure. Thus at most countably many $\partial B(x,r)$ can have positive $\hat{\mu}$ measure as desired.
 
-\begin{lma}
-	Let $\nu$ be a locally finite Borel measure  on $ \mathbb{R}^d$. Suppose there exist constants $C$ and $s$ such that for all $x\in \textup{supp}(\nu)$ and $0<r<R$ such that $B(x,R)$ and $B(x,r)$ are $\nu$-continuity sets, we have
+
+We start by proving the upper regularity half of the result. A technical lemma is provided which reduces our calculation of the upper regularity dimension of $\hat \mu$ to the study of balls which are $\hat{\mu}$-continuity sets.
+
+\begin{lemma}\label{ch-upper-reg:nu-cont-upper-dim}
+	Let $\nu$ be a locally finite measure  on $ \mathbb{R}^d$. Suppose there exist constants $C$ and $s$ such that for all $x\in \textup{supp}(\nu)$ and $0<r<R$ such that $B(x,R)$ and $B(x,r)$ are $\nu$-continuity sets, we have
 	\[
 	\frac{\nu(B(x,R))}{\nu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s}.
 	\]
 	Then $\overline{\dim}_{\textup{reg}}  \nu \le s.$
-\end{lma}
+\end{lemma}
 
 \begin{proof}
 	Assume 
@@ -551,15 +575,15 @@ for all $\hat{\mu}$-continuity sets $A$.  Recall that  $A\subseteq \mathbb{R}^d$
 	and it follows that $\overline{\dim}_{\textup{reg}}  \nu \le s.$
 \end{proof}
 
-We now return to proving Theorem \ref{weaktangents}. Let  $x \in \textup{supp}( \hat \mu)$ and $\rho>0$ be such that $B(x,\rho)$ is a $\hat \mu$-continuity set.   Therefore 
+We now return to proving Theorem \ref{ch-upper-reg:weaktangents}. Let  $x \in \textup{supp}( \hat \mu)$ and $\rho>0$ be such that $B(x,\rho)$ is a $\hat \mu$-continuity set.   Therefore 
 \[
 \lim_{k\rightarrow \infty} p_k \mu \circ T^{-1}_k (B(x,\rho)) =\hat{\mu}(B(x,\rho)).
 \]
 Therefore, for sufficiently large $k$, 
-\begin{equation} \label{estimatee}
+\begin{equation} \label{ch-upper-reg:estimatee}
 \frac{1}{2}p_k \mu \circ T^{-1}_k (B(x,\rho))  \le \hat{\mu}(B(x,\rho))\le 2p_k \mu \circ T^{-1}_k (B(x,\rho)).
 \end{equation}
-Let $\varepsilon > 0 $ and  $0<r<R$ be such that both $B(x,R)$ and $B(x,r)$ are $\hat \mu$-continuity sets  and  choose $k $ large enough so that  (\ref{estimatee}) holds for $\rho=r$ and $\rho=R$.  In particular,  
+Let $\varepsilon > 0 $ and  $0<r<R$ be such that both $B(x,R)$ and $B(x,r)$ are $\hat \mu$-continuity sets  and  choose $k $ large enough so that  (\ref{ch-upper-reg:estimatee}) holds for $\rho=r$ and $\rho=R$.  In particular,  
 \[
 \frac{\hat{\mu}(B(x,R))}{\hat{\mu}(B(x,r))} \le 4 \frac{p_k\mu \circ T^{-1}_k (B(x,R))}{p_k \mu \circ T^{-1}_k (B(x,r))}=4\frac{\mu (T^{-1}_k (B(x,R)))}{\mu( T^{-1}_k (B(x,r)))}.
 \]
@@ -578,6 +602,43 @@ and $T_k^{-1}(x')$ is in the support of $\mu$.  Therefore
 \end{align*}
 where $C= C(\varepsilon)>0$ is a uniform constant independent of $x$, $r$ and $R$ which comes from the definition of the upper regularity dimension of $\mu$. Letting $\epsilon \to 0$ proves  $\overline{\dim}_{\textup{reg}} \hat{\mu} \le \r$ as desired.
 
+For the lower dimension, a similar technique also holds. The following lemma is the lower regularity analogue to Lemma \ref{ch-upper-reg:nu-cont-upper-dim}.
+
+\begin{lemma}\label{ch-upper-reg:nu-cont-lower-dim}
+	Let $\nu$ be a locally finite measure  on $ \mathbb{R}^d$. Suppose there exist constants $C$ and $s$ such that for all $x\in \textup{supp}(\nu)$ and $0<r<R$ such that $B(x,R)$ and $B(x,r)$ are $\nu$-continuity sets, we have
+	\[
+	\frac{\nu(B(x,R))}{\nu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{t}.
+	\]
+	Then $\underline{\dim}_{\textup{reg}}  \nu \ge t.$
+\end{lemma}
+
+\begin{proof}
+	Assume 
+	\[
+	\frac{\nu(B(x,R))}{\nu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{t}
+	\]
+	holds for all $\nu$-continuity balls. Fix $x  \in \textup{supp}(\nu)$ and let $0<r<R$ be arbitrary. As before there must exist constants $\theta_1(x,r),\theta_2(x,R)\in[1,2]$ such that $B(x,\theta_1(x,r)r)$ and $B(x,\theta_2(x,R)^{-1} R)$ are $\nu$-continuity balls. Thus
+	\[
+	\frac{\nu(B(x,R))}{\nu(B(x,r))} \geq \frac{\nu(B(x,\theta_2(x,R)^{-1}R))}{\nu(B(x,\theta_1(x,r)r))} \ge 4^{-t} C \left(\frac{R}{r}\right)^{t},
+	\]
+	completing the proof.
+\end{proof}
+
+It again suffices to prove Theorem \ref{ch-upper-reg:weaktangents} for $\hat{\mu}$-continuity sets. Let $x \in \textup{supp}( \hat \mu)$, $\varepsilon > 0 $ and  $0<r<R$ be such that both $B(x,R)$ and $B(x,r)$ are $\hat \mu$-continuity sets and choose $k$ large enough so that  (\ref{ch-upper-reg:estimatee}) holds for $\rho=r$ and $\rho=R$. Thus,  
+\[
+\frac{\hat{\mu}(B(x,R))}{\hat{\mu}(B(x,r))} \ge 4^{-1}\frac{\mu (B(T_k^{-1}(x),c_k^{-1}R))}{\mu (B(T_k^{-1}(x),c_k^{-1}r))}.
+\]
+
+As before, $T_k^{-1}(x)$ does not have to be in $\text{supp}(\mu)$ so the definition of the lower regularity dimension can not be applied directly. However, by choosing $k$ large enough (depending on $r$) there exists $x'$ in the support of $\mu \circ T_k^{-1}$ such that
+\[
+B(T_k^{-1}(x),c_k^{-1}r)\subset B(T_k^{-1}(x'),2c_k^{-1}r) \qquad \text{ and } \qquad   B(T_k^{-1}(x'),c_k^{-1}R/2) \subset B(T_k^{-1}(x), c_k^{-1}R).
+\]
+Therefore
+\begin{align*}
+\frac{\hat{\mu}(B(x,R))}{\hat{\mu}(B(x,r))} &\ge  4^{-1}\frac{\mu (B(T_k^{-1}(x'),c_k^{-1}R/2))}{\mu (B(T_k^{-1}(x'),2c_k^{-1}r))} \\
+&\ge  (4^{-1})^{1+\lrdim \mu+ \varepsilon}C \left(\frac{R}{r}\right)^{\lrdim \mu + \varepsilon}
+\end{align*}
+where $C= C(\varepsilon)>0$ is the constant in the definition of the lower regularity dimension of $\mu$. As $\epsilon$ was arbitrary, this proves  $\underline{\dim}_{\textup{reg}} \hat{\mu} \ge \lrdim \mu$ as desired.
 
 
 
@@ -586,19 +647,23 @@ where $C= C(\varepsilon)>0$ is a uniform constant independent of $x$, $r$ and $R
 
 
 
-\subsection{Proof of Theorem \ref{selfsimilar}: self-similar measures} \label{self-similar}
 
 
-There is a natural correspondence between the geometric fractal $F$ and the symbolic space $\mathcal{I}^{\mathbb{N}}$ (the set of all infinite words over $\mathcal{I}$) via the coding map $\pi \colon \mathcal{I}^{\mathbb{N}} \rightarrow \mathbb{R}^d$ defined by 
+\subsection{Proof of Theorem \ref{ch-upper-reg:selfsimilar}: self-similar measures} \label{ch-upper-reg:self-similar}
+
+
+If $F$ is a self-similar set defined with the IFS $\left\{S_i \right\}_{i\in \mathcal{I}}$, there is a natural correspondence between the geometric fractal $F$ and the symbolic space $\mathcal{I}^{\mathbb{N}}$ (the set of all infinite words over $\mathcal{I}$) via the coding map $\pi \colon \mathcal{I}^{\mathbb{N}} \rightarrow \mathbb{R}^d$ defined by 
 \[
 \{\pi(i_0,i_1,\ldots) \} =  \bigcap_{n=0}^\infty S_{i_0,\ldots, i_n}(F)
 \]
-where $S_{i_0,\ldots, i_n} = S_{i_0} \circ \cdots \circ S_{ i_n}$.  For $ i_0,i_1,\ldots, i_{n-1} \in \mathcal{I}$ we define a cylinder $[i_0,i_1,\ldots, i_{n-1}] \subseteq \mathcal{I}^\mathbb{N}$, to be the set of all words in $\mathcal{I}^{\mathbb{N}}$ whose first $n$ letters are $i_0,i_1,\ldots, i_{n-1}$. The collection of all level $n$ cylinders corresponds to the  $n$th level  pre-fractal of the attractor.  It is well-known that $F= \pi(\mathcal{I}^\mathbb{N})$ and the SSC also guarantees that $\pi$ is a bijection so we may interchange the symbolic and geometric spaces.  Also note that  $c_{i_0}\cdots c_{i_{n}}$ is the contraction ratio of the similarity $S_{i_0,\ldots, i_n} $,  $\pi([i_0,i_1,\ldots, i_{n}] ) = S_{i_0,\ldots, i_n} (F)$ and the $\mu$ measure of $S_{i_0,\ldots, i_n} (F)$  is $p_{i_0}\cdots p_{i_{n}}$.  By rescaling if necessary, we may assume without loss of generality that diam$(F)=1$. 
+where $S_{i_0,\ldots, i_n} = S_{i_0} \circ \cdots \circ S_{ i_n}$. This technique is useful as the symbolic space is often easier to work with than the Euclidean geometry of the attractor and since $\pi$ provides a natural passage between the two settings we can work in the space that is most helpful whenever desired. 
+
+For $ i_0,i_1,\ldots, i_{n-1} \in \mathcal{I}$ we define a cylinder $[i_0,i_1,\ldots, i_{n-1}] \subseteq \mathcal{I}^\mathbb{N}$, to be the set of all words in $\mathcal{I}^{\mathbb{N}}$ whose first $n$ letters are $i_0,i_1,\ldots, i_{n-1}$. The collection of all level $n$ cylinders corresponds to the  $n$'th level  pre-fractal of the attractor, an approximation of the attractor itself.  It is well-known that $F= \pi(\mathcal{I}^\mathbb{N})$ and the SSC also guarantees that $\pi$ is a bijection so we may interchange the symbolic and geometric spaces.  Also note that  $c_{i_0}\cdots c_{i_{n}}$ is the contraction ratio of the similarity $S_{i_0,\ldots, i_n} $,  $\pi([i_0,i_1,\ldots, i_{n}] ) = S_{i_0,\ldots, i_n} (F)$ and the $\mu$ measure of $S_{i_0,\ldots, i_n} (F)$  is $p_{i_0}\cdots p_{i_{n}}$.  By rescaling if necessary, we may assume without loss of generality that diam$(F)=1$. 
 
 
 We define $\delta$ to be the minimal distance between distinct  sets $S_i(F)$ and $S_j(F)$, that is 
 \[
-\delta= \min_{i\neq j} \inf_{\substack{x \in S_i(F) \\ y \in S_j(F)}} \lvert x-y \rvert.
+\delta= \min_{i\neq j} \inf_{\substack{x \in S_i(F) \\ y \in S_j(F)}} d(x,y).
 \]
 The SSC guarantees that $\delta > 0$. Thus the minimal distance between $S_{i_0,\ldots,i_{n-1},i}(F)$ and $S_{i_0,\ldots,i_{n-1},j}(F)$ is at least $c_{i_0}\cdots c_{i_{n-1}} \delta$ for any   $ i_0,i_1,\ldots, i_{n-1} \in \mathcal{I}$ and $i\neq j$.
 
@@ -611,43 +676,59 @@ We also let $m(x,r)$ be the smallest non-negative  integer such that
 $$
 \pi([i_0,\ldots, i_{m(x,r)}])\subset B(x,r/2),
 $$
-and so, in particular,  $p_{i_0}\cdots p_{i_{m(x,r)}} \le \mu (B(x,r))$.  Note that for any $x \in F$, and small $ r>0$,  $c_{i_0} \cdots c_{i_{m(x,r)}} \leq r$. Also  $\pi([i_0,\ldots, i_{m(x,r)-1}]) \not\subset B(x,r/2)$ and so $c_{i_0} \cdots c_{i_{m(x,r)-1}} \ge r/2$. Using the SSC, we have that for all $x=\pi(i_0,\ldots)$ and  $r>0$, we have $\mu(B(x,\frac{\delta r}{2}))\le p_{i_0}\cdots p_{i_{n(x,r)}}$ where $\delta$ is the constant determined by the SSC. This is true since $B(x, \frac{\delta r}{2}) \cap F  \subseteq \pi([i_0,\ldots, i_{n(x,r)}])$.
+and so, in particular,  $p_{i_0}\cdots p_{i_{m(x,r)}} \le \mu (B(x,r))$.  Note that for any $x \in F$, and small $ r>0$,  $c_{i_0} \cdots c_{i_{m(x,r)}} \leq r$. By choosing $m(x,r)$ to be minimal,  $\pi([i_0,\ldots, i_{m(x,r)-1}]) \not\subset B(x,r/2)$ and so $c_{i_0} \cdots c_{i_{m(x,r)-1}} \ge r/2$. Using the SSC, we have that for all $x=\pi(i_0,\ldots)$ and  $r>0$, we have $\mu(B(x,\frac{\delta r}{2}))\le p_{i_0}\cdots p_{i_{n(x,r)}}$ where $\delta$ is the separation constant determined by the SSC. This is true since $B(x, \frac{\delta r}{2}) \cap F  \subseteq \pi([i_0,\ldots, i_{n(x,r)}])$.
 
-Let $x = \pi(\omega)$ where $\omega \in \mathcal{I}^{\mathbb{N}}$ is an infinite string of the symbol  $i$ which maximises $\log p_i/\log c_i$. It follows that $n(x,r) > \log r / \log {c_i} - 1$ and therefore
+We are now in a position to prove both parts of Theorem \ref{ch-upper-reg:selfsimilar}. The setup so far is sufficient for both dimension results and the proofs are alike. We start by proving a lower bound to the upper regularity dimension.
+
+Let $x = \pi(\omega_\textup{max})$ where $\omega_\textup{max} \in \mathcal{I}^{\mathbb{N}}$ is an infinite string of the symbol  $i$ which maximises $\log p_i/\log c_i$. It follows that $n(x,r) > \log r / \log {c_i} - 1$ and therefore
 \[
 \mu(B(x,\delta r/2)) \le p_{i}^{n(x,r)} \leq p_i^{-1} r^{\log p_i/\log c_i}
 \]
-and it follows that $\overline{\dim}_{\text{loc}}(x,\mu) \geq \log p_i/\log c_i = \colon t$.  Moreover, Theorem \ref{relationships} yields  $ \r  \geq \sup_{x\in F} \overline{\dim}_{\text{loc}}(x,\mu) \ge  t$.  We will now demonstrate the reverse inequality. 
+and it follows that $\overline{\dim}_{\text{loc}}(x,\mu) \geq \log p_i/\log c_i = \colon s$.  Moreover, Theorem \ref{ch-upper-reg:relationships} yields  $ \r  \geq \sup_{x\in F} \overline{\dim}_{\text{loc}}(x,\mu) \ge  s$.  We will now demonstrate the reverse inequality. 
 
 
 
 
 
-As $F$ satisfies the SSC and $\mu$ is a Bernoulli measure, it is doubling (see \cite{olsenformalism}, for example). Thus there exists a constant $C \geq 1$ depending only on $\delta/2 < 1$ such that $\frac{\mu(B(x, R))}{\mu(B(x,\delta R/2))}\le C$ for any $x\in F$ and for any $R>0$.  Let $x \in F$ and $0<r<R$  and assume without meaningful loss of generality that $n(x,R) < m(x,r)$. If this were not true, then $R/r$ is bounded above by a uniform constant -- a situation we can safely ignore.  Hence
+As $F$ satisfies the SSC and $\mu$ is a Bernoulli measure, it is doubling (see \cite{olsenformalism}, for example). Thus recall there exists a constant $C(\delta/2) \geq 1$ depending only on $\delta/2 < 1$ such that $\frac{\mu(B(x, R))}{\mu(B(x,\delta R/2))}\le C(\delta/2)$ for any $x\in F$ and for any $R>0$.  Let $x \in F$ and $0<r<R$  and assume without meaningful loss of generality that $n(x,R) < m(x,r)$. If this were not true, then $R/r$ is bounded above by a uniform constant -- a situation we can safely ignore.  Hence
 \begin{align*}
-\frac{\mu(B(x,R))}{\mu (B(x,r))}& \le \ C \frac{\mu(B(x,\delta R/2))}{\mu (B(x,r))}  \\
-& \le \ C \frac{p_{i_0}\cdots p_{i_{n(x,R)}}}{p_{i_0}\cdots p_{i_{m(x,r)}}} \\
-& =\  C  \frac{1}{p_{i_{n(x,R)+1}}} \cdots \frac{1}{p_{i_{m(x,r)}}} \\
-& = \ C  \left(\frac{1}{c_{i_{n(x,R)+1}}}\right)^{\log p_{i_{n(x,R)+1}}/\log c_{i_{n(x,R)+1}}} \cdots \left(\frac{1}{c_{i_{m(x,r)}}}\right)^{\log p_{i_{m(x,r)}}/\log c_{i_{m(x,r)}}} \\
-& \le\  C  \left( \frac{1}{c_{i_{n(x,R)+1}}}\right)^t \cdots \left( \frac{1}{c_{i_{m(x,r)}}}\right)^t \\
-%& =\  C   \left( \frac{c_{(i_0,\ldots, i_{n(x,R)})}}{c_{(i_0,\ldots, i_{m(x,r)})}}\right)^t \\
-& = \ C  \left(\frac{1}{c_{i_{n(x,R)+1}} c_{i_{m(x,r)}}}\right)^t \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{n(x,R)+1}}}{c_{i_0}c_{i_1} \cdots c_{i_{m(x,r)-1}}}\right)^t \\
-& \le \  C   \left(\frac{2}{c_{\min}^2}\right)^t \left( \frac{R}{r}\right)^t
+\frac{\mu(B(x,R))}{\mu (B(x,r))}& \le \ C(\delta/2) \frac{\mu(B(x,\delta R/2))}{\mu (B(x,r))}  \\
+& \le \ C(\delta/2) \frac{p_{i_0}\cdots p_{i_{n(x,R)}}}{p_{i_0}\cdots p_{i_{m(x,r)}}} \\
+& =\  C(\delta/2)  \frac{1}{p_{i_{n(x,R)+1}}} \cdots \frac{1}{p_{i_{m(x,r)}}} \\
+& = \ C(\delta/2)  \left(\frac{1}{c_{i_{n(x,R)+1}}}\right)^{\log p_{i_{n(x,R)+1}}/\log c_{i_{n(x,R)+1}}} \cdots \left(\frac{1}{c_{i_{m(x,r)}}}\right)^{\log p_{i_{m(x,r)}}/\log c_{i_{m(x,r)}}} \\
+& \le\  C(\delta/2)  \left( \frac{1}{c_{i_{n(x,R)+1}}}\right)^s \cdots \left( \frac{1}{c_{i_{m(x,r)}}}\right)^s \\
+%& =\  C(\delta/2)   \left( \frac{c_{(i_0,\ldots, i_{n(x,R)})}}{c_{(i_0,\ldots, i_{m(x,r)})}}\right)^s \\
+& = \ C(\delta/2)  \left(\frac{1}{c_{i_{n(x,R)+1}} c_{i_{m(x,r)}}}\right)^s \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{n(x,R)+1}}}{c_{i_0}c_{i_1} \cdots c_{i_{m(x,r)-1}}}\right)^s \\
+& \le \  C(\delta/2)   \left(\frac{2}{c_{\min}^2}\right)^s \left( \frac{R}{r}\right)^s
 \end{align*}
-where $c_{\min} = \min_{i\in \mathcal{I}}c_i$, is just a constant.  The desired upper bound, and Theorem \ref{selfsimilar}, follows.
+where $c_{\min} = \min_{i\in \mathcal{I}}c_i$, is just a constant. The desired upper bound, and the first part of Theorem \ref{ch-upper-reg:selfsimilar}, follows.
+
+
+To find an upper bound for the lower regularity dimension, choose $x = \pi (\omega_\textup{min})$ with $\omega_\textup{min} \in \mathcal{I}^{\mathbb{N}}$ is the infinite string of the repeated symbol $i$ which minimises $\log p_i / \log c_i$. Then $n(x,r) \le  \log r / \log c_i$ and thus
+\[
+\mu(B(x,\delta r / 2)) \ge r^{\log p_i / \log c_i}.
+\]
+Hence $\llocal \le \log p_i/c_i =: t$ and $\lrdim \mu \le \inf_{x\in F} \llocal \le t$ by Theorem \ref{ch-upper-reg:relationships} as desired.
+
+The lower bound follows in the same way that the upper bound for the upper regularity dimension was found, we summarise this calculation. Note that the measure is still doubling and the previous inequality regarding the doubling constant will be used here, this is simply to make the choice of $n(x,r)$ more natural.
+\begin{align*}
+\frac{\mu(B(x,R))}{\mu (B(x,r))}& \ge \ C(\delta/2)^{-1} \frac{\mu(B(x,R))}{\mu (B(x,\delta r/2))}  \\
+& \ge \ C(\delta/2)^{-1} \frac{p_{i_0}\cdots p_{i_{m(x,R)}}}{p_{i_0}\cdots p_{i_{n(x,r)}}} \\
+& = \ C(\delta/2)^{-1}  \left(\frac{1}{c_{i_{m(x,R)+1}}}\right)^{\log p_{i_{m(x,R)+1}}/\log c_{i_{m(x,R)+1}}} \cdots \left(\frac{1}{c_{i_{n(x,r)}}}\right)^{\log p_{i_{n(x,r)}}/\log c_{i_{n(x,r)}}} \\
+& \ge\  C(\delta/2)^{-1}  \left( \frac{1}{c_{i_{m(x,R)+1}}}\right)^t \cdots \left( \frac{1}{c_{i_{n(x,r)}}}\right)^t \\
+& = \ C(\delta/2)^{-1} \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{m(x,R)}}}{c_{i_0}c_{i_1} \cdots c_{i_{n(x,r)}}}\right)^t \\
+& \ge \  C(\delta/2)^{-1} \left( \frac{c_{i_{m(x,R)}}c_{i_{n(x,r)}}}{2}  \right)^t  \left( \frac{R}{r}\right)^t \ge \  C(\delta/2)^{-1} \left( \frac{c_{\min}^2}{2}  \right)^t  \left( \frac{R}{r}\right)^t
+\end{align*}
+where $c_{\min}$ is as before, completing the proof.
 
 
 
 
+\subsection{Proof of Theorem \ref{ch-upper-reg:carpet}: self-affine measures} \label{ch-upper-reg:self-affine}
 
 
 
-
-\subsection{Proof of Theorem \ref{carpet}: self-affine measures} \label{self-affine}
-
-
-
-Similar to the previous section, we use the natural correspondence between the self-affine set $F$ and the symbolic space $\mathcal{I}^{\mathbb{N}}$ (the set of all infinite words over $\mathcal{I}$) via the coding map $\pi \colon \mathcal{I}^{\mathbb{N}} \rightarrow \mathbb{R}^d$ defined by 
+Similar to the previous section, we use the natural correspondence between the self-affine set $F\subseteq \mathbb{R}^d$ and the symbolic space $\mathcal{I}^{\mathbb{N}}$ (the set of all infinite words over $\mathcal{I}$) via the coding map $\pi \colon \mathcal{I}^{\mathbb{N}} \rightarrow \mathbb{R}^d$ defined by 
 \[
 \{\pi(\textbf{i}_1, \textbf{i}_2, \ldots)\}=  \bigcap_{n=1}^\infty S_{\textbf{i}_1,\ldots, \textbf{i}_n}(F).
 \]
@@ -669,76 +750,110 @@ The geometric analogue is $\pi\left(Q(\omega, r)\right)$, which is contained in
 \[ 
 \prod_{l=1}^d \left[\frac{i_{1,l}}{n_l}+\cdots+\frac{i_{k_l(r),l}}{n_l^{k_l(r)}} \, , \, \frac{i_{1,l}}{n_l}+\cdots+\frac{i_{k_l(r),l}}{n_l^{k_l(r)}}+\frac{1}{n_l^{k_l(r)}} \right];
 \]
-a hypercuboid in $\mathbb{R}^d$ aligned with the coordinate axes with side lengths $n_l^{-k_l(r)}$, which are all comparable to $r$ since $ r \leq n_l^{-k_l(r)} < n_l r$.  Thus the measure of a ball can be closely approximated by the measure of an appropriate approximate cube.  This is made precise by the following   useful proposition due to Olsen \cite[Proposition 6.2.1]{sponges}.
-\begin{prop}[\cite{sponges}] \label{ballscubes}
+a hypercuboid in $\mathbb{R}^d$ aligned with the coordinate axes with side lengths $n_l^{-k_l(r)}$, which are all comparable to $r$ since $ r \leq n_l^{-k_l(r)} < n_l r$.  Thus the measure of a ball can be closely approximated by the measure of an appropriate approximate cube.  This is made precise by the following useful proposition due to Olsen \cite[Proposition 6.2.1]{sponges}.
+\begin{proposition}[\cite{sponges}] \label{ch-upper-reg:ballscubes}
 	Let $\omega \in \mathcal{I}^{\mathbb{N}}$ and $k \in \mathbb{N}$.
 	\begin{enumerate} 
 		\item If the VSSC is satisfied, then $B\left( \pi(\omega), 2^{-1}n_1^{-k}\right)\cap F \subseteq \pi \left(Q\left( \omega, n_1^{-k} \right) \right).$ 
 		\item  $\pi \left(Q\left( \omega, 1/n_1^k \right) \right) \subseteq B\left( \pi(\omega), (n_1+\dots+n_d)n_1^{-k}\right).$ 
 	\end{enumerate}
-\end{prop}
+\end{proposition}
 
-This proposition means, since we assume the VSSC, that a ball of a particular radius contains, and is contained in, an approximate cube of a comparable radius.  Therefore we may replace balls with approximate cubes in the definition of upper regularity dimension, which makes the calculations much easier.    For  a more in depth explanation of this simplification, see \cite{fraser-howroyd}.
+This proposition means, since we assume the VSSC, that a ball of a particular radius contains, and is contained in, an approximate cube of a comparable radius.  Therefore we may replace balls with approximate cubes in the definition of the regularity dimensions, which makes the calculations much easier. This method was used in \cite[Proposition 3.1 and 3.5]{fraser-howroyd} to calculate the Assouad and lower dimensions of sponges. 
 
-Recalling the conditional probabilities $p(i_{l}\vert i_{1},\ldots,i_{l-1})$, defined in Section \ref{self-affineresults}, which give the probability of having $i_{l}$ as the $\text{l}^{\text{th}}$ coordinate given the previous ones, we can write down an explicit formula for the $\mu $ measure of an approximate cube for any $\omega \in \mathcal{I}^{\mathbb{N}}$ and $r \in (0,1)$:
-\begin{equation} \label{approxcubemeasure}
-\mu(\pi(Q(\omega,r)))=\prod^d_{l=1} \prod_{j=0}^{k_l(r)-1}p_l(\sigma^j\omega)
-\end{equation}
-where $p_l(\omega)=p(i_{1,l}\vert i_{1,1},\ldots,i_{1,l-1})$ and $\sigma: \mathcal{I}^{\mathbb{N}} \to \mathcal{I}^{\mathbb{N}}$ is the left shift.  This formula follows immediately from the definition of $\mu$ and was first observed by Olsen   \cite[(6.2)]{sponges}.
-
-For  $l=1,\ldots, d$, let $p_l^{\text{min}}=\min_{j\in \mathcal{I}} p_l(\mathbf{j})$  and let  $i_l^{\min} \in \mathcal{I}$ be an element achieving this minimum.  If such an element is not unique,  it does not matter which we choose.  Let $t=\sum_{l=1}^d\frac{-\log p_l^{\text{min}}}{\log n_l}$, be the target dimension.  Let $x= \pi(\omega) \in F$ for a (unique) $\omega \in \mathcal{I}^{\mathbb{N}}$ and $0<r<R\le 1$. By the above discussion, and Proposition \ref{ballscubes}, we see that
+For any $\omega \in \mathcal{I}^{\mathbb{N}}$ with $x= \pi(\omega) \in F$ and $0<R\le 1$, by Proposition \ref{ch-upper-reg:ballscubes} we see that
+\[
+\pi(Q(\omega, \frac{R}{n_1(n_1+ \cdots + n_d)}))  \subseteq B(x,R) \subseteq \pi (Q(\omega,2 n_1 R)).
+\]
+Thus
 \[
 \frac{\mu \left(\pi \left(Q\left(\omega,\frac{R}{n_1(n_1+ \cdots + n_d)}\right)\right)\right)} {\mu(\pi(Q(\omega,2n_1 r)))} \ \leq \  \frac{\mu(B(x,R))}{\mu(B(x,r))}  \ \leq \ \frac{\mu(\pi(Q(\omega,2n_1 R)))}{\mu \left(\pi \left(Q\left(\omega,\frac{r}{n_1(n_1+ \cdots + n_d)}\right)\right)\right)}
 \]
-and so to compute  $\r $ it suffices to consider 
+and so to compute $\urdim \mu$ and $\lrdim \mu$ it suffices to consider 
 \[
 \frac{\mu(\pi(Q(\omega,R)))}{\mu(\pi(Q(\omega,r)))} 
 \]
-directly.  We begin with an upper bound using (\ref{approxcubemeasure}) and for convenience we assume without loss of generality that $r < R/ n_d$, which ensures $k_l(R) < k_l(r)$ for all $l$.  We have
+directly. 
+
+
+Recalling the conditional probabilities $p(i_{l}\vert i_{1},\ldots,i_{l-1})$, defined in Section \ref{ch-upper-reg:self-affineresults}, which give the probability of having $i_{l}$ as the $\text{l}^{\text{th}}$ coordinate given the previous ones, we can write down an explicit formula for the $\mu $ measure of an approximate cube for any $\omega \in \mathcal{I}^{\mathbb{N}}$ and $r \in (0,1)$:
+\begin{equation} \label{ch-upper-reg:approxcubemeasure}
+\mu(\pi(Q(\omega,r)))=\prod^d_{l=1} \prod_{j=0}^{k_l(r)-1}p_l(\sigma^j\omega)
+\end{equation}
+where $p_l(\omega)=p(i_{1,l}\vert i_{1,1},\ldots,i_{1,l-1})$ and $\sigma: \mathcal{I}^{\mathbb{N}} \to \mathcal{I}^{\mathbb{N}}$ is the left shift.  This formula follows immediately from the definition of $\mu$ and was first observed by Olsen \cite[(6.2)]{sponges}.
+
+With the preliminaries out of the way we are now able to tackle the upper regularity dimension. For $l=1,\ldots, d$, let $p_l^{\text{min}}=\min_{j\in \mathcal{I}} p_l(\mathbf{j})$  and let  $i_l^{\min} \in \mathcal{I}$ be an element achieving this minimum.  If such an element is not unique, it does not matter which we choose. Let $s=\sum_{l=1}^d\frac{-\log p_l^{\text{min}}}{\log n_l}$ be the target dimension. We begin with an upper bound using (\ref{ch-upper-reg:approxcubemeasure}). Let $x = \pi(\omega ) \in F$ and $0< r < R\le 1$ and for convenience we assume without loss of generality that $r < R/ n_d$, which ensures $k_l(R) < k_l(r)$ for all $l$.  We have
 \begin{align*}
 \frac{\mu(\pi(Q(\omega,R)))}{\mu(\pi(Q(\omega,r)))} \ = \ \frac{\prod_{l=1}^d\left(\prod_{j=0}^{k_l(R)-1}p_l(\sigma^j \omega) \right)}{\prod_{l=1}^d\left(\prod_{j=0}^{k_l(r)-1}p_l(\sigma^j \omega) \right)}  & = \ \frac{1}{\prod_{l=1}^d\left(\prod_{j=k_l(R)}^{k_l(r)-1}p_l(\sigma^j \omega) \right)} \\
 & \le\  \prod_{l=1}^d \frac{1}{\prod_{j=k_l(R)}^{k_l(r)-1}p_l^{\text{min}}} \\
 & =\  \prod_{l=1}^d\left( \frac{1}{p_l^{\text{min}}}\right)^{k_l(r)-k_l(R)} \\
 & \le\  \prod_{l=1}^d \left( \frac{1}{p_l^{\text{min}}}\right)^{-\log r/\log n_l + \log R/\log n_l + 1}  \\
-& \le \ p^{-d} \left( \frac{R}{r} \right)^{t}
+& \le \ p^{-d} \left( \frac{R}{r} \right)^{s}
 \end{align*}
-where $p = \min_l p_l^{\text{min}}>0$ is a constant. It follows that $\r \le t$.
+where $p = \min_l p_l^{\text{min}}>0$ is a constant. It follows that $\urdim \mu \le s$.
 
-
-For the lower bound, we have to be a little more careful with the relationship between $R$ and $r$.  Again we assume that $r < R/ n_d$, which ensures $k_l(R) < k_l(r)$ for all $l$.  However, for technical reasons we also require $k_l(R) > k_{l+1}(r)$ for all $l = 1, \dots, d-1$.  For this it is sufficient to assume
+\textcolor{red}{this is where nl = nl+1 comes in}
+For the lower bound, we aim to find a sequence of points in $F$ and scales $r<R$ for which the ratio of measures will behave like $(R/r)^s$. We have to be a little more careful with the relationship between $R$ and $r$ in this setting though. Again we assume that $r < R/ n_d$, which ensures $k_l(R) < k_l(r)$ for all $l$.  However, for technical reasons we also require $k_l(R) > k_{l+1}(r)$ for all $l = 1, \dots, d-1$.  For this it is sufficient to assume
 \[
 (n_lR)^{\frac{\log n_{l+1}}{\log n_l}} < r
 \]
 and fortunately we can choose $r$ satisfying both of these conditions simultaneously.  This is where we use the fact that the $n_l$ are strictly increasing.  Moreover, we can choose a sequence of pairs $(r,R)$ such that $R \to 0$, $R/r \to \infty$ and
 \[
-(n_lR)^{\frac{\log n_{l+1}}{\log n_l}} < r< R/ n_d.
+(n_lR)^{\frac{\log n_{l+1}}{\log n_l}} < r < R/ n_d.
 \]
 Let $R,r$ be a pair from this sequence and observe that
-\begin{equation} \label{orderingk}
+\begin{equation} \label{ch-upper-reg:orderingk}
 k_d(R)< k_d(r)<k_{d-1}(R)< k_{d-1}(r)< \cdots <k_2(R)<k_2(r)<k_1(R)<k_1(r).
 \end{equation}
-Let $\omega \in  \mathcal{I}^{\mathbb{N}}$ be chosen such that
+For fixed $r,R$ as above, let $\omega \in \mathcal{I}^{\mathbb{N}}$ (and so $x = \pi(\omega)$) be chosen such that
 \begin{align*} 
 \omega&= (i_1,\ldots, i_{k_d(R)}, i_d^{\text{min}},\ldots, i_d^{\text{min}}, i_{k_d(r)+1},\ldots, i_{k_2(R)},\\
-&i_2^{\text{min}},\ldots , i_2^{\text{min}}, i_{k_2(r)+1},\ldots, i_{k_1(R)}, i_1^{\text{min}}, \ldots, i_1^{\text{min}}, i_{k_1(r)+1},\ldots).
+&i_2^{\text{min}},\ldots , i_2^{\text{min}}, i_{k_2(r)+1},\ldots, i_{k_1(R)}, i_1^{\text{min}}, \ldots, i_1^{\text{min}}, i_{k_1(r)+1},\ldots),
 \end{align*}
-where the coordinates not specified as $i_l^{\text{min}}$ (for some $l \in \{1, \dots, d\}$) are arbitrary.  In particular, we insist that the coordinates $i_{k_l(R)+1}, \dots, i_{k_l(r)}$ are all equal to $i_l^{\min}$.   Note that we use (\ref{orderingk}) here.  We have
+where the coordinates not specified as $i_l^{\text{min}}$ (for some $l \in \{1, \dots, d\}$) are arbitrary.  In particular, we insist that the coordinates $i_{k_l(R)+1}, \dots, i_{k_l(r)}$ are all equal to $i_l^{\min}$. Note that we use (\ref{ch-upper-reg:orderingk}) here. We have
 \begin{align*}
 \frac{\mu(\pi(Q(\omega,R)))}{\mu(\pi(Q(\omega,r)))}  \ = \ \frac{\prod_{l=1}^d\left(\prod_{j=0}^{k_l(R)-1}p_l(\sigma^j \omega) \right)}{\prod_{l=1}^d\left(\prod_{j=0}^{k_l(r)-1}p_l(\sigma^j \omega) \right)} & =\ \frac{1}{\prod_{l=1}^d\left(\prod_{j=k_l(R)}^{k_l(r)-1}p_l(\sigma^j \omega) \right)} \\
 & = \ \prod_{l=1}^d\left( \frac{1}{p_l^{\text{min}}}\right)^{k_l(r)-k_l(R)}  \\
 & \ge\  \prod_{l=1}^d \left( \frac{1}{p_l^{\text{min}}}\right)^{-\log r/\log n_l -1+ \log R/\log n_l }  \\
+& \ge \ p^{d} \left( \frac{R}{r} \right)^{s}
+\end{align*}
+where $p = \min_l p_l^{\text{min}}>0$ is a constant as before.  Since we can choose a sequence of parameters $x = \pi(\omega)$, $r<R$ satisfying the above with $R/r \to \infty$, it follows that $\urdim \mu \ge s$, completing the proof for the upper regularity dimension.
+
+
+
+
+
+
+We proceed in much the same way for the lower regularity dimension, assuming the same preliminary work. For $l=1,\ldots, d$, choose $p_l^{\textup{max}}=\max_{j\in \mathcal{I}} p_l(\mathbf{j})$ and let  $i_l^{\max} \in \mathcal{I}$ be an element achieving this maximum. Again, if multiple options exist, any will suffice. Let $t = \sum_{l=1}^d\frac{-\log p_l^{\text{max}}}{\log n_l}$ be the target dimension. Starting with the lower bound again uses (\ref{ch-upper-reg:approxcubemeasure}). Let $x = \pi(\omega) \in F$ and $0<r<R \le 1$, assuming without loss of generality that $r < R/ n_d$, which guarantees $k_l(R) < k_l(r)$ for all $l$. Then
+\begin{align*}
+\frac{\mu(\pi(Q(\omega,R)))}{\mu(\pi(Q(\omega,r)))}  & = \ \frac{1}{\prod_{l=1}^d\left(\prod_{j=k_l(R)}^{k_l(r)-1}p_l(\sigma^j \omega) \right)} \\
+& \ge\  \prod_{l=1}^d\left( \frac{1}{p_l^{\text{max}}}\right)^{k_l(r)-k_l(R)} \\
+& \ge\  \prod_{l=1}^d \left( \frac{1}{p_l^{\text{max}}}\right)^{-\log r/\log n_l -1 + \log R/\log n_l}  \\
 & \ge \ p^{d} \left( \frac{R}{r} \right)^{t}
 \end{align*}
-where $p = \min_l p_l^{\text{min}}>0$ is a constant as before.  Since we can choose a sequence of parameters $x = \pi(\omega)$, $r<R$ satisfying the above with $R/r \to \infty$, it follows that $\r \ge t$, completing the proof.
+with $p$ the constant defined previously. It follows that $\lrdim \mu \ge t$.
+
+For the upper bound, the goal is to construct sequences $x$ and $0 < r < R$ for which the expected dimension is attained. Let $0<r<R$ be any reals satisfying the previous restrictions which ensure that $ k_{l+1}(r)< k_l(R) < k_l(r) < k_{l-1}(R)$ holds for all $l$. The assumption that the $n_l$ are strictly increasing still holds in this setting, so that entire discussion holds. Given these $r$ and $R$, choose $\omega \in \mathcal{I}^\mathbb{N}$ so that 
+\begin{align*} 
+\omega&= (i_1,\ldots, i_{k_d(R)}, i_d^{\text{max}},\ldots, i_d^{\text{max}}, i_{k_d(r)+1},\ldots, i_{k_2(R)},\\
+&i_2^{\text{max}},\ldots , i_2^{\text{max}}, i_{k_2(r)+1},\ldots, i_{k_1(R)}, i_1^{\text{max}}, \ldots, i_1^{\text{max}}, i_{k_1(r)+1},\ldots).
+\end{align*}
+Recall that $i_l^{\text{max}}$ is an element of $\mathcal{I}$ which attains $p_l^{\text{max}}$ and all coordinates not stated as $i_l^{\text{max}}$ are arbitrary. Then, as the $k_l(\cdot)$ are all distinct and well-ordered,
+\begin{align*}
+\frac{\mu(\pi(Q(\omega,R)))}{\mu(\pi(Q(\omega,r)))}  & =\ \frac{1}{\prod_{l=1}^d\left(\prod_{j=k_l(R)}^{k_l(r)-1}p_l(\sigma^j \omega) \right)} \\
+& = \ \prod_{l=1}^d\left( \frac{1}{p_l^{\text{max}}}\right)^{k_l(r)-k_l(R)}  \\
+& \le\ \prod_{l=1}^d \left( \frac{1}{p_l^{\text{max}}}\right)^{-\log r/\log n_l + \log R/\log n_l + 1}  \\
+& \le \ p^{-d} \left( \frac{R}{r} \right)^{t},
+\end{align*}
+with $p$ a constant as before. Due to the construction, a sequence of $r$ and $R$ can be chosen to satisfy $R \rightarrow 0$ and $R/r \rightarrow \infty$, simultaneously defining a naturally associated sequence of $x = \pi(\omega)$. These sequences satisfy all of the above and thus $\lrdim \mu \le t$, as desired.
 
 
 
 
+\subsection{Sequences and associated measures}\label{ch-upper-reg:sequenceproof}
 
-\subsection{Sequences and associated measures}\label{sequenceproof}
-
-
-We start by explaining our method and then we specialise to the particular cases of  Theorem \ref{sequences} in subsequent subsections.  For convenience, we assume that $x_k \searrow 0$, $x_k-x_{k+1} \searrow 0$ (decreasing gaps) and that $p(k)$ ($k \in \mathbb{N}$) can be extended to a decreasing $L^1$ function $p$ on the whole of $[0,\infty)$.  These conditions are obviously satisfied for the  examples we consider.  Throughout this section we write $f(x)=O(g(x))$ to mean $f(x) \le Cg(x)$ for a constant $C$ independent of $x$.
+\textcolor{red}{need to do this hell hole}
+We start by explaining our method and then we specialise to the particular cases of  Theorem \ref{ch-upper-reg:sequences} in subsequent subsections.  For convenience, we assume that $x_k \searrow 0$, $x_k-x_{k+1} \searrow 0$ (decreasing gaps) and that $p(k)$ ($k \in \mathbb{N}$) can be extended to a decreasing $L^1$ function $p$ on the whole of $[0,\infty)$.  These conditions are obviously satisfied for the  examples we consider.  Throughout this section we write $f(x)=O(g(x))$ to mean $f(x) \le Cg(x)$ for a constant $C$ independent of $x$.
 
 For  $0<r<1$ and $x\in  \textup{supp}(\mu)$, let $\overline{k}(x,r), \underline{k}(x,r)$   be the unique  integers such that $x_{\overline{k}(x,r)+1}<x-r\le x_{\overline{k}(x,r)}$ and  $x_{\underline{k}(x,r)}\le x+r <x_{\underline{k}(x,r)-1}$ where we adopt the convention that $\overline{k}(x,r) = \infty$ when $x-r \le 0$.    Therefore 
 $$
@@ -779,7 +894,7 @@ In case 2, we get
 \[
 \frac{\mu(B(x,R))}{\mu(B(x,r))} \le (\alpha^2+1)  \frac{\int_{\underline{k}(x,R)}^{\overline{k}(x,R)} p(x)dx}{\mu(\{x\})}
 \]
-In what follows we will drop the constants $(\alpha^2+1) $ to simplify notation.  We can now apply these bounds to specific sequences and measures to get upper bounds for the upper regularity dimension.  The lower bounds will be provided by Theorem \ref{relationships}.
+In what follows we will drop the constants $(\alpha^2+1) $ to simplify notation.  We can now apply these bounds to specific sequences and measures to get upper bounds for the upper regularity dimension.  The lower bounds will be provided by Theorem \ref{ch-upper-reg:relationships}.
 
 \subsubsection{Polynomial-polynomial}
 
@@ -906,7 +1021,7 @@ and we split into two further subcases according to which term dominates in the 
 \end{enumerate}
 
 
-Combining the above estimates gives $\r\le\max \{s,1\}$.  Finally, note that $\overline{\dim}_{\text{loc}}(x,\mu)=0$ when $x\neq 0$, since such $x$ are atoms.  However, when $x=0$, the above estimates  immediately give $\overline{\dim}_{\text{loc}}(0,\mu)= s$ and it is well-known that $\text{supp}(\mu) = 1$, which, combined with Theorem \ref{relationships}, completes the proof of the `polynomial-polynomial' part of Theorem \ref{sequences}.
+Combining the above estimates gives $\r\le\max \{s,1\}$.  Finally, note that $\overline{\dim}_{\text{loc}}(x,\mu)=0$ when $x\neq 0$, since such $x$ are atoms.  However, when $x=0$, the above estimates  immediately give $\overline{\dim}_{\text{loc}}(0,\mu)= s$ and it is well-known that $\text{supp}(\mu) = 1$, which, combined with Theorem \ref{ch-upper-reg:relationships}, completes the proof of the `polynomial-polynomial' part of Theorem \ref{ch-upper-reg:sequences}.
 
 
 \subsubsection{Exponential-exponential}
@@ -919,7 +1034,7 @@ Let $ x_n = \lambda^{n} $ with associated probabilities $p(n)=\omega^{n}$, where
 	&  \le& \frac{1}{\omega^2(1-\omega)} \frac{(x+R)^s}{(x+r)^s} \\ \\
 	&  \le& O\left(  (R/r)^s \right)
 \end{eqnarray*}
-which proves that $\r \leq s$.  Again,  it is clear that $\overline{\dim}_{\text{loc}}(x,\mu)=0$ when $x\neq 0$ but $\overline{\dim}_{\text{loc}}(0,\mu)= s$ and it is well-known that $\text{supp}(\mu) = 0$, which resolves the `exponential-exponential' part of  Theorem \ref{sequences}.
+which proves that $\r \leq s$.  Again,  it is clear that $\overline{\dim}_{\text{loc}}(x,\mu)=0$ when $x\neq 0$ but $\overline{\dim}_{\text{loc}}(0,\mu)= s$ and it is well-known that $\text{supp}(\mu) = 0$, which resolves the `exponential-exponential' part of  Theorem \ref{ch-upper-reg:sequences}.
 
 
 

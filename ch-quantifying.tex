@@ -1,6 +1,57 @@
 \chapter{Quantifying doubling}
 \label{chap:quantifying}
 
+
+\section{Introduction}
+\label{sec:intro-quantifying}
+
+
+The goal of this chapter is to quantify how doubling a measure is via the upper regularity dimension and uniform perfectness with the lower regularity dimension. This will be start with a simple relationship between these notions which will then help understand a classic technical result regarding the measure of balls. The notion of quasisymmetric invariant will then be studied by calculating bounds for the regularity dimensions of pushforward measures under such maps with respect to the dimensions of the original measures.
+\textcolor{red}{could do ojala thick stuff in this section if more content was desired}
+
+\textcolor{red}{this is from previous paper}
+\subsection{Proof of equivalence of doubling and finite upper regularity dimension} \label{ch-upper-reg:doublingproof}
+
+As we mentioned in the introduction, a measure is doubling if and only if it has finite upper regularity dimension. Here we state a quantifiable version of this fundamental fact and include our own short proof for completeness.  Given $\theta \in (0,1)$ let
+\[
+C(\theta) = \sup \left\{ \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \ : \ x \in \text{supp}(\mu), R>0 \right\} \geq 1
+\]
+and note that $C(1/2)$ is the `doubling constant' from the definition of doubling.  Also recall that if $C(\theta) < \infty$ for some $\theta \in (0,1)$, then  $C(\theta) < \infty$ for all $\theta \in (0,1)$.
+
+\begin{prop}\label{ch-upper-reg:doubling2}
+	A locally finite Borel measure is doubling if and only if $\r<\infty$.  Moreover, we have
+	\[
+	\r \le \inf_{\theta \in (0,1)} \frac{ \log C(\theta)}{ - \log \theta}.
+	\]
+\end{prop}
+
+
+\begin{proof}
+	If $\r <\infty$ then it follows immediately from the definition that $\mu$ is doubling.  For the reverse implication, assume that $\mu$ is doubling and let $\theta \in (0,1)$.  Therefore, for all $x \in \text{supp}(\mu)$ and $R>0$
+	\[
+	\frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \le C(\theta).
+	\]
+	Fix  $0< r < R$ and  define $k$ to be the unique integer such that $R\theta^k > r \ge R\theta^{k+1}$. Then by telescoping we obtain
+	\[
+	\frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \times \frac{\mu(B(x,\theta R))}{\mu(B(x,\theta^2 R))} \times\cdots \times \frac{\mu(B(x,\theta^k R))}{\mu(B(x,\theta^{k+1}R))} \times \frac{\mu(B(x,\theta^{k+1}R))}{\mu(B(x,r))}.
+	\]
+	Thus 
+	\[
+	\frac{\mu(B(x,R))}{\mu(B(x,r))} \le C(\theta)^{k+1}  \frac{\mu(B(x,\theta^{k+1}R))}{\mu(B(x,r))} \le C(\theta)^{\log(r/R) / \log \theta+1} = C(\theta) \left(\frac{R}{r} \right)^{-\log C(\theta) / \log \theta}
+	\]
+	and hence $\r \leq -\log C(\theta) / \log \theta < \infty$, as required.
+\end{proof}
+
+
+
+
+
+\section{quantifying}
+\label{sec:reg}
+
+
+
+
 When studying metric spaces and measures on them some basic regularity properties are often assumed. This allows us to avoid many of the common pathological counterexamples. Over time, more sophisticated characteristics have been introduced and studied. We will be interested in studying two regularity properties of measures, \textit{doubling} and \textit{uniform perfectness}, and how they interact with concepts of dimension, analogous purely metric regularity properties and each other.
 
 Both spaces and measures can be doubling or uniformly perfect. A metric space $X$ is doubling if there is a constant $C > 0$ such that $B(x,R)$ can be covered by at most $C$ balls of radius $R/2$ for all $x\in X$ and $R > 0$. Unless stated otherwise $B(x,R)$ is the open ball of centre $x$ and radius $R$. Such spaces are particularly well behaved, for instance Assouad's embedding theorem says doubling spaces can be embedded into Euclidean space in a nearly bi-Lipschitz way, see \cite{assouad}. The \textit{Assouad dimension} can be thought of quantifying how doubling a space is, since a space is doubling if and only if it has finite Assouad dimension. This notion of dimension has also seen much dimension theoretic interest, interacting in a number of ways with the some of the more classical notions of dimension. For an introduction to the Assouad dimension, a formal definition and some recent results see \cite{fraser, microsets, orponen, robinson}. Of particular interest will be the calculation of the Assouad dimension of graphs of Brownian motion in \cite{howroyd-yu}.
