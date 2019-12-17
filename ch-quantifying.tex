@@ -1,4 +1,4 @@
-\chapter{Quantifying doubling}
+\chapter{Quantifying doubling and uniform perfectness}
 \label{chap:quantifying}
 
 
@@ -6,94 +6,29 @@
 \label{sec:intro-quantifying}
 
 
-The goal of this chapter is to quantify how doubling a measure is via the upper regularity dimension and uniform perfectness with the lower regularity dimension. This will be start with a simple relationship between these notions which will then help understand a classic technical result regarding the measure of balls. The notion of quasisymmetric invariant will then be studied by calculating bounds for the regularity dimensions of pushforward measures under such maps with respect to the dimensions of the original measures.
+The goal of this chapter is to quantify how doubling a measure is via the upper regularity dimension and uniformly perfect through the lower regularity dimension. This will start with a simple relationship between these notions which will then help understand a classic technical result regarding the measure of balls. The notion of quasisymmetric invariant will then be studied by calculating bounds for the regularity dimensions of pushforward measures under such maps with respect to the dimensions of the original measures.
 \textcolor{red}{could do ojala thick stuff in this section if more content was desired}
 
-\textcolor{red}{this is from previous paper}
-\subsection{Proof of equivalence of doubling and finite upper regularity dimension} \label{ch-upper-reg:doublingproof}
-
-As we mentioned in the introduction, a measure is doubling if and only if it has finite upper regularity dimension. Here we state a quantifiable version of this fundamental fact and include our own short proof for completeness.  Given $\theta \in (0,1)$ let
-\[
-C(\theta) = \sup \left\{ \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \ : \ x \in \text{supp}(\mu), R>0 \right\} \geq 1
-\]
-and note that $C(1/2)$ is the `doubling constant' from the definition of doubling.  Also recall that if $C(\theta) < \infty$ for some $\theta \in (0,1)$, then  $C(\theta) < \infty$ for all $\theta \in (0,1)$.
-
-\begin{prop}\label{ch-upper-reg:doubling2}
-	A locally finite Borel measure is doubling if and only if $\r<\infty$.  Moreover, we have
-	\[
-	\r \le \inf_{\theta \in (0,1)} \frac{ \log C(\theta)}{ - \log \theta}.
-	\]
-\end{prop}
-
-
-\begin{proof}
-	If $\r <\infty$ then it follows immediately from the definition that $\mu$ is doubling.  For the reverse implication, assume that $\mu$ is doubling and let $\theta \in (0,1)$.  Therefore, for all $x \in \text{supp}(\mu)$ and $R>0$
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \le C(\theta).
-	\]
-	Fix  $0< r < R$ and  define $k$ to be the unique integer such that $R\theta^k > r \ge R\theta^{k+1}$. Then by telescoping we obtain
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \times \frac{\mu(B(x,\theta R))}{\mu(B(x,\theta^2 R))} \times\cdots \times \frac{\mu(B(x,\theta^k R))}{\mu(B(x,\theta^{k+1}R))} \times \frac{\mu(B(x,\theta^{k+1}R))}{\mu(B(x,r))}.
-	\]
-	Thus 
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,r))} \le C(\theta)^{k+1}  \frac{\mu(B(x,\theta^{k+1}R))}{\mu(B(x,r))} \le C(\theta)^{\log(r/R) / \log \theta+1} = C(\theta) \left(\frac{R}{r} \right)^{-\log C(\theta) / \log \theta}
-	\]
-	and hence $\r \leq -\log C(\theta) / \log \theta < \infty$, as required.
-\end{proof}
 
 
 
 
+\section{Results}\label{ch-quantifying:sec:results}
 
-\section{quantifying}
-\label{sec:reg}
-
-
+This section will introduce the problems and settings that we wish to study in this chapter and then state the results. In Section \ref{} bla bla bla.
 
 
-When studying metric spaces and measures on them some basic regularity properties are often assumed. This allows us to avoid many of the common pathological counterexamples. Over time, more sophisticated characteristics have been introduced and studied. We will be interested in studying two regularity properties of measures, \textit{doubling} and \textit{uniform perfectness}, and how they interact with concepts of dimension, analogous purely metric regularity properties and each other.
+\subsection{Quantifying doubling and uniform perfectness}\label{ch-quantifying:sec:equivalence}
 
-Both spaces and measures can be doubling or uniformly perfect. A metric space $X$ is doubling if there is a constant $C > 0$ such that $B(x,R)$ can be covered by at most $C$ balls of radius $R/2$ for all $x\in X$ and $R > 0$. Unless stated otherwise $B(x,R)$ is the open ball of centre $x$ and radius $R$. Such spaces are particularly well behaved, for instance Assouad's embedding theorem says doubling spaces can be embedded into Euclidean space in a nearly bi-Lipschitz way, see \cite{assouad}. The \textit{Assouad dimension} can be thought of quantifying how doubling a space is, since a space is doubling if and only if it has finite Assouad dimension. This notion of dimension has also seen much dimension theoretic interest, interacting in a number of ways with the some of the more classical notions of dimension. For an introduction to the Assouad dimension, a formal definition and some recent results see \cite{fraser, microsets, orponen, robinson}. Of particular interest will be the calculation of the Assouad dimension of graphs of Brownian motion in \cite{howroyd-yu}.
+Recall from the introduction, that a measure is doubling if and only if it has finite upper regularity dimension; similarly for uniformly perfect and the lower regularity dimension. Repeatedly, we have stated that this means the regularity dimensions quantify doubling and uniform perfectness without further elaboration. This can be formalised so the upper regularity dimension of a doubling measure can be stated explicitly as a function of the doubling constants; similarly for the lower regularity dimension with respect to the constants of uniform perfectness when this dimension is stictly positive. 
 
-In a similar way, a measure $\mu$ on a metric space $X$ is said to be \textit{doubling} if there is a constant $C(2) > 1$ such that $\mu(B(x,R)) \le C(2) \mu(B(x,R/2))$ for all $x \in X$ and $R> 0$. Note that if a space is doubling, $2$ can be replaced by any $\theta > 1$ in this definition, obtaining new doubling constants $C(\theta)$. That is 
-\[
-\mu(B(x,R)) \le C(\theta) \mu(B(x,R/\theta))
-\]
-for $\theta > 1$, $x\in X$ and $R > 0$. Here and throughout this paper all measures studied are assumed to be locally finite Borel measures. A natural analogue of the Assouad dimension for measures comes from \cite{konyagin, luksak} and was first studied in \cite{anti1} under the name of \textit{upper regularity dimension}. The upper regularity dimension of $\mu$ is defined by 
-\begin{multline*} 
-\overline{\dim}_{\text{reg}} \mu = \inf \Bigg\{ s \geq 0 \, \,  : \,  \text{ there exists a  constant }C  > 0\text{  such that, for all  $0< r< R $} \\ \text{  and all $x \in \text{supp} (\mu)$, we have }  \ \  \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s} \Bigg\},
-\end{multline*}
-taking $\inf \emptyset = + \infty$. Like the Assouad dimension, the upper regularity dimension quantifies how doubling a measure is since a measure has finite upper regularity dimension if and only if it is doubling. This notion of dimension has mostly been studied in the traditional fractal geometry setting, as in \cite{fraser-howroyd, hare-trosch, anti2}. We will expand on some of the basic properties of this dimension.
+\begin{theorem}\label{ch-quantifying:equivalence}
+Let $\mu$ be a doubling measure fully supported on a metric space $X$ with doubling constants $C(\theta)$, then $$\urdim \mu = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}.$$ Similarly if $\mu$ is a uniformly perfect measure with constants of uniform perfectness $K(\theta)$ then $$\lrdim \mu = \sup_{\theta > 1} \frac{\log K(\theta)}{\log \theta}.$$
+\end{theorem}
 
 
+Unfortunately these formulae are supremums and infimums and so the regularity dimensions are not always attained for any $\theta$. This means we cannot restate results regarding the doubling constants with solely the upper regularity dimension. \textcolor{red}{either think of an example where not attained, almost surely hard? Otherwise say further investigation is required}
 
-Many of the same ideas apply to the concepts of uniformly perfect spaces and measures. A space $X$ is uniformly perfect if there exists a constant $K>1$ such that for any $x,r$ there exists $y \in X \cap( B(x,r) \setminus B(x,r/K))$. Uniformly perfect sets have been studied for some time, especially in the setting of fractal geometry, \cite{heinonen} contains many interesting references. One can in fact show that a set is uniformly perfect if and only if it has positive lower dimension, the lower dimension being a natural analogue of the Assouad dimension. Many of the previous references for the Assouad dimension discuss the lower dimension if further details are desired.
-
-Being consistent with the previous statements, one can state a definition for a measure to be \textit{uniformly perfect}; such measures were also recently called reverse-doubling in \cite{anti2} due to the definition resembling that of doubling measures. Given a measure $\mu$ on a space $X$, $\mu$ is uniformly perfect if there exists a constant of uniform perfectness $K(2) > 1$ such that
-\[
-\mu(B(x,R)) \ge K(2) \mu(B(x,R/2))
-\]
-for all $x\in X$ and $R > 0$. As before we can replace $2$ by $\theta > 1$ in this definition. 
-
-Similarly the \textit{lower regularity dimension} of a measure $\mu$ is defined by 
-\begin{align*} 
-\underline{\dim}_{\text{reg}} \mu = \sup \Bigg\{ s \geq 0 \, \,  : \,  &\,\text{ there exists a  constant }C  > 0\text{  such that, for all }  \\ & \, 0< r< R < \lvert \text{supp}(\mu)    \rvert \text{  and all $x \in \text{supp} (\mu)$, we have }  \\  & \hspace{5cm} \frac{\mu(B(x,R))}{\mu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{s} \Bigg\}.
-\end{align*}
-The lower regularity dimension interacts with the notion of uniform perfectness in much the same way that the upper regularity dimension and the doubling property work together. That is, a doubling measure has positive lower regularity dimension if and only if it is uniformly perfect. This notion can be traced back to \cite{bylund} who showed a result similar to that of \cite{konyagin, luksak}. We will explore some properties of the lower regularity dimension and study the links with other notions of regularity, including the upper regularity dimension. Many of the previous references discussing the upper regularity dimension also consider the lower regularity dimension.
-
-Whilst we will not need geometric definitions of the Assouad and lower dimensions, for clarity, one could think of them in terms of the regularity dimensions in the following way, for some bounded metric space $F$ ,
-\[
-\dim_{\text{A}} F = \inf \left\{ \overline{\dim}_{\text{reg}} \mu \,  \colon \, \mu \text{ is a measure fully supported on } F\right\}.
-\]
-\[
-\dim_{\text{L}} F = \sup \left\{ \underline{\dim}_{\text{reg}} \mu \,  \colon \, \mu \text{ is a doubling measure fully supported on } F\right\}.
-\]
-
-
-
-
-\section{Results}
 
 \subsection{Quantifying an example of Heinonen}
 
@@ -104,30 +39,25 @@ When studying doubling measures a technical proposition is often employed to tru
 \]
 It is not clear where this was first stated, but the standard reference \cite{heinonen} provides this result as an example (\cite[Exercise 13.1]{heinonen}) without a proof. 
 
-We wish to quantitatively improve this result using the regularity dimensions. More precisely, given a measure $\mu$ of fixed upper regularity dimension $s$ on a space $X$ of fixed lower dimension $l$, can we bound the lower regularity dimension of $\mu$ as a function of $s$ and $l$? The following result does not quite answer this question as it returns a function of the doubling and uniform perfectness constants. However, as we will see afterwards, this is closer to the desired solution than it appears.
+This result opens a number of questions. Notably, how close to zero can the lower regularity dimension be in this setting? Clearly the lower regularity dimension of $\mu$ must depend on the lower dimension of $X$, since the lower dimension is an upper bound, see \cite{bylund}. But in principle this does not bound the lower regularity dimension from below in any meaningful way. 
 
-\begin{prop}
-	If $X$ is uniformly perfect and $\mu$ is a doubling, fully supported meaasure on $X$ then $\mu$ is uniformly perfect. In particular if $X$ is $K$-uniformly perfect and $\mu$ doubling with doubling constants $C(\theta)$ then  
+One could ask if there exists a fixed uniformly perfect space and a sequence of doubling measures on that space which all have the same upper regularity dimension but whose lower regularity dimensions can be made as small as possible. A cursory check of some standard examples such as self-similar sets and measures implies this might not be feasible, Theorem \ref{ch-upper-reg:selfsimilar} of the previous chapter is helpful here. Heuristically, by keeping the upper regularity dimensions of self-similar measures fixed with a goal of decreasing the lower regularity dimension, we must increase a probability from the associated probability vector which is not the minimum of the vector. As this is a probability vector, the sum of the elements is always one so any increase must be accompanied by a decrease in at least one other element. If the lower regularity dimension is to approach zero in the limit a probability must tend towards one and thus all other probabilities must be lowered towards zero. This will inevitably increase the upper regularity dimension after some number of steps, breaking the assumption.
+\textcolor{red}{maybe whack a pic in here}
+
+This lends credibility to the conjecture that the example of Heinonen shows the lower regularity dimension having a lower bound as a function of the upper regularity dimension. We wish to quantitatively show this result. More precisely, given a measure $\mu$ of fixed upper regularity dimension $s$ on a space $X$ of fixed lower dimension $l$, can we bound the lower regularity dimension of $\mu$ as a function of $s$ and $l$? The following does not quite answer this question as it returns a function of the doubling and uniform perfectness constants. However, as we will discuss, this is closer to the desired solution than it appears.
+
+\begin{proposition}
+	If $X$ is uniformly perfect and $\mu$ is a doubling, fully supported measure on $X$ then $\mu$ is uniformly perfect. In particular if $X$ is $K$-uniformly perfect and $\mu$ doubling with doubling constants $C(\theta)$ then  
 	$$\lrdim \mu \ge \frac{\ln(1-C(8K)^{-1})}{\ln(4K)} .$$  
-\end{prop}
+\end{proposition}
 
 
-
-It would have been preferable to obtain a lower bound depending on the lower dimension of $X$ and the upper regularity dimension of $\mu$. Clearly the lower regularity dimension of $\mu$ must depend on the lower dimension of $X$, since the lower dimension is an upper bound, see \cite{bylund}. However, as we did not obtain a result depending on the upper regularity dimension, we are lead to ask if there exists a uniformly perfect space and a sequence of doubling measures on that space which all have the same upper regularity dimension but whose lower regularity dimensions can be made as small as possible. A cursory check of some standard examples such as self-similar sets and measures implies this might not be feasible. 
-
-The question then becomes whether the upper regularity dimension is even distinct from the doubling constants. In \cite{fraser-howroyd}, the upper regularity dimension was shown to be bounded  above by a function of the doubling constants. The following shows that this bound is actually an equality and thus the upper regularity dimension depends explicitly on the constants. We also obtain an analogous result for the lower regularity dimension.
-
-\begin{thm}
-	Let $\mu$ be a doubling measure fully supported on a metric space $X$ with doubling constants $C(\theta)$, then $$\urdim \mu = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}.$$ Similarly if $\mu$ is a uniformly perfect measure with constants of uniform perfectness $K(\theta)$ then $$\lrdim \mu = \sup_{\theta > 1} \frac{\log K(\theta)}{\log \theta}.$$
-\end{thm}
+Combining this result with Theorem \ref{ch-quantifying:equivalence}, it follows that a doubling measure on a uniformly perfect space must have lower regularity dimension bounded below by a function of the upper regularity dimension and the constant of uniform perfectness. However, as eluded to previously, Theorem \ref{ch-quantifying:equivalence} is concerned only with the infimum over all $\theta$ and the formula in Proposition 2.1 relies on a specific $C(\theta)$, we cannot find an exact formula linking the lower regularity dimension and the upper regularity dimension in our setting.
 
 
-Combining this result with the previous proposition, it follows that a doubling measure on a uniformly perfect space must have lower regularity dimension bounded below by a function of the upper regularity dimension and the constant of uniform perfectness. However, as the above is concerned only with the infimum over all $\theta$ and the formula in Proposition 2.1 relies on a specific $C(\theta)$, we cannot find an exact formula linking the lower regularity dimension and the upper regularity dimension in our setting.
+We finish this section with a brief discussion of the sharpness of this result. Assuming positive lower dimension of the space is required here as it is simple to construct spaces of zero lower dimension but finite Assouad dimension. In such a setting there must exist a measure of upper regularity dimension close to the Assouad dimension of the space and so doubling. But any measure on this space can not be uniformly perfect as the lower regularity dimension is a lower bound to the lower dimension. A trivial such example would be the set of points $\left\{ 1/n : n \in \mathbb{N} \right\}$ with the Euclidean metric. This set is know to have zero lower dimension but full Assouad dimension; doubling measures on this space were explicitly constructed in the previous chapter. On the other hand we can take an atomic measure on a self-similar set, this measure is neither doubling nor uniformly perfect. Thus the obtained bound is justified in demanding both the doubling constants of $\mu$ and the constant of uniform perfectness of the set.
 
-
-We finish this section with a brief discussion of the sharpness of this result. Assuming positive lower dimension of the space is required here as it is simple to construct spaces of zero lower dimension but finite Assouad dimension. In such a setting there must exist a measure of upper regularity dimension close to the Assouad dimension of the space and so doubling. But any measure on this space can not be uniformly perfect as the lower regularity dimension is a lower bound to the lower dimension. A trivial such example would be the set of points $\left\{ 1/n : n \in \mathbb{N} \right\}$ with the Euclidean metric. This set is know to have zero lower dimension but full Assouad dimension; doubling measures on this space were explicitly constructed in \cite{fraser-howroyd}.
-
-There are many examples of uniformly perfect measures, even on doubling spaces, that are not doubling so we cannot interchange the two notions and obtain an analogous result.  For instance, one can take a self-similar set with overlaps, this is a doubling space. There are numerous uniformly perfect measures on such a space that are not doubling, as can be seen in \cite{hare-trosch}. Thus a uniformly perfect measure on a doubling and uniformly perfect space need not be doubling.
+There are many examples of uniformly perfect measures, even on doubling spaces, that are not doubling so we cannot interchange the two notions and obtain an analogous result.  For instance, one can take a self-similar set with overlaps, this is a doubling space. Numerous uniformly perfect measures exist on such a space and are not doubling, as can be seen in \cite{hare-trosch}. Thus a uniformly perfect measure on a space of positive, finite lower and Assouad dimension need not be doubling.
 
 
 
@@ -135,16 +65,16 @@ There are many examples of uniformly perfect measures, even on doubling spaces, 
 \subsection{Regularity dimensions under quasisymmetric homeomorphisms}
 
 
-Quasisymmetric homeomorphisms are a generalisation of bi-Lipschitz maps, preserving relative sizes but not necessarily global size which were first introduced in \cite{ahlfors-beurling,  tukia-vaisala}. In the Euclidean setting quasisymmetric homeomorphisms are equivalent to the often studied quasiconformal homeomorphisms. In this article the metric of a given metric space $X$ is denoted $d_X(\cdot,\cdot)$. A homeomorphism $f\colon X \rightarrow Y$ is an \textit{$\eta$-quasisymmetric homeomorphism} if there is a homeomorphism $\eta \colon [0,\infty) \rightarrow [0,\infty)$ such that 
+Quasisymmetric homeomorphisms are a generalisation of bi-Lipschitz maps, preserving relative sizes but not necessarily global size which were first introduced in \cite{ahlfors-beurling,  tukia-vaisala}. In the Euclidean setting quasisymmetric homeomorphisms are equivalent to the often studied quasiconformal homeomorphisms. Recall that $d_X(\cdot,\cdot)$ denotes the metric on the space $X$, tracking which space we are working in will be important in this section. A homeomorphism $f\colon X \rightarrow Y$ is an \textit{$\eta$-quasisymmetric homeomorphism} if there is a homeomorphism $\eta \colon [0,\infty) \rightarrow [0,\infty)$ such that 
 \[
 d_X( x , a ) \le t \, d_X( x , b )
 \]
 implies 
 \[
-d_Y( f(x) , f(a) ) \le \eta(t) \, d_y ( f(x) , f(b) )
+d_Y( f(x) , f(a) ) \le \eta(t) \, d_Y ( f(x) , f(b) )
 \]
 for all $x,a,b \in X$ and for all $t>0$.
-
+\textcolor{red}{add more intro shit here?}
 
 Equivalently there exists a homeomorphism $\eta$ as above such that 
 \[
@@ -153,7 +83,10 @@ Equivalently there exists a homeomorphism $\eta$ as above such that
 for any distinct points $x,y,z \in X$. Here $\eta$ is not unique for a given quasisymmetric homeopmorphism. 
 
 
-A property of particular interest to us is that doubling and uniform perfectness of spaces are quasisymmetric invariants. This can be quantified, so there are bounds on the Assouad and lower dimensions of images of spaces under quasisymmetric embeddings, see \cite{heinonen} for further details. We wish to know if the same holds for doubling and uniformly perfect measures. In particular we will study \textit{pushforward measures} under quasisymmetric homeomorphisms. Given a measure $\mu$ on a space $X$ and $f$ a map from $X$ to some space $Y$, the pushforward measure of $\mu$ under $f$ is denoted $f_*\mu$ and is defined by
+A property of particular interest to us is that doubling and uniform perfectness of spaces are quasisymmetric invariants. This can be quantified, so there are bounds on the Assouad and lower dimensions of images of spaces under quasisymmetric embeddings, see \cite{heinonen} for further details.\textcolor{red}{include results for ass and lower dim here} 
+
+We wish to know if the same holds for doubling and uniformly perfect measures. In particular we will study \textit{pushforward measures} under quasisymmetric homeomorphisms. Given a measure $\mu$ on a space $X$ and $f$ a map from $X$ to some space $Y$, the pushforward measure of $\mu$ under $f$ is denoted $f_*\mu$ and is defined by
+\nomenclature[.]{$f_*\mu$}{pushforward measure of $\mu$ under map $f$}
 \[
 f_*\mu (A) = \mu(f^{-1}(A))
 \]
@@ -161,17 +94,17 @@ for any measureable subset $A$ of $Y$, where $f^{-1}(A) = \left\{x \in X \colon 
 
 To avoid having trivial upper and lower regularity dimensions of $\mu$ it is reasonable to assume that $X$ is doubling and uniformly perfect. This then lets us employ the following theorem. 
 
-\begin{thm}[{\cite[Theorem 13.11]{heinonen}}]
+\begin{theorem}[{\cite[Theorem 13.11]{heinonen}}]
 	A quasisymmetric homeomorphism $f$ of a uniformly perfect space $X$ is $\eta$-quasisymmetric with $\eta$ of the form
 	\[
 	\eta(t) = c_\eta \max\left\{t^\alpha, t^{1/\alpha}\right\},
 	\]
 	where $c_\eta \ge 1 $ and $\alpha \in (0,1]$ depend only on $f$ and $X$.
-\end{thm}
+\end{theorem}
 
 For clarity we will often write $\eta_{\alpha}$ to indicate the homeomorphism $\eta$ associated with the constant $\alpha$ as described here. Section 3 of \cite{tukia-vaisala} proves this result and explicitly calculates $\alpha$. 
 
-\begin{thm}
+\begin{theorem}\label{ch-quantifying:quaisymm-thm}
 	Let $X$ be a uniformly perfect space and $\mu$ be doubling on $X$. When $f$ is an $\eta_\alpha$-quasisymmetric homeomorphism the following bounds hold
 	\[
 	\alpha \, \urdim \mu \le \urdim f_{*}\mu \le \urdim \mu/\alpha
@@ -181,129 +114,48 @@ For clarity we will often write $\eta_{\alpha}$ to indicate the homeomorphism $\
 	\alpha \, \lrdim \mu \le \lrdim f_{*}\mu \le \lrdim \mu/\alpha
 	\]
 	where $f_{*}\mu = \mu \circ f^{-1}$ is the pushforward of $\mu$.
-\end{thm}
+\end{theorem}
 
-
-
-
-\subsection{Pushforwards of measures onto graphs of Brownian motion}
-
-
-Having shown that the regularity dimensions are well behaved under quasisymmetric maps we now turn our attention to random maps and ask if doubling and uniform perfectness are also preserved in these situations. Specifically we will consider maps from the unit interval onto graphs of L\'evy processes.
-
-A \textit{L\'evy process} is a random function $X : [0,\infty) \rightarrow \mathbb{R}$ satisfying:
-\begin{enumerate}
-	\item with probability 1, $X(0) = 0$;
-	
-	\item $X(t)$ is right continuous and has left limits at every point $t$;
-	
-	\item $X(t+h) - X(t)$ is equal to $X(h)$ in distribution for all $t,h >0$ (stationary increments);
-	
-	\item for all $0<t_1 < t_2 \cdots < t_k$, the increments $X(t_i) - X(t_{i-1})$ are independent;
-	
-\end{enumerate}
-
-When the distribution of increments is chosen to be the Normal distribution with mean 0 and variance $h$ we recover the Wiener process (or Brownian motion). L\'evy processes are fundamental tools in several areas of mathematics and have been extensively studied. They were first introduced by L\'evy in \cite{levy}. Their fractal properties were first investigated by \cite{taylor} where the Hausdorff dimension of the graph of Brownian motion was shown to be almost surely equal to $3/2$ and the range of $d$-dimensional Brownian motion was found to have dimension $2$ almost surely for any $d \ge 2$. 
-
-\begin{figure}[htbp]
-	\centering
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.85\linewidth]{2-brownianr.png}
-	\end{subfigure}%
-	\begin{subfigure}{.3\textwidth}
-		\centering
-		\includegraphics[width=.9\linewidth]{2-browniang.png}
-	\end{subfigure}%
-	\begin{subfigure}{.3\textwidth}
-		\centering
-		\includegraphics[width=.9\linewidth]{2-brownianb.png}
-	\end{subfigure}
-	\caption{Three graphs of Brownian motion, a 2-stable L\'evy process.}
-	\label{fig:brownian}
-\end{figure}
-
-Whilst many geometric objects associated to L\'evy processes have been studied, we will only consider properties of the graphs of L\'evy processes. Given a L\'evy process $X$, the graph of $X$ restricted to the unit interval is defined by:
-\[
-G_X^{[0,1]} = \left\{ (t,X(t)) \colon t \in [0,1] \right\}.
-\]
-More generally, denote by $G_X^I$ the graph of the process $X$ restricted to the interval $I \subseteq [0,1]$. There is a naturally associated map $f: [0,1] \rightarrow \mathbb{R}^2$ which maps the unit interval to the graph of the process, that is $f\colon t \mapsto (t,X(t))$. This will be the map we wish to use to construct pushforward measures, and for the rest of this section $f$ should be assumed to be this map. 
-
-One of the interesting features of L\'evy processes is their statistical self-affinity. Not all processes have this property so we will restrict to \textit{stable} or $\alpha$-\textit{stable processes}, that is for some $\alpha > 0$
-\[
-a^{-1/\alpha}X(at) =^d X(t)
-\]
-for all $a,t > 0$ and $=^d$ means equal in distribution. For example the Wiener process is 2-stable. In fact all stable processes have $\alpha \in (0,2]$. 
-
-Our final condition is a simple assumption that the distribution $X(1)$ is non-vanishing on $\mathbb{R}$. Non-zero on an interval would also work, this is just to ensure the graphs are not just multiple flat lines, such as in a Poisson process.
-
-
-\begin{figure}[htbp]
-	\centering
-	\begin{subfigure}{0.3\textwidth}
-		\centering
-		\includegraphics[width=0.85\linewidth]{1-cauchyr.png}
-	\end{subfigure}%
-	\begin{subfigure}{.3\textwidth}
-		\centering
-		\includegraphics[width=.9\linewidth]{1-cauchyg.png}
-	\end{subfigure}%
-	\begin{subfigure}{.3\textwidth}
-		\centering
-		\includegraphics[width=.9\linewidth]{1-cauchyb.png}
-	\end{subfigure}
-	\caption{Three graphs of a L\'evy process whose increments are Cauchy distributed, a 1-stable L\'evy process.}
-	\label{fig:cauchy}
-\end{figure}
-
-
-This leads us to the question of this section: given a doubling measure $\mu$ on the unit interval, is $f_*\mu$ also doubling? A similar question holds for uniformly perfect measures. In \cite{howroyd-yu}, it was shown that the Assouad dimension of $G_X^{[0,1]}$ is almost surely 2 so there must exist at least one doubling measure on the graph. However, most measures on the graph might not even be doubling. For the Hausdorff dimension, the proof by Taylor shows that the Hausdorff dimension of the pushforward of Lebesgue measure almost surely attains the dimension of the graph itself. It turns out that this is usually not the case for the regularity dimensions.
-
-\begin{thm}\label{brownianthm}
-	Let $\mu$ be a doubling measure on $[0,1]$ and $X$ a stable L\'evy process with the distribution $X(1)$ being non vanishing on $\mathbb{R}$. Then $f_*\mu$ is almost surely not doubling on $G_X^{[0,1]}$. Also, $f_*\mu$ is almost surely not uniformly perfect.
-\end{thm}
-
-
-Trivially this implies the upper regularity dimension of $f_*\mu$ is almost surely infinity and the lower dimension is almost surely zero. Therefore any measure whose upper regularity dimension approximates the dimension of the graph is highly dependent on the specific graph and so there is no one measure that attains the dimension for typical realisations, unlike the Hausdorff case. 
-
+\textcolor{red}{add some discussion?}
 
 
 \subsection{Uniformly perfect and weakly absolutely $\alpha$-decaying measures}
 
-It is known that the lower regularity dimension of a measure is positive if and only if the measure is uniformly perfect, see \cite{anti2}. A property that has appeared recently in Diophantine approximation is the notion of weakly absolutely $\alpha$-decaying. This was first introduced in \cite{beres-sanju-al} following the previous uses of friendly measures by \cite{friendly} and quasi-decaying measures by \cite{decaying1, decaying2}. A measure $\mu$ is weakly absolutely $\alpha$-decaying for some $\alpha > 0$ when there exists constants $C, R_0 >0$ such that for all $\varepsilon > 0$
+A property that has appeared recently in Diophantine approximation is the notion of weakly absolutely $\alpha$-decaying. This was first introduced in \cite{beres-sanju-al} following the previous uses of friendly measures by \cite{friendly} and quasi-decaying measures by \cite{decaying1, decaying2}. A measure $\mu$ is weakly absolutely $\alpha$-decaying for some $\alpha > 0$ when there exists constants $C, R_0 >0$ such that for all $\varepsilon > 0$
 \[
 \mu(B(x,\varepsilon R)) \le C \varepsilon^{\alpha} \mu(B(x,R))
 \]
 for all $x \in X$ and $R<R_0$.
 
 This property has some resemblance to the ideas of doubling and uniformly perfect measures. We show the following.
-\begin{prop}
+\begin{proposition}
 	If a measure $\mu$ has positive lower regularity dimension then 
 	\[
 	\lrdim \mu = \sup\left\{\alpha \colon \mu \text{ is weakly absolutely $\alpha$-decaying}\right\}.
 	\]
-\end{prop}
+\end{proposition}
 
 This result actually leads to an equivalent but hopefully more applicable statement of Theorem 2 in \cite{beres-sanju-al}. Their theorem concerns the size of the set of points which well approximate a given point $y$ with respect to some function $\psi$ for limit sets of Kleinian groups $\Lambda$. In the Euclidean setting, one usually considers the Lebesgue measure of this set. However when working on different sets other measures must be considered that somewhat mirror the regularity of Lebesgue measure. This leads to the notion of $\alpha$-decaying. Without further elaborating on the definitions we state both the old and new versions of the theorem.
 
-\begin{thm}[{\cite[Theorem 2]{beres-sanju-al}}]
+\begin{theorem}[{\cite[Theorem 2]{beres-sanju-al}}]
 	Let $G$ be a nonelementary, geometrically finite Kleinian group and let $y$ be a parabolic fixed point of $G$, if there are any, and a hyperbolic fixed point otherwise. Fix $\alpha > 0$, and let $K$ be a compact subset of $\Lambda$ equipped with a weakly absolutely $\alpha$-decaying meausre $\mu$. Then
 	\[
 	\mu(K\cap W_y(\psi)) = 0 \quad if \quad \sum_{r=1}^\infty r^{\alpha-1} \psi(r)^{\alpha} < \infty.
 	\]
-\end{thm}
+\end{theorem}
 
-\begin{thm}
+\begin{theorem}
 	Assume $G$ and $y$ are as above. Let $K$ be a compact subset of $\Lambda$ with lower dimension equal to $s > 0$. For any $0 < \alpha < s$, if there exists a weakly absolutely $\alpha$-decaying measure $\mu$ on $K$, then
 	\[
 	\mu(K\cap W_y(\psi)) = 0 \quad if \quad \sum_{r=1}^\infty r^{\alpha-1} \psi(r)^{\alpha} < \infty.
 	\]
 	In particular, if  $\sum_{r=1}^\infty r^{s-1} \psi(r)^{s} < \infty$ then any weakly absolutely $\alpha$-decaying measure on $K$ is such that $\mu(K\cap W_y(\psi)) = 0$. One can also find a sequence of weakly absolutely $\alpha_n$-decaying measures on $K$ such that $\alpha_n \rightarrow s$. 
-\end{thm}
+\end{theorem}
 
 An advantage of writing the theorem with respect to the lower dimension of the limit set is that the lower dimension of limit sets were calculated in \cite{fraser2}. Therefore, given a limit set, we can quickly check if there will be measures that are weakly absolutely $\alpha$-decaying such that the sum in the theorem converges for the given $\alpha$. In \cite{fraser2}, Fraser also calculated the regularity dimensions of Patterson-Sullivan measures, providing us with explicit measures that could be used in the theorem, as the upper and lower regularity dimensions of Patterson-Sullivan measures are strictly positive and finite. 
 
-Theorem 2.8 follows from Proposition 2.6 and Theorem 2.7. As such we do not provide a proof here, for the interested reader the proof of Theorem 2.7 in \cite{beres-sanju-al} is very accessible.
+Theorem 7 follows from Proposition 5 and Theorem 6. As such we do not provide a proof here, for the interested reader the proof of Theorem 6 in \cite{beres-sanju-al} is very accessible.
+\textcolor{red}{should I actually go through this here?}
 
 Weakly absolutely decaying measures were the correct measures to consider in the setting of limit sets of Kleinian groups whereas friendly measures were used in the context of subsets of Euclidean space. It would be a natural extension to study the links between friendly measures and the regularity dimensions, especially given that one of the conditions for a measure to be friendly is that it is doubling.  
 
@@ -311,7 +163,57 @@ Weakly absolutely decaying measures were the correct measures to consider in the
 
 \section{Proofs}
 
+\textcolor{red}{gonna have to change this bit up}
 This section will be broken into several subsections that are mostly independent of each other but the notation will remain consistent throughout. In section 3.1 we cover the results found in section 2.1. In section 3.2 we prove Theorem 2.4. Section 3.3 is dedicated to measures on graphs of L\'evy processes. Finally in section 3.4 a short proof of Proposition 2.6 is provided.
+
+
+\subsection{Proof of equivalence of doubling and finite upper regularity dimension} \label{ch-upper-reg:doublingproof}
+\textcolor{red}{this is partially from previous paper}
+
+
+	A locally finite Borel measure is doubling if and only if $\r<\infty$.  Moreover, we have
+	\[
+	\urdim \mu \le \inf_{\theta > 1} \frac{ \log C(\theta)}{ - \log \theta}.
+	\]
+
+We start by proving the link between the upper regularity dimension and the doubling constants. Recall the notion of doubling implies the existence of constants $C(\theta)$; we wish to pick the optimal constant. Given $\theta > 1$ let
+\[
+C(\theta) = \sup \left\{ \frac{\mu(B(x,R))}{\mu(B(x,\theta R))} \ : \ x \in \text{supp}(\mu), R>0 \right\} \geq 1.
+\]
+
+Assume that a measure $\mu$ on a space $X$ is doubling and let $\theta > 1$.  Therefore, for all $x \in \text{supp}(\mu)$ and $R>0$
+\[
+\frac{\mu(B(x,R))}{\mu(B(x,R/\theta))} \le C(\theta).
+\]
+Fix  $0< r < R$ and  define $k$ to be the unique integer such that $R\theta^{-k} > r \ge R\theta^{-k-1}$. Then by telescoping we obtain
+\[
+\frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta^{-1} R))} \times \frac{\mu(B(x,\theta^{-1} R))}{\mu(B(x,\theta^{-2} R))} \times\cdots \times \frac{\mu(B(x,\theta^{-k} R))}{\mu(B(x,\theta^{-k-1}R))} \times \frac{\mu(B(x,\theta^{-k-1}R))}{\mu(B(x,r))}.
+\]
+Thus 
+\[
+\frac{\mu(B(x,R))}{\mu(B(x,r))} \le C(\theta)^{k+1}  \frac{\mu(B(x,\theta^{-k-1}R))}{\mu(B(x,r))} \le C(\theta)^{\log(R/r) / \log \theta+1} = C(\theta) \left(\frac{R}{r} \right)^{\log C(\theta) / \log \theta}
+\]
+and hence $\r \leq \log C(\theta) / \log \theta < \infty$, giving the upper bound.
+
+
+To obtain a lower bound on the upper regularity dimension, it suffices to find, for $s = \inf\frac{\log C(\theta)}{\log \theta}$, a sequence of $x\in X$ and $0<r<R$, with $R/r \rightarrow \infty$, such that 
+\[
+\frac{\mu(B(x,R))}{\mu(B(x,r))} \ge \left(\frac{R}{r}\right)^s.
+\]
+	
+	
+From the definition of doubling we know that $\mu(B(x,\theta r) ) \le C(\theta) \mu(B(x,r))$ for all $x,r, \theta$. Fixing $\theta$ we pick $C(\theta)$ to be reasonably sharp in the sense that there exists at least one pair of $x,r$ such that $\mu(B(x,\theta r) ) \ge \frac{1}{2}C(\theta) \mu(B(x,r))$. 
+	
+Recall $s = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}$. To choose our sequence of $x,r$ and $R$ we simply pick any sequence of increasing $\theta$. Then from our choice of $C(\theta)$, the pair $x$ and $r$ are the pair obtained above. $R$ is then fixed by $R = \theta r$. Finally, due to the choice of $s$,
+\[
+\frac{\mu(B(x,R))}{\mu(B(x,r))} \ge \frac{1}{2} C(\theta)  \ge \frac{1}{2}\theta^s = \frac{1}{2}\left(\frac{R}{r} \right)^s,
+\]
+completing the proof.
+	
+\textcolor{red}{do lower reg dim}
+The lower regularity dimension result follows similarly.
+
+
 
 
 
@@ -319,7 +221,6 @@ This section will be broken into several subsections that are mostly independent
 
 
 
-\begin{proof}[Proof of Proposition 2.1]
 	Let $X$ and $\mu$ be as in the statement of the proposition with constant of uniform perfectness $K$ and doubling constants $C(\theta)$. We will rework the proof found in \cite[lemma 3.1]{anti1}, paying careful attention to the constants in play. Note there is another proof in \cite[Lemma 4.5]{eino-pablo} which could lead to different bounds, but we do not pursue this here.
 	
 	To start, a technical result is required. Proposition B.4.7, in \cite{gromov}, states that in our setting there exists a constant $a \in (0,1)$ such that 
@@ -349,32 +250,7 @@ This section will be broken into several subsections that are mostly independent
 	\end{align*}
 	as desired.
 	
-\end{proof}
-
 Note that in the proof of \cite{gromov} one should use the optimal doubling and uniform perfectness constants to obtain the best bound possible, however the result itself is likely not sharp.
-
-Now we turn our attention to the relationship between the doubling constants and the upper regularity dimension, as well as the constants of uniform perfectness and the lower regularity dimension.
-
-\begin{proof}[Proof of Theorem 2.2]
-	We start by proving the link between the upper regularity dimension and the doubling constants. The upper bound follows from \cite{fraser-howroyd}, the difference in formula is purely notational. To obtain a lower bound on the upper regularity dimension of a measure $\mu$ on a space $X$, it suffices to find, for $s = \inf\frac{\log C(\theta)}{\log \theta}$, a sequence of $x\in X$ and $0<r<R$, with $R/r \rightarrow \infty$, such that 
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,r))} \ge \left(\frac{R}{r}\right)^s.
-	\]
-	
-	
-	From the definition of doubling we know that $\mu(B(x,\theta r) ) \le C(\theta) \mu(B(x,r))$ for all $x,r, \theta$. Fixing $\theta$ we pick $C(\theta)$ to be reasonably sharp in the sense that there exists at least one pair of $x,r$ such that $\mu(B(x,\theta r) ) \ge \frac{1}{2}C(\theta) \mu(B(x,r))$. 
-	
-	Recall $s = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}$. To choose our sequence of $x,r$ and $R$ we simply pick any sequence of increasing $\theta$. Then from our choice of $C(\theta)$, the pair $x$ and $r$ are the pair obtained above. $R$ is then fixed by $R = \theta r$. Finally, due to the choice of $s$,
-	\[
-	\frac{\mu(B(x,R))}{\mu(B(x,r))} \ge \frac{1}{2} C(\theta)  \ge \frac{1}{2}\theta^s = \frac{1}{2}\left(\frac{R}{r} \right)^s,
-	\]
-	completing the proof.
-	
-	The lower regularity dimension result follows similarly.
-\end{proof}
-
-
-
 
 
 
@@ -384,131 +260,72 @@ Now we turn our attention to the relationship between the doubling constants and
 \subsection{Regularity dimensions under quasisymmetric homeomorphism}
 
 
-Whilst Theorem 13.11 of \cite{heinonen} is the key ingredient in the proof of our theorem, the following proposition which can also be found in \cite{heinonen} is also required.
+Whilst Theorem 13.11 of \cite{heinonen} is the key ingredient in the proof of Theorem \ref{ch-quantifying:quaisymm-thm}, the following proposition which can also be found in \cite{heinonen} is also required.
 
-\begin{prop}[{\cite[Proposition 10.6]{heinonen}}]
+\begin{proposition}[{\cite[Proposition 10.6]{heinonen}}]
 	When a quasisymmetric homeomorphism $f\colon X \rightarrow Y$ is $\eta$-quasisymmetric, its inverse $f^{-1}$ is an $\eta'$-quasisymmetric homeomorphism with $\eta'$ given by  $\eta'(t) = 1/\eta^{-1}(1/t)$ for $t>0$.
-\end{prop}
+\end{proposition}
 
 It is then clear that a quasisymmetric homeomorphism $f$ on a uniformly perfect space is associated with a homeomorphism $\eta(t) = c_\eta\max\left\{t^\alpha, t^{1/\alpha}\right\}$ and $f^{-1}$ is also a quasisymmetric homeomorphism associated with the function $1/\eta^{-1}(1/t) \le c_\eta^{1/\alpha} \max\left\{t^\alpha, t^{1/\alpha} \right\}$. Note that the homeomorphism $\eta'(t) = c_\eta^{1/\alpha} \max\left\{t^\alpha, t^{1/\alpha} \right\}$ is not exactly $1/\eta^{-1}(1/t)$, but, as it is a upper bound to the desired function, $f^{-1}$ will be an $\eta'$-quasisymmetric homeomorphism.
 
 
-\begin{proof}[Proof of Theorem 2.4]
-	We start by proving the upper bound for the upper regularity dimension. Let $y\in Y$ and $0<r<R$. Since $Y$ is uniformly perfect, we can find $z_1,z_2$ such that $z_1\in B_Y(y,KR) \setminus B_Y(y,R)$ and $z_2 \in B_Y(y,Kr) \setminus B_Y(y,r)$. Without loss of generality, choose $ r < 2R $ so that $d_Y(y,z_1) > d_Y(y,z_2)$,  this will be required to use the exact formula for $\eta$.
+
+We start by proving the upper bound for the upper regularity dimension. Let $y\in Y$ and $0<r<R$. Since $Y$ is uniformly perfect, we can find $z_1,z_2$ such that $z_1\in B_Y(y,KR) \setminus B_Y(y,R)$ and $z_2 \in B_Y(y,Kr) \setminus B_Y(y,r)$. Without loss of generality, choose $ r < 2R $ so that $d_Y(y,z_1) > d_Y(y,z_2)$,  this will be required to use the exact formula for $\eta$.
 	
 	
-	Choose any point $a \in B_Y(y,R)$. From our choice of $z_1$, it is clear that $d_Y( y , a ) \le d_Y(y , z_1)$. Thus, as $f$ is quasisymmetric $d_X( f^{-1}(y) , f^{-1}(a) ) \le \eta(1)  d_X(f^{-1}(y) , f^{-1}(z_1) $, and so 
+Choose any point $a \in B_Y(y,R)$. From our choice of $z_1$, it is clearthat$d_Y( y , a ) \le d_Y(y , z_1)$. Thus, as $f$ is quasisymmetric $d_X( f^{-1}(y) , f^{-1}(a) ) \le \eta(1)  d_X(f^{-1}(y) , f^{-1}(z_1) $, and so 
 	\[
-	f^{-1}(B_Y(y,R)) \subseteq B_X(f^{-1}(y),\eta(1)d_X(f^{-1}(y), f^{-1}(z_1)).
+f^{-1}(B_Y(y,R)) \subseteq B_X(f^{-1}(y),\eta(1)d_X(f^{-1}(y), f^{-1}(z_1)).
 	\]
-	Similarly, choosing $a \in B_Y(y,R) \setminus B_Y(y,R/K)$, we have $d_Y( y , a ) \ge d_Y( y , z_1 )/K^2$ and so $$d_X( f^{-1}(y) , f^{-1}(a) ) \ge \eta^{-1}(K^2) d_X( f^{-1}(y) , f^{-1}(z_1) ).$$
-	Hence 
-	\[
-	f^{-1}(B_Y(y,R)) \supseteq B_X(f^{-1}(y),\eta^{-1}(K^2)d_X(f^{-1}(y),f^{-1}(z_1))).
-	\]
+Similarly, choosing $a \in B_Y(y,R) \setminus B_Y(y,R/K)$, we have $d_Y( y , a ) \ge d_Y( y , z_1 )/K^2$ and so $$d_X( f^{-1}(y) , f^{-1}(a) ) \ge \eta^{-1}(K^2) d_X( f^{-1}(y) , f^{-1}(z_1) ).$$
+Hence 
+\[
+f^{-1}(B_Y(y,R)) \supseteq B_X(f^{-1}(y),\eta^{-1}(K^2)d_X(f^{-1}(y),f^{-1}(z_1))).
+\]
 	
 	
 	
-	Similar statements clearly hold for $r$ with $z_2$. Thus, for any $\varepsilon > 0$,
-	\begin{align*}
-	\frac{\mu(f^{-1}(B_Y(y,R)))}{\mu(f^{-1}(B_Y(y,r)))} &\le \frac{\mu(B_X(f^{-1}(y),\eta(1)d_X(f^{-1}(y), f^{-1}(z_1)) ))}{\mu(B_X(f^{-1}(y),\eta^{-1}(K^2)d_X(f^{-1}(y),f^{-1}(z_2)) ))} \\
-	& \le C_{\varepsilon}\left( \frac{\eta(1)d_X(f^{-1}(y),f^{-1}(z_1))}{\eta^{-1}(K^2)d_X(f^{-1}(y),f^{-1}(z_2))}\right)^{\urdim \mu + \varepsilon} \\
-	& \le C_{\varepsilon}\left(c_\eta^{\alpha} \eta(1)/\eta^{-1}(K^2)\right)^{\urdim \mu} \left(\frac{d_Y(y,z_1)}{d_Y(y,z_2)} \right)^{(\urdim \mu + \varepsilon)  / \alpha} \\
-	& \le C_{\varepsilon}\left(c_\eta^{\alpha} \eta(1)/\eta^{-1}(K^2)\right)^{\urdim \mu} \left(\frac{KR}{r} \right)^{(\urdim \mu +\varepsilon)/ \alpha},
+Similar statements clearly hold for $r$ with $z_2$. Thus, for any $\varepsilon > 0$,
+\begin{align*}
+\frac{\mu(f^{-1}(B_Y(y,R)))}{\mu(f^{-1}(B_Y(y,r)))} &\le \frac{\mu(B_X(f^{-1}(y),\eta(1)d_X(f^{-1}(y), f^{-1}(z_1)) ))}{\mu(B_X(f^{-1}(y),\eta^{-1}(K^2)d_X(f^{-1}(y),f^{-1}(z_2)) ))} \\
+& \le C_{\varepsilon}\left( \frac{\eta(1)d_X(f^{-1}(y),f^{-1}(z_1))}{\eta^{-1}(K^2)d_X(f^{-1}(y),f^{-1}(z_2))}\right)^{\urdim \mu + \varepsilon} \\
+& \le C_{\varepsilon}\left(c_\eta^{\alpha} \eta(1)/\eta^{-1}(K^2)\right)^{\urdim \mu} \left(\frac{d_Y(y,z_1)}{d_Y(y,z_2)} \right)^{(\urdim \mu + \varepsilon)  / \alpha} \\
+& \le C_{\varepsilon}\left(c_\eta^{\alpha} \eta(1)/\eta^{-1}(K^2)\right)^{\urdim \mu} \left(\frac{KR}{r} \right)^{(\urdim \mu +\varepsilon)/ \alpha},
 	\end{align*}
-	where $C_{\varepsilon}$ is the constant from the definition of the upper regularity dimension of $\mu$ with respect to $\varepsilon$. As $\varepsilon$ is arbitrarily chosen this completes the upper bound.
+where $C_{\varepsilon}$ is the constant from the definition of the upper regularity dimension of $\mu$ with respect to $\varepsilon$. As $\varepsilon$ is arbitrarily chosen this completes the upper bound.
 	
-	For the lower bound we can repeat the above argument, swapping $f_*\mu$ with $\mu$ and $f$ with $f^{-1}$. Due to the correspondence between $f$ and $f^{-1}$ we see that $\urdim  \mu \le  \urdim f_* \mu / \alpha$ as desired.
+For the lower bound we can repeat the above argument, swapping $f_*\mu$ with $\mu$ and $f$ with $f^{-1}$. Due to the correspondence between $f$ and $f^{-1}$ we see that $\urdim  \mu \le  \urdim f_* \mu / \alpha$ as desired.
 	
-	\begin{comment}
-	For the lower bound of the upper regularity dimension, first note that for any $\varepsilon > 0$ there exists a sequence of $x_k \in X$ and $0< r_K < R_k$, with $R_k / r_k$ tending to infinity, such that for all $k\in \mathbb{N}$
-	\[
-	\frac{\mu(B(x_k,R_k))}{\mu(B(x_k,r_k))} \ge C_{\varepsilon} \left(\frac{R_k}{r_k} \right)^{\urdim \mu-\varepsilon}.
-	\]
-	We will fix $\varepsilon>0$ and the corresponding sequences for the rest of this proof.
-	
-	Whilst the upper regularity dimension of the pushforward will not necessarily be obtained by considering the image of these sequences, it will allow us to find a lower bound. The difficulty lies in constructing suitable images of these sequences. The natural image of the sequence $(x_k)$ is just $(f(x_k) )$. To find the corresponding diameters we fix $x\in X$ and $R>0$. Then define $R^{\sup} = \sup_{y \in B(x,R)} d_Y( f(x) , f(y) )$ and $R^{\inf} = \inf_{y \in B(x,R) \setminus B(x,R/2)} \eta(1) d_Y(f(x) , f(y))$, note $R_{\inf}$ is not quite the first number with the supremum replaced by the infimum. $z_{R}^{\sup} \in X$ is chosen to be the point for which the supremum is attained and $z_{R}^{\inf}$ comes from the infimum. The supremum and infimum are attained as $B(x,R)$ is compact and $f(x)$ is a quasisymmetric homeomorphism. We can also see that $z_{R}^{\sup} \neq x \neq z_{R}^{\inf}$. If $R_k/r_k \rightarrow \infty$ as $k$ grows, then so will $R_k^{\sup}/r_k^{\inf}$. Thus we have for any $k\in \mathbb{N}$
-	\begin{align*}
-	\frac{f_* \mu(B(f(x_k),R_k^{\sup}))}{f_*\mu(B(f(x_k),r_k^{\inf}))} &\ge \frac{\mu(B(x_k,R_k))}{\mu(B(x_k,r_k))} \\
-	& \ge  C_{\varepsilon} \left(\frac{R_k}{r_k} \right)^{\urdim \mu-\varepsilon} \\ 
-	& \ge C_{\varepsilon} \left ( \frac{d_X(x, z_{R_k}^{\sup} )}{2d_X( x, z_{r_k}^{\inf} )}\right)^{\urdim \mu-\varepsilon} \\
-	& \ge \frac{C_{\varepsilon}c_\eta}{2^{\urdim \mu-\varepsilon}} \left(\frac{d_Y (f(x) , f(z_{R_k}^{\sup}))}{ d_Y( f(x), f(z_{r_k}^{\inf}) )} \right)^{\alpha(\urdim \mu-\varepsilon)} \\
-	& = \frac{C_{\varepsilon}c_\eta}{2^{\urdim \mu-\varepsilon}}\left(\frac{R_k^{\sup}}{r_k^{\inf}} \right)^{\alpha(\urdim \mu-\varepsilon)}
-	\end{align*}
-	completing the proof.
-	
-	\end{comment}
-	
-	Proofs for the lower regularity dimension follow similarly.
-	
-	
-\end{proof}
-
-
-
-
-
-
-
-
-
-\subsection{Pushforward of measures onto graphs of Brownian motion}
-
-
-Choose a L\'evy process $X$ which satisfies the conditions in Theorem \ref{brownianthm} with scaling coefficient $\alpha$ and fix a graph $G_X^{[0,1]}$ realised by this process. Start by assuming $\alpha > 1$, the proof will work in the same way for $\alpha < 1$ given a slight modification which will be commented on later in the proof. $\mu$ is taken to be a doubling measure on the unit interval. Recall $f$ is defined to be the function which maps the unit interval to the graph of our L\'evy process and $f_*\mu$ is the pushforward measure of $\mu$ onto the graph that we wish to study. 
-
-We start by calculating the almost sure upper regularity dimension of $f_*\mu$. Let $s>0$. The general strategy for this proof is to find a sequence of events that are all independent and have positive probability. Then a simple application of the Borel-Cantelli lemma will yield that almost surely these events will happen infinitely often. By choosing our events carefully this will yield a sequence of balls that show the upper regularity dimension of the pushforward measure must be greater than $s$. As $s$ is abitrary, this will conclude the proof.
-
-Given our $\alpha$-scaling L\'evy process, we define the rectangle centered at $a\in [0,1]$ with side lengths $R_1,R_2$ by $Rec(a,R_1,R_2) = I(a,R_1) \times I(X(a),R_2)$ where $I(b,R) = [b-R/2,b+R/2]$ is just an interval of length $R$ and centre $b$. $G_X^{I(x,R)}$ will denote the graph of $X$ above the interval $I(x,R)$.
-
-The particular events $E_i$ we are interested in are defined as follows: let $x_i \in [0,1]$, $R_i > r_i> 0$ and $\beta > 1$, then $E_i$ is the event in which $G_X^{I(x_i,R_i^{\alpha})} \subset Rec(x_i,R_i^{\alpha},R_i)$ and $Rec(x_i, r_i, r_i^{1/\alpha}) \cap G_X^{I(x_i,r_i)} = G_X^{I(x_i,r_i^{\beta})}$. These events are chosen so that the measure on the graph will be `large' on the rectangle of small side length $R^{\alpha}$ but `small' on the rectangle of small side length $r$. Figure \ref{brownian_event} is a geometric representation of such an event.  
-
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.4\textwidth]{new_rectangles.png}
-	\caption{Example of an event $E_i$, the grey areas are where the graph intersects the rectangles whilst the graph will not intersect the white areas. An example of a graph satisfying this event is in red.}
-	\label{brownian_event}
-\end{figure}
-
-
-Note that $\alpha>1$ here is important for the rectangles to be tall and thin. If $\alpha < 1$ it would suffice to change $Rec(x_i,R_i^{\alpha}, R_i)$ to $Rec(x_i, R_i, R^{\alpha})$ and similarly for the smaller rectangles. The rest of the proof would run in the same way afterwards with some slight changes in the calculations of $\beta$ at the end.
-
-Given any sequences $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta > 1$ we can consider the associated events $E_i$ as above. To make sure the `smaller' rectangle is actually smaller, assume $R_i^{\alpha} > r_i$ without loss of generality. If $Rec(x_m,R_m^{\alpha}, R_m) \cap Rec(x_n,R_n^{\alpha},R_n) = \emptyset$ for all $m\neq n$, then the events are all independent due to the independent increment property of the L\'evy process. As long as the distribution of $X(1)$ is non-vanishing on the unit interval, the probability of any of these events is positive.
-
-We can now choose our sequence of events. Start by picking any disjoint and strictly increasing sequence of reals  $x_i$, $\left\{1-2^{-i} \right\}_{\mathbb{N}}$ would suffice. Then the $R_i$ are taken so that the intervals $I(x_i, R_i)$ do not overlap ensuring independence, say $4^{-i}$. Initially any sequence of $r_i$ can be chosen as long as $R_i/r_i \rightarrow \infty$ and, again, $R_i^{\alpha} > r_i$ for each $i$. $\beta$ will be fixed later, for now it is just a real greater than 1. As the process is $\alpha$-scaling one can map $Rec(x_i,R_i^{\alpha},R_i)$ onto the unit square via an affine map $T$ and the image of the graph under this transformation, denoted $G_{X_i}^{[0,1]}$, will have distribution $X_i$ equal to the original distribution $X(t)$ as it is scaled following the definition of $\alpha$-scaling, so $X(t) = X(R_i^\alpha t)/R_i = X_i(t)$ in distribution. Therefore the probability of an event $E_i$ is equal to the probability the graph of $X_i$ stays in the unit square and 
-$$Rec(1/2,r_i/R_i^{\alpha} ,r_i^{1/\alpha}/R_i ) \cap G_{X_i}^{I(1/2, r_i/R_i^{\alpha})} = G_{X_i}^{I(1/2, r_i^{\beta}/R_i^{\alpha})}.$$
-
-Thus the probability of $E_i$ depends solely on the ratio $R_i/r_i = q_i$. If $\sum P(E_i)$ diverges then the conditions for Borel-Cantelli are satisfied and the argument continues. However, if not, the sequence $r_i$ is modified in the following way. Each $i$ gives us a ratio $q_i$ and a probability $P(E_i)$. Construct a function $g \colon \mathbb{N} \rightarrow \mathbb{N}$ such that $g(n) = \lceil \frac{1}{nP(E_n)}\rceil$ for all $n\in \mathbb{N}$. Then, keeping $R_i$ fixed, change the $r_i$ so that each ratio $q_i$ is repeated $g(i)$ many times. For instance, if $g(1) = 3$ then $r_1,r_2$ and $r_3$ are chosen so that $R_1/r_1, R_2/r_2$ and $R_3/r_3$ all give the same $P(E_1)$ and $r_4$ then is chosen with respect to $P(E_2)$ etc. The new sequence is constructed such that $\sum P(E_i)$ diverges, satisfying the conditions for Borel-Cantelli.
-
-Hence, by the Borel-Cantelli lemma, infinitely many $E_i$ occur with probability one. So there are sequences $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta > 1$ such that, with full probability, all of the events $E_i$ happen and $R_i/r_i \rightarrow \infty$. 
-
-Given a specific event $E_i$ we wish to consider the measure of the rectangles. The ratio of measures of such rectangles is determined by the original measure on the interval. We let $t = \lrdim \mu / 2$, this is just to have a number for which the following bound holds but is also fixed and positive due to Proposition 2.1. Thus we obtain the following bound:
+\begin{comment}
+For the lower bound of the upper regularity dimension, first note that for any $\varepsilon > 0$ there exists a sequence of $x_k \in X$ and $0< r_K < R_k$, with $R_k / r_k$ tending to infinity, such that for all $k\in \mathbb{N}$
 \[
-\frac{f_*\mu(Rec(x_i,R_i^{\alpha},R_i))}{f_*\mu(Rec(x_i,r_i,r_i^{1/\alpha}))} = \frac{\mu(B(x_i, R_i^{\alpha}))}{\mu(B(x_i, r_i^{\beta}))} \ge C\left(\frac{R_i^{\alpha}}{r_i^{\beta}}\right)^t, 
+\frac{\mu(B(x_k,R_k))}{\mu(B(x_k,r_k))} \ge C_{\varepsilon} \left(\frac{R_k}{r_k} \right)^{\urdim \mu-\varepsilon}.
 \]
-where $C$ comes from the definition of the lower regularity dimension.
-
-The only variable left to be fixed is $\beta$. We wish to have the above ratio greater than $C(R_i/r_i)^s$. After a short calculation, it is clear that this is always true if $\beta \ge \alpha + s/t$. Thus by choosing such a $\beta$ we have
-\[
-\frac{f_*\mu(Rec(x_i,R_i^{\alpha},R_i))}{f_*\mu(Rec(x_i,r_i,r_i^{1/\alpha}))} \ge C\left(\frac{R_i^{\alpha t}}{r_i^{\alpha t + s} }\right) \ge C\left(\frac{R_i^{\alpha t + s}}{r_i^{\alpha t + s} }\right)  \ge
-C\left(\frac{R_i}{r_i}\right)^s. 
-\]
-
-To show the upper regularity dimension is greater than $s$ we need to consider balls not rectangles. Thankfully due to our construction $B(x_i,R_i) \supset Rec(x_i, R_i^\alpha, R_i)$ and $B(x_i,r_i) \subseteq Rec(x_i, r_i, r_i^{1/\alpha})$. Hence
-\[
-\frac{f_*\mu(B(x_i,R_i))}{f_*\mu(B(x_i,r_i))} \ge \frac{f_*\mu(Rec(x_i,R_i^{\alpha},R_i))}{f_*\mu(Rec(x_i,r_i,r_i^{1/\alpha}))} \ge C\left(\frac{R_i}{r_i}\right)^s ,
-\]
+We will fix $\varepsilon>0$ and the corresponding sequences for the rest of this proof.
+	
+Whilst the upper regularity dimension of the pushforward will not necessarily be obtained by considering the image of these sequences, it will allow us to find a lower bound. The difficulty lies in constructing suitable images of these sequences. The natural image of the sequence $(x_k)$ is just $(f(x_k) )$. To find the corresponding diameters we fix $x\in X$ and $R>0$. Then define $R^{\sup} = \sup_{y \in B(x,R)} d_Y( f(x) , f(y) )$ and $R^{\inf} = \inf_{y \in B(x,R) \setminus B(x,R/2)} \eta(1) d_Y(f(x) , f(y))$, note $R_{\inf}$ is not quite the first number with the supremum replaced by the infimum. $z_{R}^{\sup} \in X$ is chosen to be the point for which the supremum is attained and $z_{R}^{\inf}$ comes from the infimum. The supremum and infimum are attained as $B(x,R)$ is compact and $f(x)$ is a quasisymmetric homeomorphism. We can also see that $z_{R}^{\sup} \neq x \neq z_{R}^{\inf}$. If $R_k/r_k \rightarrow \infty$ as $k$ grows, then so will $R_k^{\sup}/r_k^{\inf}$. Thus we have for any $k\in \mathbb{N}$
+\begin{align*}
+\frac{f_* \mu(B(f(x_k),R_k^{\sup}))}{f_*\mu(B(f(x_k),r_k^{\inf}))} &\ge \frac{\mu(B(x_k,R_k))}{\mu(B(x_k,r_k))} \\
+& \ge  C_{\varepsilon} \left(\frac{R_k}{r_k} \right)^{\urdim \mu-\varepsilon} \\ 
+& \ge C_{\varepsilon} \left ( \frac{d_X(x, z_{R_k}^{\sup} )}{2d_X( x, z_{r_k}^{\inf} )}\right)^{\urdim \mu-\varepsilon} \\
+& \ge \frac{C_{\varepsilon}c_\eta}{2^{\urdim \mu-\varepsilon}} \left(\frac{d_Y (f(x) , f(z_{R_k}^{\sup}))}{ d_Y( f(x), f(z_{r_k}^{\inf}) )} \right)^{\alpha(\urdim \mu-\varepsilon)} \\
+& = \frac{C_{\varepsilon}c_\eta}{2^{\urdim \mu-\varepsilon}}\left(\frac{R_k^{\sup}}{r_k^{\inf}} \right)^{\alpha(\urdim \mu-\varepsilon)}
+\end{align*}
 completing the proof.
+	
+\end{comment}
+	
+\textcolor{red}{actually do these}	
+Proofs for the lower regularity dimension follow similarly.
 
 
-For the lower regularity dimension it suffices to change the events $E_i$ in the following way. Assuming $\alpha>1$, let $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta < 1$, then $E_i$ is the event where $G_X^{I(x_i, R_i)} \cap Rec(x_i,R_i,R_i^{1/\alpha}) \subseteq Rec(x_i, r_i^{\beta}, R_i^{1/\alpha})$ and $G_X^{I(x_i, r_i)} \subseteq Rec(x_i, r_i^{\alpha}, r_i)$. The previous argument then works in much the same way, showing that the lower regularity dimension of $f_*\mu$ is zero as desired.
 
-\begin{figure}[htbp]
-	\centering
-	\includegraphics[width=0.4\textwidth]{rectangles.png}
-	\caption{Example of an event $E_i$ for the lower regularity dimension, the grey areas are where the graph intersects the rectangles whilst the graph will not intersect the white areas.}
-	\label{brownian_event}
-\end{figure}
+
+
+
+
+
+
 
 
 
@@ -517,9 +334,6 @@ For the lower regularity dimension it suffices to change the events $E_i$ in the
 
 
 
-
-
-\begin{proof}[Proof of Proposition 2.6]
 	If $\mu$ is weakly absolutely $\alpha$-decaying then $\mu(B(x,\varepsilon R)) \le C \varepsilon^{\alpha} \mu(B(x,R))$ for any $x\in X$ and $\varepsilon, R >0$. Thus
 	\[
 	\frac{\mu(B(x,R))}{\mu(B(x,\varepsilon R))} \ge \frac{1}{C} \left(\frac{R}{\varepsilon R} \right)^{\alpha}
@@ -538,8 +352,6 @@ For the lower regularity dimension it suffices to change the events $E_i$ in the
 	\mu(B(x,\varepsilon R)) \le \frac{1}{C'} \varepsilon^{t - \delta} \mu(B(x,R))  
 	\]
 	and so $\mu$ is $(t-\delta)$-decaying.
-\end{proof}
-
 
 
 

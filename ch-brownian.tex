@@ -4,22 +4,44 @@
 \section{Introduction}
 \label{sec:intro-brownian}
 
-Studying the dimension of various random processes has been of interest for quite some time. In this chapter we will consider the Assouad dimension of graphs of certain random processes, notably L\'evy processes and functions defined by stochastic integrals. Then the regularity dimensions of pushforward measures onto graphs of L\'evy processes will be computed for doubling measures defined on the unit interval. 
+Studying the dimension of various random processes has been of interest for quite some time. In this chapter we will consider the Assouad and lower dimensions of graphs of certain random processes, notably L\'evy processes and functions defined by stochastic integrals. Then the regularity dimensions of pushforward measures onto graphs of L\'evy processes will be computed for doubling measures defined on the unit interval. 
 
-In particular we will see that pushforwards of doubling maps in this setting are almost surely not doubling. This contrasts with the previous results on quasisymmetric homeomorphisms which conserved doubling. This will also provide a different example of a uniformly perfect and doubling space with a non uniformly perfect and non doubling measure fully supported on that same space.
+In particular we will see that pushforwards of doubling maps in this setting are almost surely not doubling. This contrasts with the previous results on quasisymmetric homeomorphisms which conserved doubling. This will also provide a nice example of a uniformly perfect and doubling space with a non uniformly perfect and non doubling measure fully supported on that same space.
 
 \section{L\'evy processes}
 \label{sec:levy-process}
 
 
-\emph{L\'{e}vy processes} $X(t)$ were first introduced by Paul L\'evy in 1934 \cite{Le} and are defined to be the stochastic processes satisfying:
+\emph{L\'{e}vy processes} $X(t)$ were first introduced by Paul L\'evy in 1934 \cite{levy} and are defined to be the stochastic processes satisfying:
 \begin{itemize}
 	\item[1]: $X(0)=0$ almost surely.
 	\item[2]: For all $t,h>0$, $X(t+h)-X(t)$ is equal to $X(h)$ in distribution (stationary increments).
 	\item[3]: For all $0<t_1<t_2<...<t_k$ the random variables $X(t_i)-X(t_{i-1})$ are independent (independence of increments).
 	\item[4]: For all $t>0$ $\lim_{h\to 0} X(t+h)-X(t)=0$ in probability (continuity).
 \end{itemize}
+
 We can construct $X(t)$ such that it is almost surely right continuous with left limits (denoted c\`adl\`ag). Such processes are standard tools in many areas of modern mathematics and its applications. A common example of a L\'evy process is the \emph{Wiener process} (or Brownian motion) where property 2 (stationary increments) is replaced by Gaussian increments, so $X(t+h)-X(t)$ is normally distributed with mean 0 and variance $h$. One can similarly define $d$-dimensional Brownian motion by considering the vector-valued stochastic process $(W_1,\ldots, W_d)$ where the $W_i$ are independent Weiner processes. 
+
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=0.85\linewidth]{2-brownianr.png}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{2-browniang.png}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{2-brownianb.png}
+	\end{subfigure}
+	\caption{Three graphs of Brownian motion, a 2-stable L\'evy process.}
+	\label{fig:brownian}
+\end{figure}
+
+
 
 \begin{figure}[h]
 	\includegraphics[width=0.5\textwidth]{wiener_process.pdf}
@@ -86,27 +108,16 @@ a^{-\frac{1}{\beta}}X(at)=^d X(t),
 \]
 where `$=^d$' denotes `equal in distribution'.
 For example the Wiener process has the $2$-scaling property.
+The Assouad dimension provides information on the extremal local scaling of a set, in this setting it will tell us about the maximal fluctuations of a random process. For a more detailed introduction to this dimension, see \cite{Fr, Ro}. 
 
-A non-empty compact bounded set $F$ is said to be $s$-\textit{homogeneous} if there exists a constant $C>0$ such that for all $0<R$, $r\in (0,R]$ and $x\in F$
-\[
-N(B(x,R) \cap F, r) \le C\left(\frac{R}{r}\right)^s
-\]
-where $B(x,R)$ denotes the closed ball of centre $x$ and radius $R$ and $N(E,r)$ is the number of squares of the $r\times r$ grid that intersect the compact set $E$. 
-
-The \emph{Assouad dimension} of a non-empty compact bounded set $F$ is then defined to be 
-\[
-\Assouad F = \inf \left\{ s \ge 0 \, \, \colon \, F \text{ is } s\text{-homogeneous} \right\}.
-\]
-This dimension provides information on the extremal local scaling of a set, in this setting it will tell us about the maximal fluctuations of a random process. For a more detailed introduction to this dimension, see \cite{Fr, Ro}. 
-
-This paper will be split into three parts. First we will define a condition, Definition 2.1 which guarantees that a graph will have full Assouad dimension. Then in Section 3 we show that graphs of $\beta$-scaling L\'evy process satisfy this condition and combining these results we prove that graphs of functions defined by certain stochastic integrals also have full Assouad dimension. Finally in Section 4 we remark that our results extend to higher dimensions.
+\textcolor{red}{reconfigure whole chapter} This paper will be split into three parts. First we will define a condition, Definition 2.1 which guarantees that a graph will have full Assouad dimension. Then in Section 3 we show that graphs of $\beta$-scaling L\'evy process satisfy this condition and combining these results we prove that graphs of functions defined by certain stochastic integrals also have full Assouad dimension. Finally in Section 4 we remark that our results extend to higher dimensions.
 
 \section{Assouad dimension of graphs}
 In this section we will state a convenient condition to check whether a graph of a function $f:[0,1]\to\mathbb{R}$ has full Assouad dimension.
 
 We begin with a definition:
 
-\begin{defn}\label{Win}
+\begin{definition}\label{Win}
 	Let $R_1,R_2>0$ be positive numbers and $n_1,n_2>0$ be integers. Given a point $a\in\mathbb{R}^2$, we define $W_{n_1\times n_2}^{R_1\times R_2}(a)$ as the following collection of sets:
 	\[	
 	\left\{D_{i,j}+a \, \vert \, D_{i,j}=\left[\frac{i}{n_1}R_1,\frac{i+1}{n_1}R_1\right]\times \left[\frac{j}{n_2}R_2,\frac{j+1}{n_2}R_2\right], i\in\{0,\dots,n_1-1\}, j\in\{0,\dots,n_2-1\}\right\}.
@@ -115,12 +126,12 @@ We begin with a definition:
 	We see that $W_{n_1\times n_2}^{R_1\times R_2}(a)$ is the collection of rectangles with disjoint interiors which partitions the $R_1\times R_2$ rectangle whose bottom left vertex is $a$.
 	
 	Then let $N_{n_1\times n_2}^{R_1 \times R_2 }(a,G_f^{[0,1]})= \# \left\{ W_{n_1\times n_2}^{R_1\times R_2}(a) \cap G_f^{[0,1]} \right\}$, this is the number of rectangles which intersect the graph.
-\end{defn}
+\end{definition}
 
 The following theorem is a direct consequence of the definition of Assouad dimension and we omit the proof:
 
 
-\begin{thm}\label{graph}
+\begin{theorem}\label{graph}
 	If there exists an $A>0$ and sequences:
 	\[
 	a_i\in \mathbb{R}^2,R_i\in (0,1),\, n_i\in\mathbb{N} \quad (\forall i\in \mathbb{N})
@@ -133,17 +144,17 @@ The following theorem is a direct consequence of the definition of Assouad dimen
 	\[
 	\Assouad G_f^{[0,1]}=2.
 	\]
-\end{thm}
+\end{theorem}
 
 Whilst this might seem like a restrictive condition to ask a general function to satisfy, it is quite natural in the setting of Wiener processes due to the almost sure unbounded variation and $\beta$-scaling property of the process. Considering squares instead of balls in the definition of Assouad dimension is similar to the definition of the Furstenberg star dimension, which is in fact equivalent to the Assouad dimenion, see \cite{chenwuwu}.
 
-\begin{rem}
+\begin{remark}
 	Note that one could replace the inequality with the following equality
 	\[
 	N_{n_i\times n_i}^{R_i \times R_i }(a_i,G_f^{[0,1]})= n_i^2.
 	\]
 	This follows from \cite[Theorem 2.4]{FY}, where it is shown that a set has full Assouad dimension if and only if it has the unit ball as a weak tangent. This means that any cover of our set is also a cover of a ball and so all smaller squares are needed in the cover.
-\end{rem}
+\end{remark}
 
 \section{Applications to  $\beta$-scaling L\'evy processes}\label{LP}
 
@@ -190,25 +201,25 @@ As infinitely many $A_i$ occur, using Theorem \ref{graph}, we see:
 \]
 
 We conclude the above argument as the following theorem:
-\begin{thm}\label{Main}
+\begin{theorem}\label{Main}
 	Let $X$ be a $\beta$-scaling L\'evy process with $\beta\geq 1$, such that $X(1)$ is a random variable whose distribution function is non-vanishing almost everywhere. Then almost surely:
 	\[
 	\Assouad G_{X}^{[0,1]}=2.
 	\]
-\end{thm}
+\end{theorem}
 
 We know that the Wiener process $W(t)$ is a $2$-scaling L\'evy process, therefore we see that:
-\begin{cor}
+\begin{corollary}
 	\[
 	\Assouad G_{W}^{[0,1]}=2.
 	\]
-\end{cor}
+\end{corollary}
 
-Ville Suomala and Changhao Chen, in a personal communication, kindly remarked that this result follows from the graph of Brownian motion having full lower porosity dimension. This approach is inspired by \cite{coxgriffin}, where it was shown that the graph of Brownian motion has full upper porosity dimension. However this porosity dimension technique does not extend to our following, more general result, which relies upon this one.
+Ville Suomala and Changhao Chen, in a personal communication, kindly remarked that this result follows from the graph of Brownian motion having full lower porosity dimension. This approach is inspired by \cite{coxgriffin}, where it was shown that the graph of Brownian motion has full upper porosity dimension. However this porosity dimension technique does not extend to our following, more general result.
 
 In fact we can say more about the Assouad dimension of random processes which are functions defined as stochastic integrals, such as fractal Brownian motion. 
 
-\begin{thm}
+\begin{theorem}
 	Let $f:\mathbb{R}\to\mathbb{R}$ be a function which is zero only finitely often, continuous on some interval and has continuous derivative on that same interval. Then we define $B_f(t)$ as the function defined by the stochastic integral:
 	\[	
 	B_f(t)=\int_0^t f(x) W(dx).
@@ -217,10 +228,10 @@ In fact we can say more about the Assouad dimension of random processes which ar
 	\[
 	\Assouad G_{B_f}^{[0,1]}=2.
 	\]
-\end{thm}
-\begin{rem}
+\end{theorem}
+\begin{remark}
 	In particular, graphs of fractional Brownian motions with indices $0<h<1$ have full Assouad dimension almost surely.
-\end{rem}
+\end{remark}
 \begin{proof}
 	Given a function $f$ which is zero only finitely often, continuous and has continuous derivative on some interval, say $J$, we can simply focus on the function restricted to $J$, normalising to obtain a function which is $C^1$ and zero only finitely often on the unit interval. We may then assume that $f(t)>1$ for $t\in [0,1]$ by again restricting our function to an interval where the function is bounded away from zero and normalising. 
 	
@@ -312,23 +323,23 @@ In fact we can say more about the Assouad dimension of random processes which ar
 \section{A remark on higher dimensional Brownian motion}
 
 Definition \ref{Win} has a natural generalization in $\mathbb{R}^d$.
-\begin{defn}\label{Win2}
+\begin{definition}\label{Win2}
 	Let $R_1,\dots,R_d>0$ be positive numbers and $n_1,\dots, n_d$ be integers. Given a point $a\in\mathbb{R}^d$, we define $W_{n_1\times\dots\times n_d}^{R_1\times\dots\times R_d}(a)$ as the following collection of sets:
 	\begin{eqnarray*}
 		\Bigg\{D_{i_1,\dots,i_d}+a \, \vert \, D_{i_1,\dots,i_d}=\left[\frac{i_1}{n_1}R_1,\frac{i_1+1}{n_1}R_1\right]\times\dots\times \left[\frac{i_d}{n_d}R_d,\frac{i_d+1}{n_d}R_d\right],\\ i_j\in\{0,\dots,n_j-1\}, j\in\{1,\dots,d\}\Bigg\}.
 	\end{eqnarray*}
 	
 	We see that $W_{n_1\times n_2}^{R_1\times R_2}(a)$ is a collection of rectangles with disjoint interiors.
-\end{defn}
+\end{definition}
 
 Using the above definition and a similar argument as the one in section \ref{LP},  Theorem \ref{graph} also extends to higher dimensions, we can show the following result and we omit the proof:
 
-\begin{thm}
+\begin{theorem}
 	Let $B_d(t)$ be the $d$ dimensional Brownian motion, from $\mathbb{R}$ to $\mathbb{R}^d$. Then almost surely:
 	\[
 	\Assouad B_d([0,1])=d.
 	\]
-\end{thm}
+\end{theorem}
 
 We can compare this result to the well known \[\dim_{\mathrm{H}} B_d([0,1])=2\] for $d\geq 2$. The Hausdorff dimension being 2 here can be thought as a reflection that higher dimensional Brownian motion is transient, whilst the Assouad dimension shows that there are still areas of maximal fluctuation. 
 
@@ -337,8 +348,118 @@ Brownian motion also provides examples of Salem sets that can have different Hau
 
 
 
+\textcolor{red}{do lower dim here}
 
 
+\textcolor{red}{got some notation to fix wrt previous sections}
+\subsection{Pushforwards of measures onto graphs of Brownian motion}
+
+
+We now turn our attention to pushforwards of measures and ask if doubling and uniform perfectness are preserved in these situations. Specifically we will consider maps from the unit interval onto graphs of L\'evy processes.
+
+
+Recall the definition of the graph of a L\'evy process $X$ restricted to the unit interval:
+\[
+G_X^{[0,1]} = \left\{ (t,X(t)) \colon t \in [0,1] \right\}.
+\]
+More generally, denote by $G_X^I$ the graph of the process $X$ restricted to the interval $I \subseteq [0,1]$. There is a naturally associated map $f: [0,1] \rightarrow \mathbb{R}^2$ which maps the unit interval to the graph of the process, that is $f\colon t \mapsto (t,X(t))$. This will be the map we wish to use to construct pushforward measures, and for the rest of this section $f$ should be assumed to be this map. 
+
+One of the interesting features of L\'evy processes is their statistical self-affinity. Not all processes have this property so we will restrict to \textit{stable} or $\alpha$-\textit{stable processes}, that is for some $\alpha > 0$
+\[
+a^{-1/\alpha}X(at) =^d X(t)
+\]
+for all $a,t > 0$ and $=^d$ means equal in distribution. For example the Wiener process is 2-stable. In fact all stable processes have $\alpha \in (0,2]$. 
+
+Our final condition is a simple assumption that the distribution $X(1)$ is non-vanishing on $\mathbb{R}$. Non-zero on an interval would also work, this is just to ensure the graphs are not just multiple flat lines, such as in a Poisson process.
+
+
+\begin{figure}[htbp]
+	\centering
+	\begin{subfigure}{0.3\textwidth}
+		\centering
+		\includegraphics[width=0.85\linewidth]{1-cauchyr.png}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{1-cauchyg.png}
+	\end{subfigure}%
+	\begin{subfigure}{.3\textwidth}
+		\centering
+		\includegraphics[width=.9\linewidth]{1-cauchyb.png}
+	\end{subfigure}
+	\caption{Three graphs of a L\'evy process whose increments are Cauchy distributed, a 1-stable L\'evy process.}
+	\label{fig:cauchy}
+\end{figure}
+
+
+This leads us to the question of this section: given a doubling measure $\mu$ on the unit interval, is $f_*\mu$ also doubling? A similar question holds for uniformly perfect measures. In \cite{howroyd-yu}, it was shown that the Assouad dimension of $G_X^{[0,1]}$ is almost surely 2 so there must exist at least one doubling measure on the graph. However, most measures on the graph might not even be doubling. For the Hausdorff dimension, the proof by Taylor shows that the Hausdorff dimension of the pushforward of Lebesgue measure almost surely attains the dimension of the graph itself. It turns out that this is usually not the case for the regularity dimensions.
+
+\begin{theorem}\label{brownianthm}
+	Let $\mu$ be a doubling measure on $[0,1]$ and $X$ a stable L\'evy process with the distribution $X(1)$ being non vanishing on $\mathbb{R}$. Then $f_*\mu$ is almost surely not doubling on $G_X^{[0,1]}$. Also, $f_*\mu$ is almost surely not uniformly perfect.
+\end{theorem}
+
+
+Trivially this implies the upper regularity dimension of $f_*\mu$ is almost surely infinity and the lower dimension is almost surely zero. Therefore any measure whose upper regularity dimension approximates the dimension of the graph is highly dependent on the specific graph and so there is no one measure that attains the dimension for typical realisations, unlike the Hausdorff case. 
+
+
+\begin{proof}
+    Proof starts here
+\end{proof}
+
+Choose a L\'evy process $X$ which satisfies the conditions in Theorem \ref{brownianthm} with scaling coefficient $\alpha$ and fix a graph $G_X^{[0,1]}$ realised by this process. Start by assuming $\alpha > 1$, the proof will work in the same way for $\alpha < 1$ given a slight modification which will be commented on later in the proof. $\mu$ is taken to be a doubling measure on the unit interval. Recall $f$ is defined to be the function which maps the unit interval to the graph of our L\'evy process and $f_*\mu$ is the pushforward measure of $\mu$ onto the graph that we wish to study. \textcolor{red}{properly explain difference when $\alpha < 1$}
+
+We start by calculating the almost sure upper regularity dimension of $f_*\mu$. Let $s>0$. The general strategy for this proof is to find a sequence of events that are all independent and have positive probability. Then a simple application of the Borel-Cantelli lemma will yield that almost surely these events will happen infinitely often. By choosing our events carefully this will yield a sequence of balls that show the upper regularity dimension of the pushforward measure must be greater than $s$. As $s$ is abitrary, this will conclude the proof.
+
+Given our $\alpha$-scaling L\'evy process, we define the rectangle centered at $a\in [0,1]$ with side lengths $R_1,R_2$ by $Rec(a,R_1,R_2) = I(a,R_1) \times I(X(a),R_2)$ where $I(b,R) = [b-R/2,b+R/2]$ is just an interval of length $R$ and centre $b$. $G_X^{I(x,R)}$ will denote the graph of $X$ above the interval $I(x,R)$.
+
+The particular events $E_i$ we are interested in are defined as follows: let $x_i \in [0,1]$, $R_i > r_i> 0$ and $\beta > 1$, then $E_i$ is the event in which $G_X^{I(x_i,R_i^{\alpha})} \subset Rec(x_i,R_i^{\alpha},R_i)$ and $Rec(x_i, r_i, r_i^{1/\alpha}) \cap G_X^{I(x_i,r_i)} = G_X^{I(x_i,r_i^{\beta})}$. These events are chosen so that the measure on the graph will be `large' on the rectangle of small side length $R^{\alpha}$ but `small' on the rectangle of small side length $r$. Figure \ref{brownian_event} is a geometric representation of such an event.  
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{new_rectangles.png}
+	\caption{Example of an event $E_i$, the grey areas are where the graph intersects the rectangles whilst the graph will not intersect the white areas. An example of a graph satisfying this event is in red.}
+	\label{brownian_event}
+\end{figure}
+
+
+Note that $\alpha>1$ here is important for the rectangles to be tall and thin. If $\alpha < 1$ it would suffice to change $Rec(x_i,R_i^{\alpha}, R_i)$ to $Rec(x_i, R_i, R^{\alpha})$ and similarly for the smaller rectangles. The rest of the proof would run in the same way afterwards with some slight changes in the calculations of $\beta$ at the end.
+
+Given any sequences $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta > 1$ we can consider the associated events $E_i$ as above. To make sure the `smaller' rectangle is actually smaller, assume $R_i^{\alpha} > r_i$ without loss of generality. If $Rec(x_m,R_m^{\alpha}, R_m) \cap Rec(x_n,R_n^{\alpha},R_n) = \emptyset$ for all $m\neq n$, then the events are all independent due to the independent increment property of the L\'evy process. As long as the distribution of $X(1)$ is non-vanishing on the unit interval, the probability of any of these events is positive.
+
+We can now choose our sequence of events. Start by picking any disjoint and strictly increasing sequence of reals  $x_i$, $\left\{1-2^{-i} \right\}_{\mathbb{N}}$ would suffice. Then the $R_i$ are taken so that the intervals $I(x_i, R_i)$ do not overlap ensuring independence, say $4^{-i}$. Initially any sequence of $r_i$ can be chosen as long as $R_i/r_i \rightarrow \infty$ and, again, $R_i^{\alpha} > r_i$ for each $i$. $\beta$ will be fixed later, for now it is just a real greater than 1. As the process is $\alpha$-scaling one can map $Rec(x_i,R_i^{\alpha},R_i)$ onto the unit square via an affine map $T$ and the image of the graph under this transformation, denoted $G_{X_i}^{[0,1]}$, will have distribution $X_i$ equal to the original distribution $X(t)$ as it is scaled following the definition of $\alpha$-scaling, so $X(t) = X(R_i^\alpha t)/R_i = X_i(t)$ in distribution. Therefore the probability of an event $E_i$ is equal to the probability the graph of $X_i$ stays in the unit square and 
+$$Rec(1/2,r_i/R_i^{\alpha} ,r_i^{1/\alpha}/R_i ) \cap G_{X_i}^{I(1/2, r_i/R_i^{\alpha})} = G_{X_i}^{I(1/2, r_i^{\beta}/R_i^{\alpha})}.$$
+
+Thus the probability of $E_i$ depends solely on the ratio $R_i/r_i = q_i$. If $\sum P(E_i)$ diverges then the conditions for Borel-Cantelli are satisfied and the argument continues. However, if not, the sequence $r_i$ is modified in the following way. Each $i$ gives us a ratio $q_i$ and a probability $P(E_i)$. Construct a function $g \colon \mathbb{N} \rightarrow \mathbb{N}$ such that $g(n) = \lceil \frac{1}{nP(E_n)}\rceil$ for all $n\in \mathbb{N}$. Then, keeping $R_i$ fixed, change the $r_i$ so that each ratio $q_i$ is repeated $g(i)$ many times. For instance, if $g(1) = 3$ then $r_1,r_2$ and $r_3$ are chosen so that $R_1/r_1, R_2/r_2$ and $R_3/r_3$ all give the same $P(E_1)$ and $r_4$ then is chosen with respect to $P(E_2)$ etc. The new sequence is constructed such that $\sum P(E_i)$ diverges, satisfying the conditions for Borel-Cantelli.
+
+Hence, by the Borel-Cantelli lemma, infinitely many $E_i$ occur with probability one. So there are sequences $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta > 1$ such that, with full probability, all of the events $E_i$ happen and $R_i/r_i \rightarrow \infty$. 
+
+Given a specific event $E_i$ we wish to consider the measure of the rectangles. The ratio of measures of such rectangles is determined by the original measure on the interval. We let $t = \lrdim \mu / 2$, this is just to have a number for which the following bound holds but is also fixed and positive due to Proposition 2.1. Thus we obtain the following bound:
+\[
+\frac{f_*\mu(Rec(x_i,R_i^{\alpha},R_i))}{f_*\mu(Rec(x_i,r_i,r_i^{1/\alpha}))} = \frac{\mu(B(x_i, R_i^{\alpha}))}{\mu(B(x_i, r_i^{\beta}))} \ge C\left(\frac{R_i^{\alpha}}{r_i^{\beta}}\right)^t, 
+\]
+where $C$ comes from the definition of the lower regularity dimension.
+
+The only variable left to be fixed is $\beta$. We wish to have the above ratio greater than $C(R_i/r_i)^s$. After a short calculation, it is clear that this is always true if $\beta \ge \alpha + s/t$. Thus by choosing such a $\beta$ we have
+\[
+\frac{f_*\mu(Rec(x_i,R_i^{\alpha},R_i))}{f_*\mu(Rec(x_i,r_i,r_i^{1/\alpha}))} \ge C\left(\frac{R_i^{\alpha t}}{r_i^{\alpha t + s} }\right) \ge C\left(\frac{R_i^{\alpha t + s}}{r_i^{\alpha t + s} }\right)  \ge
+C\left(\frac{R_i}{r_i}\right)^s. 
+\]
+
+To show the upper regularity dimension is greater than $s$ we need to consider balls not rectangles. Thankfully due to our construction $B(x_i,R_i) \supset Rec(x_i, R_i^\alpha, R_i)$ and $B(x_i,r_i) \subseteq Rec(x_i, r_i, r_i^{1/\alpha})$. Hence
+\[
+\frac{f_*\mu(B(x_i,R_i))}{f_*\mu(B(x_i,r_i))} \ge \frac{f_*\mu(Rec(x_i,R_i^{\alpha},R_i))}{f_*\mu(Rec(x_i,r_i,r_i^{1/\alpha}))} \ge C\left(\frac{R_i}{r_i}\right)^s ,
+\]
+completing the proof.
+
+
+For the lower regularity dimension it suffices to change the events $E_i$ in the following way. Assuming $\alpha>1$, let $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta < 1$, then $E_i$ is the event where $G_X^{I(x_i, R_i)} \cap Rec(x_i,R_i,R_i^{1/\alpha}) \subseteq Rec(x_i, r_i^{\beta}, R_i^{1/\alpha})$ and $G_X^{I(x_i, r_i)} \subseteq Rec(x_i, r_i^{\alpha}, r_i)$. The previous argument then works in much the same way, showing that the lower regularity dimension of $f_*\mu$ is zero as desired.
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width=0.4\textwidth]{rectangles.png}
+	\caption{Example of an event $E_i$ for the lower regularity dimension, the grey areas are where the graph intersects the rectangles whilst the graph will not intersect the white areas.}
+	\label{brownian_event}
+\end{figure}
 
 
 

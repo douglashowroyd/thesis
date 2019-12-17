@@ -26,6 +26,7 @@ Finally, in Chapter 4, we will consider graphs of Brownian motion, and more gene
 
 \section{Dimensions of sets}
 \label{sec:intro-sets}
+\nomenclature[.]{$X$}{metric space}
 
 In this section we will introduce and define several different notions of dimension that will occur throughout this thesis. Dimensions are concerned with the size of objects and so one must first establish a notion of distance. This is done by studying subsets of metric spaces $(X,d)$; often we will simply refer to the space $X$ with the metric being implicitly defined. For simplicity one should assume $X$ is compact, however this is usually not needed and in fact there are some particularly beautiful results that will be discussed in \label{sec:intro-ass} \textcolor{red}{make sure these are talked about} that hold for non-compact sets. When discussing the distance between points we will use the notation $d(x,y)$ to be the distance between the points $x,y \in X$ where the space is clear. If multiple metric spaces are being considered simultaneously the notation $d_X(x,y)$ will be adopted to specify the metric in which the distance is taken. 
 
@@ -55,11 +56,11 @@ As mentioned before, calculating this dimension from first principles is usually
 
 A coarser but easier to compute dimension was desired, without straying too far from the Hausdorff dimension. This lead to the upper and lower box dimensions in the 1920's. Given $F\subseteq X$, take $N(F,r)$ to be the smallest number of sets needed in a $r$-cover of $F$. Then the upper and lower box dimensions are defined by
 \nomenclature[.]{$N(F,r)$}{covering number of a set $F$ by sets of radius at most $r$}
-\nomenclature[.]{$\box$}{box dimension}
+\nomenclature[.]{$\dim_{\textup{B}}$}{box dimension}
 \[
 \ubox F = \limsup_{r \rightarrow 0} \frac{-\log N(F,r)}{\log r}   \quad \text{ and } \quad \lbox F = \liminf_{r \rightarrow 0} \frac{-\log N(F,r)}{\log r}. 
 \]
-In reality we will take $N(F,r)$ to be the smallest number of balls of radius $r$ required to cover $F$, or the smallest number of squares of side lengths $r$. These changes will not change the box dimensions of a set and will greatly simply calculations. Of particular interests in real world applications, one can take $N(F,r)$ to be the number of squares in the $r$-mesh that intersect $F$ and a computer can then calculate this number for a sequence of scales, approximating the box dimensions to a reasonable degree. When $\ubox F = \lbox F$, we simply talk about the box dimension of $F$ and denote it $\box F$. This will be the case for all the examples we are interested in when discussing the box dimension. 
+In reality we will take $N(F,r)$ to be the smallest number of balls of radius $r$ required to cover $F$, or the smallest number of squares of side lengths $r$. These changes will not change the box dimensions of a set and will greatly simply calculations. Of particular interests in real world applications, one can take $N(F,r)$ to be the number of squares in the $r$-mesh that intersect $F$ and a computer can then calculate this number for a sequence of scales, approximating the box dimensions to a reasonable degree. When $\ubox F = \lbox F$, we simply talk about the box dimension of $F$ and denote it $\dim_{\textup{B}} F$. This will be the case for all the examples we are interested in when discussing the box dimension. 
 
 
 
@@ -67,7 +68,7 @@ In reality we will take $N(F,r)$ to be the smallest number of balls of radius $r
 \subsection{Assouad and lower dimensions}
 \label{sec:intro-ass}
 
-The notion of dimension that will most interest us in this thesis is the Assouad dimension, named after Patrice Assouad who proved what is now known as the Assouad embedding theorem in the 70's \cite{assouad1, assouad2} which relates the Assouad dimension of a metric space with bi-Lipschitz embeddings into Euclidean space. The notion of the dimension itself can be traced back to a paper of Bouligand in 1928 \cite{bouligand} and then Larman in the 60's \cite{larman1,larman2}. The \textit{Assouad dimension} of $F \subseteq X$ is defined by 
+The notion of dimension that will most interest us in this thesis is the Assouad dimension, named after Patrice Assouad who proved what is now known as the Assouad embedding theorem in the 70's \cite{assouad1, assouad2} which relates the Assouad dimension of a metric space with nearly bi-Lipschitz embeddings into Euclidean space. The notion of the dimension itself can be traced back to a paper of Bouligand in 1928 \cite{bouligand} and then Larman in the 60's \cite{larman1,larman2}. The \textit{Assouad dimension} of $F \subseteq X$ is defined by 
 \nomenclature[.]{$\Assouad$}{Assouad dimension}
 \begin{multline*}
 \dim_{\text{A}} F = \inf \Bigg\{ s \geq 0 \, \,  : \, \exists \text{ constant } C \text{ such that, for all } \, \, 0< r< R,\\ \text{ we have  }\sup_{x\in F} N_r (B(x,R)\cap F) \leq C\left(\frac{R}{r}\right)^{s} \Bigg\}
@@ -89,13 +90,13 @@ As the spaces $X$ are assumed to be compact, the completeness condition is alway
 
 
 As the Assouad dimension provides coarse, extremal information, it is natural to consider an analogous dimension which studies regions of the set which require very few balls to cover. This leads to the definition of the lower dimension, first studied by Larman \cite{larman1,larman2}. The \textit{lower dimension} of $F \subseteq X$ is 
-\nomenclature[.]{$\lower$}{lower dimension}
+\nomenclature[.]{$\lowerdim$}{lower dimension}
 \begin{multline*}
 \dim_{\text{L}} F = \sup \Bigg\{ s \geq 0 \, \,  : \, \exists \text{ constants }C, \rho > 0 \text{ such that, for all } \, \, 0< r< R \leq \rho,\\ \text{ we have  }\inf_{x\in F} N_r (B(x,R)\cap F) \geq C\left(\frac{R}{r}\right)^{s} \Bigg\}.
 \end{multline*}
 This notion has seen less study, partially due to a few undesirable properties that it possesses, but when studying many of the main examples of fractals it behaves as expected and results for the Assouad dimension can often be transposed to the lower dimension. 
 
-Like the Assouad dimension, the lower dimension also has a related regularity property. A space $X$ is uniformly perfect if there exists a constant $K > 1$ such that for any $x \in X$ and $R > 0$, there exists $y \in X \cap \left(B(x, R) \ B(x, R/K)\right)$. One can in fact show that a set is uniformly perfect if and only if it has positive lower dimension. \textcolor{red}{meebs find ref for this? finnish peeps/das + simmons sponge paper?} One of the main problems with the lower dimension is that the lower dimension of any set which contains an isolated point is always zero. Thus, restricting to uniformly perfect spaces would easily avoid this difficulty. 
+Like the Assouad dimension, the lower dimension also has a related regularity property. A space $X$ is uniformly perfect if there exists a constant $K > 1$ such that for any $x \in X$ and $R > 0$, there exists $y \in X \cap \left(B(x, R) \setminus B(x, R/K)\right)$. One can in fact show that a set is uniformly perfect if and only if it has positive lower dimension. \textcolor{red}{meebs find ref for this? finnish peeps/das + simmons sponge paper?} One of the main problems with the lower dimension is that the lower dimension of any set which contains an isolated point is always zero. Thus, restricting to uniformly perfect spaces would easily avoid this difficulty. 
 
 Bylund and Gudayol \cite{bylund-g} proved the following result linking measures and lower dimension, similar to \cite{luksak-saksman, konyagin-volberg}
 \begin{multline*}
@@ -151,7 +152,7 @@ Recalling a space is doubling if and only if it has finite Assouad dimension, it
 \label{sec:intro-lower-reg}
 
 
-As the lower dimension is a natural dual of the Assouad dimension, so is there an analogue of the upper regularity dimension, called the lower regularity dimension. A measure $\mu$ on a metric space $X$ has \textit{lower regularity dimension} defined by 
+As the lower dimension is a natural dual of the Assouad dimension, so is there an analogue of the upper regularity dimension, called the lower regularity dimension. Inspired by \cite{bylund-guyadol}, a measure $\mu$ on a metric space $X$ has \textit{lower regularity dimension} defined by 
 \nomenclature[.]{$\lrdim$}{lower regularity dimension}
 \begin{align*} 
 \underline{\dim}_{\text{reg}} \mu = \sup \Bigg\{ s \geq 0 \, \,  : \,  &\,\text{ there exists a  constant }C  > 0\text{  such that, for all }  \\ & \, 0< r< R < \lvert \text{supp}(\mu)    \rvert \text{  and all $x \in \text{supp} (\mu)$, we have }  \\  & \hspace{5cm} \frac{\mu(B(x,R))}{\mu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{s} \Bigg\}.
@@ -165,10 +166,11 @@ A definition of the lower dimension of a set $F\subseteq X$ can be deduced purel
 This has lead to the lower regularity dimension being called the lower dimension in the literature, such as in \cite{}. This also implies that the lower regularity dimension is an upper bound to the lower dimension, with examples for both equality and inequality of the two.
 
 Being consistent with the previous section, one can state a definition for a measure to be \textit{uniformly perfect}; such measures were recently called reverse-doubling in \cite{} due to the resemblance with doubling measures. A measure $\mu$ is uniformly perfect if for any $\theta > 1$ there exists a constant $K(\theta) > 1$ such that 
+\nomenclature[.]{$K(\theta)$}{constant of uniform perfectness with respect to the ratio $\theta$}
 \[
 \mu(B(x,R)) \ge K(\theta) \mu(B(x,R/\theta)),
 \]
-for all $x$ in the support of $\mu$ and $R > 0$. It then follows that a measure is uniformly perfect if and only if it has positive lower regularity dimension, with the lower regularity dimension again quantifying how uniformly perfect a measure is.
+for all $x$ in the support of $\mu$ and $R > 0$. It then follows that a measure is uniformly perfect if and only if it has positive lower regularity dimension, with the lower regularity dimension again quantifying how uniformly perfect a measure is. Many of the previous references regarding the upper regularity dimension also discuss the lower regularity dimension, \cite{some good lower reg dim papers}are  of particular interest.
 
 
 \textcolor{red}{could prove theta in doubling constant or lower reg dim positive iff uniformly perfect if wanted a proof in intro.}
