@@ -4,9 +4,8 @@
 \section{Introduction}
 \label{sec:intro-brownian}
 
-\textcolor{red}{do nomencalture}
 
-Studying the dimension of various random processes has been of interest for quite some time. In this chapter we will consider the Assouad and lower dimensions of graphs of certain random processes, notably L\'evy processes and functions defined by stochastic integrals. Then the regularity dimensions of pushforward measures onto graphs of L\'evy processes will be computed for doubling measures defined on the unit interval. In particular we will see that pushforwards of doubling maps in this setting are almost surely not doubling. This contrasts with the previous chapter's results on quasisymmetric homeomorphisms which conserved doubling; similarly for uniform perfectness. This will also provide a nice example of a uniformly perfect and doubling space with a non uniformly perfect and non doubling measure fully supported on that same space.
+Studying the dimension of various random processes has been of interest for quite some time. In this chapter we will consider the Assouad and lower dimensions of graphs of certain random processes, notably L\'evy processes and functions defined by stochastic integrals. Then the regularity dimensions of pushforward measures onto graphs of L\'evy processes will be computed for doubling measures defined on the unit interval. In particular we will see that pushforwards of doubling maps in this setting are almost surely not doubling. This contrasts with the previous chapter's results on quasisymmetric homeomorphisms which conserved doubling; similarly for uniform perfectness. Furthermore, this will provide a nice example of a uniformly perfect and doubling space with a non uniformly perfect and non doubling measure fully supported on that same space.
 
 
 \section{Graphs of L\'evy processes}
@@ -30,7 +29,7 @@ We can construct $X(t)$ such that it is almost surely right continuous with left
 	\caption{\label{fig:brownianmotion}Two graphs of one-dimensional Brownian motion}
 \end{figure}
 
-The geometric properties, such as dimension, of Wiener processes have been a particularly well studied area. This includes studying the \emph{graphs}, level sets and \emph{trails} of such processes which can often be thought of as fractals as they often display some \emph{statistical self-affinity}. For any left continuous function $X:\mathbb{R}\to\mathbb{R}$, we define the graph of the function restricted to the interval $I \subseteq \mathbb{R}$ by
+The geometric properties, such as dimension, of Wiener processes have been a particularly well studied area. This includes studying the \emph{graphs}, \emph{level sets} and \emph{trails} of such processes which can often be thought of as fractals as they often display some \emph{statistical self-affinity}. For any left continuous function $X:\mathbb{R}\to\mathbb{R}$, we define the graph of the function restricted to the interval $I \subseteq \mathbb{R}$ by
 \nomenclature[.]{$G^{I}_{X}$}{graph of the function $X$ restricted to the interval $I$}
 \[
 G^{I}_{X}=\{(t,y) \colon \, y=X(t),t\in I\}\cup J,
@@ -45,7 +44,6 @@ and for any $d\ge 2$
 \[
 \dim_\text{H} B_d([0,1]) = \dim_{\textup{B}} B_d([0,1]) =  2.
 \]
-\textcolor{red}{packing dim of graphs?}
 
 
 \begin{figure}[htbp]
@@ -77,8 +75,7 @@ for all $c,t > 0$ and $=^d$ means equal in distribution. We will sometimes refer
 \[
 \dim_\text{H} G_{X_1}^{[0,1]} = \dim_{\textup{B}}  G_{X_1}^{[0,1]} = \max\{1, 2 - 1/\alpha\},
 \]
-recovering the Brownian motion result above by setting $\alpha = 2$. Note that when $\alpha < 1$ then the graph simply has Hausdorff dimension one, the lowest possible dimension, as these processes are constant except at at between certain jump discontinuities almost surely. In particular the frequency of these jumps is low enough to not raise these dimensions.
-\textcolor{red}{probably ref this bit, kenneth pg 248}
+recovering the Brownian motion result above by setting $\alpha = 2$. Note that when $\alpha < 1$ then the graph simply has Hausdorff dimension one, the lowest possible dimension, as these processes are constant except at at between certain jump discontinuities almost surely. In particular the frequency of these jumps is low enough to not raise this dimension.
 
 Our final condition for these processes is a simple assumption that the distribution $X(1)$ is non-vanishing on $\mathbb{R}$. Non-zero on an interval would also work, this is just to ensure the graphs are not just multiple flat lines, such as in a Poisson process. This ensures genuinely interesting geometric behaviour.
 
@@ -140,7 +137,7 @@ Studying the Assouad dimension of various fractals and its properties is an incr
 
 
 \begin{theorem}\label{Main}
-	Let $X$ be an $\alpha$-stable L\'evy process with $\alpha \geq 1$, such that $X(1)$ is a random variable whose distribution function is non-vanishing almost everywhere. Then almost surely
+	Let $X$ be an $\alpha$-stable L\'evy process with $\alpha \geq 1$ such that $X(1)$ is a random variable whose distribution function is non-vanishing almost everywhere. Then almost surely
 	\[
 	\Assouad G_{X}^{[0,1]} = 2
 	\]
@@ -152,8 +149,12 @@ Studying the Assouad dimension of various fractals and its properties is an incr
 
 Interestingly the Assouad dimension of the graph does not depend on the scaling coefficient, unlike the Hausdorff dimension. However we do not obtain a formula for $\alpha \in (0,1)$ as our technique does not extend to this setting; it is possible that with such a parameter, the Assouad dimension would decrease to one as a function of $\alpha$. But it is also possible that the Assouad dimension of these graphs is simply one, as the distribution of a jump discontinuity of height greater than $R$ in an interval of width $r$ is Poisson with mean $r/R^\alpha$. Further study of this question could result in a novel answer.
 
+\begin{question}
+For any $\alpha \in (0,1)$, it is known that the graph of an $\alpha-$stable L\'evy process almost surely has dimension 1 for many notions of dimension. What is the Assouad dimension of these graphs?
+\end{question}
 
-A particular case of this theorem, as the Wiener process $W(t)$ is a $2$-stable L\'evy process, we see the following.
+
+A particular case of this theorem is, as the Wiener process $W(t)$ is a $2$-stable L\'evy process, the following.
 \begin{corollary}
 Almost surely
 	\[
@@ -167,7 +168,7 @@ Almost surely
 
 Brownian motion also provides examples of Salem sets that can have different Hausdorff and Assouad dimensions, we refer the reader to \cite{Ka}  for further discussion on the links between random processes and Salem sets.
 
-Ville Suomala and Changhao Chen, in a personal communication, kindly remarked that this result follows from the graph of Brownian motion having full lower porosity dimension. This approach is inspired by \cite{coxgriffin}, where it was shown that the graph of Brownian motion has full upper porosity dimension. However this porosity dimension technique does not extend to our following, more general result.
+Ville Suomala and Changhao Chen, in a personal communication, kindly remarked that this corollary follows from the graph of Brownian motion having full lower porosity dimension. This approach is inspired by \cite{coxgriffin}, where it was shown that the graph of Brownian motion has full upper porosity dimension. However this porosity dimension technique does not extend to our following, more general result.
 
 We can say more about the Assouad dimension of random processes which are functions defined as stochastic integrals. 
 
@@ -184,23 +185,30 @@ We can say more about the Assouad dimension of random processes which are functi
 
 In particular, graphs of fractional Brownian motions with indices $0<h<1$ have full Assouad dimension almost surely. The conditions in this theorem are designed to ensure $f$ is a reasonably smooth, non-zero function which will allow the random Wiener process to dictate the behaviour of the graph. Usually these integrals are with respect to a random function, but controlling the interaction between a random function and the Wiener process raises issues in this setting and so is left as an open problem. 
 
+\begin{question}
+Can a lower dimension analogue of Theorem \ref{ch-brownian:stochastic} be found? Given that this result mirrors the Assouad dimension of the graphs of Brownian motion it is natural to conjecture that the lower dimension in this setting will be almost surely 1.
+\end{question}
 
-The proof of Theorem \ref{Main} also extends to higher dimensions so we can show the following result.
 
-\begin{theorem}\label{ch-brownian:brownian-d-dim}
-	Let $B_d(t)$ be the $d$-dimensional Brownian motion, from $\mathbb{R}$ to $\mathbb{R}^d$. Then almost surely
-	\[
-	\Assouad B_d([0,1])=d.
-	\]
-\end{theorem}
+The proof of Theorem \ref{Main} can also be extended to higher dimensions. Thus one could show the following result.
 
+Let $B_d(t)$ be the $d$-dimensional Brownian motion, from $\mathbb{R}$ to $\mathbb{R}^d$. Then almost surely
+\[
+\Assouad B_d([0,1])=d
+\]
+and 
+\[
+\lowerdim B_d([0,1]) = 1.
+\]
+	
 We can compare this result to the well known \[\dim_{\mathrm{H}} B_d([0,1])=2\] for $d\geq 2$. The Hausdorff dimension being 2 here can be thought as a reflection that higher dimensional Brownian motion is transient, whilst the Assouad dimension shows that there are still areas of maximal fluctuation. 
 
 
 
 \section{Proofs regarding the dimensions of graphs}
 
-This section will be dedicated to the proofs of Theorems \ref{Main}, \ref{ch-brownian:stochastic} and \ref{ch-brownian:brownian-d-dim}.
+This section will be dedicated to the proofs of Theorems \ref{Main} and \ref{ch-brownian:stochastic}. Section \ref{ch-brownian:sec:higher-dim} will provide an outline of a proof for the higher dimensional analogue of Theorem \ref{Main}.
+
 
 \subsection{Assouad and lower dimensions of graphs}\label{ch:brownian:graph-proof}
 In this section we will state a convenient condition to check whether a graph of a function $f:[0,1]\to\mathbb{R}$ has full Assouad dimension or lower dimension one. This will be leveraged in the following sections by showing graphs of different random processes satisfy the conditions stated here.
@@ -216,7 +224,7 @@ We see that $W_{n}^{R_1\times R_2}((a,f(a)))$ is the collection of rectangles of
 Then let $N_{n}^{R_1 \times R_2 }((a,f(a)),G_f^{[0,1]})= \# \left\{ W_{n}^{R_1\times R_2}((a,f(a))) \cap G_f^{[0,1]} \right\}$, where $\#$ is the cardinality of the set, this provides the number of rectangles which intersect the graph.
 
 
-The following proposition follows directly from the definition of Assouad dimension and the proof simply relies on noticing the relation between $N_{n_1}^{R_1 \times R_1 }((a,f(a)),G_f^{[0,1]})$ and the covering number of an associated ball.
+The following proposition follows directly from the definition of Assouad dimension and the proof simply relies on noticing the relation between \newline$N_{n_1}^{R_1 \times R_1 }((a,f(a)),G_f^{[0,1]})$ and the covering number of an associated ball.
 
 
 \begin{proposition}\label{graph}
@@ -243,7 +251,7 @@ N_{n}^{R_i \times R_i }((a_i,f(a_i)),G_f^{[0,1]})= n_i^2.
 This follows from \cite[Theorem 2.4]{FY}, where it is shown that a set has full Assouad dimension if and only if it has the unit ball as a weak tangent. This means that any cover of our set is also a cover of a ball and so all smaller squares are needed in the cover. This fact should be clear at the end of the proof in the next section but we leave the inequality in the proposition as it is easier to see the relation with the Assouad dimension in this form.
 
 
-A similar statement can be made about the lower dimension and again, the proof relies on observing the relations between covering numbers of squares and balls. It is perhaps worth noting that even though the lower dimension is not monotone, as long as the function $f$ is c\`adl\`g then the dimension of the graph must be bounded below by 1.
+A similar statement can be made about the lower dimension and again, the proof relies on observing the relation between covering numbers of squares and balls. It is perhaps worth noting that even though the lower dimension is not monotone, as long as the function $f$ is c\`adl\`ag then the dimension of the graph must be bounded below by 1.
 \begin{proposition}\label{graph-lower}
 	If there exists a constant $C'>0$ and sequences:
 	\[
@@ -259,9 +267,7 @@ A similar statement can be made about the lower dimension and again, the proof r
 	\]
 \end{proposition}
 
-This inequality will actually be an equality in the proof however this is not guaranteed as it was above. In \cite{microsets} it was show that a set has zero lower dimension if and only if it has a singleton as a weak tangent but this does not directly imply that a set of lower dimension one must have a line as a weak tangent. This would be an interesting question to explore further.
-
-\textcolor{red}{is this true?}
+This inequality will actually be an equality in the proof however this is not guaranteed as it was above. In \cite{microsets} it was show that a set has zero lower dimension if and only if it has a singleton as a weak tangent but this does not directly imply that a set of lower dimension one must have an interval as a weak tangent. In fact there exist examples of self-similar sets of dimension one with no interval as weak tangents. Whilst a somewhat artificial argument, this behaviour is expected to be the norm.
 
 
 \subsection{Graphs of L\'evy processes}\label{LP}
@@ -277,13 +283,13 @@ P(n)\geq P\left(\forall \, k\in\left[1,n^2\right], k\in \mathbb{N},X\left(\frac{
 Here $\{ \cdot \}$ denotes the fractional part function. This follows from our assumption that $X(1)$ is non-vanishing almost everywhere on $\mathbb{R}$ and the independent increments property of L\'evy processes. It is clear that this restriction could be relaxed to non-vanishing on some interval without much effort. To continue, we only require that $P(n)$ is strictly positive so do not explicitly compute it.
 
 
-The question is now how to obtain infinitely many such events. For an $\alpha$-stable random process $X$, we can decompose the graph into countably many disjoint parts:
+The question is now how to obtain infinitely many such events. For an $\alpha$-stable random process $X$, we can decompose the graph into countably many disjoint parts
 \[
 \bigcup_{i=0}^\infty G_X^{I_i}\subseteq G_X^{[0,1]},
 \]
 where $I_i$ are closed intervals with disjoint interiors such that their union is a subset of the unit interval. For our case one could think of this as partitioning the unit interval by intervals of length $1/2^i$. For example take $a_1=0$ and for all $i\geq 1$ let $a_{i+1}=a_i+1/2^i$ and $I_i=[a_i,a_i+1/2^{i}].$
 
-Denote by $R_i$ the length of the interval $I_i=[a_i,b_i]$. Because we can take $X$ as a left continuous function, $X(a_i)\in\mathbb{R}$ is defined for all $i$. For each $i$ we can apply a linear map $T_i: G_X^{I_i} \rightarrow [0,1]^2$
+Denote by $R_i$ the length of the interval $I_i=[a_i,b_i]$. Since we can take $X$ as a left continuous function, $X(a_i)\in\mathbb{R}$ is defined for all $i$. For each $i$ we can apply a linear map $T_i: G_X^{I_i} \rightarrow [0,1]^2$
 \[
 T_i(x,y)=\left(\frac{1}{R_i}(x-a_i),\frac{1}{R_i^{1/\alpha}}\left(y-X(a_i)\right)\right).
 \]
@@ -370,7 +376,7 @@ Combined with Proposition \ref{graph-lower} this completes the proof that with p
 	\begin{equation}
 	    \int_{0}^{t}f(x)W(dx)=f(t)W(t)-\int_{0}^{t}W(x)f'(x)dx.\label{eq:int-by-parts}
 	\end{equation}
-	The problem is that the integral on the left side of the above equation is interpreted as the It\^{o} integral, for which regular integration by parts does not hold. There is however a generalisation of this formula for stochastic integrals which holds as $f$ and $W$ are both semimartingales, see \cite{Pr}[Chapter 2 Section 6] for further details. To be precise we should write the following equation
+	The problem is that the integral on the left side of the above equation is interpreted as the It\^{o} integral, for which regular integration by parts does not hold. There is however a generalisation of this formula for stochastic integrals which holds as $f$ and $W$ are both semimartingales, see \cite{protter}[Chapter 2 Section 6] for further details. To be precise we should write the following equation
 	\[
 	\int_{0}^{t}f(x)W(dx)=f(t)W(t)-\int_{0}^{t}W(x)f'(x)dx-[f,W]_t.
 	\]
@@ -455,25 +461,15 @@ Combined with Proposition \ref{graph-lower} this completes the proof that with p
 
 
 
-\subsection{A remark on higher dimensional Brownian motion}
+\subsection{A remark on higher dimensional Brownian motion}\label{ch-brownian:sec:higher-dim}
 
-\textcolor{red}{add some detail here}
-The covering number of Section \ref{ch:brownian:graph-proof} has a natural generalization in $\mathbb{R}^d$.
-
-Let $R_1,\dots,R_d>0$ be positive numbers and $n_1,\dots, n_d$ be integers. Given a point $a\in\mathbb{R}^d$, we define $W_{n}^{R_1\times\dots\times R_d}(a)$ as the following collection of sets:
+The covering number results of Section \ref{ch:brownian:graph-proof} have natural generalisations in $\mathbb{R}^d$. Let $R_1,\dots,R_d>0$ be positive numbers and $n\in \mathbb{N}$. Given a point $\mathbf{a}\in\mathbb{R}^d$, we define $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ as the following collection of sets:
 \begin{eqnarray*}
-	\Bigg\{D_{i_1,\dots,i_d}+a \, \vert \, D_{i_1,\dots,i_d}=\left[\frac{i_1}{n}R_1,\frac{i_1+1}{n}R_1\right]\times\dots\times \left[\frac{i_d}{n}R_d,\frac{i_d+1}{n}R_d\right],\\ i_j\in\{0,\dots,n-1\}, j\in\{1,\dots,d\}\Bigg\}.
+	\Bigg\{D_{i_1,\dots,i_d}+\mathbf{a} \, \vert \, D_{i_1,\dots,i_d}=\left[\frac{i_1}{n}R_1,\frac{i_1+1}{n}R_1\right]\times\dots\times \left[\frac{i_d}{n}R_d,\frac{i_d+1}{n}R_d\right],\\ i_j\in\{0,\dots,n-1\}, j\in\{1,\dots,d\}\Bigg\}.
 \end{eqnarray*}
-	
-We see that $W_{n}^{R_1\times\dots\times R_d}(a)$ is a collection of rectangles with disjoint interiors.
+We see that $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ is a collection of rectangles with disjoint interiors. A function $f$ which intersects a full collection of $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ infinitely many times will have full Assouad dimension and similarly a `small' intersection implies lower dimension 1. This follows from the definitions of dimensions.
 
-Using the above definition and a similar argument as the one in Section \ref{LP} completes the proof.
-
-
-
-
-\textcolor{red}{do lower dim here}
-
+Using a similar argument as the one in Section \ref{LP}, it can be shown that this full intersection of a function and $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ can occur with positive probability and again by Borel-Cantelli, we obtain infinitely many occurrences almost surely. Hence the Assouad dimension of $d$-dimensional Brownian motion should be $d$. 
 
 
 
@@ -521,7 +517,7 @@ The following proof of this theorem is inspired by the ideas used to prove Theor
 
 
 
-Choose a L\'evy process $X$ which satisfies the conditions in Theorem \ref{brownianthm} which is $\alpha$-stable and fix the graph $G_X^{[0,1]}$ realised by this process. Start by assuming $\alpha \ge 1$, the proof will work in the same way for $\alpha < 1$ given a slight modification which will be commented on later in the proof. $\mu$ is taken to be a doubling measure on the unit interval. Recall $f$ is defined to be the function which maps the unit interval to the graph of our L\'evy process and $f_*\mu$ is the pushforward measure of $\mu$ onto the graph that we wish to study.
+Choose a L\'evy process $X$ satisfying the conditions in Theorem \ref{brownianthm} which is $\alpha$-stable and fix the graph $G_X^{[0,1]}$ realised by this process. Start by assuming $\alpha \ge 1$, the proof will work in the same way for $\alpha < 1$ given a slight modification which will be commented on later in the proof. $\mu$ is taken to be a doubling measure on the unit interval. Recall $f$ is defined to be the function which maps the unit interval to the graph of our L\'evy process and $f_*\mu$ is the pushforward measure of $\mu$ onto the graph that we wish to study.
 
 We start by calculating the almost sure upper regularity dimension of $f_*\mu$. Let $s>0$. The general strategy for this proof is to find a sequence of events that are all independent and have positive probability. Then a simple application of the Borel-Cantelli lemma will yield that almost surely these events will happen infinitely often. By choosing our events carefully this will yield a sequence of balls that show the upper regularity dimension of the pushforward measure must be greater than $s$. As $s$ is abitrary, this will conclude the proof.
 
@@ -538,7 +534,7 @@ The particular events $E_i$ we are interested in are defined as follows: let $x_
 
 Given any sequences $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta > 1$ we can consider the associated events $E_i$ as above. To make sure the `smaller' rectangle is actually smaller, assume $R_i^{\alpha} > r_i$ without loss of generality. If $Rec(x_m,R_m^{\alpha}, R_m) \cap Rec(x_n,R_n^{\alpha},R_n) = \emptyset$ for all $m\neq n$, then the events are all independent due to the independent increment property of the L\'evy process. As long as the distribution of $X(1)$ is non-vanishing on the unit interval, the probability of any of these events is positive.
 
-We can now choose our sequence of events. Start by picking any disjoint and strictly increasing sequence of reals  $x_i$, $\left\{1-2^{-i} \right\}_{\mathbb{N}}$ would suffice. Then the $R_i$ are taken so that the intervals $I(x_i, R_i)$ do not overlap ensuring independence, say $4^{-i}$. Initially any sequence of $r_i$ can be chosen as long as $R_i/r_i \rightarrow \infty$ and, again, $R_i^{\alpha} > r_i$ for each $i$. $\beta$ will be fixed later, for now it is just a real greater than 1. As the process is $\alpha$-scaling one can map $Rec(x_i,R_i^{\alpha},R_i)$ onto the unit square via an affine map $T$ and the image of the graph under this transformation, denoted $G_{X_i}^{[0,1]}$, will have distribution $X_i$ equal to the original distribution $X(t)$ as it is scaled following the definition of $\alpha$-scaling, so $X(t) = X(R_i^\alpha t)/R_i = X_i(t)$ in distribution. This is the same process as in the proof of Theorem \ref{Main} Therefore the probability of an event $E_i$ is equal to the probability the graph of $X_i$ stays in the unit square and 
+We can now choose our sequence of events. Start by picking any disjoint and strictly increasing sequence of reals  $x_i$, $\left\{1-2^{-i} \right\}_{\mathbb{N}}$ would suffice. Then the $R_i$ are taken so that the intervals $I(x_i, R_i)$ do not overlap ensuring independence, say $4^{-i}$. Initially any sequence of $r_i$ can be chosen as long as $R_i/r_i \rightarrow \infty$ and, again, $R_i^{\alpha} > r_i$ for each $i$. $\beta$ will be fixed later, for now it is just a real greater than 1. As the process is $\alpha$-stable one can map $Rec(x_i,R_i^{\alpha},R_i)$ onto the unit square via an affine map $T$ and the image of the graph under this transformation, denoted $G_{X_i}^{[0,1]}$, will have distribution $X_i$ equal to the original distribution $X(t)$ as it is scaled following the definition of $\alpha$-scaling, so $X(t) = X(R_i^\alpha t)/R_i = X_i(t)$ in distribution. This is the same process as in the proof of Theorem \ref{Main} Therefore the probability of an event $E_i$ is equal to the probability the graph of $X_i$ stays in the unit square and 
 $$Rec(1/2,r_i/R_i^{\alpha} ,r_i^{1/\alpha}/R_i ) \cap G_{X_i}^{I(1/2, r_i/R_i^{\alpha})} = G_{X_i}^{I(1/2, r_i^{\beta}/R_i^{\alpha})}.$$
 
 Thus the probability of $E_i$ depends solely on the ratio $R_i/r_i = q_i$. If $\sum P(E_i)$ diverges then the conditions for Borel-Cantelli are satisfied and the argument continues. However, if not, the sequence $r_i$ is modified in the following way. Each $i$ gives us a ratio $q_i$ and a probability $P(E_i)$. Construct a function $g \colon \mathbb{N} \rightarrow \mathbb{N}$ such that $g(n) = \lceil \frac{1}{nP(E_n)}\rceil$ for all $n\in \mathbb{N}$. Then, keeping $R_i$ fixed, change the $r_i$ so that each ratio $q_i$ is repeated $g(i)$ many times. For instance, if $g(1) = 3$ then $r_1,r_2$ and $r_3$ are chosen so that $R_1/r_1, R_2/r_2$ and $R_3/r_3$ all give the same $P(E_1)$ and $r_4$ then is chosen with respect to $P(E_2)$ etc. The new sequence is constructed such that $\sum P(E_i)$ diverges, satisfying the conditions for Borel-Cantelli.
@@ -581,12 +577,13 @@ and by choosing $\beta \ge s/ (t\alpha)$, as long as $s \ge t$, it follows that
 \]
 as desired.
 
+\newpage
 For the lower regularity dimension it suffices to change the events $E_i$ in the following way. Assuming $\alpha>1$, let $x_i \in [0,1]$, $R_i > r_i > 0$ and $\beta < 1$, then $E_i$ is the event where $G_X^{I(x_i, R_i)} \cap Rec(x_i,R_i,R_i^{1/\alpha}) \subseteq Rec(x_i, r_i^{\beta}, R_i^{1/\alpha})$ and $G_X^{I(x_i, r_i)} \subseteq Rec(x_i, r_i^{\alpha}, r_i)$. The previous argument then works in much the same way, showing that the lower regularity dimension of $f_*\mu$ is zero as desired.
 
-\begin{figure}[htbp]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.4\textwidth]{pics/ch-brownian/rectangles.png}
-	\caption{Example of an event $E_i$ for the lower regularity dimension, the grey areas are where the graph intersects the rectangles whilst the graph will not intersect the white areas.}
+	\caption{Example of an event $E_i$ for the lower regularity dimension, the grey areas are where the graph intersects the rectangles whilst the graph will not intersect the white areas}
 	\label{brownian_event_lower}
 \end{figure}
 

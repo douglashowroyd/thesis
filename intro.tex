@@ -23,7 +23,7 @@ Felix Hausdorff introduced what is now known as the Hausdorff dimension in 1918 
 
 
 
-Since the introduction of the Hausdorff dimension, many other notions of dimension have been defined, each with its own unique properties. The underlying principle of all definitions of dimension is that they should quantify how much of a set is within a given space asymptotically, but how they quantify this and which space they restrict to is what distinguishes them. We will mostly be interested in the \textit{Assouad and lower dimensions} in this thesis, but one of the interesting aspects of fractal geometry is the interaction between the different notions of dimension and so other dimensions will arise throughout to place this work into the greater context. The Assouad dimension, when thinking about the governing idea of a dimension, is interested in understanding how much space a given set takes up with respect to a small scale $r$ when restricted to a ball of size $R$, where $R$ is close to zero but still greater than $r$. In particular it focuses on the balls in which the studied set takes up as much space as possible. This means the Assouad dimension provides an \textit{extremal} notion of size of an object, often being the largest of the main dimensions and discards information about the rest of the set. This is complemented by the lower dimension which provides similar details but focusing on where the set is the least space filling.  
+Since the introduction of the Hausdorff dimension, many other notions of dimension have been defined, each with its own unique properties. The underlying principle of all definitions of dimension is that they should quantify how much of a set is within a given space asymptotically; how they quantify this and which space they restrict to is what distinguishes them. We will mostly be interested in the \textit{Assouad and lower dimensions} in this thesis, but one of the interesting aspects of fractal geometry is the interaction between the different notions of dimension and so other dimensions will arise throughout to place this work into the greater context. The Assouad dimension, when thinking about the governing idea of a dimension, is interested in understanding how much space a given set takes up with respect to a small scale $r$ when restricted to a ball of size $R$, where $R$ is close to zero but still greater than $r$. In particular it focuses on the balls in which the studied set takes up as much space as possible. This means the Assouad dimension provides an \textit{extremal} notion of size of an object, often being the largest of the main dimensions and discards information about the rest of the set. This is complemented by the lower dimension which provides similar details but focusing on where the set is the least space filling.  
 
 
 
@@ -45,19 +45,6 @@ Since the introduction of the Hausdorff dimension, many other notions of dimensi
 
 
 During the study of these irregular geometric objects, a desire to study the regularity of measures supported on them has arisen, leading to the notion of dimension of a measure. Naturally there are several definitions of dimension of a measure, each one often being related to a dimension of sets. The study of these dimensions of measures has recently contributed to significant advances in our understanding of sets that were previously considered almost too complex to work with, as in \cite{hochman}. If a geometric dimension tells us roughly how much of a set is within a given area, a dimension of measures is interested in the measure of objects whose sizes shrink to zero. The Assouad and lower dimensions have corresponding dimensions of measures which, in this thesis, will be called the \textit{upper and lower regularity dimensions} respectively. Whilst the Assouad and lower dimensions have seen an increasing popularity in the recent years, the regularity dimensions are only starting to attract attention and much of this thesis will be interested in expanding on their basic properties and their interactions with other dimensions. Like the Assouad dimension, the regularity dimensions are also extremal notions of size, a fact exemplified by noting the upper regularity dimension of non-doubling measures is always infinity. The links between doubling measures, a standard regularity property in the literature, and the upper regularity dimension will be expanded upon. 
-\\ \\
-This body of work is based upon the following three papers that the authour wrote during his PhD with Jonathan Fraser and Han Yu: \cite{fraser-howroyd2,howroyd-yu,howroyd}. 
-\\ \\
-\textcolor{red}could split chapter 3 into two parts}
-
-We start by introducing many of the common tools and notation that will be used throughout this thesis. This will cover the main notions of dimensions discussed from both the set and the measure perspectives. An emphasis will be placed on their relationships where possible. This will provide a solid base upon which to expand and any concepts introduced in Chapter 1 will be relevant throughout the rest of this work. Many of the standard results in this part can be found in fractal geometry textbooks such as \cite{falconer} if further reading was desired.
-\\ \\
-The first results discussed in Chapter 2 will cover some of the regularity dimensions' properties such as general bounds in relation to the Assouad and lower dimensions, local dimensions and the $L^q$-spectrum. The Assoaud and lower dimensions are known to interact pleasantly with weak tangents and these ideas are discussed in the regularity dimension setting. We then calculate the regularity dimensions for several specific example measures such as self-similar and self-affine measures which provides an opportunity to discuss the sharpness of the previously obtained bounds. This work originates in \cite{fraser-howroyd2} with many of the lower regularity dimension results being new, natural extensions.
-\\ \\
-In Chapter 3 we continue the study of the upper and lower regularity dimensions with an emphasis on how they can be used to quantify doubling and uniform perfectness of measures. This starts with an explicit relation between the upper regularity dimension and the doubling constants along with a similar link between the lower regularity dimension and the constants of uniform perfectness. We then turn our attention to a technical result which can be made more quantitative thanks to the regularity dimensions. It is interesting to study how properties, such as doubling, behave under pushforwards by different types of maps, here we study the regularity dimensions of pushforward measures with respect to quasisymmetric homeomorphisms. We round this chapter out with an interesting application of the lower regularity to Diophantine approximation by noting the equivalence between uniform perfectness and weakly absolutely $\alpha$-decaying measures. The original material for this part can be found in \cite{howroyd} with part of the first section relying on a result in \cite{fraser-howroyd2}. 
-\\ \\
-Finally, in Chapter 4, we will consider graphs of Brownian motion, and more generally, graphs of L\'evy processes. This will involve the calculation of the lower and Assouad dimensions for such sets and then the regularity dimensions of measures pushed onto the graphs from the real line. These objects are the only examples in this thesis for which the Assouad and lower dimensions had not been previously calculated so we delve deeper into the area, also studying graphs of functions defined as stochastic integrals. This chapter is based on the paper \cite{howroyd-yu} with the regularity dimension results coming from \cite{howroyd}.
-
 
 
 
@@ -67,36 +54,36 @@ Finally, in Chapter 4, we will consider graphs of Brownian motion, and more gene
 \label{sec:intro-sets}
 \nomenclature[.]{$X$}{metric space}
 
-In this section we will introduce and define several different notions of dimension that will occur throughout this thesis. Dimensions are concerned with the size of objects and so one must first establish a notion of distance. This is done by studying subsets of metric spaces $(X,d)$; for clarity we will often refer to the space $X$ with the metric being implicitly defined. One should assume $X$ is compact, however this is not always needed and in fact there are some particularly beautiful results that will be referenced to in Section \ref{sec:intro-ass} that hold for non-compact sets which are helpful when studying number theoretic questions. When discussing the distance between points we will use the notation $d(x,y)$ to be the distance between the points $x,y \in X$ where the space is clear. If multiple metric spaces are being considered simultaneously the notation $d_X(x,y)$ will be adopted to specify the metric space $X$ in which the distance is taken. We will later study measures on these spaces and we take the associated $\sigma$-algebra to be the Borel $\sigma$-algebra given the underlying metric. We will not constantly specify the $\sigma$-algebra for notational convenience.
+In this section we will introduce and define several different notions of dimension that will occur throughout this thesis. Dimensions are concerned with the size of objects and so one must first establish a notion of distance. This is done by studying subsets of metric spaces $(X,d)$; for clarity we will often refer to the space $X$ with the metric being implicitly defined. One should assume $X$ is compact, however this is not always needed and in fact there are some particularly beautiful results that will be referenced in Section \ref{sec:intro-ass} that hold for non-compact sets which are helpful when studying number theoretic questions. When discussing the distance between points we will use the notation $d(x,y)$ to be the distance between the points $x,y \in X$ where the space is clear. If multiple metric spaces are being considered simultaneously the notation $d_X(x,y)$ will be adopted to specify the metric space $X$ in which the distance is taken. We will later study measures on these spaces and we take the associated $\sigma$-algebra to be the Borel $\sigma$-algebra given the underlying metric. We will not constantly specify the $\sigma$-algebra for notational convenience.
 
-Whilst we aim to be precise here, this will still be a brief introduction and the interested reader should see the standard books \cite{falconer, falconer2, mattila} for an extensive introduction to many of these topics. \textcolor{red}{include jon's book if out} 
+Whilst we aim to be precise here, this will still be a brief introduction and the interested reader should see the standard books \cite{falconer, falconer2, mattila} for an extensive introduction to many of these topics. 
 
 
 
 \subsection{Hausdorff and box dimensions}
 \label{sec:intro-haus-box}
 
-The Hausdorff dimension is arguably the most commonly studied notion of dimension in the fractal geometry literature and has been since its inception in 1918 by Hausdorff. Whilst its construction is somewhat technical, involving the Hausdorff measure, the advantages are significant, endowing this dimension with many significant properties. 
+The Hausdorff dimension is arguably the most commonly studied notion of dimension in the fractal geometry literature and has been since its inception in 1918 by Hausdorff. Whilst its construction is somewhat technical, involving the Hausdorff measure, the advantages are significant, endowing this dimension with many interesting properties. 
 
 \nomenclature[.]{$\lvert \cdot \rvert$}{Diameter of a set}
 Let $F\subseteq X$, $s\ge 0$ and $r > 0$. We first define a $r$-cover of $F$ as a cover of $F$ by open sets of diameter at most $r$. We will use $\lvert \cdot \rvert$ to denote the diameter of a set. Then the $r$-approximate $s$-dimensional Hausdorff measure of $F$ is defined by 
 \[
-\mathcal{H}^s_r (F) = \inf\left\{ \sum_{i\in I} \lvert U_i \rvert \colon \left\{U_i \right\}_{i\in I} \text{ is a $r$-cover of }F  \right\}.
+\mathcal{H}^s_r (F) = \inf\left\{ \sum_{i\in I} \lvert U_i \rvert^s \colon \left\{U_i \right\}_{i\in I} \text{ is a $r$-cover of }F  \right\}.
 \]
-Taking the limit as $r \rightarrow 0 $ gives the $s$-dimensional Hausdorff (outer) measure $\mathcal{H}^s(F) = \lim_{r\rightarrow 0} \mathcal{H}^s_r(F)$. This finally leads to the Hausdorff dimension of $F$ given by
+Taking the limit as $r \rightarrow 0 $ gives the $s$-dimensional Hausdorff (outer) measure $\mathcal{H}^s(F) = \lim_{r\rightarrow 0} \mathcal{H}^s_r(F)$. This finally leads to the \textit{Hausdorff dimension} of $F$ given by
 \[
 \dim_\H F = \sup\left\{s \ge 0 \colon \mathcal{H}^s(F) = \infty\right\} = \inf\left\{s\ge 0 \colon \mathcal{H}^s(F) = 0\right\}.
 \]
 \nomenclature[.]{$\dim_\H$}{Hausdorff dimension}
 As mentioned before, calculating this dimension from first principles is usually quite difficult, but due to the definition following from the Hausdorff measure it is well behaved. In particular, it is countably stable. We will later be interested in calculating the Hausdorff dimension of a few different sets, notably self-similar with the Strong Separation Condition (SSC), Bedford-McMullen carpets and sequences of numbers decaying to zero such as $\left\{1/n \colon n\in \mathbb{N}\right\}$. For the first two, formula already exist which will be stated when needed and for the last one, as it is a countable set, it is easily seen to have zero Hausdorff dimension due to the countable stability of the dimension.
 
-A coarser but easier to compute dimension was desired, without straying too far from the Hausdorff dimension. This lead to the upper and lower box dimensions in the 1920's. Given $F\subseteq X$, take $N(F,r)$ to be the smallest number of sets needed in a $r$-cover of $F$. Then the upper and lower box dimensions are defined by
+A coarser but easier to compute dimension was desired, without straying too far from the Hausdorff dimension. This lead to the upper and lower box dimensions in the 1920's. Given $F\subseteq X$, take $N(F,r)$ to be the smallest number of sets needed in a $r$-cover of $F$. Then the \textit{upper and lower box dimensions} are defined by
 \nomenclature[.]{$N(F,r)$}{covering number of a set $F$ by sets of radius at most $r$}
 \nomenclature[.]{$\dim_{\textup{B}}$}{box dimension}
 \[
 \ubox F = \limsup_{r \rightarrow 0} \frac{-\log N(F,r)}{\log r}   \quad \text{ and } \quad \lbox F = \liminf_{r \rightarrow 0} \frac{-\log N(F,r)}{\log r}. 
 \]
- When $\ubox F = \lbox F$, we simply talk about the box dimension of $F$ and denote it $\dim_{\textup{B}} F$. This will be the case in all the examples in this thesis for which the box dimension is studied. In reality we will take $N(F,r)$ to be the smallest number of balls of radius $r$ required to cover $F$, or the smallest number of squares of side lengths $r$. These changes will not modify the box dimensions of a set and will greatly simplify calculations. Of particular interests in real world applications, one can take $N(F,r)$ to be the number of squares in the $r$-mesh that intersect $F$ and a computer can then calculate this number for a sequence of scales, approximating the box dimensions to a reasonable degree such as in \cite{diieva}.
+ When $\ubox F = \lbox F$, we simply talk about the \textit{box dimension} of $F$ and denote it $\dim_{\textup{B}} F$. This will be the case in all the examples in this thesis for which the box dimension is studied. In reality we will take $N(F,r)$ to be the smallest number of balls of radius $r$ required to cover $F$, or the smallest number of squares of side lengths $r$. These changes will not modify the box dimensions of a set and will greatly simplify calculations. Of particular interest in real world applications, one can take $N(F,r)$ to be the number of squares in the $r$-mesh that intersect $F$ and a computer can then calculate this number for a sequence of scales, approximating the box dimension to a reasonable degree such as in \cite{diieva}.
 
 
 
@@ -116,12 +103,14 @@ As the supremum is taken over all points in the set $F$, the dimension returns l
 
 Whilst the name comes from an application to embedding theory, the Assouad dimension has seen much study in a number of different areas, including further embedding theory questions \cite{olson02, olson10, robinson}, quasi-conformal geometry \cite{heinonen, tyson, mackaytyson}, classic fractal geometry \cite{fraser-kaenmaki-proj, fraser-todd, tros, orponen, ldr} and even some applications to number theory \cite{FY, fraser-saito-yu}. This list is non-exhaustive and we recommend \cite{robinson, Fr} for further discussion of this dimension including many of its basic properties, however these do not cover the multitude of new results which have appeared in the past few years. 
 
-A key notion that is highly related to the Assouad dimension is the concept of a doubling space. A space $X$ is doubling if there exists a constant $M > 0$ such that, for any $R > 0$ and any $x \in X$, one can cover the ball of radius $R$ and centre $x$ by at most $M$ balls of radius $R/2$. It is known that a space is doubling if and only if it has finite Assouad dimension, see \cite{robinson}[Lemma 9.4] for a proof. Thus, the Assouad dimension can be seen as quantifying how doubling a space is.
+A key notion that is highly related to the Assouad dimension is the concept of a doubling space. A space $X$ is doubling if there exists a constant $M > 0$ such that, for any $R > 0$ and any $x \in X$, one can cover the ball of radius $R$ and centre $x$ by at most $M$ balls of radius $R/2$. It is known that a space is doubling if and only if it has finite Assouad dimension, see \cite[Lemma 9.4]{robinson} for a proof. Thus, the Assouad dimension can be seen as quantifying how doubling a space is.
 
 We are also interested in the following measure theoretic formulation of the Assouad dimension due to \cite{luksak, konyagin} for complete metric spaces: 
-\begin{multline*} 
-\dim_{\text{A}} F = \inf \Bigg\{ s \geq 0 \, \,  : \, \exists \text{ a Borel probability measure } \mu \text{ fully supported by }F \\  \text{ and constant }C > 0\text{  such that,} \\ \text{for all } \, \, 0< r< R, \text{ we have  }  \sup_{x\in F} \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s} \Bigg\}.
-\end{multline*}
+\begin{align*}
+   \dim_{\text{A}} F = \inf \Bigg\{ s \geq 0 \, \,  : \, \exists \text{ a Borel probability measure } \mu \text{ fully supported by }F \\  
+   \text{ and constant }C > 0\text{  such that, } \text{for all } \, \, 0< r< R, \\ 
+   \text{ we have  }  \sup_{x\in F} \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s} \Bigg\}. 
+\end{align*}
 As the spaces $X$ are assumed to be compact, the completeness condition is always satisfied for the examples studied here. This definition allows us to relate the purely geometric concept of dimension with a purely measure theoretic study. This can be advantageous when more is known about the measures than the set itself, such as in \cite{fraser-howroyd1}. More importantly, this will lead to the notion of `Assouad dimension' of a measure, which will be further explored in the next section. 
 
 
@@ -136,14 +125,16 @@ Like the Assouad dimension, the lower dimension also has a related regularity pr
 
 Bylund and Gudayol \cite{bylund} proved the following result linking measures and lower dimension, similar to \cite{luksak, konyagin}
 \begin{align*}
-\dim_{\text{L}} F = \sup \Bigg\{ s \geq 0 \, \,  &: \, \exists \text{ a doubling Borel probability measure } \mu  \\  &\text{ fully supported on }F \text{ and constants }C, \rho > 0  \text{ such that, } \\ \text{for all } &\, \, 0< r< R \leq \rho, \text{ we have  }\inf_{x\in F} \frac{\mu(B(x,R))}{\mu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{s} \Bigg\}.
+\dim_{\text{L}} F = \sup \Bigg\{ s \geq 0 \, \,  &: \, \exists \text{ a doubling Borel probability measure } \mu \text{ fully } \\  
+&\text{supported on }F \text{ and constants }C, \rho > 0  \text{ such that, } \\ 
+\text{for all } &\, \, 0< r< R \leq \rho, \text{ we have  }\inf_{x\in F} \frac{\mu(B(x,R))}{\mu(B(x,r))} \geq C\left(\frac{R}{r}\right)^{s} \Bigg\}.
 \end{align*}
-Compared to the measure theoretic definition of the Assouad dimension, this definition is essentially as expected, except for the restriction to doubling measures. A measure $\mu$ supported on $X$ is doubling if there exists a constant $C(2) > 1$ such that for all $x$ in the support of $\mu$ and $R > 0$ we have $\mu( B(x,R)) \le C(2) \mu(B(x,R/2))$; these measures will be discussed further in the next section. Restricting to doubling measures forces the measure to truly capture the entirety of the set, in the same way that focusing on fully supported measures is required to avoid part of the space being completely ignored and therefore losing vital information. However, this is not needed for the Assouad dimension as doubling measures will provide infinity as the upper bound to the dimension and so will not affect the Assouad dimension. 
+Compared to the measure theoretic definition of the Assouad dimension, this definition is essentially as expected, except for the restriction to doubling measures. A measure $\mu$ supported on $X$ is doubling if there exists a constant $C(2) > 1$ such that for all $x$ in the support of $\mu$ and $R > 0$ we have $\mu( B(x,R)) \le C(2) \mu(B(x,R/2))$; these measures will be discussed further in the next section. Restricting to doubling measures forces the measure to truly capture the entirety of the set, in the same way that focusing on fully supported measures is required to avoid part of the space being completely ignored and therefore losing vital information. However, this is not needed for the Assouad dimension as non-doubling measures will provide infinity as the upper bound to the dimension and so will not affect the Assouad dimension. 
 
 
-For a general compact set $F$ the following relations were shown to hold by \cite{fraser, larman1, larman2}:
+For a general compact set $F$ the following relations were shown to hold by \cite{Fr, larman1, larman2}:
 \[
-\lowerdim F \le \dim_\H F \le \lbox F \le \ubox F \le \Assouad.
+\lowerdim F \le \dim_\H F \le \lbox F \le \ubox F \le \Assouad F.
 \]
 These inequalities can be, and often are, strict, with many interesting examples existing in the literature demonstrating the different combinations of equalities and inequalities possible. For example the set $\left\{1/n \colon n \in \mathbb{N} \right\}$ has zero lower and Hausdorff dimensions, box dimension equal to $1/2$ and full Assouad dimension. On the other hand, for a self-similar set satisfying a suitable separation condition, all of these dimensions are equal. 
 
@@ -162,13 +153,13 @@ These inequalities can be, and often are, strict, with many interesting examples
 As eluded to previously, the measure theoretic definitions of dimension lead to a natural notion of `Assouad dimension' of a measure which gives a quantifiable description of the extremal local scaling of the measure. This was first defined in \cite{anti1,anti2} under the name upper regularity dimension and studied in the context of inhomogeneous self-similar sets and Whitney covers. Let $\mu$ be a locally finite Borel measure on $X$ and write $\text{supp}(\mu)$ for the support of $\mu$. In general, one should assume a measure is locally finite Borel unless otherwise stated. The \textit{upper regularity dimension} of $\mu$ is defined by 
 \nomenclature[.]{$\text{supp}$}{support of a measure}
 \nomenclature[.]{$\urdim$}{upper regularity dimension}
-\begin{multline*} 
-\urdim \mu = \inf \Bigg\{ s \geq 0 \, \,  : \,  \text{ there exists a  constant }C  > 0\text{  such that, for all  $0< r< R $} \\ \text{  and all $x \in \text{supp} (\mu)$, we have }  \ \  \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s} \Bigg\},
-\end{multline*}
+\nomenclature[.]{$\mu$}{a measure}
+\begin{align*} 
+\urdim \mu = \inf \Bigg\{ s \geq 0 \, \,  : \,  \text{ there exists a  constant }C  > 0\text{  such that,} \\ \text{for all } 0< r< R  \text{  and all }x \in \text{supp} (\mu), \\ \text{we have }  \  \frac{\mu(B(x,R))}{\mu(B(x,r))} \leq C\left(\frac{R}{r}\right)^{s} \Bigg\},
+\end{align*}
 taking $\inf \emptyset = + \infty$. 
 
 Combining this definition and the measure theoretic formulation of the Assouad dimension, the following can be deduced for a complete metric space $F$
-
 \begin{equation}\label{equa:ass-reg-relation}
     \dim_{\text{A}} F = \inf \left\{ \overline{\dim}_{\text{reg}} \mu \,  \colon \, \mu \text{ is a probability measure fully supported on } F\right\}.
 \end{equation}
@@ -197,9 +188,9 @@ The lower regularity dimension quantifies the minimal local scaling of a measure
 
 A definition of the lower dimension of a set $F\subseteq X$ can be deduced purely in terms of the dimension of measures
 \begin{equation}
-    \dim_{\text{L}} F = \sup \left\{ \lrdim \mu \,  \colon \, \mu \text{ is a doubling probability measure fully supported on } F\right\}.
+    \dim_{\text{L}} F = \sup \left\{ \lrdim \mu \,  \colon \, \mu \text{ a doubling probability measure fully supported on } F\right\}.
 \end{equation}
-This has lead to the lower regularity dimension being called the lower (Assouad) dimension in the literature, such as in \cite{hare_troscheit}. This also implies that the lower regularity dimension is an upper bound to the lower dimension, with examples for both equality and inequality of the two existing.
+This has lead to the lower regularity dimension being called the lower (Assouad) dimension in the literature, such as in \cite{hare-troscheit}. This also implies that the lower regularity dimension is an upper bound to the lower dimension, with examples for both equality and inequality of the two existing.
 
 Being consistent with the previous section, one can state a definition for a measure to be \textit{uniformly perfect}; such measures were recently called reverse-doubling in \cite{anti2} due to the resemblance with doubling measures. A measure $\mu$ is uniformly perfect if for any $\theta > 1$ there exists a constant $K(\theta) > 1$ such that 
 \nomenclature[.]{$K(\theta)$}{constant of uniform perfectness with respect to the ratio $\theta$}
@@ -209,6 +200,6 @@ Being consistent with the previous section, one can state a definition for a mea
 for all $x$ in the support of $\mu$ and $R > 0$. It then follows that a measure is uniformly perfect if and only if it has positive lower regularity dimension, with the lower regularity dimension again quantifying how uniformly perfect a measure is. Many of the previous references regarding the upper regularity dimension also discuss the lower regularity dimension, \cite{hare-troscheit} is  of particular interest.
 
 
-\textcolor{red}{could prove theta in doubling constant or lower reg dim positive iff uniformly perfect if wanted a proof in intro.}
+\textcolor{red}{could prove theta in doubling constant or lower reg dim positive iff uniformly perfect if wanted a proof in intro or calculate dimensions of 1/n.}
 
 

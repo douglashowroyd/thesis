@@ -36,13 +36,17 @@ and so $C(3^{l}) \ge 4^l$. Thus
 \[
 \urdim \mu = \log 4 / \log 3 \ge \frac{\log C(3^{l})}{ \log 3^{l}} \ge \frac{ \log 4^l}{\log 3^l} =  \log 4 / \log 3
 \]
-and so for any $l \in \mathbb{N}$, $C(3^l) = (3^l)^{\urdim \mu}$. Similarly by focusing on balls centred on 1 we can see that $K(3^l) = (3^l)^{\lrdim \mu}$. For $\theta \neq 3^l$ we do not obtain precise values for $C(\theta)$ or $K(\theta)$ using this method, it would be interesting to see if renewal theory or some other technique could be used to achieve precise formulae for a greater range of $\theta$. 
+and so for any $l \in \mathbb{N}$, $C(3^l) = 4^l = (3^l)^{\urdim \mu}$. Similarly by focusing on balls centred on 1 we can see that $K(3^l) = (3^l)^{\lrdim \mu}$. For $\theta \neq 3^l$ we do not obtain precise values for $C(\theta)$ or $K(\theta)$ using this method, it would be interesting to see if renewal theory or some other technique could be used to achieve precise formulae for a greater range of $\theta$. 
 
 On the other hand, self-affine measures $\mu$ supported on Bedford-McMullen carpets $F$ provide examples where the natural balls do not provide $C(\theta)$ for which the upper regularity dimension is attained for finite $\theta$. In particular, fix $R> 0$ and $\theta > 1$ then consider $x =\pi(\omega) \in F$ where $\omega$ is the word used in the lower bound in the proof of the upper regularity half of Theorem \ref{ch-upper-reg:carpet} from the previous chapter. Following the proof of that theorem we see that
 \[
 \frac{\mu(B(x,R))}{\mu(B(x,R/\theta))} \le c p^d \theta^{\urdim \mu}
 \]
 where $c$ is some constant which comes from passing between balls and approximate cubes so depends on the structure of $F$ and $p$ is a constant depending on the probability vector associated with $\mu$. Thus $C(\theta) \ge cp^d \theta^{\urdim \mu}$ and when $cp^d \neq 1$ this provides examples where $C(\theta)$ is either not equal to $\theta^{\urdim \mu}$ for finite $\theta$ or there is a sequence of points and radii for which $C(\theta) = \theta^{\urdim \mu}$ but these are not the expected sequences and it is not clear where this would occur. A similar argument can be made for the lower regularity dimension and $K(\theta)$ in this setting; further exploration of these ideas in the self-affine case and for more general sets would be interesting.
+
+\begin{question}
+Is there always doubling constant with respect to a specific $\theta$ which recovers the upper regularity dimension, both for specific cases such as self-affine measures and in full generality? If such a constant exists, such as in the self-similar case, do all doubling constants also attain the dimension?
+\end{question}
 
 
 \subsection{Quantifying an example of Heinonen}\label{ch-quantifying:sec:quantifying}
@@ -85,7 +89,7 @@ One could ask if there exists a fixed uniformly perfect space and a sequence of 
 		\draw[black,fill=gray!70] (D1) -- (D2) -- (D4) -- (D3) -- cycle;% Bottom Face
 		\draw (D1) rectangle (D4) node[pos=.5] {\LARGE $\varepsilon$};
 \end{tikzpicture}
-    \caption{Example of a self-affine set and measure which also demonstrates how the increase in probability of the lower right map will force the remaining probabilities to zero.}
+    \caption{Example of a self-affine set and measure which also demonstrates how the increase in probability of the lower right map will force the remaining probabilities to zero}
     \label{fig:pathos-ex}
 \end{figure}
 
@@ -93,7 +97,7 @@ One could ask if there exists a fixed uniformly perfect space and a sequence of 
 This lends credibility to the conjecture that the example of Heinonen implies a lower bound to the lower regularity dimension as a function of the upper regularity dimension. We wish to quantitatively show this result. More precisely, given a measure $\mu$ of fixed upper regularity dimension $s$ on a space $X$ of fixed lower dimension $l$, can we bound the lower regularity dimension of $\mu$ as a function of $s$ and $l$? The following does not quite answer this question as it returns a function of the doubling and uniform perfectness constants. However, as we will discuss, this is closer to the desired solution than it appears.
 
 \begin{proposition}\label{ch-quantifying:result-heinonen}
-	If $X$ is uniformly perfect and $\mu$ is a doubling, fully supported measure on $X$ then $\mu$ is uniformly perfect. In particular if $X$ is $K$-uniformly perfect and $\mu$ doubling with doubling constants $C(\theta)$ then  
+	If $X$ is uniformly perfect and $\mu$ is a doubling, fully supported measure on $X$ then $\mu$ is uniformly perfect. In particular if $X$ is $K$-uniformly perfect and $\mu$ is doubling with doubling constants $C(\theta)$ then  
 	$$\lrdim \mu \ge \frac{\ln(1-C(8K)^{-1})}{\ln(4K)} .$$  
 \end{proposition}
 
@@ -111,7 +115,7 @@ There are many examples of uniformly perfect measures, even on doubling spaces, 
 \subsection{Regularity dimensions under quasisymmetric homeomorphisms}\label{ch-quantifying:sec:quasi}
 
 
-Quasisymmetric homeomorphisms are a generalisation of bi-Lipschitz maps, preserving relative sizes but not necessarily global size which were first introduced in \cite{ahlfors-beurling, tukia-vaisala}. In the Euclidean setting quasisymmetric homeomorphisms are equivalent to the often studied quasiconformal homeomorphisms. Recall that $d_X(\cdot,\cdot)$ denotes the metric on the space $X$, tracking which space we are working in will be important in this section. A homeomorphism $f\colon X \rightarrow Y$ is an \textit{$\eta$-quasisymmetric homeomorphism} if there is a homeomorphism $\eta \colon [0,\infty) \rightarrow [0,\infty)$ such that 
+Quasisymmetric homeomorphisms are a generalisation of bi-Lipschitz maps, preserving relative sizes but not necessarily global size which were first introduced in \cite{ahlfors-beurling, tukia-vaisala}. In the Euclidean setting quasisymmetric homeomorphisms are equivalent to the often studied quasiconformal homeomorphisms. Recall that $d_X(\cdot,\cdot)$ denotes the metric on the space $X$; tracking which space we are working in will be important in this section. A homeomorphism $f\colon X \rightarrow Y$ is an \textit{$\eta$-quasisymmetric homeomorphism} if there is a homeomorphism $\eta \colon [0,\infty) \rightarrow [0,\infty)$ such that 
 \[
 d_X( x , a ) \le t \, d_X( x , b )
 \]
@@ -120,7 +124,6 @@ implies
 d_Y( f(x) , f(a) ) \le \eta(t) \, d_Y ( f(x) , f(b) )
 \]
 for all $x,a,b \in X$ and for all $t>0$.
-\textcolor{red}{add more intro shit here?}
 
 Equivalently there exists a homeomorphism $\eta$ as above such that 
 \[
@@ -133,7 +136,7 @@ A property of particular interest to us is that doubling and uniform perfectness
 \[
 \alpha \Assouad F \le \Assouad f(F) \le \frac{1}{\alpha} \Assouad F
 \]
-where $\alpha$ is some constants intrinsic to the map $f$ which will be introduced shortly. The classic book \cite{heinonen} contains further details and many other interesting properties of these maps that we will not touch upon in this thesis.
+where $\alpha$ is some constant intrinsic to the map $f$ which will be introduced shortly. In fact, there is even a bijection between doubling measures and quasisymmetric homeomorphisms on the real line. Formally every doubling measure $\mu$ on $\mathbb{R}$ is associated with a quasisymmetric map $f(x) = \int_{0}^{x}d\mu$ and every quasisymmetric $f \colon \mathbb{R} \rightarrow \mathbb{R}$ induces a doubling measure $\mu_f( \cdot ) = \mathcal{L}(f(\cdot)) $ where $\mathcal{L}$ is Lebesgue measure. The classic book \cite{heinonen} contains further details and many other interesting properties of these maps that we will not touch upon in this thesis.
 
 We wish to know if the same holds for doubling and uniformly perfect measures. In particular we will study \textit{pushforward measures} under quasisymmetric homeomorphisms. Given a measure $\mu$ on a space $X$ and $f$ a map from $X$ to some space $Y$, the pushforward measure of $\mu$ under $f$ is denoted $f_*\mu$ and is defined by
 \nomenclature[.]{$f_*\mu$}{pushforward measure of $\mu$ under map $f$}
@@ -185,7 +188,7 @@ This property has some resemblance to the ideas of doubling and uniformly perfec
 	\]
 \end{proposition}
 
-This result actually leads to an equivalent but hopefully more applicable statement of Theorem 2 in \cite{beres-sanju-al}. Their theorem concerns the size of the set of points which well approximate a given point $y$ with respect to some function $\psi$ for limit sets of Kleinian groups $\Lambda$. In the Euclidean setting, one usually considers the Lebesgue measure of this set. However when working on different sets other measures must be considered that somewhat mirror the regularity of Lebesgue measure. This leads to the notion of $\alpha$-decaying. Without further elaborating on the definitions we state both the old and new versions of the theorem. \textcolor{red}{add more detail here meebs }
+This result actually leads to an equivalent but hopefully more applicable statement of Theorem 2 in \cite{beres-sanju-al}. Their theorem concerns the size of the set of points which well approximate a given point $y$ with respect to some function $\psi$ for limit sets of Kleinian groups $\Lambda$. In the Euclidean setting, one usually considers the Lebesgue measure of this set. However when working in different metric spaces, other measures must be considered that somewhat mirror the regularity of Lebesgue measure. This leads to the notion of $\alpha$-decaying. Without further elaborating on the definitions we state both the old and new versions of the theorem. \textcolor{red}{add more detail here: what is a kleinian group, what is well-approximable, etc.}
 
 \begin{theorem}[{\cite[Theorem 2]{beres-sanju-al}}]
 	Let $G$ be a nonelementary, geometrically finite Kleinian group and let $y$ be a parabolic fixed point of $G$, if there are any, and a hyperbolic fixed point otherwise. Fix $\alpha > 0$, and let $K$ be a compact subset of $\Lambda$ equipped with a weakly absolutely $\alpha$-decaying meausre $\mu$. Then
@@ -205,9 +208,12 @@ This result actually leads to an equivalent but hopefully more applicable statem
 An advantage of writing the theorem with respect to the lower dimension of the limit set is that the lower dimension of limit sets were calculated in \cite{fraser2}. Therefore, given a limit set, we can quickly check if there will be measures that are weakly absolutely $\alpha$-decaying such that the sum in the theorem converges for the given $\alpha$. In \cite{fraser2}, Fraser also calculated the regularity dimensions of Patterson-Sullivan measures, providing us with explicit measures that could be used in the theorem, as the upper and lower regularity dimensions of Patterson-Sullivan measures are strictly positive and finite. 
 
 Theorem 7 follows from Proposition 5 and Theorem 6. As such we do not provide a proof here, for the interested reader the proof of Theorem 6 in \cite{beres-sanju-al} is very accessible.
-\textcolor{red}{should I actually go through this here?}
 
 Weakly absolutely decaying measures were the correct measures to consider in the setting of limit sets of Kleinian groups whereas friendly measures were used in the context of subsets of Euclidean space. It would be a natural extension to study the links between friendly measures and the regularity dimensions, especially given that one of the conditions for a measure to be friendly is that it is doubling.  
+
+\begin{question}
+Is there a relation between friendly measures and the regularity dimensions?
+\end{question}
 
 
 
@@ -230,13 +236,15 @@ Assume that a measure $\mu$ on a space $X$ is doubling and let $\theta > 1$.  Th
 \frac{\mu(B(x,R))}{\mu(B(x,R/\theta))} \le C(\theta).
 \]
 Fix  $0< r < R$ and  define $k$ to be the unique integer such that $R\theta^{-k} > r \ge R\theta^{-k-1}$. Then by telescoping we obtain
-\[
-\frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta^{-1} R))} \times \frac{\mu(B(x,\theta^{-1} R))}{\mu(B(x,\theta^{-2} R))} \times\cdots \times \frac{\mu(B(x,\theta^{-k} R))}{\mu(B(x,\theta^{-k-1}R))} \times \frac{\mu(B(x,\theta^{-k-1}R))}{\mu(B(x,r))}.
-\]
+\begin{align*}
+    \frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta^{-1} R))} &\times \frac{\mu(B(x,\theta^{-1} R))}{\mu(B(x,\theta^{-2} R))} \times\cdots \\
+    &\times \frac{\mu(B(x,\theta^{-k} R))}{\mu(B(x,\theta^{-k-1}R))} \times \frac{\mu(B(x,\theta^{-k-1}R))}{\mu(B(x,r))}.
+\end{align*}
 Thus 
-\[
-\frac{\mu(B(x,R))}{\mu(B(x,r))} \le C(\theta)^{k+1}  \frac{\mu(B(x,\theta^{-k-1}R))}{\mu(B(x,r))} \le C(\theta)^{\log(R/r) / \log \theta+1} = C(\theta) \left(\frac{R}{r} \right)^{\log C(\theta) / \log \theta}
-\]
+\begin{align*}
+    \frac{\mu(B(x,R))}{\mu(B(x,r))}& \le C(\theta)^{k+1}  \frac{\mu(B(x,\theta^{-k-1}R))}{\mu(B(x,r))} \\
+    &\le C(\theta)^{\log(R/r) / \log \theta+1} = C(\theta) \left(\frac{R}{r} \right)^{\log C(\theta) / \log \theta}
+\end{align*}
 and hence $\r \leq \log C(\theta) / \log \theta < \infty$, giving the upper bound.
 
 
@@ -261,9 +269,10 @@ K(\theta) =  \inf \left\{ \frac{\mu(B(x,R))}{\mu(B(x,R/\theta))} \ : \ x \in \te
 \]
 
 For all $x \in \text{supp}(\mu)$ and $0<r<R$, fix $k$ to be the unique integer such that $R \theta^{-k} > r \ge R \theta^{-k-1}$. Then by the above argument
-\[
-\frac{\mu(B(x,R))}{\mu(B(x,r))} = \frac{\mu(B(x,R))}{\mu(B(x,\theta^{-1}R))} \times \cdots \times \frac{\mu(B(x,\theta^{-k}R))}{\mu(B(x,r))} \ge K(\theta)^k \frac{\mu(B(x,\theta^{-k}R))}{\mu(B(x,r))} \ge K(\theta)^k.
-\]
+\begin{align*}
+\frac{\mu(B(x,R))}{\mu(B(x,r))} &= \frac{\mu(B(x,R))}{\mu(B(x,\theta^{-1}R))} \times \cdots \times \frac{\mu(B(x,\theta^{-k}R))}{\mu(B(x,r))} \\
+&\ge K(\theta)^k \frac{\mu(B(x,\theta^{-k}R))}{\mu(B(x,r))} \ge K(\theta)^k.
+\end{align*}
 Approximating $k$ yields
 \[
 \frac{\mu(B(x,R))}{\mu(B(x,r))} \ge K(\theta)^{\log(R/r)\log(\theta) - 1} = K(\theta)^{-1} \left(\frac{R}{r}\right)^{\log K(\theta)/ \log \theta}
@@ -333,13 +342,15 @@ It is then clear that a quasisymmetric homeomorphism $f$ on a uniformly perfect 
 
 
 
-We start by stating some technical calculations which will be relevant for both the upper and lower regularity dimensions. Let $y\in Y$ and $0<r<R$. Since $Y$ is uniformly perfect, we can find $z_1,z_2$ such that $z_1\in B_Y(y,KR) \setminus B_Y(y,R)$ and $z_2 \in B_Y(y,Kr) \setminus B_Y(y,r)$. Without loss of generality, choose $ r < 2R $ so that $d_Y(y,z_1) > d_Y(y,z_2)$,  this will be required to use the exact formula for $\eta$.
+We start by stating some technical calculations which will be relevant for both the upper and lower regularity dimensions. Let $y\in Y$ and $0<r<R$. Since $Y$ is uniformly perfect, we can find $z_1,z_2$ such that $z_1\in B_Y(y,KR) \setminus B_Y(y,R)$ and $z_2 \in B_Y(y,Kr) \setminus B_Y(y,r)$. Without loss of generality, choose $ Kr < R $ so that $d_Y(y,z_1) > d_Y(y,z_2)$,  this will be required to use the exact formula for $\eta$.
 	
 	
-Choose any point $a \in B_Y(y,R)$. From our choice of $z_1$, it is clearthat$d_Y( y , a ) \le d_Y(y , z_1)$. Thus, as $f$ is quasisymmetric $d_X( f^{-1}(y) , f^{-1}(a) ) \le \eta(1)  d_X(f^{-1}(y) , f^{-1}(z_1) $, and so 
-	\[
+Choose any point $a \in B_Y(y,R)$. From our choice of $z_1$, it is clear that $d_Y( y , a ) \le d_Y(y , z_1)$. Thus, as $f$ is quasisymmetric 
+$$d_X( f^{-1}(y) , f^{-1}(a) ) \le \eta(1)  d_X(f^{-1}(y) , f^{-1}(z_1), $$
+and so 
+\[
 f^{-1}(B_Y(y,R)) \subseteq B_X(f^{-1}(y),\eta(1)d_X(f^{-1}(y), f^{-1}(z_1)).
-	\]
+\]
 Similarly, choosing $a \in B_Y(y,R) \setminus B_Y(y,R/K)$, we have $d_Y( y , a ) \ge d_Y( y , z_1 )/K^2$ and so $$d_X( f^{-1}(y) , f^{-1}(a) ) \ge \eta^{-1}(K^2) d_X( f^{-1}(y) , f^{-1}(z_1) ).$$
 Hence 
 \[
