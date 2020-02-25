@@ -7,7 +7,7 @@
 \usepackage[a4paper, margin=3.25cm]{geometry}
 \usepackage[hidelinks]{hyperref}
 \usepackage[UKenglish]{datetime}
-\usepackage[refpage, intoc]{nomencl}
+\usepackage[refpage, intoc, noprefix]{nomencl}
 \usepackage[nottoc]{tocbibind}
 \usepackage{algorithm}
 \usepackage{aliascnt}
@@ -44,6 +44,22 @@
 \usepackage{url}
 \usepackage{xcolor}
 \usepackage{xfrac}
+\usepackage{breakcites}
+\usepackage{listings}
+
+\lstset{language=Mathematica}
+\lstset{
+  numbers=left,
+  numberstyle=\small\color{gray},
+  numbersep=5pt,
+  breaklines=true,
+  captionpos={t},
+  frame={lines},
+  rulecolor=\color{black},
+  framerule=0.5pt,
+  columns=flexible,
+  tabsize=2
+}
 
 
 % List of notation
@@ -63,9 +79,6 @@
 \usetikzlibrary{arrows,shapes}
 \forestset{uf/.style={for tree={edge={<-}}}}
 
-% Algorithmic
-\algnewcommand\algorithmicbreak{\textbf{break}}
-\algnewcommand\Break{\algorithmicbreak{} }
 
 % Hyperlink references (invisible)
 %\hypersetup{linkcolor=black, urlcolor=black, citecolor=black}
@@ -142,8 +155,7 @@
 
 
 
-\title{A topic in fractal geometry:\\
-       dimensions and measures}
+\title{On the regularity dimensions of measures}
 \author{Douglas Charles Howroyd}
 
 \begin{document}
@@ -181,6 +193,11 @@
 
 \singlespacing
 \bibliography{bibliography}
-\bibliographystyle{alpha}
+%%\bibliographystyle{alpha}
+\bibliographystyle{apalike}
+
+\begin{large}
+\include{appendix} 
+\end{large}
 
 \end{document}
