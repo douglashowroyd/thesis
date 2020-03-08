@@ -54,7 +54,7 @@ During the study of these irregular geometric objects, a desire to study the reg
 \label{sec:intro-sets}
 \nomenclature[X]{$(X,d)$}{metric space with associated distance function}
 
-In this section we will introduce and define several different notions of dimension that will occur throughout this thesis. Dimensions are concerned with the size of objects and so one must first establish a notion of distance. This is done by studying subsets of metric spaces $(X,d)$; for clarity we will often refer to the space $X$ with the metric being implicitly defined. One should assume $X$ is compact, however this is not always needed and in fact there are some particularly beautiful results that will be referenced in Section \ref{sec:intro-ass} that hold for non-compact sets which are helpful when studying number theoretic questions. When discussing the distance between points we will use the notation $d(x,y)$ to be the distance between the points $x,y \in X$ where the space is clear. If multiple metric spaces are being considered simultaneously the notation $d_X(x,y)$ will be adopted to specify the metric space $X$ in which the distance is taken. We will later study measures on metric spaces and we take the associated $\sigma$-algebra to be the Borel $\sigma$-algebra given the underlying metric. We will not constantly specify the $\sigma$-algebra for notational convenience.
+In this section we will introduce and define several different notions of dimension that will occur throughout this thesis. Dimensions are concerned with the size of objects and so one must first establish a notion of distance. This is done by studying subsets of metric spaces $(X,d)$; for clarity we will often refer to the space $X$ with the metric being implicitly defined. One should assume $X$ is compact, however this is not always needed. In fact there are some particularly beautiful results that will be referenced in Section \ref{sec:intro-ass} that hold for non-compact sets which are helpful when studying number theoretic questions. When discussing the distance between points we will use the notation $d(x,y)$ to be the distance between the points $x,y \in X$ where the space is clear. If multiple metric spaces are being considered simultaneously the notation $d_X(x,y)$ will be adopted to specify the metric space $X$ in which the distance is taken. We will later study measures on metric spaces and we take the associated $\sigma$-algebra to be the Borel $\sigma$-algebra given the underlying metric. We will not constantly specify the $\sigma$-algebra for notational convenience.
 
 Whilst we aim to be precise here, this will still be a brief introduction and the interested reader should see the standard books \cite{falconer, falconer2, mattila} for an extensive introduction to many of these topics. 
 
@@ -93,7 +93,7 @@ Let $r>0$, we wish to study $N(F,r)$ for $r$ small. First note, that for any $k 
 \]
 Thus the distances between points in this set behave like $1/k^2$. Choose $n \in \mathbb{N}$ to be the largest integer such that $1/n(n+1) > r$. We will then split the cover of $F$ into two parts, one half where the distances between points are smaller than our covering sets and the other where they are greater. In the second case it is clear that one ball is needed for each element for a full cover, so $n$ balls. When the distances between points are smaller than $r$ we will need an essentially maximal covering to cover all such elements as the set starts to behave like an interval with respect to the scale $r$. Therefore covering the first section is akin to covering the interval $[0,1/n]$. Hence
 \[
-N(F,r) \ge N([0,1/n]\cap F,r) \ge n/2 \ge r^{1/2}/4
+N(F,r) \ge N([0,1/n]\cap F,r) \ge n/2 \ge r^{-1/2}/4
 \]
 and
 \[
@@ -154,7 +154,7 @@ These inequalities can be, and often are, strict, with many interesting examples
 
 The proof that $F=\left\{1/n \colon n \in \mathbb{N} \right\} \cup \left\{0 \right\}$ has full Assouad dimension is quite similar to the proof of its box dimension, we show this to get a better feel for the Assouad dimension.
 
-As we wish to prove the Assouad dimension is full, we simply need to find a lower bound, the upper following from the dimension of the ambient space. The most common way of doing this for the Assouad dimension is to find sequences of $x_n \in F$, and $0<r_n < R_n$ such that $R_n/r_n \rightarrow \infty$ and $N(F \cap B(x_n, R_n), r_n ) \ge CR_n/r_n$ for some constant $C>0$. The extremal behaviour of this set exhibits around 0 so we simply choose $x_n = 0$ for all $n$. To use the previous work on the box dimension, let $R_n = 1/n$ and $r_n = 1/n^2$. From before, $F\cap B(0,R_n)$ is the part of $F$ where the differences between points is less than $1/n^2$ so covering this subset is like covering $[0,1/n]$. Thus
+As we wish to prove the Assouad dimension is full, we simply need to find a lower bound as the upper bound follows from the dimension of the ambient space. The most common way of doing this for the Assouad dimension is to find sequences of $x_n \in F$, and $0<r_n < R_n$ such that $R_n/r_n \rightarrow \infty$ and $N(F \cap B(x_n, R_n), r_n ) \ge CR_n/r_n$ for some constant $C>0$. The extremal behaviour of this set exhibits around 0 so we simply choose $x_n = 0$ for all $n$. To use the previous work on the box dimension, let $R_n = 1/n$ and $r_n = 1/n^2$. From before, $F\cap B(0,R_n)$ is the part of $F$ where the differences between points is less than $1/n^2$ so covering this subset is like covering $[0,1/n]$. Thus
 \[
 N(F \cap B(0, 1/n), 1/n^2 ) \ge n/2 = \frac{1}{2} \left( \frac{R_n}{r_n}\right)
 \]
@@ -210,7 +210,7 @@ A definition of the lower dimension of a set $F\subseteq X$ can be deduced purel
 \begin{equation}
     \dim_{\text{L}} F = \sup \left\{ \lrdim \mu \,  \colon \, \mu \text{ a doubling probability measure fully supported on } F\right\}.
 \end{equation}
-This has lead to the lower regularity dimension being called the lower (Assouad) dimension in the literature, such as in \cite{hare-troscheit}. This also implies that the lower regularity dimension is an upper bound to the lower dimension, with examples for both equality and strict inequality of the two existing.
+This has lead to the lower regularity dimension being called the lower (Assouad) dimension in the literature, such as in \cite{hare-troscheit}. This also implies that the lower regularity dimension is a lower bound to the lower dimension, with examples for both equality and strict inequality of the two existing.
 
 Being consistent with the previous section, one can state a definition for a measure to be \textit{uniformly perfect}; such measures were recently called reverse-doubling in \cite{anti2} due to the resemblance with doubling measures. A measure $\mu$ is uniformly perfect if for any $\theta > 1$ there exists a constant $K(\theta) > 1$ such that 
 \nomenclature[K(theta]{$K(\theta)$}{constant of uniform perfectness with respect to the ratio $\theta$}

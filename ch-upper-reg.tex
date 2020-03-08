@@ -128,7 +128,7 @@ Most of the inequalities in the above theorem are well-known or have already bee
 
 Expanding on the work of \cite{fraser-jordan}, combined with the above ideas, gives bounds relating the lower local dimension, the `lower end of the spectrum' and the lower regularity dimension. Formally, let the lower end of the spectrum be
 \[
-t(\mu) = \inf\left\{ s \ge 0 \colon \underline{\tau}(q) < sq  \, \,, \forall q<0 \right\}.
+t(\mu) = \inf\left\{ s \ge 0 \colon \underline{\tau}(q) < sq  \, \,, \forall q>0 \right\}.
 \]
 Then the lower regularity dimension is bounded above by the lower end of the spectrum which is in turn always bounded above by the smallest local dimension.
 
@@ -140,7 +140,7 @@ Then the lower regularity dimension is bounded above by the lower end of the spe
 \end{theorem}
 The proof of this Theorem will also be in Section \ref{ch-upper-reg:spectrumproof}. As with the upper regularity dimension, these notions can be linked to the lower and Hausdorff dimensions using known results. 
 
-Many of the lower dimension results in this section were first proved in \cite{hare_troscheit}, including the relation between the lower regularity dimension and the infimum of the lower local dimensions. However the proofs used in this thesis will follow the ideas found in \cite{fraser-howroyd2} to ease comprehension.
+Many of the lower dimension results in this section were first proved in \cite{hare-troscheit}, including the relation between the lower regularity dimension and the infimum of the lower local dimensions. However the proofs used in this thesis will follow the ideas found in \cite{fraser-howroyd2} to ease comprehension.
 
 
 
@@ -229,7 +229,7 @@ and  a unique Borel probability measure $\mu$ satisfying
 \[
 \mu = \sum_{i \in \mathcal{I}} p_i \mu \circ S_i^{-1}
 \]
-which is fully supported on $F$, see \cite[Chapter 9]{falconer} and the references therein, notably \cite{hutchinson}. When all of the contractions $S_i$ are similarities, with similarity ratio $c_i \in \left(0,1 \right)$, then $F$ is called a \emph{self-similar set} and $\mu$ is called a \emph{self-similar measure}. These sets are some of the most well studied examples of fractals yet there are many subtleties that we still do not understand, a recent example is \cite{baker}. We refer the reader to \cite{falconer} for a more in depth discussion of IFSs and self-similar sets and measures.
+which is fully supported on $F$, see \cite[Chapter 9]{falconer} and the references therein, notably \cite{hutchinson}. When all of the contractions $S_i$ are similarities, with similarity ratio $c_i \in \left(0,1 \right)$, then $F$ is called a \emph{self-similar set} and $\mu$ is called a \emph{self-similar measure}. These sets are some of the most well studied examples of fractals yet there are many subtleties that we still do not understand, a recent example is \cite{baker}. We refer the reader to \cite{falconer} for a more in depth discussion of IFSs, self-similar sets and measures.
 
 \begin{figure}[h]
 	\centering
@@ -317,7 +317,7 @@ and
 \]
 
 
-In this section we restricted attention to self-similar sets satisfying the strong separation condition, whilst certain overlap conditions have been covered in \cite{hare-hare-tros} and others are already known, it is always of interest to extend to the most general setting possible.
+In this section we restricted attention to self-similar sets satisfying the strong separation condition. Whilst certain overlap conditions have been covered in \cite{hare-hare-tros}, and others are already known, it is always of interest to extend to the most general setting possible.
 \begin{question}
 What are the regularity dimensions of self-similar measures on sets not satisfying the strong separation condition?
 \end{question}
@@ -642,6 +642,9 @@ We prove Theorems \ref{ch-upper-reg:relationships} and \ref{ch-upper-reg:lower-r
 
 
 
+
+
+
 \subsection{Proof of Theorem \ref{ch-upper-reg:relationships}: general relationships}\label{ch-upper-reg:spectrumproof}
 
 We start this section with a proof of Theorem \ref{ch-upper-reg:relationships}. Let $\mu$ be a probability measure supported on a compact set $X \subseteq \mathbb{R}^d$. Let $0<s< T(\mu)$,  $\r < t < \infty$ and $q<0$. By definition there exists a  constant  $C \geq 1$ such that for all $x\in X$ and for all $0<r< 1$
@@ -876,17 +879,17 @@ and it follows that $\overline{\dim}_{\text{loc}}(x,\mu) \geq \log p_i/\log c_i 
 
 
 
-As $F$ satisfies the SSC and $\mu$ is a Bernoulli measure, it is doubling (see \cite{olsenformalism}, for example). Thus recall there exists a constant $C(\delta/2) \geq 1$ depending only on $\delta/2 < 1$ such that $\frac{\mu(B(x, R))}{\mu(B(x,\delta R/2))}\le C(\delta/2)$ for any $x\in F$ and for any $R>0$.  Let $x \in F$ and $0<r<R$  and assume without meaningful loss of generality that $n(x,R) < m(x,r)$. If this were not true, then $R/r$ is bounded above by a uniform constant -- a situation we can safely ignore.  Hence
+As $F$ satisfies the SSC and $\mu$ is a Bernoulli measure, it is doubling (see \cite{olsenformalism}, for example). Thus recall there exists a constant $C(2/\delta) \geq 1$ depending only on $\delta/2 < 1$ such that $\frac{\mu(B(x, R))}{\mu(B(x,\delta R/2))}\le C(2/\delta)$ for any $x\in F$ and for any $R>0$.  Let $x \in F$ and $0<r<R$ and assume without meaningful loss of generality that $n(x,R) < m(x,r)$. If this were not true, then $R/r$ is bounded above by a uniform constant -- a situation we can safely ignore.  Hence
 
 \begin{align*}
-\frac{\mu(B(x,R))}{\mu (B(x,r))}& \le \ C(\delta/2) \frac{\mu(B(x,\delta R/2))}{\mu (B(x,r))}  \\
-& \le \ C(\delta/2) \frac{p_{i_0}\cdots p_{i_{n(x,R)}}}{p_{i_0}\cdots p_{i_{m(x,r)}}} \\
-& =\  C(\delta/2)  \frac{1}{p_{i_{n(x,R)+1}}} \cdots \frac{1}{p_{i_{m(x,r)}}} \\
-& = \ C(\delta/2)  \left(\frac{1}{c_{i_{n(x,R)+1}}}\right)^{\frac{\log p_{i_{n(x,R)+1}}}{\log c_{i_{n(x,R)+1}}} } \cdots \left(\frac{1}{c_{i_{m(x,r)}}}\right)^{\frac{\log p_{i_{m(x,r)}}}{\log c_{i_{m(x,r)} }}} \\
-& \le\  C(\delta/2)  \left( \frac{1}{c_{i_{n(x,R)+1}}}\right)^s \cdots \left( \frac{1}{c_{i_{m(x,r)}}}\right)^s \\
-%& =\  C(\delta/2)   \left( \frac{c_{(i_0,\ldots, i_{n(x,R)})}}{c_{(i_0,\ldots, i_{m(x,r)})}}\right)^s \\
-& = \ C(\delta/2)  \left(\frac{1}{c_{i_{n(x,R)+1}} c_{i_{m(x,r)}}}\right)^s \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{n(x,R)+1}}}{c_{i_0}c_{i_1} \cdots c_{i_{m(x,r)-1}}}\right)^s \\
-& \le \  C(\delta/2)   \left(\frac{2}{c_{\min}^2}\right)^s \left( \frac{R}{r}\right)^s
+\frac{\mu(B(x,R))}{\mu (B(x,r))}& \le \ C(2/\delta) \frac{\mu(B(x,\delta R/2))}{\mu (B(x,r))}  \\
+& \le \ C(2/\delta) \frac{p_{i_0}\cdots p_{i_{n(x,R)}}}{p_{i_0}\cdots p_{i_{m(x,r)}}} \\
+& =\  C(2/\delta)  \frac{1}{p_{i_{n(x,R)+1}}} \cdots \frac{1}{p_{i_{m(x,r)}}} \\
+& = \ C(2/\delta)  \left(\frac{1}{c_{i_{n(x,R)+1}}}\right)^{\frac{\log p_{i_{n(x,R)+1}}}{\log c_{i_{n(x,R)+1}}} } \cdots \left(\frac{1}{c_{i_{m(x,r)}}}\right)^{\frac{\log p_{i_{m(x,r)}}}{\log c_{i_{m(x,r)} }}} \\
+& \le\  C(2/\delta)  \left( \frac{1}{c_{i_{n(x,R)+1}}}\right)^s \cdots \left( \frac{1}{c_{i_{m(x,r)}}}\right)^s \\
+%& =\  C(2/\delta)   \left( \frac{c_{(i_0,\ldots, i_{n(x,R)})}}{c_{(i_0,\ldots, i_{m(x,r)})}}\right)^s \\
+& = \ C(2/\delta)  \left(\frac{1}{c_{i_{n(x,R)+1}} c_{i_{m(x,r)}}}\right)^s \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{n(x,R)+1}}}{c_{i_0}c_{i_1} \cdots c_{i_{m(x,r)-1}}}\right)^s \\
+& \le \  C(2/\delta)   \left(\frac{2}{c_{\min}^2}\right)^s \left( \frac{R}{r}\right)^s
 \end{align*}
 where $c_{\min} = \min_{i\in \mathcal{I}}c_i$, is just a constant. The desired upper bound, and the first part of Theorem \ref{ch-upper-reg:selfsimilar}, follows.
 
@@ -900,12 +903,12 @@ Hence $\llocal \le \log p_i/\log c_i =: t$ and $\lrdim \mu \le \inf_{x\in F} \ll
 The lower bound follows in the same way that the upper bound for the upper regularity dimension was found, we summarise this calculation. Note that the measure is still doubling and the previous inequality regarding the doubling constant will be used here, this is simply to make the choice of $n(x,r)$ more natural.
 
 \begin{align*}
-\frac{\mu(B(x,R))}{\mu (B(x,r))}& \ge \ C(\delta/2)^{-1} \frac{\mu(B(x,R))}{\mu (B(x,\delta r/2))}  \\
-& \ge \ C(\delta/2)^{-1} \frac{p_{i_0}\cdots p_{i_{m(x,R)}}}{p_{i_0}\cdots p_{i_{n(x,r)}}} \\
-& = \ C(\delta/2)^{-1}  \left(\frac{1}{c_{i_{m(x,R)+1}}}\right)^{\log p_{i_{m(x,R)+1}}/\log c_{i_{m(x,R)+1}}} \cdots \left(\frac{1}{c_{i_{n(x,r)}}}\right)^{\frac{\log p_{i_{n(x,r)}}}{\log c_{i_{n(x,r)}}} } \\
-& \ge\  C(\delta/2)^{-1}  \left( \frac{1}{c_{i_{m(x,R)+1}}}\right)^t \cdots \left( \frac{1}{c_{i_{n(x,r)}}}\right)^t \\
-& = \ C(\delta/2)^{-1} \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{m(x,R)}}}{c_{i_0}c_{i_1} \cdots c_{i_{n(x,r)}}}\right)^t \\
-& \ge \  C(\delta/2)^{-1} \left( \frac{c_{i_{m(x,R)}}c_{i_{n(x,r)}}}{2}  \right)^t  \left( \frac{R}{r}\right)^t \ge \  C(\delta/2)^{-1} \left( \frac{c_{\min}^2}{2}  \right)^t  \left( \frac{R}{r}\right)^t
+\frac{\mu(B(x,R))}{\mu (B(x,r))}& \ge \ C(2/\delta)^{-1} \frac{\mu(B(x,R))}{\mu (B(x,\delta r/2))}  \\
+& \ge \ C(2/\delta)^{-1} \frac{p_{i_0}\cdots p_{i_{m(x,R)}}}{p_{i_0}\cdots p_{i_{n(x,r)}}} \\
+& = \ C(2/\delta)^{-1}  \left(\frac{1}{c_{i_{m(x,R)+1}}}\right)^{\log p_{i_{m(x,R)+1}}/\log c_{i_{m(x,R)+1}}} \cdots \left(\frac{1}{c_{i_{n(x,r)}}}\right)^{\frac{\log p_{i_{n(x,r)}}}{\log c_{i_{n(x,r)}}} } \\
+& \ge\  C(2/\delta)^{-1}  \left( \frac{1}{c_{i_{m(x,R)+1}}}\right)^t \cdots \left( \frac{1}{c_{i_{n(x,r)}}}\right)^t \\
+& = \ C(2/\delta)^{-1} \left( \frac{c_{i_0}c_{i_1} \cdots c_{i_{m(x,R)}}}{c_{i_0}c_{i_1} \cdots c_{i_{n(x,r)}}}\right)^t \\
+& \ge \  C(2/\delta)^{-1} \left( \frac{c_{i_{m(x,R)}}c_{i_{n(x,r)}}}{2}  \right)^t  \left( \frac{R}{r}\right)^t \ge \  C(2/\delta)^{-1} \left( \frac{c_{\min}^2}{2}  \right)^t  \left( \frac{R}{r}\right)^t
 \end{align*}
 where $c_{\min}$ is as before, completing the proof.
 
@@ -1042,7 +1045,7 @@ with $p$ a constant as before. Due to the construction, a sequence of $r$ and $R
 
 
 
-We start by explaining our method and then we specialise to the particular cases of  Theorem \ref{ch-upper-reg:sequences} in subsequent subsections.  For convenience, we assume that $x_k \searrow 0$, $x_k-x_{k+1} \searrow 0$ (decreasing gaps) and that $p(k)$ ($k \in \mathbb{N}$) can be extended to a decreasing $L^1$ function $p$ on the whole of $[0,\infty)$.  These conditions are obviously satisfied for the  examples we consider.  Throughout this section we write $f(x)=O(g(x))$ to mean $f(x) \le Cg(x)$ for a constant $C$ independent of $x$.
+We start by explaining our method and then we specialise to the particular cases of  Theorem \ref{ch-upper-reg:sequences} in subsequent subsections.  For convenience, we assume that $x_k \searrow 0$, $x_k-x_{k+1} \searrow 0$ (decreasing gaps) and that $p(k)$ ($k \in \mathbb{N}$) can be extended to a decreasing $L^1$ function $p$ on the whole of $[0,\infty)$.  These conditions are obviously satisfied for the  examples we consider.  Throughout this thesis we write $f(x)=O(g(x))$ to mean $f(x) \le Cg(x)$ for a constant $C$ independent of $x$.
 
 For  $0<r<1$ and $x\in  \textup{supp}(\mu)$, let $\overline{k}(x,r), \underline{k}(x,r)$   be the unique  integers such that $x_{\overline{k}(x,r)+1}<x-r\le x_{\overline{k}(x,r)}$ and  $x_{\underline{k}(x,r)}\le x+r <x_{\underline{k}(x,r)-1}$ where we adopt the convention that $\overline{k}(x,r) = \infty$ when $x-r \le 0$.    Therefore 
 $$

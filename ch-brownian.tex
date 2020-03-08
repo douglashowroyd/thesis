@@ -29,14 +29,14 @@ We can construct $X(t)$ such that it is almost surely right continuous with left
 	\caption{\label{fig:brownianmotion}Two graphs of one-dimensional Brownian motion}
 \end{figure}
 
-The geometric properties, such as dimension, of Wiener processes have been a particularly well studied area. This includes studying the \emph{graphs}, \emph{level sets} and \emph{trails} of such processes which can be thought of as fractals as they often display some \emph{statistical self-affinity}. For any left continuous function $X:\mathbb{R}\to\mathbb{R}$, we define the graph of the function restricted to the interval $I \subseteq \mathbb{R}$ by
+The geometric properties, such as dimension, of Wiener processes have been a particularly well-studied area. This includes studying the \emph{graphs}, \emph{level sets} and \emph{trails} of such processes which can be thought of as fractals as they often display some \emph{statistical self-affinity}. For any left continuous function $X:\mathbb{R}\to\mathbb{R}$, we define the graph of the function restricted to the interval $I \subseteq \mathbb{R}$ by
 \nomenclature[G]{$G^{I}_{f}$}{graph of the function $f$ restricted to the interval $I$}
 \[
 G^{I}_{X}=\{(t,y) \colon \, y=X(t),t\in I\}\cup J,
 \]
-where $J$ is the union of vertical segments joining the discontinuities. $J$ is well defined because $X$ is right continuous. It is clear that if $X$ is continuous then $J$ is empty and as Wiener processes are almost surely continuous $J$ will not matter in this setting and can be safely ignored. This is not true for other L\'evy processes and so the $J$ are included for generality.
+where $J$ is the union of vertical segments joining the discontinuities. $J$ is well defined because $X$ is right continuous. It is clear that if $X$ is continuous then $J$ is empty and as Wiener processes are almost surely continuous $J$ will not matter in this setting and can be safely ignored. This is not true for other L\'evy processes and $J$ will actually be needed in our proofs so we include it for generality.
 
-Taylor \cite{Ta} first calculated the Hausdorff dimension of $d$-dimensional Brownian motion $B_d:\mathbb{R}\to\mathbb{R}^d$ where he showed that almost surely
+Taylor \cite{taylor} first calculated the Hausdorff dimension of $d$-dimensional Brownian motion $B_d:\mathbb{R}\to\mathbb{R}^d$ where he showed that almost surely
 \[
 \dim_\text{H} G_{B_1}^{[0,1]} = \dim_{\textup{B}}  G_{B_1}^{[0,1]} = \frac{3}{2}         
 \]
@@ -44,6 +44,7 @@ and for any $d\ge 2$
 \[
 \dim_\text{H} B_d([0,1]) = \dim_{\textup{B}} B_d([0,1]) =  2.
 \]
+A standard survey in this area is \cite{taylor-survey} which contains many further calculations and references.
 
 
 \begin{figure}[htbp]
@@ -71,13 +72,13 @@ One can formalise the aforementioned statistical self-affinity of L\'evy process
 \[
 c^{-1/\alpha}X(ct) =^d X(t)
 \]
-for all $c,t > 0$ and $=^d$ means equal in distribution. Two such random variables $X,Y$ are equal in distribution if $P(X \le t) = P(Y \le t)$ for all $t \in \mathbb{R}$.  We will sometimes refer to $\alpha$ as the scaling coefficient of $X$. It has been shown that such $\alpha$-stable L\'evy processes have
+for all $c,t > 0$ and $=^d$ means equal in distribution. Two such random processes $X,Y$ are equal in distribution if for all $k\in \mathbb{N}$ and $t_1< t_2 < \cdots < t_k$, the joint distribution of the random vectors $(X(t_1), \ldots, X(t_k))$ and $(Y(t_1),\ldots, Y(t_k))$ are equal. We will sometimes refer to $\alpha$ as the scaling coefficient of $X$. It has been shown that such $\alpha$-stable L\'evy processes have
 \[
 \dim_\text{H} G_{X_1}^{[0,1]} = \dim_{\textup{B}}  G_{X_1}^{[0,1]} = \max\{1, 2 - 1/\alpha\},
 \]
 recovering the Brownian motion result above by setting $\alpha = 2$. Note that when $\alpha < 1$ then the graph simply has Hausdorff dimension one with full probability, the lowest possible dimension, as these processes are constant except between certain jump discontinuities. In particular the frequency of these jumps is low enough to not raise this dimension.
 
-Our final condition for these processes is a simple assumption that the distribution $X(1)$ is non-vanishing on $\mathbb{R}$. Non-zero on an interval would also work, this is just to ensure the graphs are not just multiple flat lines, such as in a Poisson process. This ensures genuinely interesting geometric behaviour.
+Our final condition for these processes is a simple assumption that the distribution $X(1)$ is non-trivial on $\mathbb{R}$. Non-zero on an interval around zero would also work, this is just to ensure the graphs are not just multiple flat lines, such as in a Poisson process. This ensures genuinely interesting geometric behaviour.
 
 \begin{figure}[htbp]
 	\centering
@@ -221,7 +222,7 @@ Let $R_1,R_2>0$ be positive numbers and $n>0$ be an integer. Given a point $a\in
 \end{align*}
 We see that $W_{n}^{R_1\times R_2}((a,f(a)))$ is the collection of rectangles of side lengths $R_1/n$ by $R_2/n$ and with disjoint interiors, which partitions the $R_1$ by $R_2$ rectangle of lower left vertex $(a,f(a))$.
 	
-Then let $N_{n}^{R_1 \times R_2 }((a,f(a)),G_f^{[0,1]})= \# \left\{ W_{n}^{R_1\times R_2}((a,f(a))) \cap G_f^{[0,1]} \right\}$, where $\#$ is the cardinality of the set, this provides the number of rectangles which intersect the graph.
+Then let $N_{n}^{R_1 \times R_2 }((a,f(a)),G_f^{[0,1]})= \# \left\{ W_{n}^{R_1\times R_2}((a,f(a))) \cap G_f^{[0,1]} \right\}$, where $\#$ is the cardinality of the set, this provides the number of rectangles of side lengths $R_1/n$ by $R_2/n$ which intersect the graph within the larger rectangle $[a_i, a_i + R_1] \times [X(a_i), X(a_i) + R_2]$.
 
 
 The following proposition follows directly from the definition of Assouad dimension and the proof simply relies on noticing the relation between \newline$N_{n_1}^{R_1 \times R_1 }((a,f(a)),G_f^{[0,1]})$ and the covering number of an associated ball.
@@ -264,7 +265,7 @@ A similar statement can be made about the lower dimension and again, the proof r
 	and the intersection $W_n^{R_i \times R_i}((a_i,f(a_i))) \cap G_f^{[0,1]}$ includes at least all of the squares in the column 
 	\begin{align*}
 	    	\bigg\{ \left[a_i + \frac{j}{n_i}R_i, a_i + \frac{j+1}{n_i}R_i \right] &\times \left[f(a_i) + \frac{k}{n_i}R_i, f(a_i) + \frac{k+1}{n_i}R_i \right] \colon \\
-	    	&j = \frac{\lfloor n_i/2 \rfloor }{n_i} \textup{ and } k = 0, 1,\ldots, n_i - 1 \bigg\}.
+	    	&j = \lfloor n_i/2 \rfloor \textup{ and } k = 0, 1,\ldots, n_i - 1 \bigg\}.
 	\end{align*}
 	Then
 	\[
@@ -272,14 +273,14 @@ A similar statement can be made about the lower dimension and again, the proof r
 	\]
 \end{proposition}
 
-Here $\lfloor \cdot \rfloor$ is the floor function. When $n_i$ is odd the chosen column is clearly the centre of the square, when $n_i$ is even we simply take the column to the left of centre. In Proposition \ref{graph} we pass from the squares considered to balls of same centre and radius and as we are just trying to find a lower bound to the covering number, it suffices to cover one quarter of the ball, which is given by the cover of the square. For the lower dimension the goal is to obtain an upper bound so the entire ball must be understood, thus we must study a ball centred inside the square given by the assumptions. This leads us to ask for intersection in a centred column to guarantee the existence of a point which can be taken as the centre of a ball. The new condition in the above proposition stems from this technical point but could be weakened easily; this form suffices for our proof in the next section.
+Here $\lfloor \cdot \rfloor$ is the floor function. When $n_i$ is odd. the chosen column is clearly the centre of the square; when $n_i$ is even we simply take the column to the left of centre. In Proposition \ref{graph} we pass from the squares considered to balls of same centres with radius similar to the side lengths of the squares. As we are just trying to find a lower bound to the covering number, it suffices to cover one quarter of the ball, which is given by the cover of the square. For the lower dimension the goal is to obtain an upper bound so the entire ball must be understood, thus we must study a ball centred inside the square given by the assumptions. This leads us to ask for intersection in a centred column to guarantee the existence of a point which can be taken as the centre of a ball. The above proposition accounts for this technical point but could be weakened easily; this form suffices for our proof in the next section.
 
-As with the Assouad dimension, the inequality $N_{n_i}^{R_i \times R_i }((a_i,f(a_i)),G_f^{[0,1]})\leq C' n_i$ will actually be an equality in the proof however this is not guaranteed as it was above. In \cite{microsets} it was show that a set has zero lower dimension if and only if it has a singleton as a weak tangent but this does not directly imply that a set of lower dimension one must have an interval as a weak tangent. In fact there exist examples of self-similar sets of dimension one with no interval as weak tangents. Whilst a somewhat artificial argument, this behaviour is expected to be the norm.
+As with the Assouad dimension, the inequality $N_{n_i}^{R_i \times R_i }((a_i,f(a_i)),G_f^{[0,1]})\leq C' n_i$ will actually be an equality in the proof for all $i$ with $C'$ independent of $i$; however this is not guaranteed as it was previously. In \cite{microsets} it was show that a set has zero lower dimension if and only if it has a singleton as a weak tangent but this does not directly imply that a set of lower dimension one must have an interval as a weak tangent. In fact there exist examples of self-similar sets of dimension one with no interval as weak tangents. Whilst a somewhat artificial argument, this behaviour is expected to be the norm.
 
 
 \subsection{Graphs of L\'evy processes}\label{LP}
 
-Let $X(t)$ be an $\alpha$-stable L\'evy process with $\alpha \ge 1$. We assume that $X(1)$ is non-vanishing almost everywhere on $\mathbb{R}$ as a random variable, that is, the distribution function of $X(1)$ is 0 only on a set of zero measure. We start by proving the Assouad dimension result, the lower version will be a simple modification. This proof will aim to construct infinitely many events of positive probability such that the sum of their probabilities is infinite. Then, by Borel-Cantelli, infinitely many of these events must happen. If we have constructed the events correctly this will provide a sequence of rectangles which satisfy Proposition \ref{graph}, completing the proof.
+Let $X(t)$ be an $\alpha$-stable L\'evy process with $\alpha \ge 1$. We assume that $X(1)$ is non-vanishing almost everywhere on $\mathbb{R}$ as a random variable, that is, the distribution function of $X(1)$ is 0 only on a set of zero measure. We start by proving the Assouad dimension result of Theorem \ref{Main}, the lower version will be a simple modification. This proof will aim to construct infinitely many, independent events of positive probability such that the sum of their probabilities is infinite. Then, by Borel-Cantelli, infinitely many of these events must happen. If we have constructed the events correctly this will provide a sequence of rectangles which satisfy Proposition \ref{graph}, completing the proof.
 
 The events we will consider will effectively be of the form `$N_{n}^{1 \times 1 }((0,0),G_X^{[0,1]})=n^2$' for some $n\in \mathbb{N}$, that is when the graph intersects all parts of the unit square. The probability of such an event can be computed and is a strictly positive number depending only on $n$; we denote this number by $P(n)$. The event `$X$ hits a rectangle' is measurable when $X$ is continuous; when it is discontinuous we join the graph with a vertical line and the process is c\`adl\`ag so the event `$X$ hits a rectangle' is still measurable. Thus our event is measurable as the union of measurable events. 
 
@@ -287,7 +288,7 @@ Denote $D(j)=[j/n,(j+1)/n]$ for all $j\in\{0,\dots, n-1\}$ then we can see that
 \[
 P(n)\geq P\left(\forall \, k\in\left[1,n^2\right], k\in \mathbb{N},X\left(\frac{k}{n^2}\right)\in D\left(\left\{\frac{k}{n}\right\}n\right)\right)>0.
 \]
-Here $\{ \cdot \}$ denotes the fractional part function. This follows from our assumption that $X(1)$ is non-vanishing almost everywhere on $\mathbb{R}$ and the independent increments property of L\'evy processes. It is clear that this restriction could be relaxed to non-vanishing on some interval without much effort. To continue, we only require that $P(n)$ is strictly positive so do not explicitly compute it.
+Here $\{ \cdot \}$ denotes the fractional part function. This follows from our assumption that $X(1)$ is non-trivial almost everywhere on $\mathbb{R}$ and the independent increments property of L\'evy processes. It is clear that this restriction could be relaxed to positive on some interval without much effort. To continue, we only require that $P(n)$ is strictly positive so do not explicitly compute it.
 
 
 The question is now how to obtain infinitely many such events. For an $\alpha$-stable random process $X$, we can decompose the graph into countably many disjoint parts
@@ -323,7 +324,7 @@ Let $n_i$ be any sequence of increasing, positive integers such that $\lim_{i\to
     \label{fig:example-rectangle1}
 \end{figure}
 
-We can choose $n_i$ to grow slowly enough such that $\sum_{i}P(n_i)=\infty$, for instance by repeating $n_i$ as many times as desired for any given $i$. Note that the $I_i$ can be chosen so that each square is disjoint and as L\'evy processes are Markov, the events $A_i$ are all independent. Then by the (second) Borel-Cantelli lemma we see that with probability $1$, infinitely many events $A_i$ occur. Now if $A_i$ happens, then
+We can choose $n_i$ to grow slowly enough such that $\sum_{i}P(n_i)=\infty$, for instance by repeating $n_i$ as many times as desired for any given $i$. Note that the $I_i$ can be chosen so that the squares are pairwise disjoint and as L\'evy processes are Markov, the events $A_i$ are all independent. Then by the (second) Borel-Cantelli lemma we see that with probability $1$, infinitely many events $A_i$ occur. Now if $A_i$ happens, then
 \[
 N_{n_i}^{1 \times 1 }\left((0,0),G_{X_i}^{[0,1]}\right)=n_i^2.
 \]
@@ -335,7 +336,7 @@ Note this last line tells us the number of rectangles, not squares, of side leng
 
 Recall $\alpha \ge 1$ so $R_i\leq R_i^{1/\alpha}$ and all of these rectangles are taller than they are wide. When dividing each of these covering rectangles into squares of side lengths $R_i / n_i$ we see that they must be placed vertically above one another, rather than horizontally and so each of the squares must also intersect the graph as the process is right continuous and we include the lines $J$. Thus a cover of the graph inside the rectangle $[a_i, a_i + R_i] \times [X(a_i), X(a_i) + R_i^{1/\alpha}]$ by squares of side lengths $R_i / n_i$ requires all possible squares.
 
-Hence, when restricting attention to the square $[a_i, a_i + R_i] \times [X(a_i), X(a_i)+R_i]$ and considering the covering number by squares of side lengths $R_i/n_i$ we see
+Hence, given an event $A_i$ occurs, when restricting attention to the square $[a_i, a_i + R_i] \times [X(a_i), X(a_i)+R_i]$ and considering the covering number by squares of side lengths $R_i/n_i$ we see
 \[
 N_{n_i}^{R_i \times R_i }\left((a_i,X(a_i)),G_{X}^{I_i}\right)=n_i^2.
 \]
@@ -358,9 +359,9 @@ and $N_{n}^{1\times 1}((0,0),G_X^{[0,1]}) = n + 1$. We recall the discussion in 
 \end{figure}
 
 
-We then proceed in the same way: partition the graph into countably many parts $\left\{I_i \right\}$ of lengths $R_i$ and note that the images of the graph under the transformations $T_i$ still have underlying distribution $X_i =^d X$ as $X$ is $\alpha$-stable. By choosing a sequence of $n_i$ (of increasing, positive integers) correctly we will have $\sum_{i}P(n_i) = \infty$ and can denote $A_i$ the event 
+We then proceed in the same way: partition the graph into countably many parts $\left\{I_i \right\}$ of lengths $R_i$ and note that the images of the graph under the transformations $T_i$ still have underlying distribution $X_i =^d X$ as $X$ is $\alpha$-stable. By choosing a sequence of $n_i$ (of increasing, positive integers) correctly we will have $\sum_{i}P(n_i) = \infty$ and can denote by $A_i$ the event 
 $$G_{X_i}^{[0,1]} \cap (0,1]^2 \subseteq \left[\frac{\lfloor n_i/2 \rfloor}{n_i} ,  \frac{\lfloor n_i/2 \rfloor + 1}{n_i} \right] \times [0,1]$$
-and $N_{n_i}^{1\times 1}((0,0),G_{X_i}^{[0,1]}) = n_i + 1$'. Since the intervals $I_i$ are disjoint, by the Borel-Cantelli lemma, with probability one, infinitely many of the above events must happen.
+and $N_{n_i}^{1\times 1}((0,0),G_{X_i}^{[0,1]}) = n_i + 1$. Since the intervals $I_i$ are disjoint, by the Borel-Cantelli lemma, with probability one, infinitely many of the above events must happen.
 
 Thus 
 \[
@@ -379,8 +380,7 @@ again with the `middle' column being fully intersected. Combined with Propositio
 
 \subsection{Graphs of some stochastic integrals}
 
-
-	Given a function $f$ which is zero at most only finitely often and is $C^2$ on some interval, say $I'$, we can simply focus on the function restricted to $I'$, normalising to obtain a function which is $C^2$ and zero only finitely often on the unit interval. We may then assume that $f(t)>1$ for $t\in [0,1]$ by again restricting our function to an interval where the function is bounded away from zero and normalising. This is possible as the Assouad dimension is a local notion so if the dimension of some subset is full for the Assouad dimension then the whole graph will also have full dimension. Thus we assume for the rest of this proof that $f$ is a $C^2$ function which is greater than $1$.
+    This section is dedicated to the proof of Theorem \ref{ch-brownian:stochastic}.	Given a function $f$ which is zero at most only finitely often and is $C^2$ on some interval, say $I'$, we can simply focus on the function restricted to $I'$, normalising to obtain a function which is $C^2$ and zero only finitely often on the unit interval. We may then assume that $f(t)>1$ for $t\in [0,1]$ by again restricting our function to an interval where the function is bounded away from zero and normalising. This is possible as the Assouad dimension is a local notion so if the dimension of some subset is full for the Assouad dimension then the whole graph will also have full dimension. Thus we assume for the rest of this proof that $f$ is a $C^2$ function which is greater than $1$.
 	
 	Ideally we would wish to integrate by parts in the standard Riemann–-Stieltjes sense
 	\begin{equation}
@@ -412,7 +412,7 @@ again with the `middle' column being fully intersected. Combined with Propositio
 	\begin{align*}
 		\bigg\vert B_f\bigg(a_i+&(k+1)\frac{R_i}{n_i},\omega\bigg)-B_f\left(a_i+k\frac{R_i}{n_i},\omega\right)\bigg\vert\\
 		&= \left| \int_{a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} f(x)W(dx)\right|\\
-		&= \left| f\left(x\right)W(x,\omega)\bigg\vert_{x=a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} - \int_{a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} W(x)f'(x)dx \right|,
+		&= \left| \bigg[f\left(x\right)W(x,\omega)\bigg]_{x=a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} - \int_{a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} W(x)f'(x)dx \right|,
 	\end{align*}
 	where $\lvert \cdot \rvert$ denotes the absolute value in this section.
 	
@@ -427,9 +427,9 @@ again with the `middle' column being fully intersected. Combined with Propositio
 	\begin{equation}
 	    \left|W\left(a_i+(k+1)\frac{R_i}{n_i},\omega\right)-W\left(a_i+k\frac{R_i}{n_i},\omega\right)\right|\geq R_i^{1/2}\geq R_i. \label{ch:brownian:second-equa}
 	\end{equation}
-	This essentially follows from $N_{n_i}^{R_i \times R_i^{1/2}}((a_i,W(a_i), G_W^{I_i})  = n_i^2$ and recalling that the Wiener process is $2$-stable.
+	This essentially follows from $N_{n_i}^{R_i \times R_i^{1/2}}((a_i,W(a_i), G_W^{I_i})  = n_i^2$ and recalling that the Wiener process is $2$-stable. Here the obtained sequence of $R_i$ is a random subsequence of a deterministic sequence so the $R_i$ can be controlled.
 	
-	In the following discussion we shall fix a typical $\omega$ such that $W(t,\omega)$ satisfies the above two almost sure properties, in particular, we think of $C_\omega>0$ as a fixed constant. 
+	In the following discussion we shall fix a typical $\omega$ such that $W(t,\omega)$ satisfies the above two almost sure properties. In particular, we think of $C_\omega>0$ as a fixed constant. 
 	
 	Since $f$ is $C^2$, we see that there is a constant $C_f$ (which does not depend on $i$) such that for all $x\in \left[{a_i+k\frac{R_i}{n_i}},{a_i+(k+1)\frac{R_i}{n_i}}\right]$, combined with equation \eqref{first-equa}, we have
 	\begin{equation}
@@ -438,7 +438,7 @@ again with the `middle' column being fully intersected. Combined with Propositio
 	
 	Then using equation \eqref{ch:brownian:second-equa} the following inequality holds
 	\begin{equation}
-	\left| f\left(a_i+k\frac{R_i}{n_i}\right)W(x,\omega)\bigg\vert_{x=a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} \right| \geq \left| f\left(a_i+k\frac{R_i}{n_i}\right) \right| R_i^{1/2}\geq R_i^{1/2}\label{ch:brownian:ineq-one}    
+	\left| f\left(a_i+k\frac{R_i}{n_i}\right)\bigg[W(x,\omega)\bigg]_{x=a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} \right| \geq \left| f\left(a_i+k\frac{R_i}{n_i}\right) \right| R_i^{1/2}\geq R_i^{1/2}\label{ch:brownian:ineq-one}    
 	\end{equation}
 	and by equation \eqref{ch:brownian:third-equa}
 	\[
@@ -449,7 +449,8 @@ again with the `middle' column being fully intersected. Combined with Propositio
 	
 	\begin{align}\label{ch:brownian:main-equa}
 	    \bigg\vert B_f&\bigg(a_i+(k+1)\frac{R_i}{n_i},\omega\bigg)-B_f\left(a_i+k\frac{R_i}{n_i},\omega\right)\bigg\vert \\
-	    &\ge \bigg\vert f\left(a_i + k \frac{R_i}{n_i}\right) W(x,\omega) \bigg\vert_{x=a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}} + f'\left(a_i + k\frac{R_i}{n_i}\right) \frac{R_i}{n_i} W\left(a_i +(k+1) \frac{R_i}{n_i},\omega\right) \nonumber\\ 
+	    &\ge \bigg\vert f\left(a_i + k \frac{R_i}{n_i}\right) \bigg[W(x,\omega) \bigg]_{x=a_i+k\frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_i}}\nonumber\\
+	    &\qquad \qquad + f'\left(a_i + k\frac{R_i}{n_i}\right) \frac{R_i}{n_i} W\left(a_i +(k+1) \frac{R_i}{n_i},\omega\right) \nonumber\\ 
 	    &\qquad \qquad- \int_{a_i+k \frac{R_i}{n_i}}^{a_i+(k+1)\frac{R_i}{n_1}}W(x)f'(x)dx \bigg\vert  \nonumber \\
 	    & \ge C'R_i. \nonumber
 	\end{align}
@@ -479,9 +480,9 @@ The covering number results of Section \ref{ch:brownian:graph-proof} have natura
 \begin{eqnarray*}
 	\Bigg\{D_{i_1,\dots,i_d}+\mathbf{a} \, \vert \, D_{i_1,\dots,i_d}=\left[\frac{i_1}{n}R_1,\frac{i_1+1}{n}R_1\right]\times\dots\times \left[\frac{i_d}{n}R_d,\frac{i_d+1}{n}R_d\right],\\ i_j\in\{0,\dots,n-1\}, j\in\{1,\dots,d\}\Bigg\}.
 \end{eqnarray*}
-We see that $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ is a collection of rectangles with disjoint interiors. A function $f$ which intersects a full collection of $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ infinitely many times will have full Assouad dimension. This follows from the definitions of dimensions.
+We see that $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ is a collection of rectangles with disjoint interiors. The graph of a function $f$ which intersects a full collection of $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ infinitely many times will have full Assouad dimension. This follows from the definitions of dimensions.
 
-Using a similar argument as the one in Section \ref{LP}, it can be shown that this full intersection of a function and $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ can occur with positive probability and again by Borel-Cantelli, we obtain infinitely many occurrences almost surely. Hence the Assouad dimension of $d$-dimensional Brownian motion should be $d$. 
+Using a similar argument as the one in Section \ref{LP}, it can be shown that this full intersection of the graph of a function and $W_{n}^{R_1\times\dots\times R_d}(\mathbf{a})$ can occur with positive probability and again by Borel-Cantelli, we obtain infinitely many occurrences almost surely. Hence the Assouad dimension of $d$-dimensional Brownian motion should be $d$. 
 
 
 
@@ -513,10 +514,10 @@ There is a naturally associated function $f: [0,1] \rightarrow \mathbb{R}^2$ whi
 
 
 
-This leads us to the question of this section: given a doubling measure $\mu$ on the unit interval, is $f_*\mu$ also doubling? A similar question can be posed for uniformly perfect measures. So far we have shown the Assouad dimension of $G_X^{[0,1]}$ is almost surely 2 so there must exist at least one doubling measure on the graph. However, most measures on the graph might not even be doubling. For the Hausdorff dimension, the proof by Taylor shows that the Hausdorff dimension of the pushforward of Lebesgue measure almost surely attains the dimension of the graph itself. It turns out that this is usually not the case for the regularity dimensions.
+This leads us to the question of this section: given a doubling measure $\mu$ on the unit interval, is $f_*\mu$ also doubling? A similar question can be posed for uniformly perfect measures. So far we have shown the Assouad dimension of $G_X^{[0,1]}$ is almost surely 2, see Theorem \ref{Main}, so there must exist at least one doubling measure on the graph. However, most measures on the graph might not even be doubling. For the Hausdorff dimension, the proof by Taylor shows that the Hausdorff dimension of the pushforward of Lebesgue measure almost surely attains the dimension of the graph itself. It turns out that this is usually not the case for the regularity dimensions.
 
 \begin{theorem}\label{brownianthm}
-	Let $\mu$ be a doubling measure on $[0,1]$ and $X$ a stable L\'evy process with the distribution $X(1)$ being non vanishing on $\mathbb{R}$. Then $f_*\mu$ is almost surely not doubling on $G_X^{[0,1]}$. Also, $f_*\mu$ is almost surely not uniformly perfect.
+	Let $\mu$ be a doubling measure on $[0,1]$ and $X$ a stable L\'evy process with the distribution $X(1)$ being non trivial on $\mathbb{R}$. Then $f_*\mu$ is almost surely not doubling on $G_X^{[0,1]}$. Also, $f_*\mu$ is almost surely not uniformly perfect.
 \end{theorem}
 
 
@@ -529,13 +530,13 @@ The following proof of this theorem is inspired by the ideas used to prove Theor
 
 
 
-Choose a L\'evy process $X$ satisfying the conditions in Theorem \ref{brownianthm} which is $\alpha$-stable and fix the graph $G_X^{[0,1]}$ realised by this process. Start by assuming $\alpha \ge 1$, the proof will work in the same way for $\alpha < 1$ given a slight modification which will be commented on later in the proof. $\mu$ is taken to be a doubling measure on the unit interval. Recall $f$ is defined to be the function which maps the unit interval to the graph of our L\'evy process and $f_*\mu$ is the pushforward measure of $\mu$ onto the graph that we wish to study.
+Choose a L\'evy process $X$ satisfying the conditions in Theorem \ref{brownianthm} which is $\alpha$-stable and fix the graph $G_X^{[0,1]}$ realised by this process. Start by assuming $\alpha \ge 1$, the proof will work in the same way for $\alpha < 1$ given a slight modification which will be commented on later in the proof. A measure $\mu$ is taken to be a doubling measure on the unit interval. Recall $f$ is defined to be the function which maps the unit interval to the graph of our L\'evy process and $f_*\mu$ is the pushforward measure of $\mu$ onto the graph that we wish to study.
 
 We start by calculating the almost sure upper regularity dimension of $f_*\mu$. Let $s>0$. The general strategy for this proof is to find a sequence of events that are all independent and have positive probability. Then a simple application of the Borel-Cantelli lemma will yield that almost surely these events will happen infinitely often. By choosing our events carefully this will yield a sequence of balls that show the upper regularity dimension of the pushforward measure must be greater than $s$. As $s$ is arbitrary, this will conclude the proof.
 
-Given our $\alpha$-scaling L\'evy process, we define the rectangle centered at $a\in [0,1]$ with side lengths $R_1,R_2$ by $Rec(a,R_1,R_2) = I(a,R_1) \times I(X(a),R_2)$ where $I(b,R) = [b-R/2,b+R/2]$ is just an interval of length $R$ and centre $b$. 
+Given our $\alpha$-scaling L\'evy process, we denote the rectangle centered at $a\in [0,1]$ with side lengths $R_1,R_2$ by $Rec(a,R_1,R_2) = I(a,R_1) \times I(X(a),R_2)$ where $I(b,R) = [b-R/2,b+R/2]$ is just an interval of length $R$ and centre $b$. 
 
-The particular events $E_i$ we are interested in are defined as follows: let $x_i \in [0,1]$, $R_i > r_i> 0$ and $\beta > 1$, then $E_i$ is the event in which $G_X^{I(x_i,R_i^{\alpha})} \subset Rec(x_i,R_i^{\alpha},R_i)$ and $Rec(x_i, r_i, r_i^{1/\alpha}) \cap G_X^{I(x_i,r_i)} = G_X^{I(x_i,r_i^{\beta})}$. These events are chosen so that the measure on the graph will be `large' on the rectangle of small side length $R^{\alpha}$ but `small' on the rectangle of small side length $r$. Figure \ref{brownian_event} is a geometric representation of such an event.  
+The particular events $E_i$ we are interested in are defined as follows: let $x_i \in [0,1]$, $R_i > r_i> 0$ and $\beta > 1$, then $E_i$ is the intersection of the events $G_X^{I(x_i,R_i^{\alpha})} \subset Rec(x_i,R_i^{\alpha},R_i)$ and $Rec(x_i, r_i, r_i^{1/\alpha}) \cap G_X^{I(x_i,r_i)} = G_X^{I(x_i,r_i^{\beta})}$. These events are chosen so that the measure on the graph will be `large' on the rectangle of small side length $R^{\alpha}$ but `small' on the rectangle of small side length $r$. Figure \ref{brownian_event} is a geometric representation of such an event.  
 
 \begin{figure}[htbp]
 	\centering

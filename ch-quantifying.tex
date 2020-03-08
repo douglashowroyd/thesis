@@ -226,7 +226,7 @@ As in the Euclidean setting we can study points which are well-approximable, thi
 \[
 W_y(\psi) = \left\{ \xi \in \Lambda \colon d_{\mathbb{R}^{d+1}}(\xi, g(y)) \le \psi(L_g) \text{ for infinitely many } g \in G \right\}.
 \]
-As $W_y(\psi)$ is a subset of the limit set we cannot use Lebesgue measure to study the size of the well-approximable numbers. The well studied Patterson-Sullivan measure $\mu_{PS}$ is the natural answer to this as non-elementary geometrically finite Kleinian groups are known to carry this measure and in this setting it is an atomless conformal ergodic Borel probability measure. An analogue of Khintchine's Theorem in this setting can be show through the work of \cite{patterson, stratmann, stratmann-velani, beres-dick-velani}; in its final form the original 1-dimensional version of Khintchine's Theorem can even be recovered. To avoid overcomplicating this section we omit the full statement of the hyperbolic analogue.
+As $W_y(\psi)$ is a subset of the limit set we cannot use Lebesgue measure to study the size of the well-approximable numbers. The well studied Patterson-Sullivan measure $\mu_{PS}$ is the natural answer to this as non-elementary geometrically finite Kleinian groups are known to carry this measure and in this setting it is an atomless conformal ergodic Borel probability measure. An analogue of Khintchine's Theorem in this setting can be shown through the work of \cite{patterson, stratmann, stratmann-velani, beres-dick-velani}; in its final form the original 1-dimensional version of Khintchine's Theorem can even be recovered. To avoid overcomplicating this section we omit the full statement of the hyperbolic analogue.
 
 Returning to the classical setting one last time, a theory of Diophantine approximation on manifolds has developped. For instance one can ask what is the size of $\mathcal{M} \cap W(\psi)$ for some submanifold $\mathcal{M}$ of $\mathbb{R}^d$. Size here would be the normalised $k$-dimensional Lebesgue measure on $\mathcal{M}$ where $\mathcal{M}$ is a $k$-dimensional manifold. The question then becomes which conditions must be imposed on $\mathcal{M}$ so that an analogue of Khintchine's can be recovered.
 
@@ -249,7 +249,7 @@ Using Proposition \ref{ch-quantifying:equiv-diophantine} we can deduce a new ver
 	In particular, if  $\sum_{r=1}^\infty r^{s-1} \psi(r)^{s} < \infty$ then any weakly absolutely $\alpha$-decaying measure on $K$ is such that $\mu(K\cap W_y(\psi)) = 0$.
 \end{theorem}
 
-The existence of weakly absolutely $\alpha$-decaying measure $\mu$ for any $0< \alpha < s$ is due to recent work of Suomala \cite[Theorem 4.1]{suomala}.
+The existence of weakly absolutely $\alpha$-decaying measures $\mu$ for any $0< \alpha < s$ is due to recent work of Suomala \cite[Theorem 4.1]{suomala}.
 
 An advantage of writing the theorem with respect to the lower dimension of subsets of the limit set is that the lower dimension of limit sets were calculated in \cite{fraser2}. Therefore, given a limit set, we can quickly check if there will be measures that are weakly absolutely $\alpha$-decaying such that the sum in the theorem converges for the given $\alpha$. In \cite{fraser2}, Fraser also calculated the regularity dimensions of Patterson-Sullivan measures, providing us with explicit measures that could be used in the theorem for suitable subsets, as the upper and lower regularity dimensions of Patterson-Sullivan measures are strictly positive and finite. 
 
@@ -321,7 +321,7 @@ For all $x \in \text{supp}(\mu)$ and $0<r<R$, fix $k$ to be the unique integer s
 \end{align*}
 Approximating $k$ yields
 \[
-\frac{\mu(B(x,R))}{\mu(B(x,r))} \ge K(\theta)^{\log(R/r)\log(\theta) - 1} = K(\theta)^{-1} \left(\frac{R}{r}\right)^{\log K(\theta)/ \log \theta}
+\frac{\mu(B(x,R))}{\mu(B(x,r))} \ge K(\theta)^{\log(R/r)/\log(\theta) - 1} = K(\theta)^{-1} \left(\frac{R}{r}\right)^{\log K(\theta)/ \log \theta}
 \]
 so $\lrdim \mu \ge \log K(\theta) / \log \theta$ for any $\theta > 1$ as desired. 
 
