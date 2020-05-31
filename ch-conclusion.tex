@@ -1,0 +1,111 @@
+\chapter{Open Problems}
+\label{chap:conclusion}
+
+
+
+To conclude this thesis, we will recall and expand upon some of the questions that have been raised so far. This will merely be a list of problems that we found interesting when writing this work and is in no way exhaustive, but should offer a number of options for future work. In this chapter we will follow the general order in which the work was presented in this thesis without recalling specific notation that was introduced previously.
+
+
+\section{Weak tangent measures}\label{ch-conclusion:weak-tangents}
+
+In Chapter 2 we introduced the concept of weak tangent measures and Theorem \ref{ch-upper-reg:weaktangents} showed that the upper regularity dimension of a measure is bounded below by the upper regularity dimension of its weak tangent measures. This is a natural analogue of the set theoretic setting, where weak tangent sets have Assouad dimension less than or equal to the Assouad dimension of the original set. Recently, in \cite{microsets}, it was shown that for any $\mathcal{F}_{\sigma}$ set $\Delta \subseteq [0,1]$ which contains its infimum and supremum, there exists a set $F \subseteq [0,1]$ such that the set of all possible Hausdorff dimensions of the weak tangents of $F$ equals $\Delta$. It is natural to ask if the same holds in the measure theoretic setting.
+
+\begin{question}
+If $\Delta \subseteq (0,\infty)$ is a set which contains its infimum and supremum, then can one find a locally finite, Borel measure $\mu$ supported on a subset of $\mathbb{R}$ such that
+\[
+\left\{ \underline{\dim}_{\textup{H}} \hat{\mu} \colon \hat{\mu} \textup{ is a weak tangent measure of } \mu \right\} = \Delta ?
+\]
+\end{question}
+
+Note in the above question it is assumed that the sets $\Delta$ contain their infimum and supremum, this is due to the fact that the Assouad and lower dimensions of a set is always attained by their microsets. It is perhaps reasonable to assume that this also holds for measures but this should be investigated further.
+
+\begin{question}
+For any measure $\mu$ supported on $\mathbb{R}$, is it true that there exists a weak tangent measure $\hat{\mu}$ such that 
+\[
+\urdim \mu = \urdim \hat{\mu}
+\]
+and another weak tangent measure $\hat{\mu}'$ such that
+\[
+\lrdim \mu = \lrdim \hat{\mu}' ?
+\]
+\end{question}
+
+
+
+\section{Self-similar and self-affine measures}\label{ch-conclusion:self-similar}
+
+There has been much work calculating the dimensions of self-similar and self-affine sets in a range of different settings. Here we restricted to self-similar measures on sets satisfying the strong separation condition. This is required to ensure these measures are doubling. However, there are still many examples of doubling self-similar measures for which only a weaker separation condition holds, such as the open set condition. Understanding which measures are still doubling when the separation conditions are weakened would be the first step in calculating the regularity dimensions of these measures.
+
+Another strand of research can be found in \cite{hare-hare-tros}, where the quasi-Assouad dimension of self-similar measures was studied. This different notion of dimension only depends on the measure being quasi-doubling, a weaker property than doubling and so only a weaker separation is required for these calculations. The quasi-Assouad dimension is closely related to the upper regularity dimension so it is likely that the ideas in \cite{hare-hare-tros} could be used to further our understanding of the regularity dimensions too. 
+
+For self-similar measures there are a number of different separation conditions with various notions of dimensions and regularity to consider so, for brevity, we simply state this as the following question which can also be found on page 30.
+
+\begin{question}
+What are the regularity dimensions of self-similar measures on sets not satisfying the strong separation condition?
+\end{question}
+
+
+After studying self-similar measures it was natural to turn our attention to self-affine measures on Bedford-McMullen sponges. The regularity dimensions were calculated for such measures assuming two conditions - the very strong separation condition and inequality of the contraction ratios. The first was needed to ensure the measures were doubling; as before it would be interesting to ask which, if any, conditions guarantee doubling. The second condition is important in the proof of our theorem and was first remarked upon in \cite{fraser-howroyd1} in the set theoretic setting. This was removed for the Assouad and lower dimensions of sets in \cite{howroyd-sponges} and it seems reasonable that the techniques in that paper can be used in a similar way for the regularity dimensions of measures. 
+
+As noted in Section 2.2.4, there are a number of generalisations of Bedford-McMullen sponges that have been considered in the literature, covering several different notions of dimension. Finding the regularity dimensions of measures in the examples for which the Assouad and lower dimensions have been studied should be possible by combining the measure theoretic techniques used here with the new tools introduced in the set theoretic settings. For the remaining cases, it would be worth turning our attention to the study of the Assouad dimension first, before attempting to find the regularity dimensions. All these problems were resumed on page 35 in the following question.
+
+\begin{question}
+What can be said about the regularity dimensions of self-affine measures on sets which do not satisfy the VSSC? What are the regularity dimensions of self-affine measures on more general carpets, such as Lalley-Gatzouras carpets?
+\end{question}
+
+
+
+\section{Measures on sequences}\label{ch-conclusion:seq}
+
+
+Sequences have proven to be particularly interesting objects of study with respect to the Assouad dimension in terms of how different the results often are compared to the more common dimensions. The regularity dimensions of measures on sequences have also shown to exhibit similar phenomena and it would be helpful to have further examples at hand to better understand these dimensions. A natural way of obtaining more examples would be to consider different decay rates, such as stretched exponential, to see if the measures remain doubling as long as the decay rates of the sequence and the measure are comparable. 
+
+One could also look at more general sequences, for instance by removing the decreasing gap condition. However, it would be important to maintain some reasonable conditions to ensure the set and measure continue to resemble genuine sequences. How to formalise this idea at the moment is not clear, further study would have to be undertaken to understand when these sequences develop behaviour that we do not consider `normal' for such objects. As this second part is less precise we omit formally stating it as a question for now, simply recalling the problem posed on page 37.
+
+\begin{question}
+How does the upper regularity dimension of measures defined on sequences behave for different decay rates, such as stretched exponential decay?
+\end{question}
+
+
+
+\section{Quantifying doubling and uniform perfectness}\label{ch-conclusion:quant}
+
+
+In Chapter 3 it was seen that there is a link between the upper regularity dimension and the doubling constants, similarly for the lower analogues. However, this only relies on the limiting behaviour of the doubling constants $C(\theta)$ as $\theta$ tends to infinity and so not does not imply any obvious behaviour for small $\theta$. The following is a natural question to then ask.
+\begin{question}
+Given $a, b , \theta > 1$, does there exists a measure $\mu$ such that $a = C(\theta)$ and $b = K(\theta)$?
+\end{question}  
+There are a number of extensions to this question that can be posed, such as replacing $a, b$ and $\theta$ by sequences $a_i,b_i,\theta_i$ and asking one measure to have constants $C(\theta_i) = a_i$ and $K(\theta_i) = b_i$ for all $i$. Or one could keep the question as is but simultaneously impose specific regularity dimensions on the measure. 
+
+Whilst these questions are interesting, it is currently difficult to calculate these optimal constants even in the simple self-similar setting for specific $\theta$. Developing a better understanding of how these constants behave would be the first step in finding an answer. Doing this would also improve our study of the relations between the regularity dimensions and doubling and uniform perfectness. For instance, in Proposition 4 of Chapter 3, we showed that a doubling measure on a uniformly perfect space has not only positive lower regularity dimension, but also a lower bound to this dimension can be stated explicitly in terms of the doubling constant for a specific $\theta$. If a relation between the doubling constants for various values of $\theta$ can be found, then it is plausible that this bound can be improved. 
+
+To start this analysis we state the following problem which should be achievable.
+
+\begin{question}
+Given a self-similar set satisfying the OSC and a self-similar measure on this set, what are the optimal constants $C(\theta)$ and $K(\theta)$ for all $\theta > 1$?
+\end{question}
+
+
+\section{Quantifying doubling and uniform perfectness}\label{ch-conclusion:diophantine}
+
+To finish Chapter 3 we showed that the lower regularity dimension can have applications in Diophantine approximation, providing a hopefully more applicable version of a Theorem in \cite{beres-sanju-al} as the regularity dimensions have now been calculated for a range of different examples. There have been other studies related to the work of \cite{beres-sanju-al} which rely on different regularity properties of measures and it seems reasonable to ask if and how the upper and lower regularity dimensions interact with these notions. A common condition that occurs in this setting is that the measure be `locally doubling'. This lends credibility to the idea that the upper regularity dimension is also involved in some way. We leave this investigation open by recalling the question stated on page 64.
+
+\begin{question}
+Is there a relation between the regularity dimensions and other notions of regularity of measures used in Diophantine approximation?
+\end{question}
+
+
+\section{Graphs of Brownian motion}\label{ch-conclusion:brownian}
+
+There are several cases left unresolved in the study of the dimensions of graphs of Brownian motion and measures supported on them. Regarding the Assouad dimension of the graph, it is still not clear what the dimension will be when the $\alpha$-stable L\'evy process has $\alpha < 1$. Following the usual behaviour of the Assouad dimension, it is likely almost surely full but this is not clear in this setting. Any proof would likely need new ideas compared to the ones used in this thesis for the case $\alpha > 1$. The following is a slightly reworded version of the question from page 76.
+
+\begin{question}
+For any $\alpha \in (0,1)$, what is the Assouad dimension of the graph of an $\alpha$-stable L\'evy process? 
+\end{question}
+
+It would also be natural to consider the lower dimension of the graphs of random process which are functions defined as stochastic integrals. The proof for the Assouad dimension analogue relied heavily on understanding the behaviour of the Wiener process as seen in the calculation of the dimension of the graph of the Wiener process. A similar idea was used for the lower dimension of graphs of L\'evy processes, so it should be possible to combine these ideas and the lower dimension of the graph of stochastic integrals is likely almost surely 1. However, one must be careful in the proof as many of the bounds used for the Assouad dimension do not necessarily hold in the other direction. The question on what the lower dimension actually is was stated on page 77.
+
+\begin{question}
+Can a lower dimension analogue of Theorem 8 (from Chapter 3) be found? Given that this result mirrors the Assouad dimension of the graphs of Brownian motion it is natural to conjecture that the lower dimension in this setting will be almost surely 1.
+\end{question}
+

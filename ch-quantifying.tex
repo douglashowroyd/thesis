@@ -6,7 +6,7 @@
 \label{sec:intro-quantifying}
 
 
-The goal of this chapter is to quantify how doubling a measure is via the upper regularity dimension and uniformly perfect through the lower regularity dimension. This will start with a simple relationship between these notions which will then help understand a classic technical result regarding the measure of balls. The notion of quasisymmetric invariant will then be studied by calculating bounds for the regularity dimensions of pushforward measures under such maps with respect to the dimensions of the original measures. Finally a relation between the lower regularity dimension and a regularity of measures property recently introduced in Diophantine approximation will be discussed. This leads to a more quantitative statement of a recent theorem in the Diophantine approximation on Kleinian groups.
+The goal of this chapter is to quantify how doubling a measure is via the upper regularity dimension and how uniformly perfect it is through the lower regularity dimension. This will start with a simple relationship between these notions which will then help understand a classic technical result regarding the measure of balls. The notion of quasisymmetric invariance will then be studied by calculating bounds for the regularity dimensions of pushforward measures under such maps with respect to the dimensions of the original measures. Finally a relation between the lower regularity dimension and a regularity of measures property recently introduced in Diophantine approximation will be discussed. This leads to a more quantitative statement of a recent theorem in the Diophantine approximation on Kleinian groups.
 
 
 
@@ -19,28 +19,32 @@ We start by establishing some well known facts and introducing our results. Sect
 
 \subsection{Quantifying doubling and uniform perfectness}\label{ch-quantifying:sec:equivalence}
 
-Recall from the introduction, that a measure is doubling if and only if it has finite upper regularity dimension; similarly for uniform perfectness and the lower regularity dimension. Repeatedly, we have stated that this means the regularity dimensions quantify doubling and uniform perfectness without further elaboration. This can be formalised so the upper regularity dimension of a doubling measure can be stated explicitly as a function of the doubling constants; similarly for the lower regularity dimension with respect to the constants of uniform perfectness when this dimension is stictly positive. 
+The notions of doubling and uniform perfectness are central in this section and are defined in equations \eqref{doubling-equa} and \eqref{uniformly-perfect-equa} in Chapter 1. Also recall from the introduction that a measure is doubling if and only if it has finite upper regularity dimension; similarly for uniform perfectness and the lower regularity dimension. Repeatedly, we have stated that this means the regularity dimensions quantify doubling and uniform perfectness without further elaboration. This can be formalised so the upper regularity dimension of a doubling measure can be stated explicitly as a function of the doubling constants; similarly for the lower regularity dimension with respect to the constants of uniform perfectness when this dimension is strictly positive. 
 
-\begin{theorem}\label{ch-quantifying:equivalence}
-Let $\mu$ be a doubling measure fully supported on a metric space $X$ with doubling constants $C(\theta)$, then $$\urdim \mu = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}.$$ Similarly if $\mu$ is a uniformly perfect measure with constants of uniform perfectness $K(\theta)$ then $$\lrdim \mu = \sup_{\theta > 1} \frac{\log K(\theta)}{\log \theta}.$$
+\begin{theorem}[\cite{howroyd}]\label{ch-quantifying:equivalence}
+Let $\mu$ be a doubling measure fully supported on a metric space $X$ with optimal doubling constants $C(\theta)$, then $$\urdim \mu = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}.$$ Similarly if $\mu$ is a uniformly perfect measure with optimal constants of uniform perfectness $K(\theta)$ then $$\lrdim \mu = \sup_{\theta > 1} \frac{\log K(\theta)}{\log \theta}.$$
 \end{theorem}
 
 
-Unfortunately these formulae are supremums and infimums and so the regularity dimensions are not even always attained for any $\theta$. This means we cannot restate results regarding the doubling constants with solely the upper regularity dimension.
+Unfortunately these formulae are supremums and infimums and so the regularity dimensions are not even always attained for any $\theta$. This means we cannot restate results regarding the doubling constants using solely the upper regularity dimension.
 
 We consider an example which helps illustrates this result. Let $F$ be the middle third Cantor set and $\mu$ the self-similar measure fully supported on $F$ with associated probability vector $\left\{ 1/4, 3/4 \right\}$, as introduced in the previous chapter. We know the upper regularity dimension is $\log 4 / \log 3$ whilst the lower regularity dimension is $\log(4/3) / \log 3$. Start by just considering balls centred on the origin, of radius $3^{-k}$ for some $k \in \mathbb{N}$ and with $\theta = 3^{l}$ for any $l \in \mathbb{N}$. Due to the structure of $F$ it is clear that 
 \[
-\mu(B(0, 3^{-k})) = 4^{l} \mu(B(0, 3^{-(k+l)}))
+\mu(B(0, 3^{-k})) = 4^{l} \mu(B(0, 3^{-(k+l)})).
 \]
-and so 
+Choosing $C(\theta)$ to be optimal means that 
+\[
+C(\theta) = \sup \left\{ \frac{\mu(B(x,R))}{\mu(B(x,R/\theta))} \colon x \in \textup{supp}(\mu), \, R > 0 \right\}.
+\]
+Therefore, in this setting, for $\theta = 3^l$, we have scales $R=3^{-k}$ and a point $x = 0$ for which the doubling constant is exactly equal to $4^l$ and so 
 \[
 C(3^{l}) \ge 4^l.
 \] 
-If this was an equality we would have attained the upper regularity dimension for a finite $\theta$, however the above simple analysis only covers the point $x=0$ and scales $r = 3^{-k}$. Heuristically, as the set is self-similar, changing $x$ or $r$ shouldn't change the doubling constant $C(3^{l})$ much, but slight perturbations are likely sufficient to increase the doubling constant enough so that the upper regularity dimension is not attained for $\theta = 3^l$. A similar behaviour can be observed at $x = 1$ for the lower regularity dimension. It would be interesting to study this example more and even consider other ranges of $\theta$, perhaps using renewal theory or other techniques.
+If this was an equality we would have attained the upper regularity dimension for a finite $\theta$, however the above simple analysis does not cover most points or scales. Heuristically, as the set is self-similar, changing $x$ or $r$ shouldn't change the doubling constant much, but slight perturbations are likely sufficient to increase the doubling constant enough so that the upper regularity dimension is not attained for $\theta = 3^l$. A similar behaviour can be observed at $x = 1$ for the lower regularity dimension. It would be interesting to study this example more and even consider other ranges of $\theta$, perhaps using renewal theory or other techniques.
 
 
 \begin{question}
-Is there always a doubling constant with respect to a specific $\theta$ which recovers the upper regularity dimension, both for specific cases such as self-similar measures and in full generality?
+Is there always a doubling constant with respect to a specific $\theta$ which recovers the upper regularity dimension, both for specific cases, such as self-similar measures, and in full generality?
 \end{question}
 
 
@@ -53,9 +57,9 @@ When studying doubling measures a technical proposition is often employed to tru
 \]
 It is not clear where this was first stated, but the standard reference \cite{heinonen} provides this result as an example (\cite[Exercise 13.1]{heinonen}) without a proof. 
 
-This result opens a number of questions. Notably, how close to zero can the lower regularity dimension be in this setting? Clearly the lower regularity dimension of $\mu$ must depend on the lower dimension of $X$, since the lower dimension is an upper bound, see \cite{bylund}. But in principle this does not bound the lower regularity dimension from below in any meaningful way. 
+This result opens a number of questions. Notably, how close to zero can the lower regularity dimension be in this setting? Clearly the lower regularity dimension of $\mu$ is not independent of the lower dimension of $X$, since the lower dimension is an upper bound, see \cite{bylund}. But in principle this does not bound the lower regularity dimension from below in any meaningful way. 
 
-One could ask if there exists a fixed uniformly perfect space and a sequence of doubling measures on that space which all have the same upper regularity dimension but whose lower regularity dimensions can be made as small as possible. A cursory check of some standard examples such as self-similar sets and measures implies this might not be feasible, Theorem \ref{ch-upper-reg:selfsimilar} of the previous chapter is helpful here. Heuristically, by keeping the upper regularity dimensions of self-similar measures fixed with a goal of decreasing the lower regularity dimension, we must increase a probability from the associated probability vector which is not the minimum of the vector. As this is a probability vector, the sum of the elements is always one so any increase must be accompanied by a decrease in at least one other element. If the lower regularity dimension is to approach zero in the limit a probability must tend towards one and thus all other probabilities must be lowered towards zero. This will inevitably increase the upper regularity dimension after some number of steps, breaking the assumption.
+One could ask if there exists a fixed uniformly perfect space and a sequence of doubling measures on that space which all have the same upper regularity dimension but whose lower regularity dimensions can be made as small as possible. A cursory check of some standard examples, such as self-similar sets and measures, implies this might not be feasible; Theorem \ref{ch-upper-reg:selfsimilar} of the previous chapter is helpful here. Heuristically, by keeping the upper regularity dimensions of self-similar measures fixed with a goal of decreasing the lower regularity dimension, we must increase a probability from the associated probability vector which is not the minimum of the vector. As this is a probability vector, the sum of the elements is always one so any increase must be accompanied by a decrease in at least one other element. If the lower regularity dimension is to approach zero in the limit a probability must tend towards one and thus all other probabilities must be lowered towards zero. This will inevitably increase the upper regularity dimension after some number of steps, breaking the assumption.
 
 \begin{figure}[h]
     \centering
@@ -89,7 +93,7 @@ One could ask if there exists a fixed uniformly perfect space and a sequence of 
 \end{figure}
 
 
-This lends credibility to the conjecture that the example of Heinonen implies a lower bound to the lower regularity dimension as a function of the upper regularity dimension. We wish to quantitatively show this result. More precisely, given a measure $\mu$ of fixed upper regularity dimension $s$ on a space $X$ of fixed lower dimension $l$, can we bound the lower regularity dimension of $\mu$ as a function of $s$ and $l$? The following does not quite answer this question as it returns a function of the doubling and uniform perfectness constants. However, as we will discuss, this is closer to the desired solution than it appears.
+This lends credibility to the conjecture that the example of Heinonen implies a lower bound to the lower regularity dimension as a function of the upper regularity dimension. We wish to quantitatively show this result. More precisely, given a measure $\mu$ of fixed upper regularity dimension $s$ on a space $X$ of fixed lower dimension $l$, can we bound the lower regularity dimension of $\mu$ as a function of $s$ and $l$? The following, from \cite{howroyd}, does not quite answer this question as it returns a function of the doubling and uniform perfectness constants. However, as we will discuss, this is closer to the desired solution than it appears.
 
 \begin{proposition}\label{ch-quantifying:result-heinonen}
 	If $X$ is uniformly perfect and $\mu$ is a doubling, fully supported measure on $X$ then $\mu$ is uniformly perfect. In particular if $X$ is $K$-uniformly perfect and $\mu$ is doubling with doubling constants $C(\theta)$ then  
@@ -97,10 +101,10 @@ This lends credibility to the conjecture that the example of Heinonen implies a 
 \end{proposition}
 
 
-Combining this result with Theorem \ref{ch-quantifying:equivalence}, it follows that a doubling measure on a uniformly perfect space must have lower regularity dimension bounded below by a function of the upper regularity dimension and the constant of uniform perfectness. However, as eluded to previously, Theorem \ref{ch-quantifying:equivalence} is concerned only with the infimum over all $\theta$ and the formula in Proposition 2.1 relies on a specific $C(\theta)$. Thus we cannot, in general, find an exact formula linking the lower regularity dimension and the upper regularity dimension in our setting.
+Combining this result with Theorem \ref{ch-quantifying:equivalence}, it follows that a doubling measure on a uniformly perfect space must have lower regularity dimension bounded below by a function of the upper regularity dimension and the constant of uniform perfectness. However, as alluded to previously, Theorem \ref{ch-quantifying:equivalence} is concerned only with the infimum over all $\theta$ and the formula in Proposition 2.1 relies on a specific $C(\theta)$. Thus we cannot, in general, find an exact formula linking the lower regularity dimension and the upper regularity dimension in our setting.
 
 
-We finish this section with a brief discussion of the sharpness of this result. Assuming positive lower dimension of the space is required here as it is simple to construct spaces of zero lower dimension but finite Assouad dimension. In such a setting there must exist a measure of upper regularity dimension close to the Assouad dimension of the space and so doubling. But any measure on this space cannot be uniformly perfect as the lower regularity dimension is a lower bound to the lower dimension. A trivial such example would be the set of points $\left\{ 1/n : n \in \mathbb{N} \right\}$ with the Euclidean metric. This set is know to have zero lower dimension but full Assouad dimension; doubling measures on this space were explicitly constructed in the previous chapter. On the other hand we will find examples of measures on uniformly perfect spaces which are neither doubling nor uniformly perfect, see Chapter 4 for further information. Thus the obtained bound is justified in demanding both the doubling constants of $\mu$ and the constant of uniform perfectness of the set.
+We finish this section with a brief discussion of the sharpness of this result. Assuming positive lower dimension of the space is required here as it is simple to construct spaces of zero lower dimension but finite Assouad dimension. In such a setting there must exist a measure of upper regularity dimension close to the Assouad dimension of the space and so doubling. But any measure on this space cannot be uniformly perfect as the lower regularity dimension is a lower bound to the lower dimension. A trivial such example would be the set of points $\left\{ 1/n : n \in \mathbb{N} \right\}$ with the Euclidean metric. This set is known to have zero lower dimension but full Assouad dimension; doubling measures on this space were explicitly constructed in the previous chapter. On the other hand we will find examples of measures on uniformly perfect spaces which are neither doubling nor uniformly perfect, see Chapter 4 for further information. Thus the obtained bound is justified in demanding both the doubling constants of $\mu$ and the constant of uniform perfectness of the set.
 
 There are many examples of uniformly perfect measures, even on doubling spaces, that are not doubling so we cannot interchange the two notions and obtain an analogous result.  For instance, one can take a self-similar set with overlaps, this is a doubling space. Numerous uniformly perfect measures exist on such a space and are not doubling, as can be seen in \cite{hare-troscheit} where all self-similar measures were shown to be uniformly perfect. Thus a uniformly perfect measure on a space of positive, finite lower and Assouad dimension need not be doubling.
 
@@ -127,13 +131,13 @@ Equivalently there exists a homeomorphism $\eta$ as above such that
 for any distinct points $x,y,z \in X$. We will sometimes talk about quasisymmetric homeomorphisms without specifying $\eta$, this should be read as there exists a homeomorphism $\eta$ for which the function is an $\eta$-quasisymmetric homeomorphism but the exact form of $\eta$ is not important at that time and is omitted. Here $\eta$ is clearly not unique for a given quasisymmetric homeomorphism. 
 
 
-A property of particular interest to us is that doubling and uniform perfectness of spaces are quasisymmetric invariants. This can be quantified, so there are bounds on the Assouad and lower dimensions of images of spaces under quasisymmetric embeddings. Formally for a set $F$ and a quasisymmetric map $f$ we have
+A property of particular interest to us is that doubling and uniform perfection of spaces are quasisymmetric invariants. This can be quantified, so there are bounds on the Assouad and lower dimensions of images of spaces under quasisymmetric embeddings. More precisely, for a set $F$ and a quasisymmetric map $f$ we have
 \[
 \alpha \Assouad F \le \Assouad f(F) \le \frac{1}{\alpha} \Assouad F
 \]
 where $\alpha$ is some constant intrinsic to the map $f$ which will be introduced shortly. This is stated as an exercise in \cite{heinonen} due to Tyson. Note that these estimates are not necessarily true when $f$ is H\"older, see \cite{luk}
 
-In fact, there is even a bijection between doubling measures and quasisymmetric homeomorphisms on the real line. Formally every doubling measure $\mu$ on $\mathbb{R}$ is associated with a quasisymmetric map $f(x) = \int_{0}^{x}d\mu$ and every quasisymmetric $f \colon \mathbb{R} \rightarrow \mathbb{R}$ induces a doubling measure $\mu_f( \cdot ) = \mathcal{L}(f(\cdot)) $ where $\mathcal{L}$ is Lebesgue measure. The classic book \cite{heinonen} contains further details and many other interesting properties of these maps that we will not touch upon in this thesis.
+In fact, there is even a bijection between doubling measures and quasisymmetric homeomorphisms on the real line. To be explicit, every doubling measure $\mu$ on $\mathbb{R}$ is associated with a quasisymmetric map $f(x) = \int_{0}^{x}d\mu$ and every quasisymmetric $f \colon \mathbb{R} \rightarrow \mathbb{R}$ induces a doubling measure $\mu_f( \cdot ) = \mathcal{L}(f(\cdot)) $ where $\mathcal{L}$ is Lebesgue measure. The classic book \cite{heinonen} contains further details and many other interesting properties of these maps that we will not touch upon in this thesis.
 
 We wish to know if the same holds for doubling and uniformly perfect measures. In particular we will study \textit{pushforward measures} under quasisymmetric homeomorphisms. Given a measure $\mu$ on a space $X$ and $f$ a measurable map from $X$ to some space $Y$, the pushforward measure of $\mu$ under $f$ is denoted $f_*\mu$ and is defined by
 \nomenclature[mu3]{$f_*\mu$}{pushforward measure of $\mu$ under map $f$}
@@ -144,7 +148,7 @@ for any measurable subset $A$ of $Y$, where $f^{-1}(A) = \left\{x \in X \colon f
 
 To avoid having trivial upper and lower regularity dimensions of $\mu$ it is reasonable to assume that $X$ is doubling and uniformly perfect. This then lets us employ the following theorem. 
 
-\begin{theorem}[{\cite[Theorem 13.11]{heinonen}}]
+\begin{theorem}[{\cite[Theorem 13.11]{heinonen}}]\label{ch-quantifying:heinonen-quasisymm}
 	A quasisymmetric homeomorphism $f$ of a uniformly perfect space $X$ is $\eta$-quasisymmetric with $\eta$ of the form
 	\[
 	\eta(t) = c_\eta \max\left\{t^\alpha, t^{1/\alpha}\right\},
@@ -153,9 +157,9 @@ To avoid having trivial upper and lower regularity dimensions of $\mu$ it is rea
 \end{theorem}
 For clarity we will often write $\eta_{\alpha}$ to indicate the homeomorphism $\eta$ associated with the constant $\alpha$ as described here. Section 3 of \cite{tukia-vaisala} proves this result and explicitly calculates $\alpha$. 
 
-For such quasisymmetric homeomorphisms we see that doubling and uniform perfectness of measures are also invariants, mirroring the geometric setting.
+For such quasisymmetric homeomorphisms we will prove that doubling and uniform perfectness of measures are also invariants, mirroring the geometric setting.
 
-\begin{theorem}\label{ch-quantifying:quaisymm-thm}
+\begin{theorem}[\cite{howroyd}]\label{ch-quantifying:quaisymm-thm}
 	Let $X$ be a uniformly perfect space and $\mu$ be doubling on $X$. When $f$ is an $\eta_\alpha$-quasisymmetric homeomorphism the following bounds hold
 	\[
 	\alpha \, \urdim \mu \le \urdim f_{*}\mu \le \urdim \mu/\alpha
@@ -177,7 +181,7 @@ A property that has appeared recently in Diophantine approximation is the notion
 \]
 for all $x \in X$ and $R<R_0$.
 
-This property has some resemblance to the ideas of doubling and uniformly perfect measures. We show the following.
+This property has some resemblance to the ideas of doubling and uniformly perfect measures, in the sense that it compares the measure of a ball to the measure of another ball of same centre but different radius and where the ratio between the two radii is important. The following was shown in \cite{howroyd}.
 \begin{proposition}\label{ch-quantifying:equiv-diophantine}
 	If a measure $\mu$ has positive lower regularity dimension then 
 	\[
@@ -185,13 +189,13 @@ This property has some resemblance to the ideas of doubling and uniformly perfec
 	\]
 \end{proposition}
 
-This result actually leads to an equivalent but hopefully more applicable statement of Theorem 2 in \cite{beres-sanju-al} regarding Diophantine approximaton. We start with a bit of background to motivate this concept.
+This result actually leads to an equivalent but hopefully more applicable statement of Theorem 2 in \cite{beres-sanju-al} regarding Diophantine approximation. We start with a bit of background to motivate this concept.
 
 A well know result of Dirichlet states that for any $x \in \mathbb{R}$ and $N \in \mathbb{N}$, there exists integers $p, q \in \mathbb{Z}$ such that $1 \le q \le N $ and 
 \[
 d_{\mathbb{R}}\left( x , \frac{p}{q} \right) \le \frac{1}{qN}.
 \]
-Here and throughout $d_{\mathbb{R}}$ denotes the Euclidean metric on the real line. This result can be though of as quantifying how well the rationals are dense in the reals. A natural extension is to ask what happens when the approximating term $1/qN$ is replaced by another decreasing function $\psi \colon [0,\infty) \rightarrow [0,\infty)$. The goal is then to study the size of the points which satisfy the previous inequality with respect to $\psi$ infinitely often. Formally we call such points $\psi$-well approximable and denote them by 
+Here and throughout $d_{\mathbb{R}}$ denotes the Euclidean metric on the real line. This result can be thought of as quantifying how dense the rationals are in the reals. A natural extension is to ask what happens when the approximating term $1/qN$ is replaced by another decreasing function $\psi \colon [0,\infty) \rightarrow [0,\infty)$. The goal is then to study the size of the points which satisfy the previous inequality with respect to $\psi$ infinitely often. Formally we call such points $\psi$-well approximable and denote them by 
 \[
 W(\psi) = \left\{x \in \mathbb{R} \colon d_{\mathbb{R}}\left( x , \frac{p}{q} \right) \le \psi(q) \text{ for infinitely many } (p,q) \in \mathbb{Z} \times \mathbb{N}  \right\}.
 \]
@@ -212,11 +216,10 @@ In this section we work in $(d+1)$-dimensional hyperbolic space using the ball m
 
 We will be interested in studying the limit set of $G$, denoted $\Lambda$, which is the set of limit points in the unit sphere $S^d$ of any orbit of $G$ in $\mathbb{D}^{d+1}$. Non-elementary Kleinian groups have uncountable limit sets, otherwise the limit set contains either 0, 1 or 2 points which does not provide interesting geometric behaviour. 
 
-A M{\"o}bius transformation is parabolic if and only if it has a unique fixed point in the boundary of hyperbolic space $S^d$ whilst a hyperbolic element will fix exactly two points in $S^d$. For any $g \in G$ let $L_g = d_{\mathbb{R}^{d+1}}(\mathbf{0}, g'(\mathbf{0}))^{-1}$, where $d_{\mathbb{R}^{d+1}}(\mathbf{0}, g'(\mathbf{0})) = 1 - d_{\mathbb{R}^{d+1}}(\mathbf{0}, g(\mathbf{0})) ^2$ is the Euclidean conformal dilation of $g$ at the origin. $L_g$ will tell us how far a group element will move a point in hyperbolic space towards the boundary and is the equivalent of $q$ in the rational setting. A version of Dirichlet's Theorem due to Patterson is then the following.
+A M{\"o}bius transformation is parabolic if and only if it has a unique fixed point in the boundary of hyperbolic space $S^d$ whilst a hyperbolic element will fix exactly two points in $S^d$. For any $g \in G$ let $L_g = d_{\mathbb{R}^{d+1}}(\mathbf{0}, g'(\mathbf{0}))^{-1}$, where $d_{\mathbb{R}^{d+1}}(\mathbf{0}, g'(\mathbf{0})) = 1 - d_{\mathbb{R}^{d+1}}(\mathbf{0}, g(\mathbf{0})) ^2$ is the Euclidean conformal dilation of $g$ at the origin. The distance $L_g$ will tell us how far a group element will move a point in hyperbolic space towards the boundary and is the equivalent of $q$ in the rational setting. A version of Dirichlet's Theorem due to Patterson \cite{patterson} is then the following.
 
 \begin{theorem}
-Let $G$ be a non-elementary, geometrically finite Kleinian group without parabolic elements and let $\left\{ \eta, \eta' \right\}$ be the pair of fixed points of a hyperbolic element of $G$. Then there is a constant $c > 0$ with the following property: for all $\xi \in \Lambda$, $N > 1$, there exist
-$y \in \left\{ \eta, \eta'\right\}$, $g \in G$ so that
+Let $G$ be a non-elementary, geometrically finite Kleinian group without parabolic elements and let $\left\{ \eta, \eta' \right\}$ be the pair of fixed points of a hyperbolic element of $G$. Then there is a constant $c > 0$ with the following property: for all $\xi \in \Lambda$, $N > 1$, there exist $y \in \left\{ \eta, \eta'\right\}$, $g \in G$ so that
 \[
 d_{\mathbb{R}^{d+1}}(\xi, g(y)) \le \frac{c}{N} \quad \textup{ and } \quad L_g \le N.
 \]
@@ -226,30 +229,29 @@ As in the Euclidean setting we can study points which are well-approximable, thi
 \[
 W_y(\psi) = \left\{ \xi \in \Lambda \colon d_{\mathbb{R}^{d+1}}(\xi, g(y)) \le \psi(L_g) \text{ for infinitely many } g \in G \right\}.
 \]
-As $W_y(\psi)$ is a subset of the limit set we cannot use Lebesgue measure to study the size of the well-approximable numbers. The well studied Patterson-Sullivan measure $\mu_{PS}$ is the natural answer to this as non-elementary geometrically finite Kleinian groups are known to carry this measure and in this setting it is an atomless conformal ergodic Borel probability measure. An analogue of Khintchine's Theorem in this setting can be shown through the work of \cite{patterson, stratmann, stratmann-velani, beres-dick-velani}; in its final form the original 1-dimensional version of Khintchine's Theorem can even be recovered. To avoid overcomplicating this section we omit the full statement of the hyperbolic analogue.
+As $W_y(\psi)$ is a subset of the limit set we cannot use Lebesgue measure to study the size of the well-approximable numbers. The well studied Patterson-Sullivan measure $\mu_{PS}$ is the natural answer to this as non-elementary geometrically finite Kleinian groups are known to carry this measure and in this setting it is an atomless conformal ergodic Borel probability measure. An analogue of Khintchine's Theorem in this setting can be shown through the work of \cite{patterson, stratmann, stratmann-velani, beres-dick-velani}; in its final form the original 1-dimensional version of Khintchine's Theorem can even be recovered. To avoid over complicating this section we omit the full statement of the hyperbolic analogue.
 
-Returning to the classical setting one last time, a theory of Diophantine approximation on manifolds has developped. For instance one can ask what is the size of $\mathcal{M} \cap W(\psi)$ for some submanifold $\mathcal{M}$ of $\mathbb{R}^d$. Size here would be the normalised $k$-dimensional Lebesgue measure on $\mathcal{M}$ where $\mathcal{M}$ is a $k$-dimensional manifold. The question then becomes which conditions must be imposed on $\mathcal{M}$ so that an analogue of Khintchine's can be recovered.
+Returning to the classical setting one last time, a theory of Diophantine approximation on manifolds has also been developed. For instance one can ask what is the size of $\mathcal{M} \cap W(\psi)$ for some submanifold $\mathcal{M}$ of $\mathbb{R}^d$. Size here would be the normalised $k$-dimensional Lebesgue measure on $\mathcal{M}$ where $\mathcal{M}$ is a $k$-dimensional manifold. The question then becomes which conditions must be imposed on $\mathcal{M}$ so that an analogue of Khintchine's Theorem can be recovered.
 
-Similarly Beresnevich et al. \cite{beres-sanju-al} asked a similar question for subsets of limit sets in the hyperbolic setting, which is the focus of this section. Let $K$ be a subset of the limit set $\Lambda$ which supports a non-atomic probability measure $\mu$. The desired regularity property of $K$ in this setting is that $\mu$ is wealy absolutely $\alpha$-decaying. The following result can then be shown.
+Similarly Beresnevich et al. \cite{beres-sanju-al} asked a similar question for subsets of limit sets in the hyperbolic setting, which is the focus of this section. Let $K$ be a subset of the limit set $\Lambda$ which supports a non-atomic probability measure $\mu$. The desired regularity property of $K$ in this setting is that $\mu$ is weakly absolutely $\alpha$-decaying. The following result can then be shown.
 
-\begin{theorem}[{\cite[Theorem 2]{beres-sanju-al}}]
-	Let $G$ be a nonelementary, geometrically finite Kleinian group and let $y$ be a parabolic fixed point of $G$, if there are any, and a hyperbolic fixed point otherwise. Fix $\alpha > 0$, and let $K$ be a compact subset of $\Lambda$ equipped with a weakly absolutely $\alpha$-decaying meausre $\mu$. Then
+\begin{theorem}[{\cite[Theorem 2]{beres-sanju-al}}]\label{beres-sanju-al}
+	Let $G$ be a nonelementary, geometrically finite Kleinian group and let $y$ be a parabolic fixed point of $G$, if there are any, and a hyperbolic fixed point otherwise. Fix $\alpha > 0$, and let $K$ be a compact subset of $\Lambda$ equipped with a weakly absolutely $\alpha$-decaying measure $\mu$. Then
 	\[
-	\mu(K\cap W_y(\psi)) = 0 \quad if \quad \sum_{r=1}^\infty r^{\alpha-1} \psi(r)^{\alpha} < \infty.
+	\mu(K\cap W_y(\psi)) = 0 \quad \textup{if} \quad \sum_{r=1}^\infty r^{\alpha-1} \psi(r)^{\alpha} < \infty.
 	\]
 \end{theorem}
 
-Using Proposition \ref{ch-quantifying:equiv-diophantine} we can deduce a new version of this theorem.
+Recently, Suomala \cite{suomala} showed that, given a complete metric space $X$ of finite Assouad dimension, for all $0 < s < \lowerdim X$, there exists a measure $\mu$ with support $X$ such that $\lrdim \mu = s$. Combining this result with Proposition \ref{ch-quantifying:equiv-diophantine} gives the existence of weakly absolutely $\alpha$-decaying measures for all $0 < \alpha < \lowerdim X$ and thus we can deduce a new version of Theorem \ref{beres-sanju-al}. 
 
 \begin{theorem}
 	Assume $G$ and $y$ are as above. Let $K$ be a compact subset of $\Lambda$ with lower dimension equal to $s > 0$. For any $0 < \alpha < s$, there exists a weakly absolutely $\alpha$-decaying measure $\mu$ on $K$ and 
 	\[
-	\mu(K\cap W_y(\psi)) = 0 \quad if \quad \sum_{r=1}^\infty r^{\alpha-1} \psi(r)^{\alpha} < \infty.
+	\mu(K\cap W_y(\psi)) = 0 \quad \textup{if} \quad \sum_{r=1}^\infty r^{\alpha-1} \psi(r)^{\alpha} < \infty.
 	\]
 	In particular, if  $\sum_{r=1}^\infty r^{s-1} \psi(r)^{s} < \infty$ then any weakly absolutely $\alpha$-decaying measure on $K$ is such that $\mu(K\cap W_y(\psi)) = 0$.
 \end{theorem}
 
-The existence of weakly absolutely $\alpha$-decaying measures $\mu$ for any $0< \alpha < s$ is due to recent work of Suomala \cite[Theorem 4.1]{suomala}.
 
 An advantage of writing the theorem with respect to the lower dimension of subsets of the limit set is that the lower dimension of limit sets were calculated in \cite{fraser2}. Therefore, given a limit set, we can quickly check if there will be measures that are weakly absolutely $\alpha$-decaying such that the sum in the theorem converges for the given $\alpha$. In \cite{fraser2}, Fraser also calculated the regularity dimensions of Patterson-Sullivan measures, providing us with explicit measures that could be used in the theorem for suitable subsets, as the upper and lower regularity dimensions of Patterson-Sullivan measures are strictly positive and finite. 
 
@@ -266,7 +268,7 @@ Is there a relation between the regularity dimensions and other notions of regul
 \section{Proofs}
 
 
-This proof section will be broken into several subsections that are mostly independent of each other but the notation will remain consistent throughout. In Section \ref{ch-upper-reg:doublingproof} we cover the ideas found in Section \ref{ch-quantifying:sec:equivalence} relating the regularity dimensions with their associted regularity constants. In Section \ref{ch-quantifying:sec:proof-heinonen} we show Proposition \ref{ch-quantifying:result-heinonen}. Section \ref{ch-quantifying:proof-quasi} is dedicated to the study of quasisymmetric homemorphisms and Theorem \ref{ch-quantifying:quaisymm-thm}. Finally in Section \ref{ch-quantifying:diophantine-proof} a short proof of Proposition \ref{ch-quantifying:equiv-diophantine} is provided.
+This proof section will be broken into several subsections that are mostly independent of each other but the notation will remain consistent throughout. In Section \ref{ch-upper-reg:doublingproof} we cover the ideas found in Section \ref{ch-quantifying:sec:equivalence} relating the regularity dimensions with their associated regularity constants. In Section \ref{ch-quantifying:sec:proof-heinonen} we show Proposition \ref{ch-quantifying:result-heinonen}. Section \ref{ch-quantifying:proof-quasi} is dedicated to the study of quasisymmetric homemorphisms and Theorem \ref{ch-quantifying:quaisymm-thm}. Finally in Section \ref{ch-quantifying:diophantine-proof} a short proof of Proposition \ref{ch-quantifying:equiv-diophantine} is provided.
 
 
 \subsection{Proof of equivalence of doubling and finite upper regularity dimension} \label{ch-upper-reg:doublingproof}
@@ -302,14 +304,13 @@ To obtain a lower bound on the upper regularity dimension, it suffices to find, 
 	
 From the definition of doubling we know that $\mu(B(x,\theta r) ) \le C(\theta) \mu(B(x,r))$ for all $x,r, \theta$. Fixing $\theta$ we pick $C(\theta)$ to be reasonably sharp in the sense that there exists at least one pair of $x,r$ such that $\mu(B(x,\theta r) ) \ge \frac{1}{2}C(\theta) \mu(B(x,r))$. Choosing $C(\theta)$ to be optimal as above would ensure this for instance.
 	
-Recall $s = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}$. To choose our sequence of $x,r$ and $R$ we simply pick any sequence of increasing $\theta$. Then from our choice of $C(\theta)$, the pair $x$ and $r$ are the pair obtained above. $R$ is then fixed by $R = \theta r$. Finally, due to the choice of $s$,
+Recall $s = \inf_{\theta > 1}\frac{\log C(\theta)}{\log \theta}$. To choose our sequence of $x,r$ and $R$ we simply pick any sequence of increasing $\theta$. Then from our choice of $C(\theta)$, the pair $x$ and $r$ are the pair obtained above. The scale $R$ is then fixed by $R = \theta r$. Finally, due to the choice of $s$,
 \[
 \frac{\mu(B(x,R))}{\mu(B(x,r))} \ge \frac{1}{2} C(\theta)  \ge \frac{1}{2}\theta^s = \frac{1}{2}\left(\frac{R}{r} \right)^s,
 \]
 completing the proof for the upper regularity dimension.
 	
-
-The lower regularity dimension result follows similarly. Recall a measure $\mu$ is uniformly perfect if and only if it has positive lower regularity dimension and thus there exists constants $K(\theta)$ for all $\theta > 1$ such that 
+The lower regularity dimension result follows similarly. Recall a measure $\mu$ is uniformly perfect if and only if it has positive lower regularity dimension, as discussed in Chapter 1, and thus there exists constants $K(\theta)$ for all $\theta > 1$ such that 
 \[
 K(\theta) =  \inf \left\{ \frac{\mu(B(x,R))}{\mu(B(x,R/\theta))} \ : \ x \in \text{supp}(\mu), R>0 \right\} \geq 1.
 \]
@@ -339,13 +340,13 @@ completing the proof.
 
 
 
-Let $X$ and $\mu$ be as in the statement of the proposition with constant of uniform perfectness $K$ and doubling constants $C(\theta)$. We will rework the proof found in \cite[lemma 3.1]{anti1}, paying careful attention to the constants in play. Note there is another proof in \cite[Lemma 4.5]{eino-pablo} which could lead to different bounds, but we do not pursue this here.
+Let $X$ and $\mu$ be as in the statement of Proposition \ref{ch-quantifying:result-heinonen} with constant of uniform perfectness $K$ and doubling constants $C(\theta)$. We will rework the proof found in \cite[lemma 3.1]{anti1}, paying careful attention to the constants in play. Note there is another proof in \cite[Lemma 4.5]{eino-pablo} which could lead to different bounds, but we do not pursue this here.
 	
-To start, a technical result is required. Proposition B.4.7, in \cite{gromov}, states that in our setting there exists a constant $a \in (0,1)$ such that 
+To start, we are inspired by the proof of a technical result, Proposition B.4.7 in \cite{gromov}. This states that in our setting there exists a constant $a \in (0,1)$ such that 
 \[
 \mu(B(x,aR)) \le (1-a) \mu(B(x,R))
 \]
-for any $x,R$. We start by determining $a$ as a function of our known constants. 
+for any $x,R$. We wish to determine $a$ as a function of our known constants and so we prove a particular case of this proposition. 
 	
 For any $x\in X$ and $R>0$, as $X$ is uniformly perfect, there exists $y \in X$ such that $$\frac{R}{2K} \le d(x,y) \le \frac{R}{2}.$$ This choice of $y$ ensures that $B(x,\frac{R}{4K}) \cap B(y,\frac{R}{4K}) = \emptyset $ and $B(x,\frac{R}{4K}) \cup B(y,\frac{R}{4K}) \subseteq B(x,R)$. Thus
 \begin{align*}
@@ -378,13 +379,13 @@ Note that in the proof of \cite{gromov} one should use the optimal doubling and 
 \subsection{Regularity dimensions under quasisymmetric homeomorphism}\label{ch-quantifying:proof-quasi}
 
 
-Whilst Theorem 13.11 of \cite{heinonen} is the key ingredient in the proof of Theorem \ref{ch-quantifying:quaisymm-thm}, the following proposition which can be found in \cite{heinonen} is also required.
+Whilst Theorem \ref{ch-quantifying:heinonen-quasisymm} is the key ingredient in the proof of Theorem \ref{ch-quantifying:quaisymm-thm}, the following proposition which can be found in \cite{heinonen} is also required.
 
 \begin{proposition}[{\cite[Proposition 10.6]{heinonen}}]
 	When a quasisymmetric homeomorphism $f\colon X \rightarrow Y$ is $\eta$-quasisymmetric, its inverse $f^{-1}$ is an $\eta'$-quasisymmetric homeomorphism with $\eta'$ given by  $\eta'(t) = 1/\eta^{-1}(1/t)$ for $t>0$.
 \end{proposition}
 
-It is then clear that a quasisymmetric homeomorphism $f$ on a uniformly perfect space is associated with a homeomorphism $\eta(t) = c_\eta\max\left\{t^\alpha, t^{1/\alpha}\right\}$ and $f^{-1}$ is also a quasisymmetric homeomorphism associated with the function $1/\eta^{-1}(1/t) \le c_\eta^{1/\alpha} \max\left\{t^\alpha, t^{1/\alpha} \right\}$. Note that the homeomorphism $\eta'(t) = c_\eta^{1/\alpha} \max\left\{t^\alpha, t^{1/\alpha} \right\}$ is not exactly $1/\eta^{-1}(1/t)$, but, as it is a upper bound to the desired function, $f^{-1}$ will be an $\eta'$-quasisymmetric homeomorphism.
+It is then clear that a quasisymmetric homeomorphism $f$ on a uniformly perfect space is associated with a homeomorphism $\eta(t) = c_\eta\max\left\{t^\alpha, t^{1/\alpha}\right\}$ and $f^{-1}$ is also a quasisymmetric homeomorphism associated with the function $1/\eta^{-1}(1/t) \le c_\eta^{1/\alpha} \max\left\{t^\alpha, t^{1/\alpha} \right\}$. Note that the homeomorphism $\eta'(t) = c_\eta^{1/\alpha} \max\left\{t^\alpha, t^{1/\alpha} \right\}$ is not exactly $1/\eta^{-1}(1/t)$, but, as it is an upper bound to the desired function, $f^{-1}$ will be an $\eta'$-quasisymmetric homeomorphism.
 
 
 
@@ -392,7 +393,7 @@ We start by stating some technical calculations which will be relevant for both 
 	
 	
 Choose any point $a \in B_Y(y,R)$. From our choice of $z_1$, it is clear that $d_Y( y , a ) \le d_Y(y , z_1)$. Thus, as $f$ is quasisymmetric 
-$$d_X( f^{-1}(y) , f^{-1}(a) ) \le \eta(1)  d_X(f^{-1}(y) , f^{-1}(z_1), $$
+$$d_X( f^{-1}(y) , f^{-1}(a) ) \le \eta(1)  d_X(f^{-1}(y) , f^{-1}(z_1)), $$
 and so 
 \[
 f^{-1}(B_Y(y,R)) \subseteq B_X(f^{-1}(y),\eta(1)d_X(f^{-1}(y), f^{-1}(z_1)).
